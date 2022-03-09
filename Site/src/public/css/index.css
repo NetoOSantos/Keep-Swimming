@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Exo 2';
+    background-color: #00B4D8;
+   
+}
+
+
+.corpo{
+    width: 100%;
+    height: 100vh;
+    background-image: url("../assets/imgs/image.png");
+    background-position:center;
+    background-size: 100%;
+    
+
+}
+
+.nav{
+    height: 100px;
+    width: 100vw;
+    background-color: rgba(0, 0, 255, 0.151);
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.logo{
+    width: 120px;
+    height: 95%;
+    background-image: url("../assets/imgs/logo.jpeg");
+    background-position:center;
+    background-size: 130%;
+}
+
+.opcoes{
+    width: 60%;
+    height: 65%;
+    /* background-color:chocolate; */
+    
+    align-items: center;
+    justify-content: center;
+    
+}
+
+nav{
+    width: 100%;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+nav a {
+    font-size: larger;
+    font-weight: bolder;
+    color: azure;
+    padding-left: 10%;
+    padding-top: 20px;
+    text-decoration: none ;
+}
+
+
+.footer{
+
+    height: 80px;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgba(0, 0, 255, 0.493);
+}
