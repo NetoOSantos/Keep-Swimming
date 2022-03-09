@@ -16,6 +16,6 @@ victor.smelo@bandtec.com.br
 
 Raul.santos@bandtec.com.br
 
-BRUNO.CALMEIDA@bandtec.com.br 
+Bruno.calmeida@bandtec.com.br 
 
 Lucas.aferreira@bandtec.com.br
