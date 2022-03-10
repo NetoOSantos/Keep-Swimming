@@ -10,8 +10,20 @@ O principal desafio é contribuir com a qualidade e a entrega com precisão e ex
 
 Email dos contribuintes :
 
+<<<<<<< HEAD
 walderley.neto@bandtec.com.br;
 victor.smelo@bandtec.com.br, 
 Raul.santos@bandtec.com.br, 
 BRUNO.CALMEIDA@bandtec.com.br 
 Lucas.aferreira@bandtec.com.br
+=======
+walderley.neto@bandtec.com.br
+
+victor.smelo@bandtec.com.br
+
+Raul.santos@bandtec.com.br
+
+Bruno.calmeida@bandtec.com.br 
+
+Lucas.aferreira@bandtec.com.br
+>>>>>>> fec1047728c0d4e863d565c0ceb832476d8d1d03
