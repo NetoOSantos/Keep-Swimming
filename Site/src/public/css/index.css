@@ -1,125 +1,355 @@
 @keyframes colors{
-    0%{
-    background-position: 0% 50%;
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
     }
-
-    50%{
-    background-position: 100% 50%;
-    }
-
-    100%{
-        background-position: 50% 0%;
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
+@keyframes nav{
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 
-body {
+*{
     margin: 0;
     padding: 0;
-    font-family: 'Exo 2';
-    background: linear-gradient(45deg, #EFFFFD, #B8FFF9, #85F4FF, #42C2FF, 
-                                        #85F4FF, #B8FFF9, #EFFFFD);
-    background-size: 2000vh 2000vh;
-    animation: colors 15s ease infinite;
-    position: fixed;
+    text-decoration: none;
+    list-style: none;
+    
 }
 
-.conteudo{
-    width: 100vw;
-    height: 100%;
-   
-}
-
-
-
-.logo{
-    width: 200px;
-    height: 140px;
-    background-image: url("../assets/imgs/logoSemFundo.png");
-    background-position:center;
-    background-size: 130%;
-}
-
-.opcoes{
+.screen1 {
     width: 100%;
-    height: 100px;
-    align-items: center;
-    justify-content: center;
-    display: flex;
+    height: 94vh;
+    background: url(../assets/imgs/5.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
-.nav_principal{
+
+
+/* NAVBAR */
+.navbar {
+    display: flex;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-ul {
-    display: flex;
-    width: 91%;
+    height: 7%;
+    border-bottom: 2px black solid;
     justify-content: space-between;
-    margin-top: 57px;
 }
 
-ul a {
-    font-size: larger;
-    font-weight: bolder;
-    color: black;
-    padding-left: 10%;
-    padding-top: 20px;
-    text-decoration: none ;
+.navbar .logo{
+    display: flex;
+    width: 60%;
 }
 
+.navbar .logo img{
+width: 8%;
+}
 
-ul a .link{
-    height: 40px;
-    width: 80px;
+.navbar .logo span {
+    margin-top: 1%;
+    font-family: 'Arial Black', Gadget, sans-serif;
+}
+
+.menu {
+    width: 50%;
+    height: 100%;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ul_menu {
     display: flex;
     align-items: center;
-    border-radius: 20%;
+}
+
+
+.menu ul li {
+    padding-left: 110px;
+}
+
+.menu ul li img{
+    width: 15%;
+}
+
+.menu ul li a{
+    font-family: 'Arial Black', Gadget, sans-serif;
+    color: black;
+    font-weight: 100;
+}
+
+.home {
+    height: 71px;
+    /* display: flex; */
+    align-items: center;
+    margin-top: 81%;
+}
+
+/* .home:hover {
+    height: 71px;
+    display: flex;
+    align-items: center;
+    margin-top: 81%;
+} */
+
+.animationHome {
+    display: flex;
+    opacity: 0;
+    background-color: blue;
+    height: 5px;
+    margin-top: 40%;
+    /* animation: nav 1s ease ; */
+    transition:  opacity 0.1s ease;
+}
+
+
+.aboutUs {
+    height: 71px;
+    display: flex;
+    align-items: center;
+}
+
+.register {
+    height: 71px;
+    display: flex;
+    align-items: center;
+}
+
+.login {
+    height: 71px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* CONTEUDO SCREEN 1*/
+
+.conteudoScreen1 {
+    /* background-color: white; */
+    width: 100%;
+    height: 92.8%;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
-ul a .sobre_reg{
-    height: 40px;
-    width: 100px;
-}
 
-.login_reg{
+.text {
+    /* background-color: pink; */
+    width: 50%;
+    height: 50%;
+    /* border: 2px solid black; */
     display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    animation: colors 2s normal ease;
+    margin-bottom: 103px;
+
 }
 
-.ind_sobre {
+.text .titulo {
+    font-family: 'Rockwell', Courier, monospace;
+    font-size: 58px;
+    margin-bottom: 20px;
+}
+
+.texto {
     display: flex;
+    width: 70%;
+    font-size: 23px;
+    margin-bottom: 6%;
 }
 
-ul a .link:hover{
-    background-color: rgba(8, 8, 8, 0.212);
+.efeito {
+    text-align: center;
+    border: none;
+    color: white;
+    padding: 20px;
+    margin: 10px;
+    font-size: 24px;
+    line-height: 24px;
+    border-radius: 10px;
+    position: relative;
+    box-sizing: border-box; /*faz com que não some com o resto das margins*/
+    cursor: pointer;
+    transition: all 400ms ease;
+    background-color: #0767c9;
+    width: 30%;
 }
+
+.efeito:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    transition: all 2s ease;
+}
+
+.efeito:hover:before{
+    width: 100%;
+
+}
+
+/* CONTEUDO SCREEN 2 */
+
+.screen2 {
+    width: 100%;
+    height: 54vh;
+    background-color: #0767c9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudoScreen2 {
+    display: flex;
+    width: 97%;
+    height: 90%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.titulo {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 24%;
+    margin-left: 6%;
+    font-family: "Montserrat", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.valor1, .valor2, .valor3, .valor4 {
+    display: flex;
+    width: 24%;
+    height: 42%;
+    /* border: 2px solid black; */
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 3%;
+    margin-right: 7%;
+}
+
+.valor1 img {
+    height: 70%;
+    margin-top: 7%;
+    /* margin-bottom: auto; */
+    display: flex;
+    margin-left: 6%;
+    border-radius: 66%;
+}
+
+.valor2 img {
+    height: 70%;
+    margin-top: 7%;
+    /* margin-bottom: auto; */
+    display: flex;
+    margin-left: 6%;
+    border-radius: 66%;
+}
+.valor3 img {
+    height: 70%;
+    margin-top: 7%;
+    /* margin-bottom: auto; */
+    display: flex;
+    margin-left: 6%;
+    border-radius: 66%;
+}
+
+.valor4 img {
+    height: 70%;
+    margin-top: 7%;
+    /* margin-bottom: auto; */
+    display: flex;
+    margin-left: 6%;
+    border-radius: 66%;
+}
+
+.texto_1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 4%;
+    font-family: "Lato", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    justify-content: center;
+}
+
+.texto_2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 4%;
+    font-family: "Lato", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    justify-content: center;
+}
+
+.texto_3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 4%;
+    font-family: "Lato", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    justify-content: center;
+}
+
+.texto_4 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 4%;
+    font-family: "Lato", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    justify-content: center;
+}
+
+
+
+
+
+
+/* FOOTER */
 
 .footer {
-    width: 100vw;
-    height: 10vh;
+    background-color: black;
+    display: flex;
+    width: 100%;
+    height: 7vh;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.barquinho{
+    width: 4%;
+}
+
+.footer h5 {
     color: white;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: flex-end;
-    position: absolute;
-    top: 90vh;
+
 }
 
-.footer .container {
-    display: flex;
-    justify-content: center;
-    text-shadow: 0.1em 0.1em 0.2em black;
+
+.social {
+    display: block;
+    width: 6%;
 }
 
-.footer .container h4 {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.social img{
+    width: 24%;
+    margin-left: 4%;
 }

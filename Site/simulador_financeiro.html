@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simulador financeiro</title>
+</head>
+<body>
+    <h1>faça aqui sua simulaçao de instalação de sensores e sistema </h1>
+    <h0>quantidade de hectares:</h0>
+    <input type="text" id="ipt_hect"> <br>
+     <button onclick="simular()">Simular</button>
+     <button onclick="simular2()">Simular com sistema</button>
+       <div id="mensagem"></div>
+
+</body>
+</html>
+<script>
+
+function simular () { 
+    // quantidade de controladores por hectar * 2000.
+    var ax_sensores = Number (ipt_hect.value * 2000);    
+
+    
+   mensagem.innerHTML= `<br> cada hectar é que vale á 2000 sensores<br>
+   valor do sensor é de R$:16,00 <br>
+   o preço de instalação é de 19% por sensor <br><br>
+   <b>seu orçamento para instalar os sensores é: R$ 
+   ${(ax_sensores * 19.04)} </b>` /*mudei para 19.04*/ /*adicionei R$*/
+
+
+    // cada sensor de temperatura e umidade custa R$:16,00 
+    // o preço de instalação (+ R$:03,04 que é equivalente a 19%) por sensor
+}
+
+function simular2 () {  
+    // quantidade de controladores por hectar * 2000.
+    var ax_sistema = Number (ipt_hect.value * 2000);
+    
+    mensagem.innerHTML= ` seu orçamento para instalar o sistema e os sensores é: 
+    ${(ax_sistema * 19.04 + 2000)}`
+}
+
+
+
+</script>
