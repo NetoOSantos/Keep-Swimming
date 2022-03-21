@@ -5,6 +5,8 @@
 }
 body {
     background-image: url(fundo.png);
+    background-size: contain;
+    
     width: 100%;
     height:100%;
 
@@ -120,7 +122,7 @@ body {
     flex-direction: column;
 
     width: 100%;
-    height: 100vh;
+    height: 120vh;
 
 
 
@@ -128,10 +130,11 @@ body {
 
 .ondaAzulTelaInicial{
     width: 100%;
-    height: 40vh;
+    height: 100vh;
 
 
    background-image: url(ondaAzulParaCima.png);
+   background-size: cover;
 }
 
 .telaInicial .textoEBarquinho {
@@ -169,17 +172,113 @@ body {
 
 }
 
-.barquinhoTelaInicial {
+.barquinhoTelaInicial img {
     position: relative;
-    top: 9vh;
-    right: 1vw;
+    top: 10vh;
+    right: 7vw;
 
-    width: 30vw;
+    width: 25vw;
     height: 50vh;
 
-    background-image: url(logoBarquinho.png);
+
+}
+.ondaAzulParaBaixo{
+    background-image: url(ondaAzulParaBaixo.png);
     background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+.caracteristicasEmpresa{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 80vh;
+
+}
+.caracteristicas{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 80%;
+    height: 80%;
+
+}
+.missao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 40%;
+    height: 100%;
 
 }
 
+
+.missao img{
+    width: 50%;
+    height: 40%;
+}
+.tituloMissao{
+    color: whitesmoke;
+    font-size: 10vh;
+}
+.textoMissao {
+    color: whitesmoke;
+    font-size: 3vh;
+}
+
+
+
+.visao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 40%;
+    height: 100%;
+
+}
+.visao img{
+    width: 50%;
+    height: 40%;
+}
+.tituloVisao{
+    color: whitesmoke;
+    font-size: 10vh;
+}
+.textoVisao {
+    color: whitesmoke;
+    font-size: 3vh;
+}
+
+
+.valores{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 40%;
+    height: 100%;
+
+}
+.valores img{
+    width: 50%;
+    height: 40%;
+}
+.tituloValores{
+    color: whitesmoke;
+    font-size: 10vh;
+}
+.textoValores {
+    color: whitesmoke;
+    font-size: 3vh;
+}
 
