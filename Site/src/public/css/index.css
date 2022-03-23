@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,300&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto' ;
 }
 body {
     background-image: url(../assets/imgs/fundo.png);
-    background-size: contain;
+    background-size: cover;
     
     width: 100%;
     height:100%;
@@ -280,4 +283,158 @@ body {
     color: whitesmoke;
     font-size: 3vh;
 }
+
+
+.ondaRoxaValores {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    height: 20vh;
+
+    background-image: url(../assets/imgs/OndaRoxaParaCima.png);
+    background-size: cover;
+
+    
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  
+}
+
+.ondaRoxa {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    height: 20vh;
+
+    background-image: url(../assets/imgs/OndaRoxa.png);
+    background-size: cover;
+
+    
+}
+.containerCards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    padding: 40px 0;
+}
+
+.containerCards .card{
+   
+    position: relative;
+    width: 320px;
+    height: 440px;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05);
+   
+    
+    border-radius: 17px;
+    margin: 30px;
+}
+.containerCards .card .box img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+.containerCards .card .box{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background: #ebf5fc;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.containerCards .card:hover .box{
+
+    transform: translateY(-50px);
+    box-shadow: 0 10 40px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #1F1D36,#4f29cd);
+}
+
+
+
+.containerCards .card .box .conteudo{
+    padding: 20px;
+    text-align: center;
+}
+
+
+.containerCards .card .box .conteudo h2{
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    font-size: 8em;
+    color: rgba(0, 0, 0, 0.05);
+    transition: 0.5s;
+    pointer-events: none;
+   
+ 
+}
+
+.containerCards .card:hover .box .conteudo h2{
+    color: rgba(0, 0, 0, 0.05);
+}
+
+.containerCards .card .box .conteudo h3{
+    font-size: 1.8em;
+    color: #000;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.containerCards .card:hover .box .conteudo h3{
+    color: #fff;
+}
+.containerCards .card:hover .box .conteudo p{
+    color: #fff;
+
+} 
+
+.containerCards .card .box .conteudo p{
+
+    font-size: 1em;
+    font-weight: 300;
+    color: #000;
+    z-index: 1;
+    transform: 0.5s;
+}
+
+.containerCards .card .box .conteudo a{
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #0E185F;
+    border-radius: 20px;
+    color: #fff;
+    margin-top: 20px;
+    text-decoration: none;
+    font-weight: 400;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);    
+}
+
+.containerCards .card:hover .box .conteudo a{
+
+    background: blueviolet;
+}
+
+
 
