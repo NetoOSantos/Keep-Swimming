@@ -1,11 +1,14 @@
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;}
+
 body {
     margin: 0;
     overflow: hidden;
-  }
-
-
-
-  body {
+ 
     /* background-image: url(../assets/imgs/fundo.png);*/
     background-image: linear-gradient(0deg, #041338, #041338 );
     background-size: cover;
@@ -383,7 +386,7 @@ form{
 }
 form *{
     font-family: 'Poppins',sans-serif;
-    color: #ffffff;
+    color: #34aedf;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
@@ -413,9 +416,10 @@ input{
     font-weight: 300;
 }
 ::placeholder{
-    color: #fa4a4a;
+    color: #ffffff;
 }
-button{
+
+.btn_navegar{
     margin-top: 50px;
     width: 100%;
     background-color: #ffffff;
@@ -426,6 +430,13 @@ button{
     border-radius: 5px;
     cursor: pointer;
 }
+
+.btn_navegar:hover{
+
+  background-color: #34aedf;
+
+}
+
 .social{
   margin-top: 30px;
   display: flex;
