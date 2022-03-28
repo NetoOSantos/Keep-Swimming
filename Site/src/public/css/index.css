@@ -309,6 +309,8 @@ body {
     
 }
 
+/* Footer */
+
 .footer{
     display: flex;
     justify-content: center;
@@ -348,7 +350,6 @@ body {
 }
 
 .containerCards .card{
-   
     position: relative;
     width: 25vw;
     height: max(55vh,33vw);
@@ -437,6 +438,94 @@ body {
 .containerCards .card:hover .box .conteudo a{
     background: blueviolet;
 }
+
+.block{
+    background-color: black;
+}
+
+.contato{
+    margin-left: 5%;
+}
+
+.imagensFooter {
+  display: flex;
+  height: 8vh;
+  width: 15vw;
+  justify-content:space-between;
+}
+
+.imagensFooter h2{
+    color: #fff;
+}
+
+
+.contatoarea{
+    padding: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.contatoinfo{
+    color:#fff;
+    max-width: 500px;
+    line-height: 55px;
+    font-size: min(17px, 2vw);
+    padding-left: 13%;
+    margin-left: 6%;
+
+}
+.contatoinfo i {
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+.contato-form{
+    max-width: 700px;
+    margin-right: 50px;
+}
+
+.contatoinfo, .contato-form{
+    flex: 1;
+}
+
+.contato-form h2{
+    color: #fff;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 30px;
+    padding-right: 100%;
+}
+
+
+.contato-form .texto:first-child{
+    margin-right: 15px;
+}
+
+.ondaAzulFooter{
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    background-image: url(../assets/imgs/ondaAzulParaCima.png);
+    background-size: cover;
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*CARROSEL*/
