@@ -45,7 +45,7 @@ public class KeepSwimming extends javax.swing.JFrame {
 
         PainelFundo.setBackground(new java.awt.Color(52, 16, 77));
 
-        LogoBarquinho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/projetotelaswing/newpackage/logoBarquinho.png"))); // NOI18N
+        LogoBarquinho.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Downloads\\atividades bandtec\\2 Semestre\\Sprint\\Keep-Swimming\\ProjetoTelaSwing\\src\\main\\java\\com\\mycompany\\projetotelaswing\\newpackage\\logoBarquinho.png")); // NOI18N
         LogoBarquinho.setLabelFor(LogoBarquinho);
         LogoBarquinho.setIconTextGap(0);
 
@@ -124,7 +124,7 @@ public class KeepSwimming extends javax.swing.JFrame {
                 .addGap(38, 38, 38))
         );
 
-        OndaNoFinal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/projetotelaswing/newpackage/OndaRoxaParaCima.png"))); // NOI18N
+        OndaNoFinal.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Downloads\\atividades bandtec\\2 Semestre\\Sprint\\Keep-Swimming\\ProjetoTelaSwing\\src\\main\\java\\com\\mycompany\\projetotelaswing\\newpackage\\OndaRoxaParaCima.png")); // NOI18N
         OndaNoFinal.setLabelFor(OndaNoFinal);
 
         javax.swing.GroupLayout PainelFundoLayout = new javax.swing.GroupLayout(PainelFundo);
