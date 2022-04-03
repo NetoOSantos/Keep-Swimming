@@ -29,13 +29,27 @@
            </div>
 
            <ul class="navbar">
-               <li><a href="Servicos">Serviços</a></li>
-               <li>|</li>
-               <li><a href="Empresa">Empresa</a></li>
-               <li>|</li>
-               <li><a href="tela-login.html">Login</a></li>
-               <li>|</li>
-               <button class="cadastrar"><a href="cadastrar">Cadastrar</a></button>
+
+               <li><a href="#">
+                <span>Serviços</span>
+                <div class="wave"></div>
+            </a></li>
+               
+               <li><a href="#">
+                <span>Empresa</span>
+                <div class="wave"></div>
+            </a></li>
+              
+               <li><a href="tela-login.html">
+                <span>Login</span>
+                <div class="wave"></div>
+            </a></li>
+               
+               <li><a href="#">
+                <span>Sign up</span>
+                <div class="wave"></div>
+            </a></li>
+            
            </ul>      
         </div>
 
@@ -44,7 +58,7 @@
 
         
     </div>
-
+<div class="content">
     <div class="telaInicial">
 
         <div class="textoEBarquinho">
@@ -67,18 +81,25 @@
         <div class="ondaAzulParaBaixo"></div>>
 
     </div>
+</div>
+
+
+
+
+
+
 
       <div class="caracteristicasEmpresa">
           <div class="caracteristicas">
 
               <div class="missao">
-                  <img src="../assets/icons/imagemMissao.png" alt="">
+                  <img src="../assets/icons/navioMissao.png" alt="">
                   <div class="tituloMissao">Missão</div>
                   <div class="textoMissao">Prover eficiência e qualidade na entrega de projetos de T.I</div>
               </div>
 
               <div class="visao">
-                <img src="../assets/icons/imagemVisao.png" alt="">
+                <img src="../assets/icons/visaoicon.png" alt="">
                 <div class="tituloVisao">Visão</div>
                 <div class="textoVisao">Ser uma empresa sólida, lucrativa e inovadora, que proporcione qualidade e fluidez
                     nos projetos dos colaboradores.
@@ -86,16 +107,23 @@
               </div>
 
               <div class="valores">
-                <img src="../assets/icons/imagemValores.png" alt="">
+                <img src="../assets/icons/valoresIcon.png" alt="">
                 <div class="tituloValores">Valores</div>
                 <div class="textoValores">Promover transparência e confiabilidade nas relações com os colaboradores da empresa. </div>
               </div>
             </div>
             <div class="ondaRoxaValores"></div>
+            <div class="ondaRoxaValoresBaixo"></div>
       </div>
+
+      
 
 
       <!-- CARROSEL -->
+
+      
+
+<div class="telaVeniti">
       <div id="slider">
         <input type="radio" name="slider" id="slide1" checked>
         <input type="radio" name="slider" id="slide2">
@@ -144,9 +172,15 @@
            <label for="slide4"></label>
         </div>
      </div>
+     
+    </div>
 
 
-     <div class="ondaRoxa"></div>
+     <div class="ondaRoxaFooterCima"></div>
+     <div class="ondaRoxaFooterBaixo"></div>
+
+
+ 
      <div class="footer">
 
          <div class="alinharCards">
@@ -200,18 +234,22 @@
      
      <div class="contatoinfo">
          <div><i class="fas fa-map-marker-alt"></i>Rua Haddock Lobo, 595 São Paulo - SP</div>
-         <div><i class="fas fa-envelope"></i>roles@bandtec.com.br</div>
+         <div><i class="fas fa-envelope"></i>KeepSwimming@corp.com.br</div>
          <div><i class="fas fa-phone"></i>11-4002-8922</div>
          <div><i class="fas fa-clock"></i>De segunda a sexta 16:30 a 21:30</div>
      </div>
-     <div class="contato-form">
-         <!-- <h2>Contato</h2> -->
-         <form class="contato" method="post"></form>
-         <section class="map">
-             <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.2914329662754!2d-46.664024410223014!3d-23.55797440908358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59d2a5270055%3A0x3c7ea4f4c7d51fb6!2sRua%20Haddock%20Lobo%2C%20595%20-%20Cerqueira%20C%C3%A9sar%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001414-001!5e0!3m2!1spt-BR!2sbr!4v1637545484732!5m2!1spt-BR!2sbr" width="387" height="211" " allowfullscreen="" loading="lazy"></iframe>   
-         </section>
-                 
-     </div>
+
+     
+        <div class="contato-form">
+            <!-- <h2>Contato</h2> -->
+            <form class="contato" method="post"></form>
+            <section class="map">
+                <div class="tamanho">
+                <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.2914329662754!2d-46.664024410223014!3d-23.55797440908358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59d2a5270055%3A0x3c7ea4f4c7d51fb6!2sRua%20Haddock%20Lobo%2C%20595%20-%20Cerqueira%20C%C3%A9sar%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001414-001!5e0!3m2!1spt-BR!2sbr!4v1637545484732!5m2!1spt-BR!2sbr" width="387" height="211" " allowfullscreen="" loading="lazy"></iframe>   
+                </div>
+            </section>
+                    
+        </div>
      
      </div>
 
@@ -224,6 +262,6 @@
 
 </body>
 </html>
-
+<script src="app.js"></script>
 checked
 radio
