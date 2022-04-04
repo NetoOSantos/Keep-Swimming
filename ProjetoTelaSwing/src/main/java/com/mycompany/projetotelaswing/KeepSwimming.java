@@ -5,7 +5,7 @@ package com.mycompany.projetotelaswing;
 public class KeepSwimming extends javax.swing.JFrame {
 
     public KeepSwimming() {
-        initComponents();
+       initComponents();
     }
 
    
@@ -14,7 +14,7 @@ public class KeepSwimming extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        PainelFundo = new javax.swing.JPanel();
         LogoBarquinho = new javax.swing.JLabel();
         PainelLogin = new javax.swing.JPanel();
         TituloLogin = new javax.swing.JLabel();
@@ -28,6 +28,7 @@ public class KeepSwimming extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 16, 77));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -40,9 +41,12 @@ public class KeepSwimming extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(52, 16, 77));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 615, -1, -1));
 
-        LogoBarquinho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/projetotelaswing/newpackage/logoBarquinho.png"))); // NOI18N
+        PainelFundo.setBackground(new java.awt.Color(52, 16, 77));
+
+        LogoBarquinho.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Downloads\\atividades bandtec\\2 Semestre\\Sprint\\Keep-Swimming\\ProjetoTelaSwing\\src\\main\\java\\com\\mycompany\\projetotelaswing\\newpackage\\logoBarquinho.png")); // NOI18N
+        LogoBarquinho.setLabelFor(LogoBarquinho);
         LogoBarquinho.setIconTextGap(0);
 
         PainelLogin.setBackground(new java.awt.Color(83, 63, 153));
@@ -85,8 +89,7 @@ public class KeepSwimming extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(PainelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BotaoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CampoNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 34, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelLoginLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -100,7 +103,10 @@ public class KeepSwimming extends javax.swing.JFrame {
                             .addGroup(PainelLoginLayout.createSequentialGroup()
                                 .addComponent(TituloLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(8, 8, 8)))
-                        .addGap(120, 120, 120))))
+                        .addGap(120, 120, 120))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelLoginLayout.createSequentialGroup()
+                        .addComponent(CampoNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))))
         );
         PainelLoginLayout.setVerticalGroup(
             PainelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,7 +117,7 @@ public class KeepSwimming extends javax.swing.JFrame {
                 .addComponent(TextoNomeUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(CampoNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(42, 42, 42)
                 .addComponent(TextoSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(CampoSenha)
@@ -120,36 +126,37 @@ public class KeepSwimming extends javax.swing.JFrame {
                 .addGap(38, 38, 38))
         );
 
-        OndaNoFinal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/projetotelaswing/newpackage/OndaRoxaParaCima.png"))); // NOI18N
+        OndaNoFinal.setIcon(new javax.swing.ImageIcon("C:\\Users\\USER\\Downloads\\atividades bandtec\\2 Semestre\\Sprint\\Keep-Swimming\\ProjetoTelaSwing\\src\\main\\java\\com\\mycompany\\projetotelaswing\\newpackage\\OndaRoxaParaCima.png")); // NOI18N
+        OndaNoFinal.setLabelFor(OndaNoFinal);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout PainelFundoLayout = new javax.swing.GroupLayout(PainelFundo);
+        PainelFundo.setLayout(PainelFundoLayout);
+        PainelFundoLayout.setHorizontalGroup(
+            PainelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelFundoLayout.createSequentialGroup()
                 .addGap(291, 291, 291)
                 .addComponent(jLabel2)
                 .addGap(18, 18, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelFundoLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(LogoBarquinho, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
+                .addGap(125, 125, 125)
                 .addComponent(PainelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelFundoLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(OndaNoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 885, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+        PainelFundoLayout.setVerticalGroup(
+            PainelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelFundoLayout.createSequentialGroup()
+                .addGroup(PainelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PainelFundoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(PainelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelFundoLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LogoBarquinho, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
@@ -159,37 +166,17 @@ public class KeepSwimming extends javax.swing.JFrame {
                 .addGap(26, 26, 26))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(PainelFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, 484));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void CampoNomeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoNomeUsuarioActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_CampoNomeUsuarioActionPerformed
 
     private void CampoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoSenhaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_CampoSenhaActionPerformed
 
    
@@ -206,7 +193,7 @@ public class KeepSwimming extends javax.swing.JFrame {
     
     
    
-    
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotaoLogin;
@@ -214,13 +201,13 @@ public class KeepSwimming extends javax.swing.JFrame {
     private javax.swing.JPasswordField CampoSenha;
     private javax.swing.JLabel LogoBarquinho;
     private javax.swing.JLabel OndaNoFinal;
+    private javax.swing.JPanel PainelFundo;
     private javax.swing.JPanel PainelLogin;
     private javax.swing.JLabel TextoNomeUsuario;
     private javax.swing.JLabel TextoSenha;
     private javax.swing.JLabel TituloLogin;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
 
