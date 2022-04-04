@@ -24,6 +24,7 @@ public class app {
         
         Sistema sistema = looca.getSistema();
         
+//           System.out.println(looca.toString());
 //          System.out.println(looca.getSistema());
 //         System.out.println("=".repeat(30));
 //        System.out.println(looca.getGrupoDeProcessos());
