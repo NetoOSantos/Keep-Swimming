@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>keep Swimming | Login</title>
-
+    <script src="../assets/js/funcoes.js"></script>
 <link rel="stylesheet" href="../css/tela-login.css">
 <!-- <link rel="stylesheet" href="../css/index.css"> -->
 
@@ -67,15 +67,15 @@
             <div id="octocat"></div>
           </div>
           
-    <form>
+    <form id="form_login" >
         
         <h3>Keep Login</h3>
 
         <label for="username">Nome de usuario</label>
-        <input type="text" placeholder="Email ou Telefone" id="username">
+        <input type="text" placeholder="Email ou Telefone" name="email">
 
         <label for="password">Senha</label>
-        <input type="password" placeholder="Senha" id="password">
+        <input type="password" placeholder="Senha" name="senha">
 
         <button class="btn_navegar">Navegar</button>
         <div class="social">
@@ -83,14 +83,87 @@
           <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
         </div>
     </form>
+
+    <div id="div_aguardar" class="loading-div">
+        <img src="../assets/circle-loading.gif" id="loading-gif" >
     </div>
 
-
-  
-
-
+    <div id="div_erros_login">
+</div>
 </body>
 </html>
+
+<script>
+
+function limparFormulario() {
+        document.getElementById("form_login").reset();
+    }
+
+    function entrar() {
+        aguardar();
+
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
+
+        var email = formulario.get("email");
+        var senha = formulario.get("senha");
+
+        console.log("FORM LOGIN: ", email);
+        console.log("FORM SENHA: ", senha);
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (email == "" || senha == "") {
+            window.alert("Preencha todos os campos para prosseguir!");
+            finalizarAguardar();
+            return false;
+        }
+
+        if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            finalizarAguardar();
+            return false;
+        }
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+</script>
 
 
 
