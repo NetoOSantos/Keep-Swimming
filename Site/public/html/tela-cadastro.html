@@ -107,7 +107,7 @@
         </div>
         
     </div> 
-    <button class="btn_navegar">Navegar</button>
+    <button class="btn">Navegar</button>
        
     <div id="div_aguardar" class="loading-div">
         <img src="../assets/circle-loading.gif" id="loading-gif">
@@ -191,7 +191,7 @@ function limparFormulario() {
 
             if (resposta.ok) {
                 window.alert("Cadastro realizado com sucesso!");
-                window.location = "tela-login.html";
+                window.location = "./tela-login";
                 limparFormulario();
                 finalizarAguardar();
             } else {

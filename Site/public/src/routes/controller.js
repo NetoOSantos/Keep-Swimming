@@ -1,6 +1,5 @@
 
 const express = require('express');
-const { ArduinoDataTemp } = require('./newserial');
 const Database = require('./database');
 const router = express.Router();
 

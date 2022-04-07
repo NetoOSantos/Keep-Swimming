@@ -60,19 +60,16 @@ function entrar (req, res) {
 }
 
 function cadastrar(req, res) {
-    var nome_empresa = req.body.nome_empresa;
+    var nome = req.body.nome;
     var email = req.body.email;
     var senha = req.body.senha;
     var CNPJ = req.body.cnpj;
-    var contato = req.body.contato;
-    var num_endereco = req.body.num_endereco;
     var cep = req.body.cep;
-    var qtd_vagas = req.body.qtd_vagas;
 
     console.log("req.body bananinha");
     console.log(req.body);
 
-    if (nome_empresa == undefined) {
+    if (nome == undefined) {
         res.status(400).send("Seu nome da empresa está undefined!");
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
@@ -80,16 +77,10 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else if (CNPJ == undefined) {
         res.status(400).send("Seu CNPJ está undefined!");
-    } else if (contato == undefined) {
-        res.status(400).send("Seu contato está undefined!");
-    } else if (num_endereco == undefined) {
-        res.status(400).send("Seu numero do endereço está undefined!");
     } else if (cep == undefined) {
         res.status(400).send("Seu CEP está undefined!");
-    } else if (qtd_vagas == undefined) {
-        res.status(400).send("Sua quantidade de vagas está undefined!");
     } else {
-        usuarioModel.cadastrar(nome_empresa, email, senha, CNPJ, contato, num_endereco, cep, qtd_vagas)
+        usuarioModel.cadastrar(nome, email, senha, CNPJ, contato, num_endereco, cep, qtd_vagas)
         .then(
             function (resultado) {
                 res.json(resultado);
