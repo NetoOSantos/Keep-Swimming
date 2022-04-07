@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package keepswimming;
+package TelasSwing;
 
 /**
  *
@@ -46,7 +46,7 @@ public class TelaLogin extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 0, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logoBarquinho.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logoBarquinho.png"))); // NOI18N
         jLabel7.setMaximumSize(new java.awt.Dimension(500, 366));
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, 210, 220));
 
@@ -117,13 +117,13 @@ public class TelaLogin extends javax.swing.JFrame {
 
         getContentPane().add(PainelCamposPreenchimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 100, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bg.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bg.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 0, 650, 850));
 
-        onda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/hero-bg.png"))); // NOI18N
+        onda1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/hero-bg.png"))); // NOI18N
         getContentPane().add(onda1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 1380, 300));
 
-        onda2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/hero-bg.png"))); // NOI18N
+        onda2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/hero-bg.png"))); // NOI18N
         getContentPane().add(onda2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 540, 1390, 310));
 
         jLabel8.setBackground(new java.awt.Color(51, 51, 255));
@@ -138,7 +138,7 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel6.setText("Monitore e Lucre");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 810, 260));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/bg.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bg.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 850));
 
         pack();
