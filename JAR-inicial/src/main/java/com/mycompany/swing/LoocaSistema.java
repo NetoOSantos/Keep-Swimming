@@ -2,12 +2,12 @@
 package com.mycompany.swing;
 
 
-public class LoocaDB {
+public class LoocaSistema {
    
-     public  Integer ID;
-     public  String SistemaOperacional;
+     public Integer ID;
+     public String SistemaOperacional;
      public String Fabricante;
-    public Integer Arquitetura;
+     public Integer Arquitetura;
 
     @Override
     public String toString() {
@@ -30,10 +30,10 @@ public class LoocaDB {
     public String TempoDeAtividade;
     public String Permissoes;
 
-    public LoocaDB() {
+    public LoocaSistema() {
     }
 
-    public LoocaDB(Integer ID, String SistemaOperacional, String Fabricante, Integer Arquitetura, String Inicializado, String TempoDeAtividade, String Permissoes) {
+    public LoocaSistema(Integer ID, String SistemaOperacional, String Fabricante, Integer Arquitetura, String Inicializado, String TempoDeAtividade, String Permissoes) {
         this.ID = ID;
         this.SistemaOperacional = SistemaOperacional;
         this.Fabricante = Fabricante;
