@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keep Swimming | Login</title>
+    <script src="../assets/js/funcoes.js"></script>
+    <link rel="stylesheet" href="../css/tela-login.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="header">
+
+        <div class="container">
+
+            <div class="logoEmpresa">
+
+                <div class="logoNavbar">
+                    <a href="./index.html"><img src="../assets/icons/logoBarquinho.png" alt=""></a>
+
+                </div>
+
+                <div class="nomeEmpresa">
+                    <div>Keep Swimming</div>
+                </div>
+
+            </div>
+
+            <ul class="navbar">
+                <li><a href="Servicos">Serviços</a></li>
+                <li>|</li>
+                <li><a href="Empresa">Empresa</a></li>
+                <li>|</li>
+                <li><a href="tela-login.html">Login</a></li>
+                <li>|</li>
+                <button class="cadastrar"><a href="tela-cadastro.html">Cadastrar</a></button>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+    <div class="telaInicial">
+
+
+
+        <div class="ocean">
+            <div class="bubble bubble--1"></div>
+            <div class="bubble bubble--2"></div>
+            <div class="bubble bubble--3"></div>
+            <div class="bubble bubble--4"></div>
+            <div class="bubble bubble--5"></div>
+            <div class="bubble bubble--6"></div>
+            <div class="bubble bubble--7"></div>
+            <div class="bubble bubble--8"></div>
+            <div class="bubble bubble--9"></div>
+            <div class="bubble bubble--10"></div>
+            <div class="bubble bubble--11"></div>
+            <div class="bubble bubble--12"></div>
+            <div id="octocat"></div>
+        </div>
+
+        <form id="form_login">
+
+            <h3>Keep Login</h3>
+
+            <label for="username">Nome de usuario</label>
+            <input type="text" placeholder="Email ou Telefone" name="email">
+
+            <label for="password">Senha</label>
+            <input type="password" placeholder="Senha" name="senha">
+
+            <button class="btn" onlc>Navegar</button>
+
+            <div id="div_aguardar" class="loading-div">
+                <img src="../assets/circle-loading.gif" id="loading-gif">
+            </div>
+
+            <div id="div_erros_login">
+            </div>
+
+            <div class="social">
+                <div class="go"><i class="fab fa-google"></i> Google</div>
+                <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+            </div>
+        </form>
+</body>
+
+</html>
+
+<script>
+
+    function limparFormulario() {
+        document.getElementById("form_login").reset();
+    }
+
+    function entrar() {
+        aguardar();
+
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
+
+        var email = formulario.get("email");
+        var senha = formulario.get("senha");
+
+        console.log("FORM LOGIN: ", email);
+        console.log("FORM SENHA: ", senha);
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (email == "" || senha == "") {
+            window.alert("Preencha todos os campos para prosseguir!");
+            finalizarAguardar();
+            return false;
+        }
+
+        if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+            finalizarAguardar();
+            return false;
+        }
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "../Dash-estatica/dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+</script>
