@@ -1,0 +1,33 @@
+2022-04-05 20:33:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "POKEMON" not found; SQL statement:
+select * from pokemon [42102-199]
+2022-04-05 20:45:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ([*]
+ID INT PRIMARY KEY AUTO_COMPLETE,
+SISTEMA VARCHAR(45),
+MEMORIA  VARCHAR(45),
+PROCESSADOR VARCHAR(45),
+TEMPERATURA VARCHAR(45)
+) "; expected "identifier"; SQL statement:
+create table (
+id int primary key auto_complete,
+sistema varchar(45),
+memoria  varchar(45),
+processador varchar(45),
+Temperatura varchar(45)
+) [42001-199]
+2022-04-05 20:46:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE ([*]
+ID INT PRIMARY KEY AUTO_COMPLETE,
+SISTEMA VARCHAR(45),
+MEMORIA  DOUBLE,
+PROCESSADOR VARCHAR DOUBLE,
+TEMPERATURA DOUBLE
+) "; expected "identifier"; SQL statement:
+create table (
+id int primary key auto_complete,
+sistema varchar(45),
+memoria  double,
+processador varchar double,
+Temperatura double
+) [42001-199]

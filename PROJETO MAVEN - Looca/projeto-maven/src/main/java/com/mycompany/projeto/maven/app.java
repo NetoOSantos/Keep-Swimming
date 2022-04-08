@@ -6,11 +6,19 @@ import com.github.britooo.looca.api.group.discos.Disco;
 import com.github.britooo.looca.api.group.discos.DiscosGroup;
 import com.github.britooo.looca.api.group.sistema.Sistema;
 import com.github.javafaker.Faker;
+
 import java.util.List;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 public class app {
     
     public static void main(String[] args) {
+        
+        connection config = new connection();
+        
+        JdbcTemplate template = new JdbcTemplate(config.getDataSource());
+        
+// ------------------------------------------------        
         
         Faker faker = new Faker();
         
@@ -24,10 +32,9 @@ public class app {
         
         Sistema sistema = looca.getSistema();
         
-//           System.out.println(looca.toString());
-//          System.out.println(looca.getSistema());
+          System.out.println(looca.getSistema());
 //         System.out.println("=".repeat(30));
-//        System.out.println(looca.getGrupoDeProcessos());
+        System.out.println(looca.getGrupoDeProcessos());
 //         System.out.println("=".repeat(30));
 //        System.out.println(looca.getGrupoDeServicos());
 //         System.out.println("=".repeat(30));
@@ -37,7 +44,7 @@ public class app {
 //         System.out.println("=".repeat(30));
 //        System.out.println(looca.getTemperatura());
         
-        System.out.println("=".repeat(30));
+//        System.out.println("=".repeat(30));
         
 // --------------------------------------------------      
         
