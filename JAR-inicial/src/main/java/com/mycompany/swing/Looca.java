@@ -79,7 +79,7 @@ public class Looca {
         // Listando e inserindo dados dos processos no banco
         System.out.println("=".repeat(40));
         
-        String processosEmUso = looca.getGrupoDeProcessos().getProcessos();
+        String processosEmUso = looca.getGrupoDeProcessos().getProcessos().toString();
         Integer totalProcessos = looca.getGrupoDeProcessos().getTotalProcessos();
         Integer threads = looca.getGrupoDeProcessos().getTotalThreads();
 
