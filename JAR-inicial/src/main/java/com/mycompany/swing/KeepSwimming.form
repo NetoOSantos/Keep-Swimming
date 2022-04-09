@@ -57,11 +57,11 @@
                           <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
                           <Component id="Barquinho" min="-2" pref="277" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="Onda" min="-2" pref="678" max="-2" attributes="0"/>
+                      <Component id="Onda" alignment="0" min="-2" pref="686" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="PainelLogin" min="-2" pref="657" max="-2" attributes="0"/>
-                  <EmptySpace pref="170" max="32767" attributes="0"/>
+                  <EmptySpace pref="162" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -72,8 +72,8 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
                           <Component id="Barquinho" min="-2" pref="219" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
-                          <Component id="Onda" min="-2" pref="141" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
+                          <Component id="Onda" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -106,6 +106,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ec" green="59" red="88" type="rgb"/>
             </Property>
+            <Property name="alignmentY" type="float" value="0.0"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Default Cursor"/>
             </Property>
@@ -289,6 +290,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/view/gui/img/OndaRoxaParaCima.png"/>
             </Property>
+            <Property name="alignmentY" type="float" value="0.0"/>
           </Properties>
         </Component>
       </SubComponents>

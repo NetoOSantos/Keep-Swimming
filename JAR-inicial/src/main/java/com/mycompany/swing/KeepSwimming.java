@@ -45,6 +45,7 @@ public class KeepSwimming extends javax.swing.JFrame {
         PainelLogin.setBackground(new java.awt.Color(136, 89, 236));
         PainelLogin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         PainelLogin.setForeground(new java.awt.Color(136, 89, 236));
+        PainelLogin.setAlignmentY(0.0F);
         PainelLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         KeepSwimming.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -153,6 +154,7 @@ public class KeepSwimming extends javax.swing.JFrame {
         );
 
         Onda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/OndaRoxaParaCima.png"))); // NOI18N
+        Onda.setAlignmentY(0.0F);
 
         javax.swing.GroupLayout FundoLayout = new javax.swing.GroupLayout(Fundo);
         Fundo.setLayout(FundoLayout);
@@ -163,10 +165,10 @@ public class KeepSwimming extends javax.swing.JFrame {
                     .addGroup(FundoLayout.createSequentialGroup()
                         .addGap(187, 187, 187)
                         .addComponent(Barquinho, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Onda, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Onda, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PainelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         FundoLayout.setVerticalGroup(
             FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,8 +177,8 @@ public class KeepSwimming extends javax.swing.JFrame {
                     .addGroup(FundoLayout.createSequentialGroup()
                         .addGap(185, 185, 185)
                         .addComponent(Barquinho, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(152, 152, 152)
-                        .addComponent(Onda, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(118, 118, 118)
+                        .addComponent(Onda))
                     .addGroup(FundoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(PainelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)))
