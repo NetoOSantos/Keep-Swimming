@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,300&display=swap');
+
 *,
 *:before,
 *:after{
     padding: 0;
     margin: 0;
-    box-sizing: border-box;}
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+  }
 
 body {
     margin: 0;
@@ -40,17 +44,12 @@ body {
 .logoEmpresa { 
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    width: 30%;
-    height: 80%;
-    
-    margin-right: 5%;
-
-    
+    justify-content: center;    
+    padding: 20px;
 }
+
 .logoNavbar {
-    width: 30%;
+   
     height: 100%;
 
    
@@ -73,33 +72,29 @@ body {
     height: 100%;
 
     color: whitesmoke;
-    font-size: 5vh;
-
+    font-size: min(25px);
 
 }
 
 .navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
 
-    list-style: none;
+  list-style: none;
 
-    width: 50%;
-    height: 50%;
-
-    margin-left: 13vw;
-
-
+  width: 100%;
+  margin: 0px 30px 0px;
 }
 .navbar li {
     color: whitesmoke;
+    margin: 10px;
 }
 .navbar li a{
     color: whitesmoke;
     text-decoration: none;
-    font-size: 3vh;
+    font-size: min(12px);
 }
 
 .cadastrar { 
@@ -115,7 +110,65 @@ body {
     
     
 }
-.cadastrar a {
+
+
+.navbar a{
+  position: relative;
+  display: block;
+  padding:  10px 15px;
+  border: 2px solid #fff;
+  border-radius: 0 20px 0 20px;
+  letter-spacing: 2px;
+  color: #4f29cd;
+  overflow: hidden;
+  background-color: rgba(255,255,255,0.13);
+  font-weight: bolder;
+}
+
+a span{
+  position: relative;
+  z-index: 1;
+  transition: 1s;
+} 
+a:hover span{
+  color: #fff;
+  
+}
+a .wave{
+  position: absolute;
+  top: calc(100% + 22px);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00AEFF;
+  transition: 1s;
+  text-decoration: none;
+}
+a:hover .wave{
+  top: 0;
+}
+a .wave::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: 0;
+  width: 100%;
+  height: 22px;
+  background: url(wave.png);
+  animation: animate 0.5s linear infinite;
+}
+
+@keyframes animate{
+  0%{
+      background-position-x:0 ;
+  }
+  100%{
+      background-position-x:118px ;
+  }
+}
+
+
+.cadastrar  {
     color: whitesmoke;
     text-decoration: none;
 
@@ -219,6 +272,8 @@ body {
   }
 
   .ocean {
+    display: flex;
+    justify-content: center;
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -374,10 +429,6 @@ form{
     height: 520px;
     width: 400px; 
     background-color: rgba(255,255,255,0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 60%;
-    left: 50%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);
