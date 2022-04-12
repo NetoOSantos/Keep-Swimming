@@ -3,68 +3,79 @@ package com.mycompany.swing;
 
 public class LoocaHardware {
     
-    public Integer memoria;
-    public String processador;
-    public Double temperatura;
-    public Integer disco;
-    public String sistema;
+    public Integer qtdDiscos;
+    public String nomeDisco;
+    public Long tamanhoDisco;
+    public Long memoriaTotal;
+    public String processadorNome;
+    public Double temperaturaAtual;
 
-    public LoocaHardware(Integer memoria, String processador, Double temperatura, Integer disco, String sistema) {
-        this.memoria = memoria;
-        this.processador = processador;
-        this.temperatura = temperatura;
-        this.disco = disco;
-        this.sistema = sistema;
+    public LoocaHardware(Integer qtdDiscos, String nomeDisco, Long tamanhoDisco, Long memoriaTotal, String processadorNome, Double temperaturaAtual) {
+        this.qtdDiscos = qtdDiscos;
+        this.nomeDisco = nomeDisco;
+        this.tamanhoDisco = tamanhoDisco;
+        this.memoriaTotal = memoriaTotal;
+        this.processadorNome = processadorNome;
+        this.temperaturaAtual = temperaturaAtual;
     }
-    
+
     public LoocaHardware() {
     }
 
-    public Integer getMemoria() {
-        return memoria;
+    public Integer getQtdDiscos() {
+        return qtdDiscos;
     }
 
-    public void setMemoria(Integer memoria) {
-        this.memoria = memoria;
+    public void setQtdDiscos(Integer qtdDiscos) {
+        this.qtdDiscos = qtdDiscos;
     }
 
-    public String getProcessador() {
-        return processador;
+    public String getNomeDisco() {
+        return nomeDisco;
     }
 
-    public void setProcessador(String processador) {
-        this.processador = processador;
+    public void setNomeDisco(String nomeDisco) {
+        this.nomeDisco = nomeDisco;
     }
 
-    public Double getTemperatura() {
-        return temperatura;
+    public Long getTamanhoDisco() {
+        return tamanhoDisco;
     }
 
-    public void setTemperatura(Double temperatura) {
-        this.temperatura = temperatura;
+    public void setTamanhoDisco(Long tamanhoDisco) {
+        this.tamanhoDisco = tamanhoDisco;
     }
 
-    public Integer getDisco() {
-        return disco;
+    public Long getMemoriaTotal() {
+        return memoriaTotal;
     }
 
-    public void setDisco(Integer disco) {
-        this.disco = disco;
+    public void setMemoriaTotal(Long memoriaTotal) {
+        this.memoriaTotal = memoriaTotal;
     }
 
-    public String getSistema() {
-        return sistema;
+    public String getProcessadorNome() {
+        return processadorNome;
     }
 
-    public void setSistema(String sistema) {
-        this.sistema = sistema;
+    public void setProcessadorNome(String processadorNome) {
+        this.processadorNome = processadorNome;
+    }
+
+    public Double getTemperaturaAtual() {
+        return temperaturaAtual;
+    }
+
+    public void setTemperaturaAtual(Double temperaturaAtual) {
+        this.temperaturaAtual = temperaturaAtual;
     }
 
     @Override
     public String toString() {
-        return "memoria=" + memoria + ", processador=" 
-                + processador + ", temperatura=" + temperatura +
-                ", disco=" + disco + ", sistema=" + sistema;
+        return "qtdDiscos=" + qtdDiscos + ", nomeDisco=" 
+                + nomeDisco + ", tamanhoDisco=" + tamanhoDisco 
+                + ", memoriaTotal=" + memoriaTotal + ", processadorNome=" 
+                + processadorNome + ", temperaturaAtual=" + temperaturaAtual;
     }
     
     
