@@ -39,4 +39,7 @@ SELECT * FROM Sistema;
 SELECT * FROM Processos;
 SELECT * FROM Hardware;
 
+truncate table Hardware;
+truncate table Processos;
+
 DROP TABLE Hardware;

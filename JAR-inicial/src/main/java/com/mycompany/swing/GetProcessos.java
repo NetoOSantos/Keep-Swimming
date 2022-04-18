@@ -4,6 +4,8 @@ package com.mycompany.swing;
 import com.github.britooo.looca.api.group.processos.Processo;
 import com.github.britooo.looca.api.group.processos.ProcessosGroup;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -14,6 +16,15 @@ public class GetProcessos {
         
         // Listando e inserindo dados dos processos no banco
         
+         Timer timer = new Timer();
+         Integer delay = 1000;
+         Integer interval = 10000;
+    
+        
+        timer.scheduleAtFixedRate(new TimerTask() {
+             @Override
+             public void run() {
+                 
         ProcessosGroup processos = new ProcessosGroup();
         
         LoocaProcessos processosBD = new LoocaProcessos();
@@ -71,6 +82,8 @@ public class GetProcessos {
             System.out.println(processos);
             System.out.println("-".repeat(50));
         }
+             }
+        }, delay, interval);
          
     }
     

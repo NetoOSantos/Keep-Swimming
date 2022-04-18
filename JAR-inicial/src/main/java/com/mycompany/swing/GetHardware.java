@@ -6,13 +6,25 @@ import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.temperatura.Temperatura;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class GetHardware {
 
+public class GetHardware {
+    
     public static void main(String[] args) {
-        
+//        
+//    Timer timer = new Timer();
+//    Integer delay = 1000;
+//    Integer interval = 10000;
+//    
+//        
+//        timer.scheduleAtFixedRate(new  TimerTask() {
+//            @Override
+//            public void run() {
+   
         Connection con = new Connection();
         
         JdbcTemplate template = new JdbcTemplate(con.getDatasource());
@@ -43,7 +55,7 @@ public class GetHardware {
         
         //template.execute(criarTabelaHardware);
 
-        for (int i = 0; i < listaDeDisco.size() ; i++) {
+        for (int i = 0; i < listaDeDisco.size(); i++) {
             
             Integer qtdDiscos = disco.getQuantidadeDeDiscos();
             String nomeDisco = listaDeDisco.get(i).getNome();
@@ -67,12 +79,14 @@ public class GetHardware {
         List<LoocaHardware> loocaHardwares = template.query("select * from Hardware",
                 new BeanPropertyRowMapper<>(LoocaHardware.class));
 
-        for (LoocaHardware Hardware : loocaHardwares) {
+            for (LoocaHardware Hardware : loocaHardwares) {
 
-            System.out.println(Hardware);
-            System.out.println("-".repeat(50));
-        }
+                System.out.println(Hardware);
+                System.out.println("-".repeat(50));
+                }
+            }
+//    }, delay, interval);
+       
+   }
 
-    }
-
-}
+//}

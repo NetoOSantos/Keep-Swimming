@@ -72,12 +72,19 @@ public class LoocaHardware {
 
     @Override
     public String toString() {
-        return "qtdDiscos=" + qtdDiscos + ", nomeDisco=" 
-                + nomeDisco + ", tamanhoDisco=" + tamanhoDisco 
-                + ", memoriaTotal=" + memoriaTotal + ", processadorNome=" 
-                + processadorNome + ", temperaturaAtual=" + temperaturaAtual;
+        return String.format("Quantidade de discos = %d"
+                             + "\nNome do disco = %s"
+                             + "\nTamanho do disco = %d"
+                             + "\nMemoria Toltal = %d"
+                             + "\nNome do Processador = %s"
+                             + "\nTemperatura atual = %.2f",
+                             qtdDiscos,
+                             nomeDisco,
+                             tamanhoDisco,
+                             memoriaTotal,
+                             processadorNome,
+                             temperaturaAtual
+                             );
+                
     }
-    
-    
-    
 }
