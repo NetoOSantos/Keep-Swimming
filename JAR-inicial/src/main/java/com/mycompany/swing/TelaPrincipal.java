@@ -10,6 +10,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     
     public TelaPrincipal() {
+       
         initComponents();
         inicializacao();
     }
@@ -26,7 +27,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         com.github.britooo.looca.api.core.Looca looca = new com.github.britooo.looca.api.core.Looca();
 
         // Insersão dos dados do sistema no banco
-        LoocaSistema loocadb = new LoocaSistema();
+        LoocaSistema loocaSistema = new LoocaSistema();
         
   //////////////////////////////////////////////////////////////////////////////
   
@@ -56,12 +57,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         List<LoocaSistema> LoocaSistema = con.query("select * from Maquina",
                 new BeanPropertyRowMapper<>(LoocaSistema.class));
         
-        loocadb.setsistemaOperacional(sO);
-        loocadb.setfabricante(fabricante);
-        loocadb.setarquitetura(arquitetura);
-        loocadb.setpermissoes(permissao);
+        loocaSistema.setsistemaOperacional(sO);
+        loocaSistema.setfabricante(fabricante);
+        loocaSistema.setarquitetura(arquitetura);
+        loocaSistema.setpermissoes(permissao);
         
-        dadosMaquina.setText(loocadb.toString());
+        dadosMaquina.setText(loocaSistema.toString());
         
         
         for (LoocaSistema sistema : LoocaSistema) {
@@ -90,6 +91,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         fundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1000, 1000));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         onda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/OndaRoxaParaCima.png"))); // NOI18N
@@ -139,7 +142,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/fundo.png"))); // NOI18N
         getContentPane().add(fundo);
-        fundo.setBounds(0, 0, 1000, 720);
+        fundo.setBounds(0, 0, 1030, 720);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
