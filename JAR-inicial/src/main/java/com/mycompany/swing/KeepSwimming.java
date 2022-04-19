@@ -15,6 +15,7 @@ public class KeepSwimming extends javax.swing.JFrame {
    
     public KeepSwimming() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
    
@@ -22,243 +23,195 @@ public class KeepSwimming extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Fundo = new javax.swing.JPanel();
-        Barquinho = new javax.swing.JLabel();
-        PainelLogin = new javax.swing.JPanel();
-        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
-        KeepSwimming = new javax.swing.JLabel();
-        Resultado = new javax.swing.JLabel();
-        PainelLoginSenha = new javax.swing.JPanel();
-        TextoEmail = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         CampoEmail = new javax.swing.JTextField();
-        TextoSenha = new javax.swing.JLabel();
         CampoSenha = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        Onda = new javax.swing.JLabel();
+        btnNavegar = new javax.swing.JButton();
+        TextoEmail = new javax.swing.JLabel();
+        TextoSenha = new javax.swing.JLabel();
+        Resultado = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Keep Swimming");
+        setMinimumSize(new java.awt.Dimension(1210, 716));
+        setName("KeepSwimming"); // NOI18N
+        setResizable(false);
+        getContentPane().setLayout(null);
 
-        Fundo.setBackground(new java.awt.Color(37, 28, 94));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 153));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.setForeground(new java.awt.Color(153, 255, 204));
 
-        Barquinho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/feito-removebg-preview.png"))); // NOI18N
-
-        PainelLogin.setBackground(new java.awt.Color(136, 89, 236));
-        PainelLogin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        PainelLogin.setForeground(new java.awt.Color(136, 89, 236));
-        PainelLogin.setAlignmentY(0.0F);
-        PainelLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        KeepSwimming.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        KeepSwimming.setForeground(new java.awt.Color(255, 255, 255));
-        KeepSwimming.setText("Keep Swimming");
-
-        PainelLoginSenha.setBackground(new java.awt.Color(255, 255, 255));
-        PainelLoginSenha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        PainelLoginSenha.setForeground(new java.awt.Color(255, 255, 255));
-
-        TextoEmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        TextoEmail.setForeground(new java.awt.Color(0, 0, 0));
-        TextoEmail.setText("Email");
-
+        CampoEmail.setBackground(new java.awt.Color(255, 255, 255));
+        CampoEmail.setForeground(new java.awt.Color(0, 0, 0));
         CampoEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoEmailActionPerformed(evt);
             }
         });
 
-        TextoSenha.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        TextoSenha.setForeground(new java.awt.Color(0, 0, 0));
-        TextoSenha.setText("Senha");
-
+        CampoSenha.setBackground(new java.awt.Color(255, 255, 255));
         CampoSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoSenhaActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Navegar!");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnNavegar.setBackground(new java.awt.Color(255, 255, 255));
+        btnNavegar.setForeground(new java.awt.Color(0, 0, 0));
+        btnNavegar.setText("Navegar!");
+        btnNavegar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnNavegarActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout PainelLoginSenhaLayout = new javax.swing.GroupLayout(PainelLoginSenha);
-        PainelLoginSenha.setLayout(PainelLoginSenhaLayout);
-        PainelLoginSenhaLayout.setHorizontalGroup(
-            PainelLoginSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelLoginSenhaLayout.createSequentialGroup()
-                .addGroup(PainelLoginSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PainelLoginSenhaLayout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(TextoEmail))
-                    .addGroup(PainelLoginSenhaLayout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(TextoSenha))
-                    .addGroup(PainelLoginSenhaLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(PainelLoginSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CampoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(16, Short.MAX_VALUE))
+        TextoEmail.setFont(new java.awt.Font("Ubuntu", 2, 24)); // NOI18N
+        TextoEmail.setForeground(new java.awt.Color(255, 255, 255));
+        TextoEmail.setText("E-mail");
+
+        TextoSenha.setFont(new java.awt.Font("Ubuntu", 2, 24)); // NOI18N
+        TextoSenha.setForeground(new java.awt.Color(255, 255, 255));
+        TextoSenha.setText("Senha");
+
+        Resultado.setText("resultado");
+
+        jLabel6.setForeground(new java.awt.Color(102, 255, 255));
+        jLabel6.setText("Esqueci minha senha");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TextoEmail)
+                            .addComponent(TextoSenha)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnNavegar, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CampoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(21, 21, 21))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(Resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(180, 180, 180))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(137, 137, 137))))
         );
-        PainelLoginSenhaLayout.setVerticalGroup(
-            PainelLoginSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelLoginSenhaLayout.createSequentialGroup()
-                .addComponent(TextoEmail)
-                .addGap(27, 27, 27)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(TextoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CampoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(46, 46, 46)
                 .addComponent(TextoSenha)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout PainelLoginLayout = new javax.swing.GroupLayout(PainelLogin);
-        PainelLogin.setLayout(PainelLoginLayout);
-        PainelLoginLayout.setHorizontalGroup(
-            PainelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelLoginLayout.createSequentialGroup()
-                .addGroup(PainelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PainelLoginLayout.createSequentialGroup()
-                        .addGap(1160, 1160, 1160)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(143, 143, 143)
-                        .addComponent(Resultado))
-                    .addGroup(PainelLoginLayout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(KeepSwimming))
-                    .addGroup(PainelLoginLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(PainelLoginSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        PainelLoginLayout.setVerticalGroup(
-            PainelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelLoginLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(KeepSwimming)
-                .addGap(27, 27, 27)
-                .addComponent(PainelLoginSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Resultado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(129, 129, 129))
-        );
-
-        Onda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/OndaRoxaParaCima.png"))); // NOI18N
-        Onda.setAlignmentY(0.0F);
-
-        javax.swing.GroupLayout FundoLayout = new javax.swing.GroupLayout(Fundo);
-        Fundo.setLayout(FundoLayout);
-        FundoLayout.setHorizontalGroup(
-            FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FundoLayout.createSequentialGroup()
-                .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(FundoLayout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addComponent(Barquinho, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Onda, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PainelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(162, Short.MAX_VALUE))
-        );
-        FundoLayout.setVerticalGroup(
-            FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FundoLayout.createSequentialGroup()
-                .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(FundoLayout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(Barquinho, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(118, 118, 118)
-                        .addComponent(Onda))
-                    .addGroup(FundoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(PainelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 15, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(14, 14, 14))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(55, 55, 55)
+                .addComponent(btnNavegar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(jLabel6)
                 .addContainerGap())
         );
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(720, 60, 460, 570);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/bg.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(640, 0, 570, 710);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/Logo Swing.png"))); // NOI18N
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(40, 10, 480, 190);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/feito-removebg-preview.png"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(240, 240, 270, 200);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/hero-bg.png"))); // NOI18N
+        jLabel5.setText("jLabel1");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(0, 410, 1210, 300);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/hero-bg.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 420, 1210, 290);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/bg.png"))); // NOI18N
+        jLabel3.setText("jLabel2");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 0, 650, 710);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CampoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoEmailActionPerformed
+    private void btnNavegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavegarActionPerformed
+        //////////////Conexão com o banco//////////////
 
-       
-    }//GEN-LAST:event_CampoEmailActionPerformed
-
-    private void CampoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoSenhaActionPerformed
-
-        
-    }//GEN-LAST:event_CampoSenhaActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-          //////////////Conexão com o banco//////////////
-            
-            //Instancia a classe Connection
-            //Instancia um objeto Jdbc e pega o retorno getDataSource
+        //Instancia a classe Connection
+        //Instancia um objeto Jdbc e pega o retorno getDataSource
         Connection config = new Connection();
-        JdbcTemplate con = new JdbcTemplate(config.getDatasource());     
+        JdbcTemplate con = new JdbcTemplate(config.getDatasource());
         List funcionario = new ArrayList();
         Funcionario usuario = new Funcionario();
         BeanPropertyRowMapper Bean = new BeanPropertyRowMapper();
-            ///////////////////////////////////////////////
-            EMAIL = (CampoEmail.getText());
-            SENHA = (new String(CampoSenha.getPassword()));
-            
-     con.execute("DROP TABLE IF EXISTS FUNCIONARIO");
-            
-     String criarTabelaFuncionario = "CREATE TABLE FUNCIONARIO (ID "
-             + "INT PRIMARY KEY AUTO_INCREMENT,"
-             + "EMAIL VARCHAR(50),"
-             + "SENHA VARCHAR(50));";
-     
-     con.execute(criarTabelaFuncionario);
-     
-     String inserirUsuario = "INSERT INTO FUNCIONARIO VALUES (NULL,'bruno','123')";
-     con.update(inserirUsuario);
-     
-     List<Funcionario> Select = con.query("SELECT * FROM FUNCIONARIO",
-              new BeanPropertyRowMapper(Funcionario.class));
-   
-              for (Funcionario func : Select)
-              {
-                 if(func.getEMAIL().equals(EMAIL) && func.getSENHA().equals(SENHA)) {
-                     Resultado.setText("LOGADO COM SUCESSO!");
-                 } else {
-                 
-                     Resultado.setText("=(");
-                 }
-              }
-        
-           
-             
-           
+        ///////////////////////////////////////////////
+        EMAIL = (CampoEmail.getText());
+        SENHA = (new String(CampoSenha.getPassword()));
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+        con.execute("DROP TABLE IF EXISTS FUNCIONARIO");
+
+        String criarTabelaFuncionario = "CREATE TABLE FUNCIONARIO (ID "
+        + "INT PRIMARY KEY AUTO_INCREMENT,"
+        + "EMAIL VARCHAR(50),"
+        + "SENHA VARCHAR(50));";
+
+        con.execute(criarTabelaFuncionario);
+
+        String inserirUsuario = "INSERT INTO FUNCIONARIO VALUES (NULL,'bruno','123')";
+        con.update(inserirUsuario);
+
+        List<Funcionario> Select = con.query("SELECT * FROM FUNCIONARIO",
+            new BeanPropertyRowMapper(Funcionario.class));
+
+        for (Funcionario func : Select)
+        {
+            if(func.getEMAIL().equals(EMAIL) && func.getSENHA().equals(SENHA)) {
+                Resultado.setText("LOGADO COM SUCESSO!");
+               Looca loca = new Looca();
+               
+            } else {
+
+                Resultado.setText("=(");
+            }
+        }
+    }//GEN-LAST:event_btnNavegarActionPerformed
+
+    private void CampoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoSenhaActionPerformed
+
+    }//GEN-LAST:event_CampoSenhaActionPerformed
+
+    private void CampoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoEmailActionPerformed
+
+    }//GEN-LAST:event_CampoEmailActionPerformed
 
    
     public static void main(String args[]) {
@@ -291,18 +244,19 @@ public class KeepSwimming extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Barquinho;
     private javax.swing.JTextField CampoEmail;
     private javax.swing.JPasswordField CampoSenha;
-    private javax.swing.JPanel Fundo;
-    private javax.swing.JLabel KeepSwimming;
-    private javax.swing.JLabel Onda;
-    private javax.swing.JPanel PainelLogin;
-    private javax.swing.JPanel PainelLoginSenha;
     private javax.swing.JLabel Resultado;
     private javax.swing.JLabel TextoEmail;
     private javax.swing.JLabel TextoSenha;
-    private javax.swing.Box.Filler filler1;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnNavegar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
