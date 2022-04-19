@@ -5,42 +5,41 @@ package com.mycompany.swing;
 public class LoocaSistema {
    
      public Integer ID;
-     public String SistemaOperacional;
-     public String Fabricante;
-     public Integer Arquitetura;
+     public String sistemaOperacional;
+     public String fabricante;
+     public Integer arquitetura;
+     public String permissoes;
 
     @Override
     public String toString() {
-        return String.format("ID = %d"
-                            + "\nSistema Operacional = %s"
+        return String.format(
+                              "\nSistema Operacional = %s"
                             + "\nFabricante = %s"
-                            + "\nArquitetura = %s"
-                            + "\nInicializado = %s"
-                            + "\nTempo de atividade = %s"
+                            + "\nArquitetura = %d"
                             + "\nPermissões = %s",
-                            ID,
-                            SistemaOperacional,
-                            Fabricante,
-                            Arquitetura,
-                            Inicializado,
-                            TempoDeAtividade,
-                            Permissoes);
+                           // ID,
+                            sistemaOperacional,
+                            fabricante,
+                            arquitetura,
+                          //  Inicializado,
+                         //   TempoDeAtividade,
+                            permissoes);
     }
-    public String Inicializado;
-    public String TempoDeAtividade;
-    public String Permissoes;
+   // public String Inicializado;
+   // public String TempoDeAtividade;
+  
 
     public LoocaSistema() {
     }
 
-    public LoocaSistema(Integer ID, String SistemaOperacional, String Fabricante, Integer Arquitetura, String Inicializado, String TempoDeAtividade, String Permissoes) {
+    public LoocaSistema(Integer ID, String sistemaOperacional, String fabricante, Integer arquitetura, String permissoes) {
         this.ID = ID;
-        this.SistemaOperacional = SistemaOperacional;
-        this.Fabricante = Fabricante;
-        this.Arquitetura = Arquitetura;
-        this.Inicializado = Inicializado;
-        this.TempoDeAtividade = TempoDeAtividade;
-        this.Permissoes = Permissoes;
+        this.sistemaOperacional = sistemaOperacional;
+        this.fabricante = fabricante;
+        this.arquitetura = arquitetura;
+        //this.Inicializado = Inicializado;
+      //  this.TempoDeAtividade = TempoDeAtividade;
+       this.permissoes = permissoes;
     }
 
     public Integer getID() {
@@ -51,52 +50,52 @@ public class LoocaSistema {
         this.ID = ID;
     }
 
-    public String getSistemaOperacional() {
-        return SistemaOperacional;
+    public String getsistemaOperacional() {
+        return sistemaOperacional;
     }
 
-    public void setSistemaOperacional(String SistemaOperacional) {
-        this.SistemaOperacional = SistemaOperacional;
+    public void setsistemaOperacional(String sistemaOperacional) {
+        this.sistemaOperacional = sistemaOperacional;
     }
 
-    public String getFabricante() {
-        return Fabricante;
+    public String getfabricante() {
+        return fabricante;
     }
 
-    public void setFabricante(String Fabricante) {
-        this.Fabricante = Fabricante;
+    public void setfabricante(String fabricante) {
+        this.fabricante = fabricante;
     }
 
-    public Integer getArquitetura() {
-        return Arquitetura;
+    public Integer getarquitetura() {
+        return arquitetura;
     }
 
-    public void setArquitetura(Integer Arquitetura) {
-        this.Arquitetura = Arquitetura;
+    public void setarquitetura(Integer arquitetura) {
+        this.arquitetura = arquitetura;
     }
 
-    public String getInicializado() {
-        return Inicializado;
+   // public String getInicializado() {
+     //   return Inicializado;
+   // }
+
+   // public void setInicializado(String Inicializado) {
+    //    this.Inicializado = Inicializado;
+  //  }
+
+   // public String getTempoDeAtividade() {
+    //    return TempoDeAtividade;
+   // }
+
+   // public void setTempoDeAtividade(String TempoDeAtividade) {
+   //     this.TempoDeAtividade = TempoDeAtividade;
+   // }
+
+    public String getpermissoes() {
+        return permissoes;
     }
 
-    public void setInicializado(String Inicializado) {
-        this.Inicializado = Inicializado;
-    }
-
-    public String getTempoDeAtividade() {
-        return TempoDeAtividade;
-    }
-
-    public void setTempoDeAtividade(String TempoDeAtividade) {
-        this.TempoDeAtividade = TempoDeAtividade;
-    }
-
-    public String getPermissoes() {
-        return Permissoes;
-    }
-
-    public void setPermissoes(String Permissoes) {
-        this.Permissoes = Permissoes;
+    public void setpermissoes(String Permissoes) {
+        this.permissoes = Permissoes;
     }
 
 }

@@ -81,6 +81,8 @@ public class KeepSwimming extends javax.swing.JFrame {
         TextoSenha.setForeground(new java.awt.Color(255, 255, 255));
         TextoSenha.setText("Senha");
 
+        Resultado.setBackground(new java.awt.Color(255, 255, 255));
+        Resultado.setForeground(new java.awt.Color(255, 255, 255));
         Resultado.setText("resultado");
 
         jLabel6.setForeground(new java.awt.Color(102, 255, 255));
@@ -103,11 +105,11 @@ public class KeepSwimming extends javax.swing.JFrame {
                                 .addComponent(CampoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(180, 180, 180))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(137, 137, 137))))
+                        .addGap(137, 137, 137))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(Resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(84, 84, 84))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +126,7 @@ public class KeepSwimming extends javax.swing.JFrame {
                 .addComponent(Resultado)
                 .addGap(55, 55, 55)
                 .addComponent(btnNavegar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addContainerGap())
         );
@@ -186,7 +188,7 @@ public class KeepSwimming extends javax.swing.JFrame {
 
         con.execute(criarTabelaFuncionario);
 
-        String inserirUsuario = "INSERT INTO FUNCIONARIO VALUES (NULL,'bruno','123')";
+        String inserirUsuario = "INSERT INTO FUNCIONARIO VALUES (NULL,'bruno@hotmail.com','123')";
         con.update(inserirUsuario);
 
         List<Funcionario> Select = con.query("SELECT * FROM FUNCIONARIO",
@@ -196,7 +198,8 @@ public class KeepSwimming extends javax.swing.JFrame {
         {
             if(func.getEMAIL().equals(EMAIL) && func.getSENHA().equals(SENHA)) {
                 Resultado.setText("LOGADO COM SUCESSO!");
-               Looca loca = new Looca();
+                new TelaPrincipal().setVisible(true);
+                this.dispose();
                
             } else {
 
