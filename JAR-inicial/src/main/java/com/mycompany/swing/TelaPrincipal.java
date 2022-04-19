@@ -1,6 +1,8 @@
 
 package com.mycompany.swing;
 
+import com.github.britooo.looca.api.group.processos.Processo;
+import com.github.britooo.looca.api.group.processos.ProcessosGroup;
 import java.util.List;
 import java.util.logging.Level;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -28,7 +30,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // Insersão dos dados do sistema no banco
         LoocaSistema loocadb = new LoocaSistema();
         
-  //////////////////////////////////////////////////////////////////////////////
+       
+  //----------------------------------------------------------------------------
   
        System.out.println("=".repeat(40));
 
@@ -68,13 +71,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             System.out.println(sistema);
         }
-        
-   
-        
-////////////////////////////////////////////////////////////////////////////////  
+              
+//------------------------------------------------------------------------------
+
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -142,14 +143,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
     public static void main(String args[]) {
     
-           
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaPrincipal().setVisible(true);
+                  
             }
         });
     }
