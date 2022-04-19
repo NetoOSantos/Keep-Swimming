@@ -23,35 +23,41 @@ public class KeepSwimming extends javax.swing.JFrame {
     private void initComponents() {
 
         Fundo = new javax.swing.JPanel();
-        Onda = new javax.swing.JLabel();
         Barquinho = new javax.swing.JLabel();
         PainelLogin = new javax.swing.JPanel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 32767));
         KeepSwimming = new javax.swing.JLabel();
+        Resultado = new javax.swing.JLabel();
+        PainelLoginSenha = new javax.swing.JPanel();
         TextoEmail = new javax.swing.JLabel();
         CampoEmail = new javax.swing.JTextField();
         TextoSenha = new javax.swing.JLabel();
         CampoSenha = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        Resultado = new javax.swing.JLabel();
+        Onda = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Fundo.setBackground(new java.awt.Color(37, 28, 94));
-
-        Onda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/OndaRoxaParaCima.png"))); // NOI18N
 
         Barquinho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/feito-removebg-preview.png"))); // NOI18N
 
         PainelLogin.setBackground(new java.awt.Color(136, 89, 236));
         PainelLogin.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         PainelLogin.setForeground(new java.awt.Color(136, 89, 236));
+        PainelLogin.setAlignmentY(0.0F);
         PainelLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        KeepSwimming.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         KeepSwimming.setForeground(new java.awt.Color(255, 255, 255));
         KeepSwimming.setText("Keep Swimming");
 
-        TextoEmail.setForeground(new java.awt.Color(255, 255, 255));
+        PainelLoginSenha.setBackground(new java.awt.Color(255, 255, 255));
+        PainelLoginSenha.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PainelLoginSenha.setForeground(new java.awt.Color(255, 255, 255));
+
+        TextoEmail.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        TextoEmail.setForeground(new java.awt.Color(0, 0, 0));
         TextoEmail.setText("Email");
 
         CampoEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +66,8 @@ public class KeepSwimming extends javax.swing.JFrame {
             }
         });
 
-        TextoSenha.setForeground(new java.awt.Color(255, 255, 255));
+        TextoSenha.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        TextoSenha.setForeground(new java.awt.Color(0, 0, 0));
         TextoSenha.setText("Senha");
 
         CampoSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +85,41 @@ public class KeepSwimming extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout PainelLoginSenhaLayout = new javax.swing.GroupLayout(PainelLoginSenha);
+        PainelLoginSenha.setLayout(PainelLoginSenhaLayout);
+        PainelLoginSenhaLayout.setHorizontalGroup(
+            PainelLoginSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelLoginSenhaLayout.createSequentialGroup()
+                .addGroup(PainelLoginSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PainelLoginSenhaLayout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(TextoEmail))
+                    .addGroup(PainelLoginSenhaLayout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addComponent(TextoSenha))
+                    .addGroup(PainelLoginSenhaLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(PainelLoginSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CampoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        PainelLoginSenhaLayout.setVerticalGroup(
+            PainelLoginSenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelLoginSenhaLayout.createSequentialGroup()
+                .addComponent(TextoEmail)
+                .addGap(27, 27, 27)
+                .addComponent(CampoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(TextoSenha)
+                .addGap(18, 18, 18)
+                .addComponent(CampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout PainelLoginLayout = new javax.swing.GroupLayout(PainelLogin);
         PainelLogin.setLayout(PainelLoginLayout);
         PainelLoginLayout.setHorizontalGroup(
@@ -85,88 +127,79 @@ public class KeepSwimming extends javax.swing.JFrame {
             .addGroup(PainelLoginLayout.createSequentialGroup()
                 .addGroup(PainelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelLoginLayout.createSequentialGroup()
-                        .addGap(125, 125, 125)
+                        .addGap(1160, 1160, 1160)
                         .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(143, 143, 143)
                         .addComponent(Resultado))
                     .addGroup(PainelLoginLayout.createSequentialGroup()
-                        .addGap(255, 255, 255)
+                        .addGap(134, 134, 134)
                         .addComponent(KeepSwimming))
                     .addGroup(PainelLoginLayout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addComponent(TextoEmail))
-                    .addGroup(PainelLoginLayout.createSequentialGroup()
-                        .addGap(278, 278, 278)
-                        .addComponent(TextoSenha)))
-                .addContainerGap(269, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelLoginLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(PainelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(CampoEmail)
-                    .addComponent(CampoSenha)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE))
-                .addGap(89, 89, 89))
+                        .addGap(94, 94, 94)
+                        .addComponent(PainelLoginSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PainelLoginLayout.setVerticalGroup(
             PainelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelLoginLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(KeepSwimming)
-                .addGap(39, 39, 39)
-                .addComponent(TextoEmail)
-                .addGap(18, 18, 18)
-                .addComponent(CampoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(TextoSenha)
-                .addGap(18, 18, 18)
-                .addComponent(CampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(27, 27, 27)
+                .addComponent(PainelLoginSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Resultado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addGap(129, 129, 129))
         );
+
+        Onda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/OndaRoxaParaCima.png"))); // NOI18N
+        Onda.setAlignmentY(0.0F);
 
         javax.swing.GroupLayout FundoLayout = new javax.swing.GroupLayout(Fundo);
         Fundo.setLayout(FundoLayout);
         FundoLayout.setHorizontalGroup(
             FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FundoLayout.createSequentialGroup()
-                .addComponent(Onda)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(FundoLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(Barquinho, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(168, 168, 168)
-                .addComponent(PainelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FundoLayout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addComponent(Barquinho, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Onda, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PainelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         FundoLayout.setVerticalGroup(
             FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FundoLayout.createSequentialGroup()
+            .addGroup(FundoLayout.createSequentialGroup()
                 .addGroup(FundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FundoLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(185, 185, 185)
                         .addComponent(Barquinho, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))
+                        .addGap(118, 118, 118)
+                        .addComponent(Onda))
                     .addGroup(FundoLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(PainelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)))
-                .addComponent(Onda))
+                        .addContainerGap()
+                        .addComponent(PainelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -265,6 +298,7 @@ public class KeepSwimming extends javax.swing.JFrame {
     private javax.swing.JLabel KeepSwimming;
     private javax.swing.JLabel Onda;
     private javax.swing.JPanel PainelLogin;
+    private javax.swing.JPanel PainelLoginSenha;
     private javax.swing.JLabel Resultado;
     private javax.swing.JLabel TextoEmail;
     private javax.swing.JLabel TextoSenha;

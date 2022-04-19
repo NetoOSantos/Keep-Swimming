@@ -70,6 +70,42 @@ public class Looca {
             System.out.println(sistema);
         }
 
+        // -------------------------------------------------------------------------        
+        // Listando e inserindo dados dos processos no banco
+        System.out.println("=".repeat(40));
+        
+        String processosEmUso = looca.getGrupoDeProcessos().getProcessos().toString();
+        Integer totalProcessos = looca.getGrupoDeProcessos().getTotalProcessos();
+        Integer threads = looca.getGrupoDeProcessos().getTotalThreads();
+
+        con.execute("DROP TABLE IF EXISTS Processos");
+
+        String criarTabelaProcessos = "CREATE TABLE Processos (\n"
+                + "ID INT PRIMARY KEY AUTO_INCREMENT,\n"
+                + "ProcessosEmUso int,\n"
+                + "totalProcessos int,\n"
+                + "threads int\n"
+                + ");";
+
+        con.execute(criarTabelaProcessos);
+
+        String inserirDadosProcessos = "Insert into Processos VALUES "
+                + "(null,?,?,?);";
+
+        con.update(inserirDadosProcessos, processosEmUso, totalProcessos, threads);
+ 
+        List<LoocaProcessos> loocaProcessos = con.query("select * from Processos",
+                new BeanPropertyRowMapper<>(LoocaProcessos.class));
+
+        for (LoocaProcessos processos : loocaProcessos) {
+
+            System.out.println(processos);
+        }
+
+        // ------------------------------------------------------------------------- 
+            
+        
+        
         // ------------------------------------------------------------------------- 
         
 //        System.out.println("=".repeat(40));
