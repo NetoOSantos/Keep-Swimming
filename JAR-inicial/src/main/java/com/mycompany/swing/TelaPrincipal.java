@@ -69,7 +69,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             System.out.println(sistema);
         }
         
-   
+        
+        
+       
         
 ////////////////////////////////////////////////////////////////////////////////  
     }
