@@ -2,14 +2,12 @@ CREATE DATABASE KeepSwimming;
 
 USE KeepSwimming;
 
-CREATE TABLE Sistema (
+CREATE TABLE Maquina (
 ID INT PRIMARY KEY AUTO_INCREMENT,
-SistemaOperacional varchar(50),
-Fabricante varchar(50),
-Arquitetura int,
-Inicializado varchar(50),
-TempoDeAtividade varchar(50),
-Permissoes varchar(50)
+sistemaOperacional varchar(50),
+fabricante varchar(50),
+arquitetura int,
+permissoes varchar(50)
 );
 
 CREATE TABLE Processos (
