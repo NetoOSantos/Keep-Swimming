@@ -1,10 +1,16 @@
 
 package com.mycompany.swing;
 
+import com.github.britooo.looca.api.group.discos.DiscosGroup;
+import com.github.britooo.looca.api.group.memoria.Memoria;
+import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.processos.Processo;
+import static java.nio.file.StandardOpenOption.CREATE;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import static javax.swing.text.html.HTML.Attribute.ID;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -97,7 +103,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         con.execute("DROP TABLE IF EXISTS Processos");
 
         String criarTabelaProcessos = "CREATE TABLE Processos (\n"
-                + "PID INT PRIMARY KEY,\n"
+                + "idProcesso INT PRIMARY KEY AUTO_INCREMENT,\n"
+                + "PID INT ,\n"
                 + "Nome varchar(45),\n"
                 + "usoCPU DOUBLE,\n"
                 + "usoMemoria DOUBLE,\n"
@@ -130,7 +137,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
            Integer threads = looca.getGrupoDeProcessos().getTotalThreads();
            
            String inserirDadosProcessos = "Insert into Processos VALUES "
-                + "(?,?,?,?,?,?,?,?);";
+                + "(null,?,?,?,?,?,?,?,?);";
            
            con.update(inserirDadosProcessos, PID,Nome,UsoCpu,usoMemoria,
                    bytesUtilizados,memVirtualUtilizada, totalProcessos, threads);
@@ -150,7 +157,82 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
 
         // ------------------------------------------------------------------------- 
-            
+          
+//----------------------------INSERT COMPONENTES HARDWARE----------------------
+    
+     
+        
+        DiscosGroup disco = new DiscosGroup();
+        Memoria memoria = new Memoria();
+        Processador processador = new Processador();
+        
+         String criarTabelaHardware = "CREATE TABLE IF NOT EXISTS ComponentesHardware (\n"
+                + "ID INT PRIMARY KEY AUTO_INCREMENT,\n"
+                + "qtdDiscos int,\n"
+                + "memoriaTotal Double,\n"
+                + "processadorNome varchar(50)\n"
+                + ");";
+         
+         con.execute(criarTabelaHardware);
+         
+         Integer qtdDiscos = disco.getQuantidadeDeDiscos();
+         Long memoriaTotal = memoria.getTotal();
+         String processadorNome = processador.getNome();
+         
+          String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
+                    + "(null,?,?,?);";
+          
+           con.update(inserirDadosHardware,
+                            qtdDiscos, 
+                            memoriaTotal,
+                            processadorNome);
+                  
+        System.out.println("Quantidade de discos"  + qtdDiscos);
+        System.out.println("Memoria total"  + memoriaTotal);
+        System.out.println("Nome processador"  + processadorNome);
+//-------------------------------INSERT HISTORICO------------------------------
+        LocalDateTime data = LocalDateTime.now();
+        String tempoInicializado = looca.getSistema().getInicializado().toString();
+        String tempoDeAtividade = looca.getSistema().getTempoDeAtividade().toString();
+        String temperaturaAtual = looca.getTemperatura().toString();
+        Long memoriaEmUso = memoria.getEmUso();
+        Long memoriaDisponível = memoria.getDisponivel();
+        Double processadorUso = processador.getUso();
+        
+                   String criarTabelaHistorico = "CREATE TABLE IF NOT EXISTS Historico (\n"
+                + "ID INT PRIMARY KEY AUTO_INCREMENT,\n"
+                + "data Date,\n"
+                + "tempoInicializado varchar(45),\n"
+                + "tempoDeAtividade varchar(45),\n"
+                + "temperaturaAtual varchar(45),\n"
+                + "memoriaEmUso Double,\n"
+                + "memoriaDisponivel Double,\n"
+                + "processadorUso Double\n"
+                + ");";
+        
+                   con.execute(criarTabelaHistorico);
+        
+          timer.scheduleAtFixedRate(new TimerTask() {
+             @Override
+             public void run() {
+                    
+           String inserirHistorico = "Insert into Historico VALUES "
+                + "(null,?,?,?,?,?,?,?);";
+           
+           con.update(inserirHistorico,data,tempoInicializado,tempoDeAtividade,
+                   temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);
+           
+           System.out.println("Data "  + data);
+           System.out.println("Tempo inicializado "  + tempoInicializado);
+           System.out.println("Tempo de atividade "  + tempoDeAtividade);
+           System.out.println("Temperatura atual "  + temperaturaAtual);
+           System.out.println("Memoria em uso "  + memoriaEmUso);
+           System.out.println("Memoria disponível "  + memoriaDisponível);
+           System.out.println("Uso do processador "  + processadorUso);
+        
+
+      }
+ },delay,interval);
     }
 
     @SuppressWarnings("unchecked")
