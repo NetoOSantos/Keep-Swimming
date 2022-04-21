@@ -1,7 +1,6 @@
 package com.mycompany.swing;
 
 import com.github.britooo.looca.api.group.discos.DiscosGroup;
-import com.github.javafaker.Faker;
 import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,22 +21,18 @@ public class Looca {
         // Insersão dos dados do sistema no banco
         LoocaSistema loocadb = new LoocaSistema();
 
-        // Insersão dos dados dos processos no banco
-        LoocaProcessos loocaProcess = new LoocaProcessos();
-        
-        // Insersão dos dados de hardware no banco
-        LoocaHardware loocaHardwr = new LoocaHardware();
-
         // ------------------------------------------------        
-        System.out.println("=".repeat(40));
-
-        // faker trás um nome de usuario randomico
-        Faker faker = new Faker();
-        
-        System.out.println(faker.name().fullName());
-        
-        System.out.println("=".repeat(30));
+//        System.out.println("=".repeat(40));
+//
+//        // faker trás um nome de usuario randomico
+//        Faker faker = new Faker();
+//        
+//        System.out.println(faker.name().fullName());
+//        
+//        System.out.println("=".repeat(30));
+//        
         // -------------------------------------------------------------------------
+        
         System.out.println("=".repeat(40));
 
         // Listando e inserindo dados do Sistema no banco
@@ -48,9 +43,9 @@ public class Looca {
         String tempAtividade = looca.getSistema().getTempoDeAtividade().toString();
         String permissao = looca.getSistema().getPermissao().toString();
 
-        con.execute("DROP TABLE IF EXISTS Sistema");
+        //con.execute("DROP TABLE IF EXISTS Sistema");
 
-        String criarTabelaSistema = "CREATE TABLE Sistema (\n"
+        String criarTabelaSistema = "CREATE TABLE IF NOT EXISTS Sistema (\n"
                 + "ID INT PRIMARY KEY AUTO_INCREMENT,\n"
                 + "SistemaOperacional varchar(50),\n"
                 + "Fabricante varchar(50),\n"
@@ -119,9 +114,6 @@ public class Looca {
 //        System.out.println(looca.getGrupoDeDiscos());
 //
 //        System.out.println("=".repeat(30));
-//        System.out.println(looca.getGrupoDeProcessos());
-//
-//        System.out.println("=".repeat(30));
 //        System.out.println(looca.getMemoria());
 //
 //        System.out.println("=".repeat(30));
@@ -138,5 +130,9 @@ public class Looca {
 //        for (Disco disco : discos) {
 //            System.out.println(disco);
 //        }
+    }
+
+    DiscosGroup getGrupoDeDiscos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
