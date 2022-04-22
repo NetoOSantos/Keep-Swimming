@@ -198,6 +198,7 @@ public class KeepSwimming extends javax.swing.JFrame {
         {
             if(func.getEMAIL().equals(EMAIL) && func.getSENHA().equals(SENHA)) {
                 Resultado.setText("LOGADO COM SUCESSO!");
+                
                 new TelaPrincipal().setVisible(true);
                 this.dispose();
                

@@ -26,7 +26,7 @@ public class Connection {
       //  this.datasource.setPassword("");
         
          // senha padrao utilizada no container MySQL
-        this.datasource.setPassword("Thetrooper14#7");
+        this.datasource.setPassword("YES");
     }
     
      public BasicDataSource getDatasource() {
