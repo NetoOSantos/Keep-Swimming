@@ -1,43 +1,15 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-D:\SPTECH DIGITAL SCHOOL\S02\Pesquisa e Inovação\KEEP SWIMMING\Site Keep Swimming\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\Funcionario.java
-D:\SPTECH DIGITAL SCHOOL\S02\Pesquisa e Inovação\KEEP SWIMMING\Site Keep Swimming\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\GetProcessos.java
-D:\SPTECH DIGITAL SCHOOL\S02\Pesquisa e Inovação\KEEP SWIMMING\Site Keep Swimming\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\Connection.java
-D:\SPTECH DIGITAL SCHOOL\S02\Pesquisa e Inovação\KEEP SWIMMING\Site Keep Swimming\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\LoocaHardware.java
-D:\SPTECH DIGITAL SCHOOL\S02\Pesquisa e Inovação\KEEP SWIMMING\Site Keep Swimming\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\Looca.java
-D:\SPTECH DIGITAL SCHOOL\S02\Pesquisa e Inovação\KEEP SWIMMING\Site Keep Swimming\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\KeepSwimming.java
-D:\SPTECH DIGITAL SCHOOL\S02\Pesquisa e Inovação\KEEP SWIMMING\Site Keep Swimming\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\LoocaProcessos.java
-D:\SPTECH DIGITAL SCHOOL\S02\Pesquisa e Inovação\KEEP SWIMMING\Site Keep Swimming\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\GetHardware.java
-D:\SPTECH DIGITAL SCHOOL\S02\Pesquisa e Inovação\KEEP SWIMMING\Site Keep Swimming\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\LoocaSistema.java
-=======
-D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\LoocaHardware.java
-D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\GetHardware.java
-D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\TelaUsuarioLogado.java
-D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\GetProcessos.java
-D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\LoocaSistema.java
-D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\DadosBot.java
-D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\KeepSwimming_TelegramBot.java
-D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\LoocaProcessos.java
-D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\TelaPrincipal.java
-D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\Looca.java
-D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\KeepSwimming.java
-D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\Connection.java
-D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\RegistraBot.java
-D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\Funcionario.java
->>>>>>> jar
-=======
-/home/aluno/Documents/JAR-inicial/src/main/java/com/mycompany/swing/LoocaProcessos.java
-/home/aluno/Documents/JAR-inicial/src/main/java/com/mycompany/swing/Funcionario.java
-/home/aluno/Documents/JAR-inicial/src/main/java/com/mycompany/swing/GetProcessos.java
-/home/aluno/Documents/JAR-inicial/src/main/java/com/mycompany/swing/Connection.java
-/home/aluno/Documents/JAR-inicial/src/main/java/com/mycompany/swing/KeepSwimming_TelegramBot.java
-/home/aluno/Documents/JAR-inicial/src/main/java/com/mycompany/swing/GetHardware.java
-/home/aluno/Documents/JAR-inicial/src/main/java/com/mycompany/swing/LoocaHardware.java
-/home/aluno/Documents/JAR-inicial/src/main/java/com/mycompany/swing/DadosBot.java
-/home/aluno/Documents/JAR-inicial/src/main/java/com/mycompany/swing/TelaUsuarioLogado.java
-/home/aluno/Documents/JAR-inicial/src/main/java/com/mycompany/swing/TelaPrincipal.java
-/home/aluno/Documents/JAR-inicial/src/main/java/com/mycompany/swing/Looca.java
-/home/aluno/Documents/JAR-inicial/src/main/java/com/mycompany/swing/RegistraBot.java
-/home/aluno/Documents/JAR-inicial/src/main/java/com/mycompany/swing/KeepSwimming.java
-/home/aluno/Documents/JAR-inicial/src/main/java/com/mycompany/swing/LoocaSistema.java
->>>>>>> ks-k8s-alpha
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\Funcionario.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\KeepSwimming_TelegramBot.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\Looca.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\KeepSwimming.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\TelaUsuarioLogado.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\LoocaHardware.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\RegistraBot.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\Connection.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\GetProcessos.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\timer.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\GetHardware.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\LoocaSistema.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\DadosBot.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\TelaPrincipal.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\LoocaProcessos.java

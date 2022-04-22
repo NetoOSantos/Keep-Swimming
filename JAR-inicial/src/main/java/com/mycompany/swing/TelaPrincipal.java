@@ -56,6 +56,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
            String criarTabelaMaquina= "CREATE TABLE IF NOT EXISTS Maquina (\n"
                 + "ID INT PRIMARY KEY AUTO_INCREMENT,\n"
+                + "fkUsuario Int,\n"
                 + "sistemaOperacional varchar(50),\n"
                 + "fabricante varchar(50),\n"
                 + "arquitetura int,\n"
@@ -65,7 +66,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         con.execute(criarTabelaMaquina);
         
          String inserirDadosMaquina = "Insert into Maquina VALUES "
-                + "(null,?,?,?,?);";
+                + "(null,1,?,?,?,?);";
 
         con.update(inserirDadosMaquina, sO, fabricante, arquitetura, permissao);
         
@@ -95,6 +96,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         String criarTabelaProcessos = "CREATE TABLE Processos (\n"
                 + "idProcesso INT PRIMARY KEY AUTO_INCREMENT,\n"
+                + "fkMaquina INT,\n"
                 + "PID INT ,\n"
                 + "Nome varchar(45),\n"
                 + "usoCPU DOUBLE,\n"
@@ -128,7 +130,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
            Integer threads = looca.getGrupoDeProcessos().getTotalThreads();
            
            String inserirDadosProcessos = "Insert into Processos VALUES "
-                + "(null,?,?,?,?,?,?,?,?);";
+                + "(null,1,?,?,?,?,?,?,?,?);";
            
            con.update(inserirDadosProcessos, PID,Nome,UsoCpu,usoMemoria,
                    bytesUtilizados,memVirtualUtilizada, totalProcessos, threads);
@@ -159,6 +161,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
          String criarTabelaHardware = "CREATE TABLE IF NOT EXISTS ComponentesHardware (\n"
                 + "ID INT PRIMARY KEY AUTO_INCREMENT,\n"
+                + "fkMaquina INT,\n"
                 + "qtdDiscos int,\n"
                 + "memoriaTotal Double,\n"
                 + "processadorNome varchar(50)\n"
@@ -171,7 +174,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
          String processadorNome = processador.getNome();
          
           String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
-                    + "(null,?,?,?);";
+                    + "(null,1,?,?,?);";
           
            con.update(inserirDadosHardware,
                             qtdDiscos, 
@@ -192,6 +195,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
                    String criarTabelaHistorico = "CREATE TABLE IF NOT EXISTS Historico (\n"
                 + "ID INT PRIMARY KEY AUTO_INCREMENT,\n"
+                + "fkMaquina INT,\n"
                 + "data Date,\n"
                 + "tempoInicializado varchar(45),\n"
                 + "tempoDeAtividade varchar(45),\n"
@@ -208,7 +212,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
              public void run() {
                     
            String inserirHistorico = "Insert into Historico VALUES "
-                + "(null,?,?,?,?,?,?,?);";
+                + "(null,1,?,?,?,?,?,?,?);";
            
            con.update(inserirHistorico,data,tempoInicializado,tempoDeAtividade,
                    temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);

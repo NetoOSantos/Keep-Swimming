@@ -45,32 +45,6 @@ public class LoocaProcessos {
     public void setBytesUtilizados(Long bytesUtilizados) {
         this.bytesUtilizados = bytesUtilizados;
     }
-
-    public Long getMemVirtual() {
-        return memVirtual;
-    }
-
-    public void setMemVirtual(Long memVirtual) {
-        this.memVirtual = memVirtual;
-    }
-
-    public Integer getPid() {
-        return pid;
-    }
-
-    public void setPid(Integer pid) {
-        this.pid = pid;
-    }
-    
-    
-
-    public Processo getProcessosEmUso() {
-        return ProcessosEmUso;
-    }
-
-    public void setProcessosEmUso(Processo ProcessosEmUso) {
-        this.ProcessosEmUso = ProcessosEmUso;
-    }
     
     public String getNome()        
     {
@@ -82,13 +56,7 @@ public class LoocaProcessos {
         this.Nome = Nome;
     }
 
-    public Double getUsoCPU() {
-        return usoCPU;
-    }
-
-    public void setUsoCPU(Double usoCPU) {
-        this.usoCPU = usoCPU;
-    }
+   
     
     public Long getUsoMemoria()
     {
@@ -99,14 +67,6 @@ public class LoocaProcessos {
             
     {
         this.usoMemoria = usoMemoria;
-    }
-
-    public Long getBytesUtilizados() {
-        return bytesUtilizados;
-    }
-
-    public void setBytesUtilizados(Long bytesUtilizados) {
-        this.bytesUtilizados = bytesUtilizados;
     }
 
     public Long getMemVirtualUtilizada() {
