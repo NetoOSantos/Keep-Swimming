@@ -84,26 +84,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             System.out.println(sistema);
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> ks-k8s-alpha
-        
-        
-        
-       
-        
-////////////////////////////////////////////////////////////////////////////////  
-<<<<<<< HEAD
-=======
-              
-//------------------------------------------------------------------------------
-
->>>>>>> jar
-=======
-
-    
 //------------------------------INSERT DE  PROCESSOS ---------------------------
    
         System.out.println("=".repeat(40));
@@ -244,7 +224,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
       }
  },delay,interval);
->>>>>>> ks-k8s-alpha
     }
 
     @SuppressWarnings("unchecked")
@@ -260,10 +239,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         fundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-<<<<<<< HEAD
-=======
         setMinimumSize(new java.awt.Dimension(1000, 1000));
->>>>>>> ks-k8s-alpha
         getContentPane().setLayout(null);
 
         onda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/OndaRoxaParaCima.png"))); // NOI18N
@@ -293,19 +269,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE)
                 .addGroup(painelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDadosLayout.createSequentialGroup()
-<<<<<<< HEAD
-                        .addComponent(tituloCapturandoDados, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(119, 119, 119))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDadosLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))))
-=======
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelDadosLayout.createSequentialGroup()
                         .addComponent(tituloCapturandoDados, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(82, 82, 82))))
->>>>>>> ks-k8s-alpha
         );
         painelDadosLayout.setVerticalGroup(
             painelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,11 +281,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(tituloCapturandoDados)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-<<<<<<< HEAD
-                .addContainerGap(24, Short.MAX_VALUE))
-=======
                 .addContainerGap(22, Short.MAX_VALUE))
->>>>>>> ks-k8s-alpha
         );
 
         getContentPane().add(painelDados);
@@ -332,16 +296,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     public static void main(String args[]) {
     
-<<<<<<< HEAD
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaPrincipal().setVisible(true);
-                  
-            }
-        });
-=======
    
->>>>>>> ks-k8s-alpha
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

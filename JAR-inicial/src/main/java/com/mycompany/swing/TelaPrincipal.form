@@ -125,24 +125,7 @@
             </Component>
           </SubComponents>
         </Container>
-      </SubComponents> public Integer PID;
-    public String Nome;
-    public Double usoCPU;
-     public Long usoMemoria;
-     public Long bytesUtilizados;
-    public Long memVirtualUtilizada;
-   
-    
-    public Integer totalProcessos;
-    public Integer threads;
-
-    public LoocaProcessos(Integer PID,String Nome,Double usoCPU,Long usoMemoria,Long bytesUtilizados, Long memVirtualUtilizada,  Integer totalProcessos, Integer threads) {
-        this.PID = PID;
-        this.Nome = Nome;
-        this.usoCPU = usoCPU;
-        this.usoMemoria = usoMemoria;
-        this.bytesUtilizados = bytesUtilizados;
-        this.memVirtualUtilizada = memVirtualUtilizada;
+      </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="fundo">
       <Properties>
