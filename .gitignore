@@ -1,7 +1,5 @@
 /ProjetoTelaSwing/KeepSwimming/build/
 /ProjetoTelaSwing/KeepSwimming/nbproject/private/
-<<<<<<< HEAD
-//
 # Created by https://www.toptal.com/developers/gitignore/api/node,java,kotlin,maven
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,java,kotlin,maven
 
@@ -202,5 +200,3 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/node,java,kotlin,maven
-=======
->>>>>>> jar
