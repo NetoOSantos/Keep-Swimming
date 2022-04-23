@@ -75,7 +75,7 @@ body {
     
 }
 .logoNavbar {
-    width: 100%;
+    width: min(13ch);
 
    
 
@@ -271,11 +271,11 @@ a .wave::before {
 }
 
 .barquinhoTelaInicial img {
+    
     position: relative;
-    top: 10vh;
+    top: 17vh;
     right: 7vw;
 
-    width: 25vw;
     height: 50vh;
 
 
@@ -326,10 +326,11 @@ a .wave::before {
 .tituloMissao{
     color: whitesmoke;
     font-size: max(25px,15px);
+    font-weight: bolder;
 }
 .textoMissao {
     color: whitesmoke;
-    font-size: min(20px,12px);
+    font-size: 1.3rem;
 }
 
 
@@ -353,10 +354,11 @@ a .wave::before {
 .tituloVisao{
     color: whitesmoke;
     font-size: max(25px,15px);
+    font-weight: bolder;
 }
 .textoVisao {
     color: whitesmoke;
-    font-size: min(20px,12px);
+    font-size: 1.3rem
 }
 
 
@@ -379,10 +381,11 @@ a .wave::before {
 .tituloValores{
     color: whitesmoke;
     font-size:max(25px,15px);
+    font-weight: bolder;
 }
 .textoValores {
     color: whitesmoke;
-    font-size: min(20px,12px);
+    font-size: 1.3rem
 }
 
 
@@ -604,7 +607,15 @@ iframe{
 
 
 
+/* footer pt2 */
 
+
+.novoFooter{
+
+    height: 100vh;
+    background-color: #0E185F;
+
+}
 
 
 
