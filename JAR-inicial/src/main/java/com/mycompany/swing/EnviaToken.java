@@ -41,9 +41,10 @@ public class EnviaToken extends javax.swing.JFrame {
     private void initComponents() {
 
         btnReenviaCodigo = new javax.swing.JButton();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jButton2 = new javax.swing.JButton();
+        btnConfereToken = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        lblRespostaToken = new javax.swing.JLabel();
+        formToken = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -51,7 +52,7 @@ public class EnviaToken extends javax.swing.JFrame {
         setBackground(new java.awt.Color(102, 0, 153));
         setMaximumSize(new java.awt.Dimension(382, 407));
         setMinimumSize(new java.awt.Dimension(382, 407));
-        setPreferredSize(new java.awt.Dimension(383, 404));
+        setPreferredSize(new java.awt.Dimension(383, 407));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -67,25 +68,28 @@ public class EnviaToken extends javax.swing.JFrame {
         getContentPane().add(btnReenviaCodigo);
         btnReenviaCodigo.setBounds(120, 380, 130, 24);
 
-        jFormattedTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jFormattedTextField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+        btnConfereToken.setText("Enviar ");
+        btnConfereToken.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
+                btnConfereTokenActionPerformed(evt);
             }
         });
-        getContentPane().add(jFormattedTextField1);
-        jFormattedTextField1.setBounds(30, 170, 300, 50);
-
-        jButton2.setText("Enviar ");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(140, 250, 83, 24);
+        getContentPane().add(btnConfereToken);
+        btnConfereToken.setBounds(140, 250, 83, 24);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Digite seu token para continuar");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(30, 150, 230, 20);
+        getContentPane().add(lblRespostaToken);
+        lblRespostaToken.setBounds(60, 280, 250, 20);
+
+        formToken.setBackground(new java.awt.Color(255, 255, 255));
+        formToken.setForeground(new java.awt.Color(51, 51, 51));
+        formToken.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.blue, new java.awt.Color(0, 0, 255), null, null));
+        getContentPane().add(formToken);
+        formToken.setBounds(30, 180, 320, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/Mask group 1.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -93,10 +97,6 @@ public class EnviaToken extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
 
     private void btnReenviaCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReenviaCodigoActionPerformed
         emiteCodigo ();
@@ -112,6 +112,19 @@ public class EnviaToken extends javax.swing.JFrame {
             e.printStackTrace();
         }        
     }//GEN-LAST:event_btnReenviaCodigoActionPerformed
+
+    private void btnConfereTokenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfereTokenActionPerformed
+             
+        String usarioDigitou = formToken.getText();
+        if ("".equals(usarioDigitou)) {
+            lblRespostaToken.setText("Digite um token valido para continuar!!");
+        }
+        else if(usarioDigitou.equalsIgnoreCase(guardaCodig)){
+            new TelaUsuarioLogado().setVisible(true);
+            
+        }
+        
+    }//GEN-LAST:event_btnConfereTokenActionPerformed
     public void emiteCodigo (){
         Integer enviaCodigo = ThreadLocalRandom.current().nextInt(1000, 5000);
         String codigoFormatado = enviaCodigo.toString();
@@ -158,10 +171,11 @@ public class EnviaToken extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConfereToken;
     private javax.swing.JButton btnReenviaCodigo;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JTextField formToken;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblRespostaToken;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,6 +7,9 @@ import java.util.List;
 import javax.swing.JPasswordField;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.telegram.telegrambots.meta.TelegramBotsApi;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 
 public class KeepSwimming extends javax.swing.JFrame {
@@ -30,7 +33,7 @@ public class KeepSwimming extends javax.swing.JFrame {
         TextoEmail = new javax.swing.JLabel();
         TextoSenha = new javax.swing.JLabel();
         Resultado = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        btnEsqueciSenha = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -85,8 +88,15 @@ public class KeepSwimming extends javax.swing.JFrame {
         Resultado.setForeground(new java.awt.Color(255, 255, 255));
         Resultado.setText("resultado");
 
-        jLabel6.setForeground(new java.awt.Color(102, 255, 255));
-        jLabel6.setText("Esqueci minha senha");
+        btnEsqueciSenha.setBackground(new java.awt.Color(0, 0, 255));
+        btnEsqueciSenha.setText("Esqueci minha senha");
+        btnEsqueciSenha.setBorder(null);
+        btnEsqueciSenha.setBorderPainted(false);
+        btnEsqueciSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEsqueciSenhaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -105,11 +115,11 @@ public class KeepSwimming extends javax.swing.JFrame {
                                 .addComponent(CampoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(137, 137, 137))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(Resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84))))
+                        .addGap(84, 84, 84))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnEsqueciSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(144, 144, 144))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,9 +136,8 @@ public class KeepSwimming extends javax.swing.JFrame {
                 .addComponent(Resultado)
                 .addGap(55, 55, 55)
                 .addComponent(btnNavegar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(btnEsqueciSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getContentPane().add(jPanel1);
@@ -168,6 +177,15 @@ public class KeepSwimming extends javax.swing.JFrame {
     private void btnNavegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavegarActionPerformed
         //////////////Conexão com o banco//////////////
 
+        try {
+            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
+            telegramBotsApi.registerBot(new KeepSwimming_TelegramBot(true));       
+            KeepSwimming_TelegramBot.sendToTelegram();
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+        
+        
         //Instancia a classe Connection
         //Instancia um objeto Jdbc e pega o retorno getDataSource
         Connection config = new Connection();
@@ -201,6 +219,17 @@ public class KeepSwimming extends javax.swing.JFrame {
                 
                 new TelaPrincipal().setVisible(true);
                 this.dispose();
+                
+                try {
+            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
+            telegramBotsApi.registerBot(new KeepSwimming_TelegramBot(true));  
+            
+            KeepSwimming_TelegramBot.sendToTelegram();
+                    
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        } 
+                
                
             } else {
 
@@ -216,6 +245,10 @@ public class KeepSwimming extends javax.swing.JFrame {
     private void CampoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoEmailActionPerformed
 
     }//GEN-LAST:event_CampoEmailActionPerformed
+
+    private void btnEsqueciSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsqueciSenhaActionPerformed
+        new EnviaToken().setVisible(true);
+    }//GEN-LAST:event_btnEsqueciSenhaActionPerformed
 
    
     public static void main(String args[]) {
@@ -253,13 +286,13 @@ public class KeepSwimming extends javax.swing.JFrame {
     private javax.swing.JLabel Resultado;
     private javax.swing.JLabel TextoEmail;
     private javax.swing.JLabel TextoSenha;
+    private javax.swing.JButton btnEsqueciSenha;
     private javax.swing.JButton btnNavegar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
