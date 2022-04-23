@@ -84,15 +84,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             System.out.println(sistema);
         }
-
-        
-        
-        
-       
-        
-////////////////////////////////////////////////////////////////////////////////  
-
-    
 //------------------------------INSERT DE  PROCESSOS ---------------------------
    
         System.out.println("=".repeat(40));
