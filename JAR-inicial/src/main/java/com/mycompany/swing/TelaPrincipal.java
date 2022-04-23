@@ -54,18 +54,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Integer arquitetura = looca.getSistema().getArquitetura();
         String permissao = looca.getSistema().getPermissao().toString();
         
-           String criarTabelaMaquina= "CREATE TABLE IF NOT EXISTS Maquina (\n"
-                + "ID INT PRIMARY KEY AUTO_INCREMENT,\n"
-                + "sistemaOperacional varchar(50),\n"
-                + "fabricante varchar(50),\n"
-                + "arquitetura int,\n"
-                + "permissoes varchar(50)\n"
-                + ");";
-
-        con.execute(criarTabelaMaquina);
         
          String inserirDadosMaquina = "Insert into Maquina VALUES "
-                + "(null,?,?,?,?);";
+                + "(null,2,?,?,?,?);";
 
         con.update(inserirDadosMaquina, sO, fabricante, arquitetura, permissao);
         
@@ -89,23 +80,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         System.out.println("=".repeat(40));
         
         List<Processo> processos = looca.getGrupoDeProcessos().getProcessos();
-        
-
-        con.execute("DROP TABLE IF EXISTS Processos");
-
-        String criarTabelaProcessos = "CREATE TABLE Processos (\n"
-                + "idProcesso INT PRIMARY KEY AUTO_INCREMENT,\n"
-                + "PID INT ,\n"
-                + "Nome varchar(45),\n"
-                + "usoCPU DOUBLE,\n"
-                + "usoMemoria DOUBLE,\n"
-                + "bytesUtilizados INT,\n"
-                + "memVirtualUtilizada DOUBLE,\n"
-                + "totalProcessos int,\n"
-                + "threads int\n"
-                + ");";
-
-        con.execute(criarTabelaProcessos);
+       
         
           Timer timer = new Timer();
          Integer delay = 1000;
@@ -128,7 +103,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
            Integer threads = looca.getGrupoDeProcessos().getTotalThreads();
            
            String inserirDadosProcessos = "Insert into Processos VALUES "
-                + "(null,?,?,?,?,?,?,?,?);";
+                + "(null,1,?,?,?,?,?,?,?,?);";
            
            con.update(inserirDadosProcessos, PID,Nome,UsoCpu,usoMemoria,
                    bytesUtilizados,memVirtualUtilizada, totalProcessos, threads);
@@ -157,21 +132,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Memoria memoria = new Memoria();
         Processador processador = new Processador();
         
-         String criarTabelaHardware = "CREATE TABLE IF NOT EXISTS ComponentesHardware (\n"
-                + "ID INT PRIMARY KEY AUTO_INCREMENT,\n"
-                + "qtdDiscos int,\n"
-                + "memoriaTotal Double,\n"
-                + "processadorNome varchar(50)\n"
-                + ");";
-         
-         con.execute(criarTabelaHardware);
          
          Integer qtdDiscos = disco.getQuantidadeDeDiscos();
          Long memoriaTotal = memoria.getTotal();
          String processadorNome = processador.getNome();
          
           String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
-                    + "(null,?,?,?);";
+                    + "(null,1,?,?,?);";
           
            con.update(inserirDadosHardware,
                             qtdDiscos, 
@@ -190,25 +157,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Long memoriaDisponível = memoria.getDisponivel();
         Double processadorUso = processador.getUso();
         
-                   String criarTabelaHistorico = "CREATE TABLE IF NOT EXISTS Historico (\n"
-                + "ID INT PRIMARY KEY AUTO_INCREMENT,\n"
-                + "data Date,\n"
-                + "tempoInicializado varchar(45),\n"
-                + "tempoDeAtividade varchar(45),\n"
-                + "temperaturaAtual varchar(45),\n"
-                + "memoriaEmUso Double,\n"
-                + "memoriaDisponivel Double,\n"
-                + "processadorUso Double\n"
-                + ");";
-        
-                   con.execute(criarTabelaHistorico);
+   
         
           timer.scheduleAtFixedRate(new TimerTask() {
              @Override
              public void run() {
                     
            String inserirHistorico = "Insert into Historico VALUES "
-                + "(null,?,?,?,?,?,?,?);";
+                + "(null,1,?,?,?,?,?,?,?);";
            
            con.update(inserirHistorico,data,tempoInicializado,tempoDeAtividade,
                    temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);

@@ -179,17 +179,6 @@ public class KeepSwimming extends javax.swing.JFrame {
         EMAIL = (CampoEmail.getText());
         SENHA = (new String(CampoSenha.getPassword()));
 
-        con.execute("DROP TABLE IF EXISTS FUNCIONARIO");
-
-        String criarTabelaFuncionario = "CREATE TABLE FUNCIONARIO (ID "
-        + "INT PRIMARY KEY AUTO_INCREMENT,"
-        + "EMAIL VARCHAR(50),"
-        + "SENHA VARCHAR(50));";
-
-        con.execute(criarTabelaFuncionario);
-
-        String inserirUsuario = "INSERT INTO FUNCIONARIO VALUES (NULL,'bruno@hotmail.com','123')";
-        con.update(inserirUsuario);
 
         List<Funcionario> Select = con.query("SELECT * FROM FUNCIONARIO",
             new BeanPropertyRowMapper(Funcionario.class));
