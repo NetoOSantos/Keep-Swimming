@@ -2,59 +2,74 @@ create database keepSwimming;
 
 use keepSwimming;
 
-create table usuario(
-idUsuario int primary key auto_increment,
-cnpj char(14),
-nome varchar(50),
-email varchar (45),
-cep char(9),
-senha varchar(100)
-)auto_increment 100;
+create table empresa(
+			idEmpresa int primary key auto_increment,
+			cnpj char(14),
+			nome varchar(50),
+			email varchar (45),
+			cep char(9),
+			senha varchar(100)
+			)auto_increment 100;
 
-CREATE TABLE Sistema (
-ID INT PRIMARY KEY AUTO_INCREMENT,
-SistemaOperacional varchar(50),
-Fabricante varchar(50),
-Arquitetura int,
-Inicializado varchar(50),
-TempoDeAtividade varchar(50),
-Permissoes varchar(50),
-fkusuario int,
-foreign key(fkusuario) references usuario(idUsuario)
-);
+INSERT INTO empresa VALUES 
+(null,"03.778.130/0001-48", "Keep Swimming", 'Keep@hotmail.com', 06126020,'123');
+
+CREATE TABLE FUNCIONARIO (
+         idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
+         fkGestor Int,
+         fkEmpresa Int,
+         Nome varchar(50),
+         EMAIL VARCHAR(50),
+         SENHA VARCHAR(50),
+         Cargo VARCHAR(50),
+         foreign key (fkGestor) references FUNCIONARIO(idFuncionario),
+         foreign key (fkEmpresa) references empresa(idEmpresa)
+         );
+
+INSERT INTO FUNCIONARIO VALUES (null, null, 1, 'Gerson', 'Gerson@hotmail.com', '123', 'Gestor');
+
+CREATE TABLE Maquina (
+                idMaquina INT PRIMARY KEY AUTO_INCREMENT,
+                fkUsuario INT,
+                sistemaOperacional varchar(50),
+                fabricante varchar(50),
+                arquitetura int,
+                permissoes varchar(50),
+                foreign key (fkUsuario) references FUNCIONARIO(idFuncionario)
+                );
 
 CREATE TABLE Processos (
-ID INT PRIMARY KEY AUTO_INCREMENT,
-Nome Varchar(100),
-UsoCPU double,
-UsoMemoria double,
-BytesUtilizados int,
-MemVirtual decimal,
-PID int,
-totalProcessos int,
-threads int,
-fkusuario int,
-foreign key(fkusuario) references usuario(idUsuario)
-);
+                idProcesso INT PRIMARY KEY AUTO_INCREMENT,
+                fkMaquina INT,
+                PID INT ,
+                Nome varchar(45),
+                usoCPU DOUBLE,
+                usoMemoria DOUBLE,
+                bytesUtilizados INT,
+                memVirtualUtilizada DOUBLE,
+                totalProcessos int,
+                threads int,
+                foreign key (fkMaquina) references Maquina(idMaquina)
+                );
 
-CREATE TABLE Hardware (
-ID INT PRIMARY KEY auto_increment,
-qtdDiscos int,
-nomeDisco varchar(50),
-tamanhoDisco Double,
-memoriaTotal Double,
-processadorNome varchar(50),
-temperaturaAtual Double,
-fkusuario int,
-foreign key(fkusuario) references usuario(idUsuario)
-);
-
-desc Processos;
-SELECT * FROM Sistema;
-SELECT * FROM Processos;
-SELECT * FROM Hardware;
-
-truncate table Hardware;
-truncate table Processos;
-
-DROP TABLE Hardware;
+CREATE TABLE  ComponentesHardware (
+                ID INT PRIMARY KEY AUTO_INCREMENT,
+				fkMaquina INT,
+                qtdDiscos int,
+                memoriaTotal Double,
+                processadorNome varchar(50),
+				foreign key (fkMaquina) references Maquina(idMaquina)
+                );
+                
+CREATE TABLE  Historico (
+                ID INT PRIMARY KEY AUTO_INCREMENT,
+                fkMaquina INT,
+                data Date,
+                tempoInicializado varchar(45),
+                tempoDeAtividade varchar(45),
+                temperaturaAtual varchar(45),
+                memoriaEmUso Double,
+                memoriaDisponivel Double,
+                processadorUso Double,
+                foreign key (fkMaquina) references Maquina(idMaquina)
+                );
