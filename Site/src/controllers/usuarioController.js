@@ -60,11 +60,11 @@ function entrar (req, res) {
 }
 
 function cadastrar(req, res) {
-    var nome = req.body.nome;
-    var email = req.body.email;
-    var senha = req.body.senha;
-    var CNPJ = req.body.cnpj;
-    var cep = req.body.cep;
+    var nome = req.body.nomeServer;
+    var email = req.body.emailServer;
+    var senha = req.body.senhaServer;
+    var CNPJ = req.body.cnpjServer;
+    var cep = req.body.cepServer;
 
     console.log("req.body bananinha");
     console.log(req.body);

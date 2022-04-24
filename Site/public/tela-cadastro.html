@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>keep Swimming | Cadastro</title>
 
     <script src="./assets/js/funcoes.js"></script>
@@ -43,116 +43,120 @@
             <div id="octocat"></div>
         </div>
 
-       
-            
+        <div class="container tamanho-conteudo">
+            <div class="card medio">
+                <h2>Bem-vindo!</h2>
+                <div class="formulario">
 
-        <div class="roles"> 
-             <h3>Start Swimming</h3>  
-            <form id="form_cadastro" method="post" onsubmit="cadastrar()">
-                <div class="ladoEsquerdo"> 
-                    <label for="username">Nome Empresa</label>
-                    <input type="text" name="nome_empresa" placeholder="Empresa" id="username">
+                    <!--
+                         Para inserir mais um campo, copie uma das inputs abaixo.
+                         Assim que inserir vá para o script abaixo.
+                     -->
 
-                    <label for="email">Email</label>
-                    <input type="email" name="email" placeholder="Email corparativo" id="Email">
-                    
-                    <label for="password">CEP</label>
-                    <input type="" name="cep" placeholder="Cep">
-                    
-                    <label for="password">CNPJ</label>
-                    <input type="" name="cnpj" placeholder="CNPJ">
+                    <span class="tipo_campo">Nome Empresa:</span>
+                    <input id="nome_input" type="text" placeholder="Seu nome">
 
-                    <label for="password">Senha</label>
-                    <input type="password" name="senha" placeholder="*******">
+                    <span class="tipo_campo">E-mail:</span>
+                    <input id="email_input" type="text" placeholder="meuemail@provedor.com">
 
-                    <label for="password">Confirma Senha</label>
-                    <input type="password" name="confirmacao-senha" placeholder="*******"> 
+                    <span class="tipo_campo">CEP</span>
+                    <input id="cep_input" type="text" placeholder="CEP">
 
-                    <div class="div_botao">
-                        <button class="btn efeito">Navegar</button>
-                    </div>
-                </div>      
-            </form>  
-        </div>
-            <div id="div_aguardar" class="loading-div">
-                <img src="./assets/circle-loading.gif" id="loading-gif">
-            </div>
+                    <span class="tipo_campo">CNPJ</span>
+                    <input id="cnpj_input" type="text" placeholder="CNPJ"> 
 
-            <div id="div_erros_login">
+                    <span class="tipo_campo">Senha:</span>
+                    <input id="senha_input" type="password" placeholder="******">
+
+                    <span class="tipo_campo">Confirmação da Senha:</span>
+                    <input id="confirmacao_senha_input" type="password" placeholder="******">
+
+                    <button class="btn" onclick="cadastrar()">Cadastrar</button>
+
                 </div>
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                </div>
+
+                <div id="div_erros_login">
+
+                </div>
+            </div>
+        </div>
     </div>
+
 
 </body>
 
 </html>
 
-<Script>
-
-    function limparFormulario() {
-        document.getElementById("form_cadastro").reset();
-    }
-
+<script>
     function cadastrar() {
         aguardar();
 
-        var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var cepVar = cep_input.value;
+        var cnpjVar = cnpj_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
-        var nome = formulario.get("nome_empresa");
-        var email = formulario.get("email");
-        var cep = formulario.get("cep");
-        var CNPJ = formulario.get("cnpj");
-        var senha = formulario.get("senha");
-        var confirmacaoSenha = formulario.get("confirmacao-senha");
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
 
-        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-        if (nome == "" || email == "" || senha == "" || confirmacaoSenha == "" || CNPJ == "" || cep == "") {
-
-            window.alert("Preencha todos os campos para prosseguir!");
-
-            if (nome == "") {
-                console.log('nome está em branco')
-            }
-            if (email == "") {
-                console.log('email está em branco')
-            }
-            if (senha == "") {
-                console.log('senha está em branco')
-            }
-            if (confirmacaoSenha == "") {
-                console.log('confirmacaoSenha está em branco')
-            }
-            if (CNPJ == "") {
-                console.log('CNPJ está em branco')
-            }
-            if (cep == "") {
-                console.log('Cep está em branco')
-            }
             finalizarAguardar();
             return false;
         }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
 
-        if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
-            window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
             finalizarAguardar();
             return false;
         }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
 
-        if (senha != confirmacaoSenha) {
-            window.alert("As senhas inseridas devem ser iguais para prosseguir!");
+        if (senhaVar != confirmacaoSenhaVar) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "As senhas inseridas devem ser iguais para prosseguir!";
             finalizarAguardar();
             return false;
         }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
 
-        fetch("/usuario/cadastrar", {
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
             method: "POST",
-            body: formulario
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                cepServer: cepVar,
+                cnpjServer: cnpjVar,
+                senhaServer: senhaVar
+            })
         }).then(function (resposta) {
 
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                window.alert("Cadastro realizado com sucesso!");
-                window.location = "./tela-login.html";
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
+                window.location = "tela-login.html";
                 limparFormulario();
                 finalizarAguardar();
             } else {
@@ -166,4 +170,8 @@
         return false;
     }
 
-</Script>
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
