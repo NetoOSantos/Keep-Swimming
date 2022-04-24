@@ -1,3 +1,34 @@
-C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\SwingH2Funcionando\src\main\java\com\mycompany\swing\Funcionario.java
-C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\SwingH2Funcionando\src\main\java\com\mycompany\swing\KeepSwimming.java
-C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\SwingH2Funcionando\src\main\java\com\mycompany\swing\Connection.java
+<<<<<<< HEAD
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/Connection.java
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/timer.java
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/RegistraBot.java
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/LoocaSistema.java
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/LoocaProcessos.java
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/KeepSwimming_TelegramBot.java
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/EnviaToken.java
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/TelaUsuarioLogado.java
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/GetHardware.java
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/GetProcessos.java
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/DadosBot.java
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/KeepSwimming.java
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/Looca.java
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/LoocaHardware.java
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/TelaPrincipal.java
+/home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/Funcionario.java
+=======
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\Funcionario.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\KeepSwimming_TelegramBot.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\Looca.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\KeepSwimming.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\TelaUsuarioLogado.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\LoocaHardware.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\RegistraBot.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\Connection.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\GetProcessos.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\timer.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\GetHardware.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\LoocaSistema.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\DadosBot.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\TelaPrincipal.java
+C:\Users\USER\Downloads\atividades bandtec\2 Semestre\Sprint\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\LoocaProcessos.java
+>>>>>>> 2c94f850f63f2838c3256f378c3674013989b4fd
