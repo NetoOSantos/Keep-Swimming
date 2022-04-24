@@ -56,7 +56,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         
          String inserirDadosMaquina = "Insert into Maquina VALUES "
-                + "(null,2,?,?,?,?);";
+                + "(2,?,?,?,?);";
 
         con.update(inserirDadosMaquina, sO, fabricante, arquitetura, permissao);
         
@@ -101,9 +101,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
            Long memVirtualUtilizada = processos.get(i).getMemoriaVirtualUtilizada();        
            Integer totalProcessos = looca.getGrupoDeProcessos().getTotalProcessos();
            Integer threads = looca.getGrupoDeProcessos().getTotalThreads();
-           
-           String inserirDadosProcessos = "Insert into Processos VALUES "
-                + "(null,1,?,?,?,?,?,?,?,?);";
+           //para Mysql local
+           //String inserirDadosProcessos = "Insert into Processos VALUES "
+              //  + "(null,1,?,?,?,?,?,?,?,?);";
+             
+              //Para azure
+               String inserirDadosProcessos = "Insert into Processos VALUES "
+                + "(1,?,?,?,?,?,?,?,?);";
            
            con.update(inserirDadosProcessos, PID,Nome,UsoCpu,usoMemoria,
                    bytesUtilizados,memVirtualUtilizada, totalProcessos, threads);
@@ -136,9 +140,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
          Integer qtdDiscos = disco.getQuantidadeDeDiscos();
          Long memoriaTotal = memoria.getTotal();
          String processadorNome = processador.getNome();
-         
-          String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
-                    + "(null,1,?,?,?);";
+         //Para Mysql local
+          //String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
+                   // + "(null,1,?,?,?);";
+                   
+         //Para AZURE
+           String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
+                    + "(1,?,?,?);";
           
            con.update(inserirDadosHardware,
                             qtdDiscos, 
@@ -162,9 +170,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
           timer.scheduleAtFixedRate(new TimerTask() {
              @Override
              public void run() {
-                    
-           String inserirHistorico = "Insert into Historico VALUES "
-                + "(null,1,?,?,?,?,?,?,?);";
+           //MySQL local         
+           //String inserirHistorico = "Insert into Historico VALUES "
+               // + "(null,1,?,?,?,?,?,?,?);";
+           
+           //AZURE
+             String inserirHistorico = "Insert into Historico VALUES "
+                + "(1,?,?,?,?,?,?,?);";
            
            con.update(inserirHistorico,data,tempoInicializado,tempoDeAtividade,
                    temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);
