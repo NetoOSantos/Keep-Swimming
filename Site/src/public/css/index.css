@@ -6,30 +6,25 @@
     box-sizing: border-box;
     font-family: 'Roboto' ;
 }
+
 body {
     background-image: url(../assets/imgs/fundo.png);
     background-size: cover;
     
     
     min-height: 100vh;
-
-
-    
-
 }
+
 .logo{
     align-items: center;
     justify-content: space-between;
 }
-
-
 
 .scrolled{
     height: 1500px;
     background:#1F1D36;
     transition: 0.3s ease-in-out;
     width: 100%;
-
 }
 
 .header-content{
@@ -39,7 +34,6 @@ body {
     width: 100vw;
     height: 100%;
     padding: 0 5%;
-
 }
 
 .header{
@@ -51,6 +45,7 @@ body {
     top: 0;
     background-image: url(../assets/imgs/fundo.png);
 }
+
 .container {
 
     display: flex;
@@ -63,7 +58,6 @@ body {
     background-image: url(../assets/imgs/OndaRoxa.png);
     background-size: cover;
 
-    
 }
 
 .logoEmpresa { 
@@ -71,21 +65,15 @@ body {
     align-items: center;
     justify-content: center;
 
-
-    
 }
 .logoNavbar {
     width: 100%;
 
-   
-
 }
-
 
  .nomeEmpresa {
     width: 60%;
     height: 50%;
- 
 }
 
 .nomeEmpresa div{
@@ -94,8 +82,6 @@ body {
 
     color: whitesmoke;
     font-size: min(25px);
-
-
 }
 
 .navbar {
@@ -109,12 +95,13 @@ body {
     width: 100%;
     margin: 0px 30px 0px;;
 
-
 }
+
 .navbar li {
     color: whitesmoke;
     margin: 10px;
 }
+
 .navbar li a{
     color: whitesmoke;
     text-decoration: none;
@@ -132,8 +119,6 @@ body {
     text-align: center;
     padding-top: 30%;
 }
-
-
 
 /* testes */
 
@@ -154,9 +139,11 @@ a span{
     z-index: 1;
     transition: 1s;
 } 
+
 a:hover span{
     color: #fff;
 }
+
 a .wave{
     position: absolute;
     top: calc(100% + 22px);
@@ -167,9 +154,11 @@ a .wave{
     transition: 1s;
     text-decoration: none;
 }
+
 a:hover .wave{
     top: 0;
 }
+
 a .wave::before {
     content: "";
     position: absolute;
@@ -190,7 +179,6 @@ a .wave::before {
     }
 }
 
-
 .cadastrar { 
 
     text-align: center;
@@ -204,6 +192,7 @@ a .wave::before {
     
     
 }
+
 .cadastrar a {
     color: whitesmoke;
     text-decoration: none;
@@ -248,13 +237,13 @@ a .wave::before {
 
     height: 100%;
 
-   
 }
 
  .TituloTelaInicial {
     color: whitesmoke;
     font-size: min(2.3vw);
 }
+
  .texto{
     width: 70%;
 
@@ -275,12 +264,14 @@ a .wave::before {
 
 
 }
+
 .ondaAzulParaBaixo{
     background-image: url(../assets/imgs/ondaAzulParaBaixo.png);
     background-size: cover;
     width: 100%;
     height: 20vh;
 }
+
 .caracteristicasEmpresa{
     display: flex;
     flex-direction: column;
@@ -290,6 +281,7 @@ a .wave::before {
 
 
 }
+
 .caracteristicas{
     display: flex;
     flex-direction: row;
@@ -300,6 +292,7 @@ a .wave::before {
     height: 100vh;
 
 }
+
 .missao {
     display: flex;
     flex-direction: column;
@@ -313,21 +306,20 @@ a .wave::before {
 
 }
 
-
 .missao img{
     width: 50%;
 
 }
+
 .tituloMissao{
     color: whitesmoke;
     font-size: max(25px,15px);
 }
+
 .textoMissao {
     color: whitesmoke;
     font-size: min(20px,12px);
 }
-
-
 
 .visao{
     display: flex;
@@ -341,19 +333,21 @@ a .wave::before {
     height: 100%;
 
 }
+
 .visao img{
     width: 50%;
 
 }
+
 .tituloVisao{
     color: whitesmoke;
     font-size: max(25px,15px);
 }
+
 .textoVisao {
     color: whitesmoke;
     font-size: min(20px,12px);
 }
-
 
 .valores{
     display: flex;
@@ -367,19 +361,21 @@ a .wave::before {
     height: 100%;
 
 }
+
 .valores img{
     width: 50%;
 
 }
+
 .tituloValores{
     color: whitesmoke;
     font-size:max(25px,15px);
 }
+
 .textoValores {
     color: whitesmoke;
     font-size: min(20px,12px);
 }
-
 
 .ondaRoxaValores {
     width: 100%;
@@ -388,7 +384,6 @@ a .wave::before {
     background-image: url(../assets/imgs/ondaRoxaParaCima\ 2.png);
     background-size: cover;
 
-    
 }
 
 .ondaRoxaValoresBaixo{
@@ -428,6 +423,7 @@ a .wave::before {
 
     
 }
+
 .ondaRoxaFooterBaixo{
     width: 100%;
     height: 20vh;
@@ -450,9 +446,11 @@ a .wave::before {
     width: 25vw;
     margin: 30px;
 }
+
 .containerCards .card .box img{
     width: 100%;
 }
+
 .containerCards .card .box{
     background: #ebf5fc;
     border-radius: 15px;
@@ -466,13 +464,10 @@ a .wave::before {
     background: linear-gradient(#4f29cd,#1F1D36);
 }
 
-
-
 .containerCards .card .box .conteudo{
     padding: 7%;
     text-align: center;
 }
-
 
 .containerCards .card .box .conteudo h3{
 
@@ -488,6 +483,7 @@ a .wave::before {
 .containerCards .card:hover .box .conteudo h3{
     color: #fff;
 }
+
 .containerCards .card:hover .box .conteudo p{
     color: #fff;
 
@@ -534,7 +530,6 @@ a .wave::before {
     color: #fff;
 }
 
-
 .contatoarea{
     padding: 30px;
     width: 100%;
@@ -543,6 +538,7 @@ a .wave::before {
     align-items: center;
 
 }
+
 .contatoinfo{
     color:#fff;
     max-width: 100%;
@@ -552,6 +548,7 @@ a .wave::before {
     margin-left: 6%;
 
 }
+
 .contatoinfo i {
     margin-right: 20px;
     font-size: 20px;
@@ -596,17 +593,6 @@ iframe{
 
     
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*CARROSEL*/
