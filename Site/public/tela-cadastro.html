@@ -43,29 +43,26 @@
             <div id="octocat"></div>
         </div>
 
-       
-            
-
+        <form id="form_cadastro" onsubmit="cadastrar()">
         <div class="roles"> 
              <h3>Start Swimming</h3>  
-            <form id="form_cadastro" method="post" onsubmit="cadastrar()">
                 <div class="ladoEsquerdo"> 
-                    <label for="username">Nome Empresa</label>
-                    <input type="text" name="nome_empresa" placeholder="Empresa" id="username">
+                    <label >Nome Empresa</label>
+                    <input type="text" name="nome_empresa" placeholder="Empresa">
 
-                    <label for="email">Email</label>
-                    <input type="email" name="email" placeholder="Email corparativo" id="Email">
+                    <label >Email</label>
+                    <input type="email" name="email" placeholder="Email corparativo">
                     
-                    <label for="password">CEP</label>
+                    <label >CEP</label>
                     <input type="" name="cep" placeholder="Cep">
                     
-                    <label for="password">CNPJ</label>
+                    <label >CNPJ</label>
                     <input type="" name="cnpj" placeholder="CNPJ">
 
-                    <label for="password">Senha</label>
+                    <label >Senha</label>
                     <input type="password" name="senha" placeholder="*******">
 
-                    <label for="password">Confirma Senha</label>
+                    <label >Confirma Senha</label>
                     <input type="password" name="confirmacao-senha" placeholder="*******"> 
 
                     <div class="div_botao">
@@ -81,9 +78,7 @@
             <div id="div_erros_login">
                 </div>
     </div>
-
 </body>
-
 </html>
 
 <Script>
@@ -152,7 +147,7 @@
 
             if (resposta.ok) {
                 window.alert("Cadastro realizado com sucesso!");
-                window.location = "./tela-login.html";
+                window.location = "../tela-login.html";
                 limparFormulario();
                 finalizarAguardar();
             } else {
