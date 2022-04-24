@@ -1,4 +1,3 @@
-
 package com.mycompany.swing;
 
 import com.github.britooo.looca.api.group.processos.Processo;
