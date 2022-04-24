@@ -1,167 +1,29 @@
-*,
-*:before,
-*:after{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;}
+.nav{
 
-body {
-    margin: 0;
-    overflow: hidden;
- 
-    /* background-image: url(../assets/imgs/fundo.png);*/
+    height:8% ;
+    background-color: blueviolet;
+}
+
+.baixo{
+    display: flex;
+    background-color: aqua;
+    height: 92%;
+}
+
+.lateral{
+    width: 200px;
+    height:100% ;
+    background-color: blueviolet;
+}
+.corpo{
+    width: 100%;
+    height:100% ;
     background-image: linear-gradient(0deg, #041338, #041338 );
     background-size: cover;
-    
-    width: 100%;
-    height:100%;
-
 }
-.header{
-    width: 100%;
-    height: 20vh;
-
-
-}
-.container {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    width: 100%;
-    height: 20vh;
-
-    background-image: url(../assets/imgs/ondaAzulParaBaixo.png);
-    background-size: cover;
-
-    
-}
-.logoEmpresa { 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 30%;
-    height: 80%;
-    
-    margin-right: 5%;
-
-    
-}
-.logoNavbar {
-    width: 30%;
-    height: 100%;
-
-   
-
-}
-.logoNavbar img{
-    width: 100%;
-    height: 100%;
-
-}
-
- .nomeEmpresa {
-    width: 60%;
-    height: 50%;
  
-}
 
-.nomeEmpresa div{
-    width: 100%;
-    height: 100%;
-
-    color: whitesmoke;
-    font-size: 5vh;
-
-
-}
-
-.navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-
-    list-style: none;
-
-    width: 50%;
-    height: 50%;
-
-    margin-left: 13vw;
-
-
-}
-.navbar li {
-    color: whitesmoke;
-}
-.navbar li a{
-    color: whitesmoke;
-    text-decoration: none;
-    font-size: 3vh;
-}
-
-.cadastrar { 
-
-    text-align: center;
-
-    width: 8vw;
-    padding: 2px;
-
-    background-color: blueviolet;
-    border-radius: 5px;
-
-    
-    
-}
-.cadastrar a {
-    color: whitesmoke;
-    text-decoration: none;
-
-    font-size: 3vh;
-}
-
-.telaInicial{
-    display: flex;
-    flex-direction: column;
-
-    width: 100%;
-    height: 120vh;
-
-
-
-}
-
-.ondaAzulTelaInicial{
-    width: 100%;
-    height: 100vh;
-
-
-   background-image: url(../assets/imgs/ondaAzulParaCima.png);
-   background-size: cover;
-}
-
-  
-
-
-   /* #octocat {
-    height: 300px;
-    width: 200px;
-    background: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/f63ec081-4aa0-495f-bf7c-f30e9d6b48a7/d82c8w-e4cd220f-048f-478f-9537-38e90dfa323b.gif) 
-    left center;
-    background-repeat: no-repeat;
-    animation: animateSprite 15s steps(1) infinite, swim 15s ease-in-out infinite;
-    position: absolute;
-    right: -200px;
-    top: 50%;
-    margin-top: -150px;
-    z-index: 100;
-  }  */
-  
-  
-
-  .ocean {
+.ocean {
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -314,7 +176,7 @@ body {
 
 
 form{
-    height: 75%;
+    height: 55%;
     width: 60%; 
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -407,6 +269,7 @@ input{
   width: 90%;
   height: 25%;
   margin-top: 16px;
+  margin-left: 50%;
 }
 
 .efeito {
