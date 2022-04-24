@@ -28,6 +28,22 @@ public class LoocaProcessos {
 
     public LoocaProcessos() {
     }
+
+    public Double getUsoCPU() {
+        return usoCPU;
+    }
+
+    public void setUsoCPU(Double usoCPU) {
+        this.usoCPU = usoCPU;
+    }
+
+    public Long getBytesUtilizados() {
+        return bytesUtilizados;
+    }
+
+    public void setBytesUtilizados(Long bytesUtilizados) {
+        this.bytesUtilizados = bytesUtilizados;
+    }
     
     public String getNome()        
     {
@@ -37,14 +53,6 @@ public class LoocaProcessos {
     public void setNome(String Nome)
     {
         this.Nome = Nome;
-    }
-
-    public Double getUsoCPU() {
-        return usoCPU;
-    }
-
-    public void setUsoCPU(Double usoCPU) {
-        this.usoCPU = usoCPU;
     }
     
     public Long getUsoMemoria()
@@ -58,19 +66,11 @@ public class LoocaProcessos {
         this.usoMemoria = usoMemoria;
     }
 
-    public Long getBytesUtilizados() {
-        return bytesUtilizados;
-    }
-
-    public void setBytesUtilizados(Long bytesUtilizados) {
-        this.bytesUtilizados = bytesUtilizados;
-    }
-
     public Long getMemVirtualUtilizada() {
         return memVirtualUtilizada;
     }
 
-    public void setMemVirtual(Long memVirtual) {
+    public void setMemVirtualUtilizada(Long memVirtual) {
         this.memVirtualUtilizada = memVirtual;
     }
 
