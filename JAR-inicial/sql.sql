@@ -4,7 +4,7 @@ use keepSwimming;
 
 create table empresa(
 			idEmpresa int primary key auto_increment,
-			cnpj char(14),
+			cnpj char(18),
 			nome varchar(50),
 			email varchar (45),
 			cep char(9),
@@ -26,7 +26,8 @@ CREATE TABLE FUNCIONARIO (
          foreign key (fkEmpresa) references empresa(idEmpresa)
          );
 
-INSERT INTO FUNCIONARIO VALUES (null, null, 1, 'Gerson', 'Gerson@hotmail.com', '123', 'Gestor');
+INSERT INTO FUNCIONARIO VALUES (null, null, 100, 'Gerson', 'Gerson@hotmail.com', '123', 'Gestor');
+INSERT INTO FUNCIONARIO VALUES (null, 1, 100, "Bruno", "bruno@hotmail.com", '123', 'Desenvolvedor');
 
 CREATE TABLE Maquina (
                 idMaquina INT PRIMARY KEY AUTO_INCREMENT,
