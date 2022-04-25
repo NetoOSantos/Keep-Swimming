@@ -20,34 +20,53 @@
 </head>
 
 <body>
+    
+    <div class="header">
+        <img src="./logo ppt2.png" alt="" height="60px">
+    </div>
 
-    <div class="header"></div>
-    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-    <label for="openSidebarMenu" class="sidebarIconToggle">
-        <div class="spinner diagonal part-1"></div>
-        <div class="spinner horizontal"></div>
-        <div class="spinner diagonal part-2"></div>
-    </label>
+    <div class="corpoDebaixo">
+
+    
     <div id="sidebarMenu">
         <ul class="sidebarMenuInner">
-            <li>Keep <span>Swimming</span></li>
-            <li><b style="color:rgb(136, 136, 136)">Dashboard</b></li>
-            <li><a href="graficos.html">Monitoramento</a></li>
-            <li><a href="https://newaccount1636652869585.freshdesk.com/a/tickets/new">Suporte</a></li>
-            <li><a href="index.html">sair</a></li>
+            <li><b style="color:rgb(136, 136, 136)"> <img src="./dash.png" alt="" height="25px"> Dashboard</b></li>
+            <li> <a href="graficos.html"><img src="./monitoramento.png" alt="" height="25px">Monitoramento</a></li>
+            <li> <a href="https://app.pipefy.com/public/form/w7YSTr_A">
+                <img src="./suporte.png" alt="" height="25px"> Suporte</a></li>
+            <li><a href="index.html">
+                <div class="sair">
+                    <img src="./logout 1.png" alt=""  height="25px">
+                </div>
+            </a></li>
         </ul>
     </div>
+   
     <div id='center' class="main center">
+        
+   
+
+        <div class="grafico3">
+            <div class="retangulo">
+                <div class="graph1">
+                    <canvas id="myChartLine"></canvas>
+                </div>
+            </div>
+            <div class="retangulo2">
+            </div>    
+        </div>
+        
         <div class="centralizar">
-            <!-- Gráfico de Linhas -->
+            
+            <!-- Gráfico de Linhas -->;
             <div class="graph1">
                 <canvas id="chartLine"></canvas>
             </div>
 
-            <!-- Gráfico de Barras -->
+            <!-- Gráfico de Barras 
             <div class="graph1">
                 <canvas id="myChart"></canvas>
-            </div>
+            </div>-->
 
             <!-- Grafico Pizza/Torta -->
             <div class="graph1">
@@ -55,7 +74,8 @@
             </div>
         </div>
     </div>
-    <div class="centralizar">
+</div>
+        <!--<div class="centralizar">
         <main class="cards1">
             <section class="card1 contact">
                 <div class="icon">
@@ -91,7 +111,7 @@
         <canvas id="canvas_grafico"></canvas>
     </div>
     </div>
-    </div>
+    </div> -->
 
 
 
@@ -129,7 +149,7 @@
                             label: 'Tempo de permanência por vaga',
                             data: totalHoras,
                             backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(95, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
                                 'rgba(255, 206, 86, 0.2)',
                                 'rgba(75, 192, 192, 0.2)',
@@ -159,42 +179,69 @@
         }
 
 
-
+        
         const ctx = document.getElementById('myChart2').getContext('2d');
+        const graidient = ctx.createLinearGradient(0,0,0,250);
+
+        graidient.addColorStop(0,'rgba(167, 121, 232, 1)');
+        graidient.addColorStop(1,'rgba(79, 92, 196, 1)');
+        
         const myChart = new Chart(ctx, {
             type: 'line',
             data: {
+                color: 'black',
                 labels: ['Domingo', 'Segunda', 'Terca', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
                 datasets: [{
-                    label: 'Tempo de permanência por vaga',
+                    label:'Tempo de permanência por vaga',
                     data: [9, 13, 11, 12, 15, 17, 21, 19],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient
                     ],
                     borderWidth: 1
                 }]
             },
             options: {
+                plugins: {  // 'legend' now within object 'plugins {}'
+      legend: {
+        labels: {
+          color: "white",  // not 'fontColor:' anymore
+          // fontSize: 18  // not 'fontSize:' anymore
+          font: {
+            size: 14 // 'size' now within object 'font {}'
+          }
+        }
+      }
+    },
                 scales: {
                     y: {
+                        ticks:{
+                        color: 'white'
+                        },
                         beginAtZero: true
-                    }
+                    },
+                    x:{
+                        ticks: {
+                            color: 'white'
+                        }
+                    },
                 }
             }
         });
+
+        
 
        /* var ctxLine = document.getElementById("chartLine").getContext("2d");
         var rotulosLine = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
@@ -245,41 +292,143 @@
 
 
 
+
+
+
 const ctx3 = document.getElementById('chartLine').getContext('2d');
+const gradientBG = ctx3.createLinearGradient(0,0,0,250);
+
+
+
+gradientBG.addColorStop(0,'rgba(167, 121, 232, 1)');
+gradientBG.addColorStop(1,'rgba(79, 92, 196, 1)');
+
+
+
+
         const myChart3 = new Chart(ctx3, {
             type: 'bar',
             data: {
                 labels:['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                datasets: [{
+                datasets: [ {
                     label: 'Receita mensal',
                     data: [7040.00, 8222.00, 1100.00, 6724.00, 7788.00, 8880.00, 10937.00, 12954.00, 9998.00, 9045.00, 11100.00, 18000.00],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        gradientBG,
+                        gradientBG,
+                        gradientBG,
+                        gradientBG,
+                        gradientBG,
+                        gradientBG
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
+                    gradientBG,
+                    gradientBG,
+                    gradientBG,
+                    gradientBG,
+                    gradientBG,
+                    gradientBG
                     ],
                     borderWidth: 1
                 }]
             },
             options: {
+                plugins: {  // 'legend' now within object 'plugins {}'
+      legend: {
+        labels: {
+          color: "white",  // not 'fontColor:' anymore
+          // fontSize: 18  // not 'fontSize:' anymore
+          font: {
+            size: 14 // 'size' now within object 'font {}'
+          }
+        }
+      }
+    },
                 scales: {
                     y: {
+                        ticks:{
+                            color: 'white'
+                        },
                         beginAtZero: true
-                    }
+                    },
+                    x: {
+                        ticks: {
+                            color: 'white'
+                           
+                        }
+                    },
+                    
+                    
                 }
             }
         });
+
+        const ctx4 = document.getElementById('myChartLine').getContext('2d');
+        const graidientBack = ctx4.createLinearGradient(0,0,0,250);
+
+        graidientBack.addColorStop(0,'rgba(167, 121, 232, 1)');
+        graidientBack.addColorStop(1,'rgba(79, 92, 196, 1)');
+        
+        const myChart4 = new Chart(ctx4, {
+            type: 'line',
+            data: {
+                color: 'black',
+                labels: ['Domingo', 'Segunda', 'Terca', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
+                datasets: [{
+                    label:'Dia de maior consumo',
+                    data: [9, 13, 11, 12, 15, 17, 21, 19],
+                    backgroundColor: [
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient
+                    ],
+                    borderColor: [
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {  // 'legend' now within object 'plugins {}'
+      legend: {
+        labels: {
+          color: "white",  // not 'fontColor:' anymore
+          // fontSize: 18  // not 'fontSize:' anymore
+          font: {
+            size: 14 // 'size' now within object 'font {}'
+          }
+        }
+      }
+    },
+                scales: {
+                    y: {
+                        ticks:{
+                        color: 'white'
+                        },
+                        beginAtZero: true
+                    },
+                    x:{
+                        ticks: {
+                            color: 'white'
+                        }
+                    },
+                }
+            }
+        });
+
+
+
+
+
 
         setInterval(function () {
             gerar_grafico()
