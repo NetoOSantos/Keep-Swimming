@@ -102,7 +102,7 @@ public class KeepSwimming_TelegramBot extends TelegramLongPollingBot  {
         //chatId 
         String chatId = "-667290625";
         //Message
-        String text = "Olá, Bem vindo a Keep Swimming!.Como podemos te ajudar?!😉";
+        String text = "Olá, Bem vindo a Keep Swimming!.Logamos com sucesso na plataforma!😉";
 
         urlString = String.format(urlString, apiToken, chatId, text);
         System.out.println("\nEnviamos uma mensagem a essa url com sucesso = "+ urlString);

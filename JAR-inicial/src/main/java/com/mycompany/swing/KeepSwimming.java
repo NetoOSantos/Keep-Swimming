@@ -7,6 +7,9 @@ import java.util.List;
 import javax.swing.JPasswordField;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.telegram.telegrambots.meta.TelegramBotsApi;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 
 public class KeepSwimming extends javax.swing.JFrame {
@@ -30,7 +33,6 @@ public class KeepSwimming extends javax.swing.JFrame {
         TextoEmail = new javax.swing.JLabel();
         TextoSenha = new javax.swing.JLabel();
         Resultado = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -85,9 +87,6 @@ public class KeepSwimming extends javax.swing.JFrame {
         Resultado.setForeground(new java.awt.Color(255, 255, 255));
         Resultado.setText("resultado");
 
-        jLabel6.setForeground(new java.awt.Color(102, 255, 255));
-        jLabel6.setText("Esqueci minha senha");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -104,9 +103,6 @@ public class KeepSwimming extends javax.swing.JFrame {
                                 .addComponent(CampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(CampoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(21, 21, 21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(137, 137, 137))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(Resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(84, 84, 84))))
@@ -126,9 +122,7 @@ public class KeepSwimming extends javax.swing.JFrame {
                 .addComponent(Resultado)
                 .addGap(55, 55, 55)
                 .addComponent(btnNavegar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addContainerGap())
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -168,6 +162,15 @@ public class KeepSwimming extends javax.swing.JFrame {
     private void btnNavegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavegarActionPerformed
         //////////////Conexão com o banco//////////////
 
+        try {
+            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
+            telegramBotsApi.registerBot(new KeepSwimming_TelegramBot(true));       
+            KeepSwimming_TelegramBot.sendToTelegram();
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+        
+        
         //Instancia a classe Connection
         //Instancia um objeto Jdbc e pega o retorno getDataSource
         Connection config = new Connection();
@@ -188,8 +191,20 @@ public class KeepSwimming extends javax.swing.JFrame {
             if(func.getEMAIL().equals(EMAIL) && func.getSENHA().equals(SENHA)) {
                 Resultado.setText("LOGADO COM SUCESSO!");
                 
-                new TelaPrincipal().setVisible(true);
+               
+               new EnviaToken().setVisible(true);
                 this.dispose();
+                
+                try {
+            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
+            telegramBotsApi.registerBot(new KeepSwimming_TelegramBot(true));  
+            
+            KeepSwimming_TelegramBot.sendToTelegram();
+                    
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        } 
+                
                
             } else {
 
@@ -248,7 +263,6 @@ public class KeepSwimming extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
