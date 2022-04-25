@@ -20,13 +20,13 @@
 <body>
 
     <div class="logoEmpresa">
-            <a href="./index.html"><img src="../public/assets/icons/setas-traseiras.png" alt="" class="setaVoltar"> </a>
-            <div class="logoNavbar">
-                <a href="./index.html"><img src="./assets/icons/logo-padrao.png" alt=""></a>
-
-            </div>
+        <a href="./index.html"><img src="../public/assets/icons/setas-traseiras.png" alt="" class="setaVoltar"> </a>
+        <div class="logoNavbar">
+            <a href="./index.html"><img src="./assets/icons/logo-padrao.png" alt=""></a>
 
         </div>
+
+    </div>
 
 
 
@@ -74,8 +74,6 @@
 </html>
 
 <script>
-
-
     function entrar() {
         //    aguardar();
 
@@ -108,7 +106,7 @@
                 emailServer: emailVar,
                 senhaServer: senhaVar
             })
-        }).then(function (resposta) {
+        }).then(function(resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
@@ -122,8 +120,8 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
 
-                    setTimeout(function () {
-                        window.location = "Dash-estatica/dashboard.html";
+                    setTimeout(function() {
+                        window.location = "./Dash-estatica/dashboard.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
@@ -137,11 +135,10 @@
                 });
             }
 
-        }).catch(function (erro) {
+        }).catch(function(erro) {
             console.log(erro);
         })
 
         return false;
     }
-
 </script>

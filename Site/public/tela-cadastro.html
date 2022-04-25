@@ -65,18 +65,10 @@
                         <span class="tipo_campo">Senha:</span>
                         <input id="senha_input" type="password" placeholder="******">
                     </div>
-
-                    <div class="div_botao">
-                        <button class="btn efeito" onclick="cadastrar()">Navegar</button>
-                    </div>
                 </div>
 
 
                 <div class="ladoDireito">
-                    <div class="labels">
-                        <span class="tipo_campo">Nome Fantasia</span>
-                        <input type="text" id="nomeFantasia_input" placeholder="Nome fictício">
-                    </div>
 
                     <div class="labels">
                         <span class="tipo_campo">Confirmação de E-mail</span>
@@ -94,11 +86,11 @@
                     </div>
 
                     <div class="div_botao">
-                        <a href="./tela-login.html"><button class="btn efeito redirecionar">Já possui cadastro?</button></a>
+                        <button class="btn efeito" onclick="cadastrar()">Navegar</button>
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
 </body>
 
 </html>
@@ -111,6 +103,7 @@
         // Agora vá para o método fetch logo abaixo
         var nomeVar = nome_input.value;
         var emailVar = email_input.value;
+        var confirmaremailVar = confirmacao_email_input.value;
         var cepVar = cep_input.value;
         var cnpjVar = cnpj_input.value;
         var senhaVar = senha_input.value;
@@ -122,8 +115,7 @@
 
             finalizarAguardar();
             return false;
-        }
-        else {
+        } else {
             setInterval(sumirMensagem, 5000)
         }
 
@@ -132,9 +124,10 @@
             mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
             finalizarAguardar();
             return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
+        } else if (emailVar != confirmaremailVar) {
+            alert("Email invalido")
+        } else {
+            alert("Email invalido")
         }
 
         if (senhaVar != confirmacaoSenhaVar) {
@@ -142,8 +135,7 @@
             mensagem_erro.innerHTML = "As senhas inseridas devem ser iguais para prosseguir!";
             finalizarAguardar();
             return false;
-        }
-        else {
+        } else {
             setInterval(sumirMensagem, 5000)
         }
 
@@ -162,20 +154,20 @@
                 cnpjServer: cnpjVar,
                 senhaServer: senhaVar
             })
-        }).then(function (resposta) {
+        }).then(function(resposta) {
 
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
                 cardErro.style.display = "block"
                 mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
-                window.location = "/tela-login.html";
+                window.location = "tela-login.html";
                 limparFormulario();
                 finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
-        }).catch(function (resposta) {
+        }).catch(function(resposta) {
             console.log(`#ERRO: ${resposta}`);
             finalizarAguardar();
         });
@@ -186,5 +178,4 @@
     function sumirMensagem() {
         cardErro.style.display = "none"
     }
-
 </script>
