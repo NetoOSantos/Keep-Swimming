@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,95 +12,93 @@
     <!-- <link rel="stylesheet" href="../public/css/tela-cadastro.css"> -->
 
 </head>
+
 <body>
-    
-    <div class="nav"></div>
 
+    <div class="header">
+		<img src="./logo ppt2.png" alt="" height="60px">
+	</div>
 
-<div class="baixo" >
+    <div class="corpoDebaixo">
 
-    <div class="lateral"></div>
-    
-    <div class="corpo" >
+        <div class="header"></div>
 
+        <div id="sidebarMenu">
+            <ul class="sidebarMenuInner">
+                <li><b style="color:rgb(136, 136, 136)"> <img src="./dash.png" alt="" height="25px"> Dashboard</b></li>
+                <li> <a href="graficos.html"><img src="./monitoramento.png" alt="" height="25px">Monitoramento</a></li>
+                <li> <a href="https://app.pipefy.com/public/form/w7YSTr_A">
+                        <img src="./suporte.png" alt="" height="25px"> Suporte</a></li>
+                <li><a href="index.html">
+                        <div class="sair">
+                            <img src="./logout 1.png" alt="" height="25px">
+                        </div>
+                    </a></li>
+            </ul>
+        </div>
 
+        <div id='center' class="main center">
 
-
-
-        <!-- <div class="ocean">
-            <div class="bubble bubble--1"></div>
-            <div class="bubble bubble--2"></div>
-            <div class="bubble bubble--3"></div>
-            <div class="bubble bubble--4"></div>
-            <div class="bubble bubble--5"></div>
-            <div class="bubble bubble--6"></div>
-            <div class="bubble bubble--7"></div>
-            <div class="bubble bubble--8"></div>
-            <div class="bubble bubble--9"></div>
-            <div class="bubble bubble--10"></div>
-            <div class="bubble bubble--11"></div>
-            <div class="bubble bubble--12"></div>
-            <div id="octocat"></div>
-        </div> -->
+            <div class="baixo">
 
 
 
+                <form id="form_cadastro">
 
-        <form id="form_cadastro">
+                    <h3>Cadastre seus funcionarios</h3>
 
-            <h3>Cadastre seus funcionarios</h3>
+                    <div class="roles">
 
-            <div class="roles">
+                        <div class="ladoEsquerdo">
+                            <label for="username">Nome Funcionario</label>
+                            <input type="text" name="nome_empresa" placeholder="Empresa" id="username">
 
-                <div class="ladoEsquerdo">
-                    <label for="username">Nome Funcionario</label>
-                    <input type="text" name="nome_empresa" placeholder="Empresa" id="username">
+                            <label for="email">Email Funcionarios</label>
+                            <input type="email" name="email" placeholder="Email corparativo" id="Email">
 
-                    <label for="email">Email Funcionarios</label>
-                    <input type="email" name="email" placeholder="Email corparativo" id="Email">
+                            <label for="username">Gestor Responsavel</label>
+                            <input type="" name="cep" placeholder="Cep">
 
-                    <label for="username">Gestor Responsavel</label>
-                    <input type="" name="cep" placeholder="Cep">
 
-                   
-                
 
-                    <div class="div_botao">
-                        <button class="btn efeito" type="button">Cadastrar</button>
+
+                            <div class="div_botao">
+                                <button class="btn efeito" type="button">Cadastrar</button>
+                            </div>
+                        </div>
+
+
+
+                        <div class="ladodireito">
+                            <label for="password">CNPJ</label>
+                            <input type="" name="cnpj" placeholder="CNPJ">
+
+                            <label for="password">Senha</label>
+                            <input type="password" name="senha" placeholder="*******" id="password">
+
+
+                            <label for="password">Confirma Senha</label>
+                            <input type="password" name="confirmacao-senha" placeholder="*******" id="password">
+                        </div>
+
+
+
+
+
                     </div>
-                </div>
-
-
-
-                <div class="ladodireito">
-                    <label for="password">CNPJ</label>
-                    <input type="" name="cnpj" placeholder="CNPJ">
-                    
-                    <label for="password">Senha</label>
-                    <input type="password" name="senha" placeholder="*******" id="password">
-
-
-                    <label for="password">Confirma Senha</label>
-                    <input type="password" name="confirmacao-senha" placeholder="*******" id="password">
-                </div>
-
-
-
+                </form>
 
 
             </div>
-        </form>
+
+        </div>
 
 
     </div>
 
-</div>
 
-    
+    </div>
 
+</body>
 
-
-</div>
-
-</body> 
 </html>

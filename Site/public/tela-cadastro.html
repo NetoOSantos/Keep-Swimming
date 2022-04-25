@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>keep Swimming | Cadastro</title>
 
-    <script src="../assets/js/funcoes.js"></script>
-    <link rel="stylesheet" href="../public/css/tela-cadastro.css">
+    <script src="./assets/js/funcoes.js"></script>
+    <link rel="stylesheet" href="./css/tela-cadastro.css">
     <!-- <link rel="stylesheet" href="../css/index.css"> -->
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,22 +19,13 @@
 
 <body>
 
-
     <div class="logoEmpresa">
-
         <div class="logoNavbar">
-            <a href="./index.html"><img src="../public/assets/icons/logo padrao.png" alt=""></a>
-
+            <a href="./index.html"><img src="./assets/icons/logo-padrao.png" alt=""></a>
         </div>
-
-
-
     </div>
 
-
     <div class="telaInicial">
-
-
 
         <div class="ocean">
             <div class="bubble bubble--1"></div>
@@ -51,55 +43,42 @@
             <div id="octocat"></div>
         </div>
 
-        <form id="form_cadastro">
+        <form id="form_cadastro" onsubmit="cadastrar()">
+        <div class="roles"> 
+             <h3>Start Swimming</h3>  
+                <div class="ladoEsquerdo"> 
+                    <label >Nome Empresa</label>
+                    <input type="text" name="nome_empresa" placeholder="Empresa">
 
-            <h3>Start Swimming</h3>
-
-            <div class="roles">
-
-                <div class="ladoEsquerdo">
-                    <label for="username">Nome Funcionario</label>
-                    <input type="text" name="nome_empresa" placeholder="Empresa" id="username">
-
-                    <label for="email">Email Funcionarios</label>
-                    <input type="email" name="email" placeholder="Email corparativo" id="Email">
-
-                    <label for="username">Gestor Responsavel</label>
+                    <label >Email</label>
+                    <input type="email" name="email" placeholder="Email corparativo">
+                    
+                    <label >CEP</label>
                     <input type="" name="cep" placeholder="Cep">
-
-                    <label for="dominio">Dominio da maquina</label>
+                    
+                    <label >CNPJ</label>
                     <input type="" name="cnpj" placeholder="CNPJ">
 
+                    <label >Senha</label>
+                    <input type="password" name="senha" placeholder="*******">
+
+                    <label >Confirma Senha</label>
+                    <input type="password" name="confirmacao-senha" placeholder="*******"> 
+
                     <div class="div_botao">
-                        <button class="btn efeito" type="button">Navegar</button>
+                        <button class="btn efeito">Navegar</button>
                     </div>
-                </div>
-
-
-
-                <div class="ladodireito">
-                    <label for="password">Senha</label>
-                    <input type="password" name="senha" placeholder="*******" id="password">
-
-
-                    <label for="password">Confirma Senha</label>
-                    <input type="password" name="confirmacao-senha" placeholder="*******" id="password">
-                </div>
-
-                
-
-
-
+                </div>      
+            </form>  
+        </div>
+            <div id="div_aguardar" class="loading-div">
+                <img src="./assets/circle-loading.gif" id="loading-gif">
             </div>
-        </form>
+
+            <div id="div_erros_login">
+                </div>
     </div>
-
-
-    
-  
-
 </body>
-
 </html>
 
 <Script>
@@ -168,7 +147,7 @@
 
             if (resposta.ok) {
                 window.alert("Cadastro realizado com sucesso!");
-                window.location = "./tela-login";
+                window.location = "../tela-login.html";
                 limparFormulario();
                 finalizarAguardar();
             } else {

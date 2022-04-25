@@ -16,7 +16,7 @@ function validarSessao() {
         
         // finalizarAguardar();
     } else {
-        window.location = "../login.html";
+        window.location = "../tela-login.html";
     }
 }
    
@@ -28,7 +28,7 @@ function limparSessao() {
 
     setTimeout(() => {
                 // finalizarAguardar();
-        window.location = "../login.html";
+        window.location = "../tela-login.html";
     }, 4000);
 
         // aguardar();

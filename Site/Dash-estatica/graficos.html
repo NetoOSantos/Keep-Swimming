@@ -6,10 +6,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Keep Swimming | Monitoramento</title>
-
+	<link rel="stylesheet" href="nav.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
 	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+	
 	<style>
 		.canvas {
 			-moz-user-select: none;
@@ -17,45 +18,50 @@
 			-ms-user-select: none;
 		}
 	</style>
-	<link rel="stylesheet" href="nav.css">
+	
 </head>
 
 <body>
 
-	<div class="header"></div>
-	<input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
-	<label for="openSidebarMenu" class="sidebarIconToggle">
-		<div class="spinner diagonal part-1"></div>
-		<div class="spinner horizontal"></div>
-		<div class="spinner diagonal part-2"></div>
-	</label>
-	<div id="sidebarMenu">
-		<ul class="sidebarMenuInner">
-			<li>Keep <span>Swimming</span></li>
-			<li><a href="dashboard.html">Dashboard</a></li>
-			<li><b style="color:rgb(136, 136, 136)">Monitoramento</b></li>
-			<li><a href="https://newaccount1636652869585.freshdesk.com/a/tickets/new">Suporte</a></li>
-			<li><a href="index.html">sair</a></li>
-		</ul>
+	<div class="header">
+		<img src="./logo ppt2.png" alt="" height="60px">
 	</div>
+
+	<div class="corpoDecima">
+
+
+		<div id="sidebarMenu">
+			<ul class="sidebarMenuInner">
+				<li><a href="./dashboard.html"><img src="./dash.png" alt="" height="25px"> Dashboard</a> </li>
+				<li> <a href="graficos.html"><img src="./monitoramento.png" alt="" height="25px">Monitoramento</a></li>
+				<li> <a href="https://app.pipefy.com/public/form/w7YSTr_A">
+					<img src="./suporte.png" alt="" height="25px"> Suporte</a></li>
+				<li><a href="index.html">
+					<div class="sair">
+						<img src="./logout 1.png" alt=""  height="25px">
+					</div>
+				</a></li>
+			</ul>
+		</div>
+		
 	<div id='center' class="main">
 		<div class="dash">
 			<div class="regua">
 				<div class="item-regua perigo-frio">
 					<h4>Utilização baixa</h4>
-					<h2>0-10% Ocupação</h2>
+					<h2>0-10% Consumo</h2>
 				</div>
 				<div class="item-regua alerta-frio">
 					<h4>Alerta Critico Baixo</h4>
-					<h2>11-25% Ocupação</h2>
+					<h2>11-25% Consumo</h2>
 				</div>
 				<div class="item-regua ideal">
 					<h4>Ideal</h4>
-					<h2>26-75% Ocupação</h2>
+					<h2>26-75% Consumo</h2>
 				</div>
 				<div class="item-regua alerta-quente">
 					<h4>Alerta Critico Alto</h4>
-					<h2>76-90% Ocupação</h2>
+					<h2>76-90% Consumo</h2>
 				</div>
 				<div class="item-regua perigo-quente">
 					<h4>Alto nível de requisições</h4>
@@ -74,6 +80,8 @@
 				<canvas id="chart_2"></canvas>
 			</div>
 		</div>
+
+	</div>
 
 		<script>
 
