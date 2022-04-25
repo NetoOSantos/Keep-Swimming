@@ -34,11 +34,12 @@
 			<ul class="sidebarMenuInner">
 				<li><a href="./dashboard.html"><img src="./dash.png" alt="" height="25px"> Dashboard</a> </li>
 				<li> <a href="graficos.html"><img src="./monitoramento.png" alt="" height="25px">Monitoramento</a></li>
+				<li> <a href="dash-cadastros.html"><img src="./perfil.png" alt="" height="25px">Cadastrar Desenvolvedor</a></li>
 				<li> <a href="https://app.pipefy.com/public/form/w7YSTr_A">
 					<img src="./suporte.png" alt="" height="25px"> Suporte</a></li>
-				<li><a href="index.html">
+				<li><a href="../index.html">
 					<div class="sair">
-						<img src="./logout 1.png" alt=""  height="25px">
+						<img src="./logout 1.png" alt=""  height="50px">
 					</div>
 				</a></li>
 			</ul>
@@ -93,7 +94,7 @@
 				type: 'line',
 				data: {
 					datasets: [{
-						label: "Presença",
+						label: "Uso",
 						type: 'line',
 						borderColor: ['rgb(0, 139, 212)'],
 						backgroundColor: ['rgb(26, 28, 92)']
@@ -110,7 +111,7 @@
 						yAxes: [{
 							scaleLabel: {
 								display: true,
-								labelString: 'Presença'
+								labelString: 'Uso'
 							},
 							ticks: {
 								beginAtZero: true

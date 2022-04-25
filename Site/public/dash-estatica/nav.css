@@ -206,11 +206,11 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 }
 
 .perigo-frio {
-    background-color: rgb(255, 79, 79);
+    background-color: rgb(16, 161, 16);
 }
 
 .perigo-quente {
-    background-color: rgb(16, 161, 16);
+    background-color: rgb(255, 79, 79);
 }
 
 .alerta-frio {
