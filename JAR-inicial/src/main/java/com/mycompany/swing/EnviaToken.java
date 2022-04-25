@@ -59,9 +59,9 @@ public class EnviaToken extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Esqueci minh senha");
         setBackground(new java.awt.Color(102, 0, 153));
-        setMaximumSize(new java.awt.Dimension(383, 407));
-        setMinimumSize(new java.awt.Dimension(383, 407));
-        setPreferredSize(new java.awt.Dimension(385, 407));
+        setMaximumSize(new java.awt.Dimension(383, 450));
+        setMinimumSize(new java.awt.Dimension(383, 450));
+        setPreferredSize(new java.awt.Dimension(385, 450));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -84,7 +84,7 @@ public class EnviaToken extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConfereToken);
-        btnConfereToken.setBounds(140, 250, 83, 24);
+        btnConfereToken.setBounds(140, 250, 83, 22);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,6 +134,7 @@ public class EnviaToken extends javax.swing.JFrame {
         else if(usarioDigitou.equalsIgnoreCase(guardaCodig)){
 //            new TelaUsuarioLogado().setVisible(true);
              new TelaPrincipal().setVisible(true);
+             this.dispose();
         }
         
     }//GEN-LAST:event_btnConfereTokenActionPerformed

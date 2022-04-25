@@ -162,13 +162,7 @@ public class KeepSwimming extends javax.swing.JFrame {
     private void btnNavegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavegarActionPerformed
         //////////////Conexão com o banco//////////////
 
-        try {
-            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-            telegramBotsApi.registerBot(new KeepSwimming_TelegramBot(true));       
-            KeepSwimming_TelegramBot.sendToTelegram();
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
+     
         
         
         //Instancia a classe Connection
