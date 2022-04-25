@@ -1,175 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,300&display=swap');
-* {
-    margin: 0;
+*,
+*:before,
+*:after {
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 body {
     margin: 0;
     overflow: hidden;
- 
-    /* background-image: url(../assets/imgs/fundo.png);*/
-    background-image: linear-gradient(0deg, #041338, #041338 );
+    background-image: linear-gradient(0deg, #041338, #041338);
     background-size: cover;
-    
     width: 100%;
-    height:100%;
-
+    height: 100%;
 }
-.header{
-    width: 100%;
-    height: 20vh;
 
-
-}
-.container {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    width: 100%;
-    height: 20vh;
-
-    background-image: url(../assets/imgs/ondaAzulParaBaixo.png);
-    background-size: cover;
-
-    
-}
-.logoEmpresa { 
+.logoEmpresa {
     display: flex;
     align-items: center;
-    justify-content: center;
-
-    width: 30%;
+    width: 100%;
     height: 80%;
-    
     margin-right: 5%;
-
-    
-}
-.logoNavbar {
-    width: 30%;
-    height: 100%;
-
-   
-
-}
-.logoNavbar img{
-    width: 100%;
-    height: 100%;
-
+    justify-content: center;
 }
 
- .nomeEmpresa {
-    width: 60%;
-    height: 50%;
- 
-}
-
-.nomeEmpresa div{
-    width: 100%;
-    height: 100%;
-
-    color: whitesmoke;
-    font-size: 5vh;
-
-
-}
-
-.navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-
-    list-style: none;
-
-    width: 50%;
-    height: 50%;
-
-    margin-left: 13vw;
-
-
-}
-.navbar li {
-    color: whitesmoke;
-}
-.navbar li a{
-    color: whitesmoke;
-    text-decoration: none;
-    font-size: 3vh;
-}
-
-.cadastrar { 
-
-    text-align: center;
-
-    width: 8vw;
-    padding: 2px;
-
-    background-color: blueviolet;
-    border-radius: 5px;
-
-    
-    
-}
-.cadastrar a {
-    color: whitesmoke;
-    text-decoration: none;
-
-    font-size: 3vh;
-}
-
-.telaInicial{
-    display: flex;
-    flex-direction: column;
-
-    width: 100%;
-    height: 120vh;
-
-
-
-}
-
-.ondaAzulTelaInicial{
-    width: 100%;
-    height: 100vh;
-
-
-   background-image: url(../assets/imgs/ondaAzulParaCima.png);
-   background-size: cover;
-}
-
-  
-
-
-   /* #octocat {
-    height: 300px;
-    width: 200px;
-    background: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/f63ec081-4aa0-495f-bf7c-f30e9d6b48a7/d82c8w-e4cd220f-048f-478f-9537-38e90dfa323b.gif) 
-    left center;
-    background-repeat: no-repeat;
-    animation: animateSprite 15s steps(1) infinite, swim 15s ease-in-out infinite;
-    position: absolute;
-    right: -200px;
-    top: 50%;
-    margin-top: -150px;
-    z-index: 100;
-  }  */
-  
-  
-
-  .ocean {
+.ocean {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background-image: linear-gradient(0deg, #2958b6, #041338)
-  }
-  
-  .bubble {
+    background-image: linear-gradient(0deg, #2958b6, #041338);
+    display: flex;
+    justify-content: center;
+}
+
+.bubble {
     width: 30px;
     height: 30px;
     border-radius: 100%;
@@ -177,91 +41,90 @@ body {
     background-color: white;
     bottom: -30px;
     opacity: 0.2;
-    animation: bubble 15s ease-in-out infinite,
-      sideWays 4s ease-in-out infinite alternate;
-  }
-  
-  @keyframes bubble {
+    animation: bubble 15s ease-in-out infinite, sideWays 4s ease-in-out infinite alternate;
+}
+
+@keyframes bubble {
     0% {
-      transform: translateY(0%);
-      opacity: 0.06;
+        transform: translateY(0%);
+        opacity: 0.06;
     }
     100% {
-      transform: translateY(-120vh);
+        transform: translateY(-120vh);
     }
-  }
-  
-  @keyframes sideWays {
+}
+
+@keyframes sideWays {
     0% {
-      margin-left: 0px;
+        margin-left: 0px;
     }
     100% {
-      margin-left: 200px;
+        margin-left: 200px;
     }
-  }
-  
-  .bubble--1 {
+}
+
+.bubble--1 {
     left: 10%;
     animation-delay: 0.5s;
     animation-duration: 16s;
     opacity: 0.2;
-  }
-  
-  .bubble--2 {
+}
+
+.bubble--2 {
     width: 15px;
     height: 15px;
     left: 40%;
     animation-delay: 1s;
     animation-duration: 10s;
     opacity: 0.1;
-  }
-  
-  .bubble--3 {
+}
+
+.bubble--3 {
     width: 10px;
     height: 10px;
     left: 30%;
     animation-delay: 5s;
     animation-duration: 20s;
     opacity: 0.3;
-  }
-  
-  .bubble--4 {
+}
+
+.bubble--4 {
     width: 25px;
     height: 25px;
     left: 40%;
     animation-delay: 8s;
     animation-duration: 17s;
     opacity: 0.2;
-  }
-  
-  .bubble--5 {
+}
+
+.bubble--5 {
     width: 30px;
     height: 30px;
     left: 60%;
     animation-delay: 10s;
     animation-duration: 15s;
     opacity: 0.1;
-  }
-  
-  .bubble--6 {
+}
+
+.bubble--6 {
     width: 10px;
     height: 10px;
     left: 80%;
     animation-delay: 3s;
     animation-duration: 30s;
     opacity: 0.4;
-  }
-  
-  .bubble--7 {
+}
+
+.bubble--7 {
     width: 15px;
     height: 15px;
     left: 90%;
     animation-delay: -7s;
     animation-duration: 25s;
     opacity: 0.3;
-  }
-  
-  .bubble--9 {
+}
+
+.bubble--9 {
     width: 20px;
     height: 20px;
     left: 50%;
@@ -269,9 +132,9 @@ body {
     animation-delay: -5s;
     animation-duration: 19s;
     opacity: 0.2;
-  }
-  
-  .bubble--10 {
+}
+
+.bubble--10 {
     width: 40px;
     height: 40px;
     left: 30%;
@@ -279,9 +142,9 @@ body {
     animation-delay: -21s;
     animation-duration: 16s;
     opacity: 0.3;
-  }
-  
-  .bubble--11 {
+}
+
+.bubble--11 {
     width: 30px;
     height: 30px;
     left: 60%;
@@ -289,9 +152,9 @@ body {
     animation-delay: -13.75s;
     animation-duration: 20s;
     opacity: 0.3;
-  }
-  
-  .bubble--11 {
+}
+
+.bubble--11 {
     width: 25px;
     height: 25px;
     left: 90%;
@@ -299,180 +162,110 @@ body {
     animation-delay: -10.5s;
     animation-duration: 19s;
     opacity: 0.3;
-  }
-  
-
-  .telaInicial{
-    display: flex;
-    flex-direction: column;
-
-    width: 100%;
-    height: 120vh;
-
-
-
 }
 
+.div_botao {
+    width: 90%;
+    height: 25%;
+    margin-top: 16px;
+}
 
-form{
+.formulario {
     height: 75%;
-    width: 60%; 
-    background-color: rgba(255,255,255,0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 54%;
-    left: 50%;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.13);
     border-radius: 10px;
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    /* box-shadow: 0 0 40px rgba(8,7,16,0.6); */
+    border: 2px solid rgba(255, 255, 255, 0.1);
     padding: 50px 35px;
-    justify-content: center;
-    align-items: center;
-    
-    
 }
-form *{
-    font-family: 'Poppins',sans-serif;
+
+.formulario * {
+    font-family: 'Poppins', sans-serif;
     color: #34aedf;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
 }
-.roles{
-  flex-wrap: wrap; 
-   display: flex;
-  width: 100%;
-  height: 80%;
-}
 
-.campos{
-  flex-wrap: wrap;  
-  /* display: flex;  */
-  height: 5%;
-  width: 100%;
-}
-
-form h3{
+.formulario h2 {
     font-size: 32px;
     font-weight: 500;
     line-height: 42px;
     text-align: center;
 }
 
-label{
-  flex-wrap: wrap;
-    display: block;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: 500;
-}
-input{
+input {
     display: block;
     height: 50px;
-    width: 90%;
-    background-color: rgba(255,255,255,0.07);
+    width: 73%;
+    background-color: rgba(255, 255, 255, 0.07);
     border-radius: 3px;
     padding: 0 10px;
     margin-top: 8px;
     font-size: 14px;
     font-weight: 300;
 }
-::placeholder{
+
+::placeholder {
     color: #ffffff;
 }
 
-/* .btn_navegar{
-    margin-top: 50px;
-    width: 50%;
-    height: 10%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
-}
-
-.btn_navegar:hover{
-
-  background-color: #34aedf;
-
-} */
-
-
 .div_botao {
-  width: 90%;
-  height: 25%;
-  margin-top: 16px;
+    width: 64%;
+    height: 25%;
+    margin-top: 16px;
+    margin-left: 3%;
 }
 
 .efeito {
-  border: none;
-  color: #ffffff;
-  padding: 20px;
-  margin: 10px;
-  font-size: 24px;
-  line-height: 24px;
-  border-radius: 10px;
-  position: relative;
-  box-sizing: border-box;
-  cursor: pointer;
-  transition: all 400ms ease;
-  background-color: #34aedf;
-  width: 98%;
+    border: none;
+    color: #ffffff;
+    padding: 20px;
+    margin: 10px;
+    font-size: 24px;
+    line-height: 24px;
+    border-radius: 10px;
+    position: relative;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all 400ms ease;
+    background-color: #34aedf;
+    width: 98%;
 }
 
 .efeito:before {
-  content: '';
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 0px;
-  height: 64px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-  transition: all 2s ease;
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    transition: all 2s ease;
 }
 
 .efeito:hover:before {
-  width: 100%;
-
+    width: 100%;
 }
 
-.social{
-  margin-top: 30px;
-  display: flex;
+.campos {
+    display: flex;
+    height: 100%;
 }
-.social div{
-  background: red;
-  width: 50%;
-  border-radius: 3px;
-  padding: 5px 10px 10px 5px;
-  background-color: rgba(255,255,255,0.27);
-  color: #eaf0fb;
-  text-align: center;
-}
-.social div:hover{
-  background-color: rgba(255,255,255,0.47);
-}
-.social .fb{
-  margin-left: 25px;
-}
-.social i{
-  margin-right: 4px;
-}
-
 
 .ladoEsquerdo {
-  width: 49%;
-  height: 122%;
+    width: 49%;
+    height: 100%;
 }
 
-.ladodireito {
-  width: 49%;
-  margin-left: 2%;
+.ladoDireito {
+    width: 49%;
+    height: 100%;
+    margin-left: 2%;
+}
+
+.labels {
+    margin-top: 8px;
 }
