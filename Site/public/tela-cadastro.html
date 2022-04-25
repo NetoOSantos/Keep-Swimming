@@ -25,74 +25,87 @@
         </div>
     </div>
 
-    <div class="telaInicial">
 
-        <div class="ocean">
-            <div class="bubble bubble--1"></div>
-            <div class="bubble bubble--2"></div>
-            <div class="bubble bubble--3"></div>
-            <div class="bubble bubble--4"></div>
-            <div class="bubble bubble--5"></div>
-            <div class="bubble bubble--6"></div>
-            <div class="bubble bubble--7"></div>
-            <div class="bubble bubble--8"></div>
-            <div class="bubble bubble--9"></div>
-            <div class="bubble bubble--10"></div>
-            <div class="bubble bubble--11"></div>
-            <div class="bubble bubble--12"></div>
-            <div id="octocat"></div>
-        </div>
+    <div class="ocean">
+        <div class="bubble bubble--1"></div>
+        <div class="bubble bubble--2"></div>
+        <div class="bubble bubble--3"></div>
+        <div class="bubble bubble--4"></div>
+        <div class="bubble bubble--5"></div>
+        <div class="bubble bubble--6"></div>
+        <div class="bubble bubble--7"></div>
+        <div class="bubble bubble--8"></div>
+        <div class="bubble bubble--9"></div>
+        <div class="bubble bubble--10"></div>
+        <div class="bubble bubble--11"></div>
+        <div class="bubble bubble--12"></div>
+        <div id="octocat"></div>
 
-        <div class="container tamanho-conteudo">
-            <div class="card medio">
-                <h2>Bem-vindo!</h2>
-                <div class="formulario">
+        <div class="formulario">
+            <h2>Bem-vindo!</h2>
+            <div class="campos">
+                <div class="ladoEsquerdo">
 
-                    <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
+                    <div class="labels">
+                        <span class="tipo_campo">Razão Social:</span>
+                        <input id="nome_input" type="text" placeholder="Nome da empresa">
+                    </div>
 
-                    <span class="tipo_campo">Nome Empresa:</span>
-                    <input id="nome_input" type="text" placeholder="Seu nome">
+                    <div class="labels">
+                        <span class="tipo_campo">E-mail:</span>
+                        <input id="email_input" type="text" placeholder="meuemail@provedor.com">
+                    </div>
 
-                    <span class="tipo_campo">E-mail:</span>
-                    <input id="email_input" type="text" placeholder="meuemail@provedor.com">
+                    <div class="labels">
+                        <span class="tipo_campo">CEP</span>
+                        <input id="cep_input" type="text" placeholder="CEP">
+                    </div>
 
-                    <span class="tipo_campo">CEP</span>
-                    <input id="cep_input" type="text" placeholder="CEP">
+                    <div class="labels">
+                        <span class="tipo_campo">Senha:</span>
+                        <input id="senha_input" type="password" placeholder="******">
+                    </div>
 
-                    <span class="tipo_campo">CNPJ</span>
-                    <input id="cnpj_input" type="text" placeholder="CNPJ"> 
-
-                    <span class="tipo_campo">Senha:</span>
-                    <input id="senha_input" type="password" placeholder="******">
-
-                    <span class="tipo_campo">Confirmação da Senha:</span>
-                    <input id="confirmacao_senha_input" type="password" placeholder="******">
-
-                    <button class="btn" onclick="cadastrar()">Cadastrar</button>
-
-                </div>
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                    <div class="div_botao">
+                        <button class="btn efeito" onclick="cadastrar()">Navegar</button>
+                    </div>
                 </div>
 
-                <div id="div_erros_login">
 
+                <div class="ladoDireito">
+                    <div class="labels">
+                        <span class="tipo_campo">Nome Fantasia</span>
+                        <input type="text" id="nomeFantasia_input" placeholder="Nome fictício">
+                    </div>
+
+                    <div class="labels">
+                        <span class="tipo_campo">Confirmação de E-mail</span>
+                        <input type="text" id="confirmacao_email_input" placeholder="Confirme E-mail">
+                    </div>
+
+                    <div class="labels">
+                        <span class="tipo_campo">CNPJ</span>
+                        <input id="cnpj_input" type="text" placeholder="CNPJ">
+                    </div>
+
+                    <div class="labels">
+                        <span class="tipo_campo">Confirmação da Senha:</span>
+                        <input id="confirmacao_senha_input" type="password" placeholder="******">
+                    </div>
+
+                    <div class="div_botao">
+                        <a href="./tela-login.html"><button class="btn efeito redirecionar">Já possui cadastro?</button></a>
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
-
-
 </body>
 
 </html>
 
 <script>
     function cadastrar() {
-        aguardar();
+        //        aguardar();
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
@@ -156,7 +169,7 @@
             if (resposta.ok) {
                 cardErro.style.display = "block"
                 mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
-                window.location = "tela-login.html";
+                window.location = "/tela-login.html";
                 limparFormulario();
                 finalizarAguardar();
             } else {
