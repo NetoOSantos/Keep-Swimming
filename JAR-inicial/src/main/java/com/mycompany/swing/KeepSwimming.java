@@ -33,7 +33,6 @@ public class KeepSwimming extends javax.swing.JFrame {
         TextoEmail = new javax.swing.JLabel();
         TextoSenha = new javax.swing.JLabel();
         Resultado = new javax.swing.JLabel();
-        btnEsqueciSenha = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -88,16 +87,6 @@ public class KeepSwimming extends javax.swing.JFrame {
         Resultado.setForeground(new java.awt.Color(255, 255, 255));
         Resultado.setText("resultado");
 
-        btnEsqueciSenha.setBackground(new java.awt.Color(0, 0, 255));
-        btnEsqueciSenha.setText("Esqueci minha senha");
-        btnEsqueciSenha.setBorder(null);
-        btnEsqueciSenha.setBorderPainted(false);
-        btnEsqueciSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEsqueciSenhaActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -116,10 +105,7 @@ public class KeepSwimming extends javax.swing.JFrame {
                         .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(Resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnEsqueciSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(144, 144, 144))))
+                        .addGap(84, 84, 84))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,8 +122,7 @@ public class KeepSwimming extends javax.swing.JFrame {
                 .addComponent(Resultado)
                 .addGap(55, 55, 55)
                 .addComponent(btnNavegar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addComponent(btnEsqueciSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -217,7 +202,8 @@ public class KeepSwimming extends javax.swing.JFrame {
             if(func.getEMAIL().equals(EMAIL) && func.getSENHA().equals(SENHA)) {
                 Resultado.setText("LOGADO COM SUCESSO!");
                 
-                new TelaPrincipal().setVisible(true);
+               
+               new EnviaToken().setVisible(true);
                 this.dispose();
                 
                 try {
@@ -245,10 +231,6 @@ public class KeepSwimming extends javax.swing.JFrame {
     private void CampoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoEmailActionPerformed
 
     }//GEN-LAST:event_CampoEmailActionPerformed
-
-    private void btnEsqueciSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEsqueciSenhaActionPerformed
-        new EnviaToken().setVisible(true);
-    }//GEN-LAST:event_btnEsqueciSenhaActionPerformed
 
    
     public static void main(String args[]) {
@@ -286,7 +268,6 @@ public class KeepSwimming extends javax.swing.JFrame {
     private javax.swing.JLabel Resultado;
     private javax.swing.JLabel TextoEmail;
     private javax.swing.JLabel TextoSenha;
-    private javax.swing.JButton btnEsqueciSenha;
     private javax.swing.JButton btnNavegar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

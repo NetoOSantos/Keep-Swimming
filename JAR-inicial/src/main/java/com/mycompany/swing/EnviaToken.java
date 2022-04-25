@@ -16,6 +16,15 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 public class EnviaToken extends javax.swing.JFrame {
     private String guardaCodig ="";
 
+    public Boolean getPassou() {
+        return passou;
+    }
+
+    public void setPassou(Boolean passou) {
+        this.passou = passou;
+    }
+    private Boolean passou = false;
+
     public String getGuardaCodig() {
         return guardaCodig;
     }
@@ -120,8 +129,8 @@ public class EnviaToken extends javax.swing.JFrame {
             lblRespostaToken.setText("Digite um token valido para continuar!!");
         }
         else if(usarioDigitou.equalsIgnoreCase(guardaCodig)){
-            new TelaUsuarioLogado().setVisible(true);
-            
+//            new TelaUsuarioLogado().setVisible(true);
+             new TelaPrincipal().setVisible(true);
         }
         
     }//GEN-LAST:event_btnConfereTokenActionPerformed
