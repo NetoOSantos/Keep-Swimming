@@ -2,7 +2,7 @@ var mysql = require('mysql2');
 var connection = mysql.createConnection({
     host     : 'localhost', /* NORMALMENTE localhost */
     user     : 'root', /* NORMALMENTE root */
-    password : 'dragao007', /* SENHA DO BANCO DE DADOS */
+    password : 'Thetrooper14#7', /* SENHA DO BANCO DE DADOS */
     database : 'keepSwimming' /* NOME DO BANCO DE DADOS QUE ESTA SENDO USADO */
 });
 
