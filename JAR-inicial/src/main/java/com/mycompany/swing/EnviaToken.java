@@ -59,13 +59,13 @@ public class EnviaToken extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Esqueci minh senha");
         setBackground(new java.awt.Color(102, 0, 153));
-        setMaximumSize(new java.awt.Dimension(382, 407));
-        setMinimumSize(new java.awt.Dimension(382, 407));
-        setPreferredSize(new java.awt.Dimension(383, 407));
+        setMaximumSize(new java.awt.Dimension(383, 407));
+        setMinimumSize(new java.awt.Dimension(383, 407));
+        setPreferredSize(new java.awt.Dimension(385, 407));
         setResizable(false);
         getContentPane().setLayout(null);
 
-        btnReenviaCodigo.setBackground(new java.awt.Color(153, 0, 204));
+        btnReenviaCodigo.setBackground(new java.awt.Color(0, 0, 153));
         btnReenviaCodigo.setText("Reenviar codigo");
         btnReenviaCodigo.setBorder(null);
         btnReenviaCodigo.setBorderPainted(false);
@@ -100,7 +100,10 @@ public class EnviaToken extends javax.swing.JFrame {
         getContentPane().add(formToken);
         formToken.setBounds(30, 180, 320, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/Mask group 1.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/Token-Swingg.png"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(390, 420));
+        jLabel1.setMinimumSize(new java.awt.Dimension(390, 420));
+        jLabel1.setPreferredSize(new java.awt.Dimension(390, 420));
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 390, 410);
 
