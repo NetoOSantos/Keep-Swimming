@@ -1,14 +1,14 @@
 /* pagina mural */
 
 *, body {
-    font-family: 'Exo 2', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .dash-right .avisos {
     width: 100%;
     /* border: 3px solid pink; */
     color: rgb(216, 216, 216);
-    font-family: 'Exo 2', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .dash-right .avisos .container {
@@ -44,7 +44,7 @@
 
 .dash-right .avisos .div-form button {
     cursor: pointer;
-    font-family: 'Exo 2', sans-serif;
+    font-family:  'Poppins', sans-serif;
     border: 0;
     border-radius: 5px;
     font-weight: 600;
@@ -57,7 +57,7 @@
 
 .publicacao-btn-editar {
     cursor: pointer;
-    font-family: 'Exo 2', sans-serif;
+    font-family: 'Poppins', sans-serif;
     border: 0;
     border-radius: 5px;
     font-weight: 600;
@@ -227,7 +227,7 @@
 }
 
 .btn-chart{
-    font-family: 'Exo 2', sans-serif;
+    font-family:  'Poppins', sans-serif;
     border: 0;
     font-weight: 600;
     font-size: 18px;
