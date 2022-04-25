@@ -126,8 +126,6 @@
             return false;
         } else if (emailVar != confirmaremailVar) {
             alert("Email invalido")
-        } else {
-            alert("Email invalido")
         }
 
         if (senhaVar != confirmacaoSenhaVar) {
@@ -159,9 +157,8 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block"
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
-                window.location = "tela-login.html";
+                console.log('bananinha');
+                window.location = "./tela-login.html";
                 limparFormulario();
                 finalizarAguardar();
             } else {
