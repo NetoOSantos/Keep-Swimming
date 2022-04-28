@@ -23,7 +23,7 @@ var mySqlConfig = {
     user: "root",
     Port: '3306',
     database: "keepSwimming",
-    password: "Thetrooper14#7",
+    password: "",
 };
 
 function executar(instrucao) {

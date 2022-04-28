@@ -34,7 +34,7 @@ public class Connection {
        // this.datasource.setPassword("YES");
        
        //senha padrao AZURE
-       this.datasource.setPassword("2ads@grupo8");
+       this.datasource.setPassword("");
     }
     
      public BasicDataSource getDatasource() {
