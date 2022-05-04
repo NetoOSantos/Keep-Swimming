@@ -56,6 +56,9 @@ CREATE TABLE Processos (
 CREATE TABLE  ComponentesHardware (
                 ID INT PRIMARY KEY AUTO_INCREMENT,
 				fkMaquina INT,
+                nomeDisco varchar(45),
+                tamanhoDisco DOUBLE,
+                modeloDisco varchar(45),
                 qtdDiscos int,
                 memoriaTotal Double,
                 processadorNome varchar(50),
