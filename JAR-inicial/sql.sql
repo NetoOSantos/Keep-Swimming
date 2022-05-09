@@ -58,7 +58,7 @@ CREATE TABLE  ComponentesHardware (
 				fkMaquina INT,
                 nomeDisco varchar(45),
                 tamanhoDisco DOUBLE,
-                modeloDisco varchar(45),
+                modeloDisco varchar(100),
                 qtdDiscos int,
                 memoriaTotal Double,
                 processadorNome varchar(50),
@@ -68,7 +68,7 @@ CREATE TABLE  ComponentesHardware (
 CREATE TABLE  Historico (
                 ID INT PRIMARY KEY AUTO_INCREMENT,
                 fkMaquina INT,
-                data Date,
+                data datetime,
                 tempoInicializado varchar(45),
                 tempoDeAtividade varchar(45),
                 temperaturaAtual varchar(45),

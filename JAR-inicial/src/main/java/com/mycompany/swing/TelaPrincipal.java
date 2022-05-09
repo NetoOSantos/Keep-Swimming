@@ -7,7 +7,9 @@ import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.processos.Processo;
 import static java.nio.file.StandardOpenOption.CREATE;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -180,7 +182,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
          
 
 //-------------------------------INSERT HISTORICO------------------------------
-        LocalDateTime data = LocalDateTime.now();
+        Date data = new Date();
+
+       // LocalDateTime data = LocalDateTime.now();
+        
         String tempoInicializado = looca.getSistema().getInicializado().toString();
         String tempoDeAtividade = looca.getSistema().getTempoDeAtividade().toString();
         String temperaturaAtual = looca.getTemperatura().toString();
