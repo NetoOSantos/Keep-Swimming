@@ -98,9 +98,51 @@ function cadastrar(req, res) {
     }
 }
 
+function cadastrarFuncionario(req, res) {
+    var nome = req.body.nomeServer;
+    var email = req.body.emailServer;
+    var gestor = req.body.gestorServer;
+    var cargo = req.body.cargoServer;
+    var senha = req.body.senhaServer;
+    var idEmpresa = req.body.idEmpresa;
+
+
+    console.log("req.body cadastro funcionário");
+    console.log(req.body);
+
+    if (nome == undefined) {
+        res.status(400).send("O nome do funcionário está undefined!");
+    } else if (email == undefined) {
+        res.status(400).send("O email do funcionário está undefined!");
+    } else if (senha == undefined) {
+        res.status(400).send("A senha do funcionário está undefined!");
+    } else if (gestor == undefined) {
+        res.status(400).send("Campo gestor está undefined!");
+    } else if (cargo == undefined) {
+        res.status(400).send("Campo cargo está undefined!");
+    } else {
+        usuarioModel.cadastrarFuncionario(nome, email,senha,gestor, cargo,idEmpresa)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrar,
+    cadastrarFuncionario,
     listar,   
     testar
 }

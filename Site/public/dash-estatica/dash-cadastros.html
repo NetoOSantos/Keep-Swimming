@@ -38,7 +38,7 @@
             </ul>
         </div>
 
-        <div id='center' class="main center">
+        <div id='center' class="main ">
 
             <div class="baixo">
 
@@ -52,42 +52,44 @@
 
                         <div class="ladoEsquerdo">
                             <label for="username">Nome Funcionario</label>
-                            <input type="text" name="nome_empresa" placeholder="Empresa" id="username">
+                            <input type="text" name="nome_Funcionario" placeholder="Nome" id="username">
 
                             <label for="email">Email Funcionarios</label>
-                            <input type="email" name="email" placeholder="Email corparativo" id="Email">
+                            <input type="email" name="email_funcionario" placeholder="Email corparativo" id="email_funcionario">
 
                             <label for="username">Gestor Responsavel</label>
-                            <input type="" name="cep" placeholder="Cep">
+                            <input type="" name="Gestor" placeholder="Nome" id="nome_gestor">
 
 
 
 
                             <div class="div_botao">
-                                <button class="btn efeito" type="button">Cadastrar</button>
+                                <button class="btn efeito" type="button" onclick="cadastrarFuncionario()">Cadastrar</button>
                             </div>
                         </div>
 
 
 
                         <div class="ladodireito">
-                            <label for="password">CNPJ</label>
-                            <input type="" name="cnpj" placeholder="CNPJ">
+                            <label>Cargo</label>
+                            <input type="" name="cargo" placeholder="Desenvolvedor Back-End" id="cargo">
 
                             <label for="password">Senha</label>
-                            <input type="password" name="senha" placeholder="*******" id="password">
+                            <input type="password" name="senha" placeholder="*******" id="senha">
 
 
                             <label for="password">Confirma Senha</label>
-                            <input type="password" name="confirmacao-senha" placeholder="*******" id="password">
+                            <input type="password" name="confirmacao-senha" placeholder="*******" id="confirmacao_senha">
                         </div>
 
-
-
-
+                        <div class="cardErro" id="erro" style="display: none;"></div>
 
                     </div>
                 </form>
+
+                <div class="mural_funcionarios" id="mural">
+
+                </div>
 
 
             </div>
@@ -103,3 +105,120 @@
 </body>
 
 </html>
+
+<script>
+   
+
+    function cadastrarFuncionario()
+     {
+      
+        var idEmpresa = sessionStorage.getItem('ID_USUARIO');
+
+         var nomeVar = username.value;
+         var emailVar = email_funcionario.value;
+         var gestorVar = nome_gestor.value;
+         var cargoVar = cargo.value;
+         var senhaVar = senha.value;
+         var confirmacaoSenhaVar = confirmacao_senha.value;
+ 
+         if (nomeVar == "" || emailVar == "" || gestorVar == "" || cargoVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            erro.style.display = "block"
+            erro.innerHTML = "Preencha todos os campos para prosseguir!";
+
+           // finalizarAguardar();
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
+            erro.style.display = "block"
+            erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
+           // finalizarAguardar();
+            return false;
+        } 
+
+        if (senhaVar != confirmacaoSenhaVar) {
+            erro.style.display = "block"
+            erro.innerHTML = "As senhas inseridas devem ser iguais para prosseguir!";
+            //finalizarAguardar();
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrarFuncionario", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                gestorServer: gestorVar,
+                cargoServer: cargoVar,
+                senhaServer: senhaVar,
+                idEmpresa,
+            })
+        }).then(function(resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log('cadastro realizado com sucesso');
+                limparFormulario();
+               // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function(resposta) {
+            console.log(`#ERRO: ${resposta}`);
+           // finalizarAguardar();
+        });
+
+        return false;
+
+     }
+
+     function sumirMensagem() {
+        erro.style.display = "none"
+    }
+
+    function listar()
+    {
+        fetch("/usuarios/listar",{
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                gestorServer: gestorVar,
+                cargoServer: cargoVar
+            })
+        }).then(function(resposta) {
+            console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    console.log('dados funcionário obtidos com sucesso');
+
+                  /*  window.location = "./tela-login.html";
+                    limparFormulario();
+                    finalizarAguardar();*/
+                } else {
+                    throw ("Houve um erro ao tentar capturar os dados nos funcionários no banco!");
+                }
+                }).catch(function(resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            //    finalizarAguardar();
+                });
+
+                return false;
+    }
+
+</script>

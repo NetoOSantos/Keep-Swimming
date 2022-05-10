@@ -1,3 +1,15 @@
+.main {
+  display: flex;
+  margin: 0 auto;
+  display: block;
+  height: 200vh;
+  margin-top: 60px;
+  background:#17203E ;
+  width: 78%;
+  padding: 2rem
+}
+
+
 .baixo{
   /* background-color: rebeccapurple; */
 }
@@ -165,4 +177,20 @@ input{
 .ladodireito {
   width: 49%;
   margin-left: 2%;
+}
+
+.cardErro
+{
+  font: 2vh;
+  color: #ffffff;
+}
+
+.mural_funcionarios
+{
+  margin-top: 10%;
+  margin-left: 10%;
+
+  width: 85%;
+  height: 50vh;
+  background-color: #ffffff;
 }
