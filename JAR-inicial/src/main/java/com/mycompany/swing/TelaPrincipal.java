@@ -1,12 +1,15 @@
 
 package com.mycompany.swing;
 
+import com.github.britooo.looca.api.group.discos.Disco;
 import com.github.britooo.looca.api.group.discos.DiscosGroup;
 import com.github.britooo.looca.api.group.memoria.Memoria;
 import com.github.britooo.looca.api.group.processador.Processador;
 import com.github.britooo.looca.api.group.processos.Processo;
 import static java.nio.file.StandardOpenOption.CREATE;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -54,9 +57,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Integer arquitetura = looca.getSistema().getArquitetura();
         String permissao = looca.getSistema().getPermissao().toString();
         
-        
          String inserirDadosMaquina = "Insert into Maquina VALUES "
-                + "(2,?,?,?,?);";
+                + "(null,2,?,?,?,?);";
+        
+        //AZURE
+        // String inserirDadosMaquina = "Insert into Maquina VALUES "
+              //  + "(2,?,?,?,?);";
 
         con.update(inserirDadosMaquina, sO, fabricante, arquitetura, permissao);
         
@@ -102,12 +108,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
            Integer totalProcessos = looca.getGrupoDeProcessos().getTotalProcessos();
            Integer threads = looca.getGrupoDeProcessos().getTotalThreads();
            //para Mysql local
-           //String inserirDadosProcessos = "Insert into Processos VALUES "
-              //  + "(null,1,?,?,?,?,?,?,?,?);";
+           String inserirDadosProcessos = "Insert into Processos VALUES "
+               + "(null,1,?,?,?,?,?,?,?,?);";
              
               //Para azure
-               String inserirDadosProcessos = "Insert into Processos VALUES "
-                + "(1,?,?,?,?,?,?,?,?);";
+               //String inserirDadosProcessos = "Insert into Processos VALUES "
+                //+ "(1,?,?,?,?,?,?,?,?);";
            
            con.update(inserirDadosProcessos, PID,Nome,UsoCpu,usoMemoria,
                    bytesUtilizados,memVirtualUtilizada, totalProcessos, threads);
@@ -136,28 +142,50 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Memoria memoria = new Memoria();
         Processador processador = new Processador();
         
+         List<Disco> listaDeDisco = disco.getDiscos();
+       
          
-         Integer qtdDiscos = disco.getQuantidadeDeDiscos();
-         Long memoriaTotal = memoria.getTotal();
-         String processadorNome = processador.getNome();
-         //Para Mysql local
-          //String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
-                   // + "(null,1,?,?,?);";
+         
+           for (int i = 0; i < listaDeDisco.size(); i++) {
+            
+             String nomeDisco = disco.getDiscos().get(i).getNome();
+             Long tamanhoDisco = disco.getDiscos().get(i).getTamanho();
+             String modeloDisco = disco.getDiscos().get(i).getModelo();
+             Integer qtdDiscos = disco.getQuantidadeDeDiscos();
+             Long memoriaTotal = memoria.getTotal();
+             String processadorNome = processador.getNome();
+             
+              //Para Mysql local
+          String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
+                    + "(null,1,?,?,?,?,?,?);";
                    
          //Para AZURE
-           String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
-                    + "(1,?,?,?);";
-          
+           //String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
+                  //  + "(1,?,?,?,?,?,?);";
+         
+           
            con.update(inserirDadosHardware,
+                            nomeDisco,
+                            tamanhoDisco,
+                            modeloDisco,
                             qtdDiscos, 
                             memoriaTotal,
                             processadorNome);
-                  
-        System.out.println("Quantidade de discos"  + qtdDiscos);
-        System.out.println("Memoria total"  + memoriaTotal);
-        System.out.println("Nome processador"  + processadorNome);
+           
+             System.out.println("nome do disco: " + nomeDisco);
+             System.out.println("tamanho do disco: " + tamanhoDisco);
+             System.out.println("modelo do disco: " + modeloDisco);
+             System.out.println("Quantidade de discos"  + qtdDiscos);
+             System.out.println("Memoria total"  + memoriaTotal);
+             System.out.println("Nome processador"  + processadorNome);
+        }
+         
+
 //-------------------------------INSERT HISTORICO------------------------------
-        LocalDateTime data = LocalDateTime.now();
+        Date data = new Date();
+
+       // LocalDateTime data = LocalDateTime.now();
+        
         String tempoInicializado = looca.getSistema().getInicializado().toString();
         String tempoDeAtividade = looca.getSistema().getTempoDeAtividade().toString();
         String temperaturaAtual = looca.getTemperatura().toString();
@@ -171,12 +199,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
              @Override
              public void run() {
            //MySQL local         
-           //String inserirHistorico = "Insert into Historico VALUES "
-               // + "(null,1,?,?,?,?,?,?,?);";
+           String inserirHistorico = "Insert into Historico VALUES "
+                + "(null,1,?,?,?,?,?,?,?);";
            
            //AZURE
-             String inserirHistorico = "Insert into Historico VALUES "
-                + "(1,?,?,?,?,?,?,?);";
+            // String inserirHistorico = "Insert into Historico VALUES "
+              //  + "(1,?,?,?,?,?,?,?);";
            
            con.update(inserirHistorico,data,tempoInicializado,tempoDeAtividade,
                    temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);
