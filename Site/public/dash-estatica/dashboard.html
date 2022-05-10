@@ -18,10 +18,11 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
+
 <body>
 
     <div class="header">
-        <img src="./logo ppt2.png" alt="" height="60px">
+        <img src="../assets/icons/logo-padrao.png" alt="" style="height: 200px;z-index: 1;">
     </div>
 
     <div class="corpoDebaixo">
@@ -32,7 +33,8 @@
             <ul class="sidebarMenuInner">
                 <li><b style="color:rgb(136, 136, 136)"> <img src="./dash.png" alt="" height="25px"> Dashboard</b></li>
                 <li><a href="graficos.html"><img src="./monitoramento.png" alt="" height="25px">Monitoramento</a></li>
-                <li><a href="dash-cadastros.html"><img src="./perfil.png" alt="" height="25px">Cadastrar Desenvolvedor</a></li>
+                <li><a href="dash-cadastros.html"><img src="./perfil.png" alt="" height="25px">Cadastrar
+                        Desenvolvedor</a></li>
                 <li><a href="https://app.pipefy.com/public/form/w7YSTr_A">
                         <img src="./suporte.png" alt="" height="25px"> Suporte</a></li>
                 <li><a href="../index.html">
@@ -46,76 +48,345 @@
         <div id='center' class="main center">
 
             <div class="grafico3">
+
                 <div class="retangulo">
                     <div class="graph1">
                         <canvas id="myChartLine"></canvas>
                     </div>
                 </div>
-                <div class="retangulo2">
-                </div>
+
+                <div class="retangulo2"></div>
+
             </div>
 
             <div class="centralizar">
 
                 <!-- Gráfico de Linhas -->;
                 <div class="graph1">
-                    <canvas id="chartLine"></canvas>
+                    <canvas id="chartLine1"></canvas>
                 </div>
-
-                <!-- Gráfico de Barras 
-            <div class="graph1">
-                <canvas id="myChart"></canvas>
-            </div>-->
 
                 <!-- Grafico Pizza/Torta -->
                 <div class="graph1">
-                    <canvas id="myChart2"></canvas>
+                    <canvas id="chartline2"></canvas>
                 </div>
             </div>
+
         </div>
     </div>
-    <!--<div class="centralizar">
-        <main class="cards1">
-            <section class="card1 contact">
-                <div class="icon">
-                    <img src="https://image.flaticon.com/icons/png/512/51/51778.png" alt="Contact us.">
-                </div>
-                <h3>Maquina 1</h3>
-                <span>Monitore sua equipe em tempo real!</span>
-                <button onclick="Monitorar()">Monitorar</button>
-            </section>
-        </main>
-        <main class="cards1">
-            <section class="card1 shop">
-                <div class="icon">
-                    <img src="https://image.flaticon.com/icons/png/512/51/51778.png" alt="Shop here.">
-                </div>
-                <h3>Adquira o plano!</h3>
-                <span>Adquira nosso plano para poder gerenciar sua equipe utilizando da nossa solução!</span>
-                <button>Comprar</button>
-            </section>
-        </main>
-        <main class="cards1">
-            <section class="card1 about">
-                <div class="icon">
-                    <img src="https://image.flaticon.com/icons/png/512/51/51778.png" alt="About us.">
-                </div>
-                <h3>Adquira o plano!</h3>
-                <span>Adquira nosso plano para poder ter mais funcionalidades utilizando da nossa solução!</span>
-                <button>Comprar</button>
-            </section>
-        </main>
-    </div> -->
-    <!-- <div class="graph">
-        <canvas id="canvas_grafico"></canvas>
-    </div>
-    </div>
-    </div> -->
+
+ 
+</body>
+</html>
+
+
+<script>
+    var email = sessionStorage.EMAIL_USUARIO;
+    var responsavel = sessionStorage.responsavel_USUARIO;
+    var id = sessionStorage.ID_EMPRESA;
+
+    sp_empresa.innerHTML = razaoEmp;
+    sp_resp.innerHTML = responsavel;
+    let proximaAtualizacao;
+
+    //verificar_autenticacao();
+
+    // altere aqui como os dados serão exibidos
+    // e como são recuperados do BackEnd
+    function obterDadosGrafico(idMaquina) {
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`/medidas/ultimas/`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta, idMaquina);
+                    plotarGrafico2(resposta, idMaquina);
+                    mediaMaquina(idMaquina);
+                    
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+    function mediaMaquina(idMaquina) {
+
+        fetch(`/medidas/buscarMediaMaquina/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        let publicacao = resposta[i];
+                        span_mediaUmi.innerHTML = `${publicacao.mediaUmi}%`
+                    }
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+   
+
+    // só altere aqui se souber o que está fazendo!
+    function plotarGrafico(resposta, idMaquina) {
+        console.log('iniciando plotagem do gráfico...');
+
+        var dados = {
+            labels: [],
+            datasets: [
+                {
+                    yAxisID: 'y-Maquina',
+                    label: 'Maquina',
+                    borderColor: '#32B9CD',
+                    backgroundColor: '#32b9cd8f',
+                    fill: true,
+                    data: []
+                }
+            ]
+        };
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            dados.labels.push(registro.momento_grafico);
+            dados.datasets[0].data.push(registro.Maquina);
+        }
+
+        console.log(JSON.stringify(dados));
+
+        var ctx = chartLine1.getContext('2d');
+        window.grafico_linha = Chart.Line(ctx, {
+            data: dados,
+            //Configurações do gráfico
+            options: {
+                responsive: true,
+                animation: { duration: 500 },
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: true,
+                    text: 'Histórico recente de Maquina'
+                },
+                scales: {
+                    yAxes: [{
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        id: 'y-temperatura',
+                    }, {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        id: 'y-Maquina',
+
+                        gridLines: {
+                            drawOnChartArea: false,
+                        },
+                    }],
+                }
+            }
+        });
+
+        //Atualiza os dados de 2 em 2 segundos
+        setTimeout(() => atualizarGrafico(idMaquina, dados), 2000);
+    }
+
+    // só altere aqui se souber o que está fazendo!
+    function plotarGrafico2(resposta, idMaquina) {
+        console.log('iniciando plotagem do gráfico...');
+
+        var dados = {
+            labels: [],
+            datasets: [
+                {
+                    yAxisID: 'y-temperatura_lm35',
+                    label: 'temperatura_lm35',
+                    borderColor: '#00b300',
+                    backgroundColor: '#00800090',
+                    fill: true,
+                    data: []
+                }
+            ]
+        };
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            dados.labels.push(registro.momento_grafico);
+            dados.datasets[0].data.push(registro.cpu);
+        }
+
+        console.log(JSON.stringify(dados));
+
+        var ctx2 = chartline2.getContext('2d');
+        window.grafico_linha2 = Chart.Line(ctx2, {
+            data: dados,
+            //Configurações do gráfico
+            options: {
+                responsive: true,
+                animation: { duration: 500 },
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: true,
+                    text: 'Histórico recente de temperatura_lm35'
+                },
+                scales: {
+                    yAxes: [{
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        id: 'y-temperatura_lm35',
+                    }, {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        id: 'y-temperatura_lm35',
+
+                        gridLines: {
+                            drawOnChartArea: false,
+                        },
+                    }],
+                }
+            }
+        });
+
+        //Atualiza os dados de 2 em 2 segundos
+        setTimeout(() => atualizarGrafico2(idMaquina, dados), 2000);
+    }
+
+    // só mexer se quiser alterar o tempo de atualização
+    // ou se souber o que está fazendo!
+    function atualizarGrafico(idMaquina, dados) {
+        fetch(`/medidas/tempo-real/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico: ${dados}`);
+
+                    // tirando e colocando valores no gráfico
+                    dados.labels.shift(); // apagar o primeiro
+                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+                    dados.datasets[0].data.shift();  // apagar o primeiro de Maquina
+                    dados.datasets[0].data.push(novoRegistro[0].Maquina); // incluir uma nova medida de Maquina
+
+
+                    // Alertas por Cores de Maquina
+
+                    if (novoRegistro[0].Maquina >= 35) {
+                        img_alertas_umi.src = "../assets/errado_gif.gif"
+                        dados.datasets[0].borderColor = 'red';
+                        dados.datasets[0].backgroundColor = '#ff04008c';
+                    } else if (novoRegistro[0].Maquina <= 19) {
+                        img_alertas_umi.src = "../assets/errado_gif.gif"
+                        dados.datasets[0].borderColor = '#483D8B';
+                        dados.datasets[0].backgroundColor = '#826fff9c';
+
+                    } else if ((novoRegistro[0].Maquina >= 20 && novoRegistro[0].Maquina <= 23) || novoRegistro[0].Maquina >= 28 && novoRegistro[0].Maquina <= 31) {
+                        img_alertas_umi.src = "../assets/atencao_gif.gif"
+                        dados.datasets[0].borderColor = '#FFFF00';
+                        dados.datasets[0].backgroundColor = '#ffe6006b';
+                    } else if (novoRegistro[0].Maquina > 23 && novoRegistro[0].Maquina < 28) {
+                        dados.datasets[0].borderColor = '#32B9CD';
+                        dados.datasets[0].backgroundColor = '#32b9cd8f';
+                        img_alertas_umi.src = "../assets/correto_gif.gif"
+                    }
+
+
+                    window.grafico_linha.update();
+
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idMaquina, dados), 5000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idMaquina, dados), 5000);
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+    // só mexer se quiser alterar o tempo de atualização
+    // ou se souber o que está fazendo!
+    function atualizarGrafico2(idMaquina, dados) {
+        fetch(`/medidas/tempo-real/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico: ${dados}`);
+
+                    // tirando e colocando valores no gráfico
+                    dados.labels.shift(); // apagar o primeiro
+                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+                    dados.datasets[0].data.shift();  // apagar o primeiro de temperatura_lm35
+                    dados.datasets[0].data.push(novoRegistro[0].temperatura_lm35); // incluir uma nova medida de temperatura_lm35
+
+
+
+                    // Alertas por Cores de Temperatura
+
+                    if (novoRegistro[0].temperatura_lm35 >= 33) {
+                        img_alertas_temp.src = "../assets/errado_gif.gif"
+                        dados.datasets[0].borderColor = 'red';
+                        dados.datasets[0].backgroundColor = 'red';
+
+                    } else if (novoRegistro[0].temperatura_lm35 <= 19) {
+                        img_alertas_temp.src = "../assets/errado_gif.gif"
+                        dados.datasets[0].borderColor = '#483D8B';
+                        dados.datasets[0].backgroundColor = '#826fff9c';
+
+                    } else if ((novoRegistro[0].temperatura_lm35 >= 20 && novoRegistro[0].temperatura_lm35 <= 23) || novoRegistro[0].temperatura_lm35 >= 28 && novoRegistro[0].temperatura_lm35 <= 31) {
+                        img_alertas_temp.src = "../assets/atencao_gif.gif"
+                        dados.datasets[0].borderColor = '#FFFF00';
+                        dados.datasets[0].backgroundColor = '#ffe6006b';
+                    } else if (novoRegistro[0].temperatura_lm35 > 23 && novoRegistro[0].temperatura_lm35 < 28) {
+                        dados.datasets[0].borderColor = '#00b300';
+                        dados.datasets[0].backgroundColor = '#00800090';
+                        img_alertas_temp.src = "../assets/correto_gif.gif"
+                    }
+
+
+
+                    window.grafico_linha2.update();
+
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico2(idMaquina, dados), 5000);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+                proximaAtualizacao = setTimeout(() => atualizarGrafico2(idMaquina, dados), 5000);
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    }
+
+</script>
 
 
 
 
-    <script>
+       <!-- Script antigo para pegar as cores -->
+
+    <!-- <script>
         function Monitorar() {
             window.location = './graficos.html'
         }
@@ -434,13 +705,8 @@
         }, 1000);
 
 
-    </script>
 
-</body>
-
-</html>
-<script>
     function Monitorar() {
         window.location = './graficos.html'
     }
-</script>
+</script> -->
