@@ -187,6 +187,11 @@ input{
 
 .mural_funcionarios
 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   margin-top: 10%;
   margin-left: 10%;
 
@@ -194,3 +199,20 @@ input{
   height: 50vh;
   background-color: #ffffff;
 }
+.botoes_crud
+{
+
+  display: flex;
+  justify-content: space-around;
+
+}
+.inputDeleteUpdate
+{
+  text-align: center;
+  color: white;
+  
+  width: 30%;
+  height: 10%;
+  background-color: #17203E;
+}
+

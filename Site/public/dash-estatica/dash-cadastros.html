@@ -88,12 +88,34 @@
                 </form>
 
                 <div class="mural_funcionarios" id="mural">
+                        
+                    <button onclick="atualizarFeed()" class="btn_mural_funcionarios" id="btn_funcionarios">USUÁRIO CADASTRADOS</button>
+                       <div id="feed_container" class="feed-container"></div>
 
-                </div>
+                                    <button onclick="atualizarFeed()" style="display: none;" id="atualizar">Atualizar Feed</button>
+
+                            <div class="botoes_crud">
+                                    <button style="display: none;" id="btn_deletar" onclick="deletarUsuario()">Deletar usuário</button>   
+                                    <button style="display: none;" id="btn_atualizar" onclick="atualizarUsuario()">Atualizar usuário</button>             
+                            </div>
+
+                            <input type = "number" placeholder="id do Funcionário" id="updateDelete" style="display: none;" class="inputDeleteUpdate">
+                            
+                            <select  id="atualizarOpcoes" style="display: none;">
+                                <option value="">Atualizar:</option>
+                                <option value="">ID</option>
+                                <option value="">Nome</option>
+                                <option value="">Email</option>
+                                <option value="">Cargo</option>
+                            </select>
+
+                            <div id="respostaDeleteUpdate"></div>
+
+                      </div>
 
 
+                 </div>
             </div>
-
         </div>
 
 
@@ -108,10 +130,11 @@
 
 <script>
    
+   var ultimoIdFuncionario = 0;
 
     function cadastrarFuncionario()
      {
-      
+        
         var idEmpresa = sessionStorage.getItem('ID_USUARIO');
 
          var nomeVar = username.value;
@@ -188,37 +211,179 @@
         erro.style.display = "none"
     }
 
-    function listar()
-    {
-        fetch("/usuarios/listar",{
-            method: "GET",
+
+
+
+    function atualizarFeed() {
+        //aguardar();
+        btn_funcionarios.style.display = 'none';
+        btn_deletar.style.display = 'block';
+        btn_atualizar.style.display = 'block';
+        updateDelete.style.display = 'block';
+        atualizar.style.display = 'block';
+      
+        fetch("/usuarios/listar").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("feed_container");
+                    feed.innerHTML = "";
+                    for (var i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+
+                        // criando e manipulando elementos do HTML via JavaScript
+                        var divPublicacao = document.createElement("div");
+                        var spanID = document.createElement("span");
+                     //   var spanGestor = document.createElement("span");
+                        var spanNome = document.createElement("span");
+                        var spanEmail = document.createElement("span");
+                        var spanCargo = document.createElement("span");
+                       // var divDescricao = document.createElement("div");
+                      //  var divButtons = document.createElement("div");
+
+                        spanID.innerHTML = "ID: <b>" + publicacao.idFuncionario + "</b>";
+                       // spanGestor.innerHTML = "Gestor: <b>"+ publicacao.fkGestor + "</b>";
+                        spanNome.innerHTML = "Nome: <b>"+publicacao.Nome+"</b>";
+                        spanEmail.innerHTML = "Email: <b>" + publicacao.EMAIL + "</b>";
+                        spanCargo.innerHTML = "Cargo: <b>" + publicacao.Cargo + "</b>";
+                        //divDescricao.innerHTML = "Descrição: <b>"+publicacao.descricao+"</b>";
+
+                        divPublicacao.className = "publicacao";
+                       // spanTitulo.id = "inputNumero"+publicacao.idAviso;
+                        spanID.className = "id-funcionario";
+                     //   spanGestor.className = "Gestor";
+                        spanNome.className = "nome";
+                        spanEmail.className = "Email";
+                        spanCargo.className = "cargo";
+                       // spanTitulo.className = "publicacao-titulo";
+                       // divDescricao.className = "publicacao-descricao";
+
+                       // divButtons.className = "div-buttons"
+
+                        divPublicacao.appendChild(spanID);
+                       // divPublicacao.appendChild(spanGestor);
+                        divPublicacao.appendChild(spanNome);
+                        divPublicacao.appendChild(spanEmail);
+                        divPublicacao.appendChild(spanCargo);
+                       // divPublicacao.appendChild(spanTitulo);
+                       // divPublicacao.appendChild(divDescricao);
+                      //  divPublicacao.appendChild(divButtons);
+                        feed.appendChild(divPublicacao);
+
+                        ultimoIdFuncionario = publicacao.idFuncionario;
+                    }
+
+                   // finalizarAguardar();
+                });
+            } else {
+                throw('Houve um erro na API!');
+            }
+        }).catch(function(resposta) {
+            console.error(resposta);
+            //finalizarAguardar();
+        });
+    }
+
+    function deletarUsuario(){
+        var idFuncionario = updateDelete.value;
+
+        if(idFuncionario == ''  )
+        {
+            alert("id vazio");
+        }
+        else if(ultimoIdFuncionario  < idFuncionario)
+        {
+            alert("Digite um id válido");
+        }
+        else{
+
+        fetch("/usuarios/deletarFuncionario", {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                gestorServer: gestorVar,
-                cargoServer: cargoVar
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                
+                idDelete: idFuncionario,
             })
         }).then(function(resposta) {
+
             console.log("resposta: ", resposta);
 
-                if (resposta.ok) {
-                    console.log('dados funcionário obtidos com sucesso');
+            if (resposta.ok) {
+                console.log('delete realizado com sucesso');
+                respostaDeleteUpdate.innerHTML = "Delete realizado com sucesso";
+                limparFormulario();
+               // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o delete!");
+            }
+        }).catch(function(resposta) {
+            console.log(`#ERRO: ${resposta}`);
+           // finalizarAguardar();
+        });
+    }
 
-                  /*  window.location = "./tela-login.html";
-                    limparFormulario();
-                    finalizarAguardar();*/
-                } else {
-                    throw ("Houve um erro ao tentar capturar os dados nos funcionários no banco!");
-                }
-                }).catch(function(resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            //    finalizarAguardar();
-                });
+        return false;
+    }
 
-                return false;
+    function atualizarUsuario(){
+        var idFuncionario = updateDelete.value;
+        
+        
+
+        if(idFuncionario == ''  )
+        {
+            alert("id vazio");
+        }
+        else if(ultimoIdFuncionario  < idFuncionario)
+        {
+            alert("Digite um id válido");
+        } else{
+            updateDelete.style.display = 'none';
+            atualizarOpcoes.style.display = 'block';
+      
+
+        fetch("/usuarios/deletarFuncionario", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                
+                idDelete: idFuncionario,
+            })
+        }).then(function(resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log('delete realizado com sucesso');
+                respostaDeleteUpdate.innerHTML = "Delete realizado com sucesso";
+                limparFormulario();
+               // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o delete!");
+            }
+        }).catch(function(resposta) {
+            console.log(`#ERRO: ${resposta}`);
+           // finalizarAguardar();
+        });
+    }
+        return false;
     }
 
 </script>

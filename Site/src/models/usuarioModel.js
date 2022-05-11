@@ -29,22 +29,42 @@ function cadastrar(nome, email, senha, cnpj, cep) {
     return database.executar(instrucao);
 }
 
+/*function buscarIdGestor(nome)
+{
+    console.log("Buscando id gestor pelo nome");
+
+    var instrucao = `SELECT idFuncionario FROM FUNCIONARIO WHERE Nome = '${nome}';`;
+    return database.executar(instrucao);
+}*/
+
 function cadastrarFuncionario(nome, email, senha, gestor, cargo,idEmpresa) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarFuncionario():",nome, email, gestor, cargo, senha,idEmpresa);
 
-    
+   // var idGestor = buscarIdGestor();
+
     var instrucao = `
        
-        INSERT INTO FUNCIONARIO  VALUES (null,1,'${idEmpresa}' '${nome}', '${email}', '${senha}', '${cargo}');
+        INSERT INTO FUNCIONARIO  VALUES (null,1,${idEmpresa}, '${nome}', '${email}', '${senha}', '${cargo}');
     `;
     console.log("Executando a instrução SQL: \n"+instrucao);
     return database.executar(instrucao);
 
 }
 
+function deletarFuncionario(idFuncionario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletarFuncionario():");
+    
+    var instrucao = `
+        DELETE FROM FUNCIONARIO WHERE idFuncionario = ${idFuncionario};
+    `;
+    console.log("Executando a instrução SQL: \n"+instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     cadastrarFuncionario,
+    deletarFuncionario,
     listar,
 };

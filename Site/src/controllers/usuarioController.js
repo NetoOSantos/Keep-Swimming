@@ -139,10 +139,40 @@ function cadastrarFuncionario(req, res) {
     }
 }
 
+function deletarFuncionario(req, res) {
+    var idFuncionario = req.body.idDelete;
+ 
+
+
+    console.log("req.body delete funcionário");
+    console.log(req.body);
+
+    if (idFuncionario == undefined) {
+        res.status(400).send("O id do funcionário está undefined!");
+    } else {
+        usuarioModel.deletarFuncionario(idFuncionario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o delete! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrar,
     cadastrarFuncionario,
+    deletarFuncionario,
     listar,   
     testar
 }
