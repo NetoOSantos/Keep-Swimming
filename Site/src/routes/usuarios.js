@@ -23,6 +23,10 @@ router.post("/deletarFuncionario", function(req, res){
     usuarioController.deletarFuncionario(req,res);
 })
 
+router.post("/updateFuncionario", function(req, res){
+    usuarioController.updateFuncionario(req,res);
+})
+
 router.post("/autenticar", function(req, res) {
     usuarioController.entrar(req, res);
 });

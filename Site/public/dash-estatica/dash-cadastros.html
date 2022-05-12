@@ -96,18 +96,20 @@
 
                             <div class="botoes_crud">
                                     <button style="display: none;" id="btn_deletar" onclick="deletarUsuario()">Deletar usuário</button>   
-                                    <button style="display: none;" id="btn_atualizar" onclick="atualizarUsuario()">Atualizar usuário</button>             
+                                    <button style="display: none;" id="btn_atualizar" onclick="updateUsuario()">Atualizar usuário</button>             
                             </div>
 
                             <input type = "number" placeholder="id do Funcionário" id="updateDelete" style="display: none;" class="inputDeleteUpdate">
                             
                             <select  id="atualizarOpcoes" style="display: none;">
                                 <option value="">Atualizar:</option>
-                                <option value="">ID</option>
-                                <option value="">Nome</option>
-                                <option value="">Email</option>
-                                <option value="">Cargo</option>
+                                <option value="id">ID</option>
+                                <option value="nome">Nome</option>
+                                <option value="email">Email</option>
+                                <option value="cargo">Cargo</option>
                             </select>
+
+                            <input id="ipt_update" style="display: none;" class="ipt_update"> 
 
                             <div id="respostaDeleteUpdate"></div>
 
@@ -192,6 +194,7 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
+                alert("cadastro realizado com sucesso!");
                 console.log('cadastro realizado com sucesso');
                 limparFormulario();
                // finalizarAguardar();
@@ -217,10 +220,13 @@
     function atualizarFeed() {
         //aguardar();
         btn_funcionarios.style.display = 'none';
+        atualizarOpcoes.style.display = 'none';
+            ipt_update.style.display = 'none';
         btn_deletar.style.display = 'block';
         btn_atualizar.style.display = 'block';
         updateDelete.style.display = 'block';
         atualizar.style.display = 'block';
+        respostaDeleteUpdate.innerHTML = "";
       
         fetch("/usuarios/listar").then(function (resposta) {
             if (resposta.ok) {
@@ -295,6 +301,8 @@
 
     function deletarUsuario(){
         var idFuncionario = updateDelete.value;
+        respostaDeleteUpdate.innerHTML = "";
+        ipt_update.style.display = 'block';
 
         if(idFuncionario == ''  )
         {
@@ -338,8 +346,12 @@
         return false;
     }
 
-    function atualizarUsuario(){
+    function updateUsuario(){
         var idFuncionario = updateDelete.value;
+        var alteracaoFuncionario = ipt_update.value;
+        var select_update = atualizarOpcoes.value;
+        respostaDeleteUpdate.innerHTML = "";
+       
         
         
 
@@ -351,11 +363,11 @@
         {
             alert("Digite um id válido");
         } else{
-            updateDelete.style.display = 'none';
             atualizarOpcoes.style.display = 'block';
+            ipt_update.style.display = 'block';
       
 
-        fetch("/usuarios/deletarFuncionario", {
+        fetch("/usuarios/updateFuncionario", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -364,19 +376,21 @@
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 
-                idDelete: idFuncionario,
+                idUpdate: idFuncionario,
+                alteracao: alteracaoFuncionario,
+                updateEscolhido :  select_update,
             })
         }).then(function(resposta) {
 
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                console.log('delete realizado com sucesso');
-                respostaDeleteUpdate.innerHTML = "Delete realizado com sucesso";
+                console.log('');
+                respostaDeleteUpdate.innerHTML = "Alteração" + ipt_update.value + "do funcionário"+ idFuncionario + "realizado com sucesso";
                 limparFormulario();
                // finalizarAguardar();
             } else {
-                throw ("Houve um erro ao tentar realizar o delete!");
+                throw ("Houve um erro ao tentar realizar a alteração!");
             }
         }).catch(function(resposta) {
             console.log(`#ERRO: ${resposta}`);
@@ -385,5 +399,8 @@
     }
         return false;
     }
+
+   
+  
 
 </script>

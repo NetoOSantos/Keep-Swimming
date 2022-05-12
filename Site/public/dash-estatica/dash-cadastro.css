@@ -196,7 +196,7 @@ input{
   margin-left: 10%;
 
   width: 85%;
-  height: 50vh;
+  height: 70vh;
   background-color: #ffffff;
 }
 .botoes_crud
@@ -214,5 +214,15 @@ input{
   width: 30%;
   height: 10%;
   background-color: #17203E;
+}
+.ipt_update
+{
+  text-align: center;
+  color: white;
+  
+  width: 30%;
+  height: 10%;
+  background-color: #17203E;
+
 }
 
