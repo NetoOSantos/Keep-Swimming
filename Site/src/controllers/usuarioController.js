@@ -121,10 +121,24 @@ function cadastrarFuncionario(req, res) {
     } else if (cargo == undefined) {
         res.status(400).send("Campo cargo está undefined!");
     } else {
-        usuarioModel.cadastrarFuncionario(nome, email,senha,gestor, cargo,idEmpresa)
-        .then(
-            function (resultado) {
-                res.json(resultado);
+        usuarioModel.buscarIdGestor(nome).then(
+            function (resultadoGestor) {
+                console.log(resultadoGestor);
+                usuarioModel.cadastrarFuncionario(nome, email,senha,gestor, cargo,idEmpresa, resultadoGestor.idGestor)
+                .then(
+                    function (resultado) {
+                        res.json(resultado);
+                    }
+                ).catch(
+                    function (erro) {
+                        console.log(erro);
+                        console.log(
+                            "\nHouve um erro ao realizar o cadastro! Erro: ",
+                            erro.sqlMessage
+                        );
+                        res.status(500).json(erro.sqlMessage);
+                    }
+                );
             }
         ).catch(
             function (erro) {
