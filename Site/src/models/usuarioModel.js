@@ -24,7 +24,6 @@ function listar() {
         SELECT * FROM [dbo].[empresa];
     `;
 
-
     console.log("Executando a instrução SQL: \n"+instrucao);
     return database.executar(instrucao);
     
