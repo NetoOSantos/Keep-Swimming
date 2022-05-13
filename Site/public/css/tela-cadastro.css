@@ -170,6 +170,11 @@ body {
     margin-top: 16px;
 }
 
+#form_cadastro{
+    display: flex;
+}
+
+
 .formulario {
     height: 75%;
     width: 80%;
@@ -250,10 +255,6 @@ input {
     width: 100%;
 }
 
-.campos {
-    display: flex;
-    height: 100%;
-}
 
 .ladoEsquerdo {
     width: 49%;
@@ -268,4 +269,16 @@ input {
 
 .labels {
     margin-top: 8px;
+}
+
+.loading-div {
+    width: 50px;
+    /* border: 3px solid pink; */
+    margin: auto;
+    display: none;
+}
+
+.loading-div img {
+    height: 50px;
+    width: 50px;
 }

@@ -1,4 +1,12 @@
+// Faz uma rquisiçao no banco atraves das config dentro da pasta database 
+// Sempre verifique se os dados de acesso estao certos
+
 var database = require("../database/config")
+
+// todas as funçoes abaixo fazem uma requisiçao no banco em formato de QUARY e retornam a resposta obitida
+// Tendo os dois formatos mais utilizados para teste 
+// Sendo MySQL da forma local e Azure com SQLServer de forma remota(nuvem)
+//  SEMPREEE que for usar uma das formas NAOO ESQUEÇA de comentar a outra
 
 function listar() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
@@ -11,6 +19,7 @@ function listar() {
 
 
     // azure
+    
     var instrucao = `
         SELECT * FROM [dbo].[empresa];
     `;

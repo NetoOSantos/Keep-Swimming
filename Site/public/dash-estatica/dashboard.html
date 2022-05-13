@@ -8,6 +8,7 @@
     <title>Keep Swimming | Monitoramento</title>
 
     <link rel="stylesheet" href="nav.css">
+    <!-- <link rel="stylesheet" href="dashboards.css"> -->
     <!-- <script src="../assets/js/funcoes.js"></script> -->
 
     <!-- scripts do Chart.js -->
@@ -20,14 +21,18 @@
 </head>
 
 <body>
+    <!-- Chama o metodo que so permite permanecer na pagina se tiver passado pelo login antes  -->
+
+    <!-- <body onload="validarSessao()">   -->
 
     <div class="header">
-        <img src="../assets/icons/logo-padrao.png" alt="" style="height: 200px;z-index: 1;">
+        <img src="../assets/icons/logo-padrao.png" alt="">
+        <div class="hello">
+            <h3>Olá, <span id="b_usuario"></span>!</h3>
+        </div>
     </div>
 
     <div class="corpoDebaixo">
-
-        <div class="header"></div>
 
         <div id="sidebarMenu">
             <ul class="sidebarMenuInner">
@@ -38,7 +43,7 @@
                 <li><a href="https://app.pipefy.com/public/form/w7YSTr_A">
                         <img src="./suporte.png" alt="" height="25px"> Suporte</a></li>
                 <li><a href="../index.html">
-                        <div class="sair">
+                        <div class="sair" onclick="limparSessao()">
                             <img src="./logout 1.png" alt="" height="50px">
                         </div>
                     </a></li>
@@ -49,12 +54,7 @@
 
             <div class="grafico3">
 
-                <div class="retangulo">
-                    <div class="graph1">
-                        <canvas id="myChartLine"></canvas>
-                    </div>
-                </div>
-
+               
                 <div class="retangulo2"></div>
 
             </div>
@@ -75,8 +75,9 @@
         </div>
     </div>
 
- 
+
 </body>
+
 </html>
 
 
@@ -107,7 +108,7 @@
                     plotarGrafico(resposta, idMaquina);
                     plotarGrafico2(resposta, idMaquina);
                     mediaMaquina(idMaquina);
-                    
+
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -141,7 +142,7 @@
             });
 
     }
-   
+
 
     // só altere aqui se souber o que está fazendo!
     function plotarGrafico(resposta, idMaquina) {
@@ -384,9 +385,9 @@
 
 
 
-       <!-- Script antigo para pegar as cores -->
+<!-- Script antigo para pegar as cores -->
 
-    <!-- <script>
+<!-- <script>
         function Monitorar() {
             window.location = './graficos.html'
         }
