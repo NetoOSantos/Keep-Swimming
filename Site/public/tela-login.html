@@ -8,6 +8,7 @@
 
     <title>keep Swimming | Login</title>
 
+    <script src="./javaScript/login.js"></script>
     <script src="./assets/js/funcoes.js"></script>
     <link rel="stylesheet" href="./css/tela-login.css">
     <!-- <link rel="stylesheet" href="../css/index.css"> -->
@@ -49,21 +50,24 @@
 
             <div class="formulario">
                 <h2>Olá de volta!</h2>
-                <span class="tipo_campo">E-mail:</span>
-                <input id="email_input" type="text" placeholder="Login">
+                <form id="form_login" method="post" onsubmit="return entrar()"></form>
+                    <span class="tipo_campo">E-mail:</span>
+                        <input name="email" id="email_input" type="text" placeholder="Login">
 
-                <span class="tipo_campo">Senha:</span>
-                <input id="senha_input" type="password" placeholder="******">
+                    <span class="tipo_campo">Senha:</span>
+                        <input name="senha" id="senha_input" type="password" placeholder="******">
+                    <div class="div_botao">
+                        <button class="btn efeito">Navegar</button>
+                    </div>
+                </form>
 
-                <div class="div_botao">
-                    <button class="btn efeito" onclick="entrar()">Navegar</button>
+
+                <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/aguarde-pink.gif" id="loading-gif">
+
                 </div>
                 <div id="div_erros_login">
 
-                    <div class="social">
-                        <div class="go"><i class="fab fa-google"></i> Google</div>
-                        <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -72,73 +76,3 @@
 </body>
 
 </html>
-
-<script>
-    function entrar() {
-        //    aguardar();
-
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
-
-        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
-        if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir!";
-            finalizarAguardar();
-            return false;
-        }
-
-        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-            mensagem_erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
-            finalizarAguardar();
-            return false;
-        }
-
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function(resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.idEmpresa;
-
-                    setTimeout(function() {
-                        window.location = "./dash-estatica/dashboard.html";
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                });
-            }
-
-        }).catch(function(erro) {
-            console.log(erro);
-        })
-
-        return false;
-    }
-</script>

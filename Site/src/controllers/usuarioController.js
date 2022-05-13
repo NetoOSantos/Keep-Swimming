@@ -2,6 +2,8 @@ var usuarioModel = require("../models/usuarioModel");
 
 var sessoes = [];
 
+// Funçao de teste ao iniciar 
+
 function testar (req, res) {
     console.log("ENTRAMOS NA usuarioController");
     res.json("ESTAMOS FUNCIONANDO!");
@@ -24,21 +26,31 @@ function listar(req, res) {
     );
 }
 
-function entrar (req, res) {
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
+// Metodo entrar
 
+// Faz uma requisiço e retorna uma resposta
+function entrar (req, res) {
+
+    // Variaveris que serao procuradas no banco
+    var email = req.body.email;
+    var senha = req.body.senha;
+
+    // Validaçoes
     if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
+        // Busca atravez da MODEL no banco de dados passando dois parametros (podem ser mais)
         usuarioModel.entrar(email, senha)
         .then(
+            // Faz a requisiçao e retorna em jason e verifica o tamanho do
             function (resultado) {
                 console.log(`\nResultados encontrados: ${resultado.length}`);
                 console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
 
+
+                // Se alguma dos dois parametros der erro
                 if (resultado.length == 1) {
                     console.log(resultado);
                     res.json(resultado[0]);
@@ -48,6 +60,8 @@ function entrar (req, res) {
                     res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                 }
             }
+
+            // Se nao der certo ao acessar o banco retorna erro
         ).catch(
             function (erro) {
                 console.log(erro);
@@ -59,28 +73,38 @@ function entrar (req, res) {
 
 }
 
+// Metodo cadastrar
+
+// Faz uma requisiço e retorna uma resposta
 function cadastrar(req, res) {
-    var nome = req.body.nomeServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-    var CNPJ = req.body.cnpjServer;
-    var cep = req.body.cepServer;
 
-    console.log("req.body bananinha");
+    // Variaveris que serao inseridas no banco
+    // requisaço vinda do body com o um dos names abaixo
+
+    var empresa = req.body.empresa;
+    var email = req.body.email;
+    var senha = req.body.senha;
+    var cnpj = req.body.cnpj;
+    var cep = req.body.cep;
+
     console.log(req.body);
+    console.log(empresa,email,senha,cnpj,cep);
 
-    if (nome == undefined) {
-        res.status(400).send("Seu nome da empresa está undefined!");
+    // Validaçoes caso algum campo venha vazio
+    if (empresa == undefined) {
+        res.status(400).send("Seu empresa da empresa está undefined!");
     } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (CNPJ == undefined) {
+    } else if (cnpj == undefined) {
         res.status(400).send("Seu CNPJ está undefined!");
     } else if (cep == undefined) {
         res.status(400).send("Seu CEP está undefined!");
     } else {
-        usuarioModel.cadastrar(nome, email, senha, CNPJ, cep)
+        // Se tudo estiver ok
+        // Faz uma requisiçao passando os parametros abaixo dentro da model
+        usuarioModel.cadastrar(empresa, email, senha, cnpj, cep)
         .then(
             function (resultado) {
                 res.json(resultado);
