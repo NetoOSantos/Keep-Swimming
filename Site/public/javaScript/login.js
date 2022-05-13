@@ -2,7 +2,7 @@ function limparFormulario() {
     document.getElementById("form_login").reset();
 }
 
-function entrar() {
+function logar() {
     aguardar();
 
     var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
@@ -44,7 +44,7 @@ function entrar() {
                 sessionStorage.ID_USUARIO = json.id;
 
                 setTimeout(function () {
-                    window.location = "./dashboard/dashboard.html";
+                    window.location = "./dash-estatica/dashboard.html";
                 }, 1000); // apenas para exibir o loading
 
             });

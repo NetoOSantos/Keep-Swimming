@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="nav.css">
     <!-- <link rel="stylesheet" href="dashboards.css"> -->
-    <!-- <script src="../assets/js/funcoes.js"></script> -->
+    <script src="../assets/js/funcoes.js"></script>
 
     <!-- scripts do Chart.js -->
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
@@ -20,10 +20,10 @@
 
 </head>
 
-<body>
+<!-- <body> -->
     <!-- Chama o metodo que so permite permanecer na pagina se tiver passado pelo login antes  -->
 
-    <!-- <body onload="validarSessao()">   -->
+    <body onload="validarSessao(),  obterDadosGrafico(1)">  
 
     <div class="header">
         <img src="../assets/icons/logo-padrao.png" alt="">
