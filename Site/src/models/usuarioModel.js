@@ -107,7 +107,7 @@ function deletarFuncionario(idFuncionario) {
 
     //Azure
     var instrucao = `
-    Delete 
+    
     Delete [dbo].[FUNCIONARIO] where idFuncionario =  ${idFuncionario};
 `;
 
