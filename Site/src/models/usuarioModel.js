@@ -21,7 +21,7 @@ function listar() {
     // azure
     
     var instrucao = `
-        SELECT * FROM [dbo].[empresa];
+        SELECT * FROM [dbo].[FUNCIONARIO];
     `;
 
     console.log("Executando a instrução SQL: \n"+instrucao);
@@ -100,10 +100,17 @@ function cadastrarFuncionario(nome, email, senha, cargo,idEmpresa, idGestor) {
 
 function deletarFuncionario(idFuncionario) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletarFuncionario():");
-    
+    /*MySQL local
     var instrucao = `
         DELETE FROM FUNCIONARIO WHERE idFuncionario = ${idFuncionario};
-    `;
+    `;*/
+
+    //Azure
+    var instrucao = `
+    Delete 
+    Delete [dbo].[FUNCIONARIO] where idFuncionario =  ${idFuncionario};
+`;
+
     console.log("Executando a instrução SQL: \n"+instrucao);
     return database.executar(instrucao);
 }
