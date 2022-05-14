@@ -67,10 +67,18 @@ function buscarMediaConsumoPC(idMaquina) {
 }
 
 
+function buscarConsumoCPU(idMaquina) {
+    instrucaoSql = `select usoCPU from [dbo].[Processos] where fkMaquina = 1;`
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarMediaConsumoPC,
-
+    buscarConsumoCPU,
 }

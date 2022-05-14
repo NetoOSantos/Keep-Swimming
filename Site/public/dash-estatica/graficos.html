@@ -49,8 +49,8 @@
 		<div class="dash">
 			<div class="regua">
 				<div class="item-regua perigo-frio">
-					<h4>Utilização baixa</h4>
-					<h2>0-10% Consumo</h2>
+					<h4>Consumo CPU</h4>
+					<h2></h2>
 				</div>
 				<div class="item-regua alerta-frio">
 					<h4>Alerta Critico Baixo</h4>
@@ -78,7 +78,6 @@
 	
 				<canvas id="chart"></canvas>
 				<br>
-				<canvas id="chart_2"></canvas>
 			</div>
 		</div>
 
@@ -134,65 +133,7 @@
 			var chart = new Chart(context, configuration);
 
 
-			//Função para obter os dados de temperatura do server
-			//Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
 
-			//Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
-			//hora de montar/atualizar o gráfico
-			this.lastIndexTemp = 0;
-			this.time = 0;
-
-			function get_data() {
-
-				var http = new XMLHttpRequest();
-				http.open('GET', 'http://localhost:3000/medidas/atividadeSensor', false);//LOCAL DE ONDE VAI OS DADOS
-				http.send(null);
-
-				var obj = JSON.parse(http.responseText);
-				if (obj.data.length == 0) {
-					return;
-				}
-
-				var _lastIndexTemp = this.lastIndexTemp;
-				this.lastIndexTemp = obj.data.length;
-				listTemp = obj.data.slice(_lastIndexTemp);
-
-				listTemp.forEach(data => {
-					//Máximo de 60 itens exibidos no gráfico
-					if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10) {
-						chart.data.labels.shift();
-						chart.data.datasets[0].data.shift();
-					}
-
-					chart.data.labels.push(this.time++);
-					chart.data.datasets[0].data.push(parseFloat(data));
-					chart.update();
-					if (this.time <= 11) {
-						divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: red; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
-
-					}
-					else if (this.time >= 11 && this.time <= 25) {
-						divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: yellow; color: black; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
-
-					}
-					else if (this.time >= 26 && this.time <= 74) {
-						divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: purple; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
-
-					}
-					else if (this.time >= 75 && this.time <= 90) {
-						divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: #ff7b00; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
-
-					}
-					else {
-						divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color:green; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
-
-					}
-				});
-				//document.getElementById('average').textContent = obj.average;
-
-
-
-			}
 
 			setInterval(() => {
 				get_data();
@@ -200,6 +141,71 @@
 
 		</script>
 </body>
-
-
 </html>
+
+
+
+
+
+
+<script>
+				//Função para obter os dados de temperatura do server
+			//Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
+
+			//Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
+			//hora de montar/atualizar o gráfico
+			// this.lastIndexTemp = 0;
+			// this.time = 0;
+
+			// function get_data() {
+
+			// 	var http = new XMLHttpRequest();
+			// 	http.open('GET', 'http://localhost:3000/medidas/atividadeSensor', false);//LOCAL DE ONDE VAI OS DADOS
+			// 	http.send(null);
+
+			// 	var obj = JSON.parse(http.responseText);
+			// 	if (obj.data.length == 0) {
+			// 		return;
+			// 	}
+
+			// 	var _lastIndexTemp = this.lastIndexTemp;
+			// 	this.lastIndexTemp = obj.data.length;
+			// 	listTemp = obj.data.slice(_lastIndexTemp);
+
+			// 	listTemp.forEach(data => {
+			// 		Máximo de 60 itens exibidos no gráfico
+			// 		if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10) {
+			// 			chart.data.labels.shift();
+			// 			chart.data.datasets[0].data.shift();
+			// 		}
+
+			// 		chart.data.labels.push(this.time++);
+			// 		chart.data.datasets[0].data.push(parseFloat(data));
+			// 		chart.update();
+			// 		if (this.time <= 11) {
+			// 			divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: red; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
+
+			// 		}
+			// 		else if (this.time >= 11 && this.time <= 25) {
+			// 			divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: yellow; color: black; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
+
+			// 		}
+			// 		else if (this.time >= 26 && this.time <= 74) {
+			// 			divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: purple; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
+
+			// 		}
+			// 		else if (this.time >= 75 && this.time <= 90) {
+			// 			divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: #ff7b00; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
+
+			// 		}
+			// 		else {
+			// 			divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color:green; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
+
+			// 		}
+			// 	});
+			// 	document.getElementById('average').textContent = obj.average;
+
+
+
+			// }
+</script>
