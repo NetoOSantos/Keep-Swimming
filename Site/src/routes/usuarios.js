@@ -30,5 +30,9 @@ router.post("/updateFuncionario", function(req, res){
 router.post("/autenticar", function(req, res) {
     usuarioController.entrar(req, res);
 });
+
+router.post("/cadastrarMaquina", function(req, res){
+    usuarioController.cadastrarMaquina(req,res);
+});
   
 module.exports = router;
