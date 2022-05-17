@@ -51,12 +51,20 @@
                     <div class="roles">
 
                         <div class="ladoEsquerdo">
+
+                            <label for="hostName">HostName</label>
+                            <input type="text" name="nome_Funcionario" placeholder="Host name" id="host_name">
+                            
                             <label for="username">ID Máquina</label>
                             <input type="text" name="nome_Funcionario" placeholder="ID" id="id_maquina">
+
+                            <label for="idFuncionario">ID Funcionário</label>
+                            <input type="text" name="idFuncionario" placeholder="ID Funcionário" id="id_funcionario">
 
                             <label for="sistemaOperacional">Sistema Operacional</label>
                             <input type="text" name="sistemaOperacional" placeholder="Sistema Operacional" id="sistema_Operacional">
 
+                            
                         </div>
 
 
@@ -67,7 +75,10 @@
                             <input type="" name="Gestor" placeholder="32bits/64 bits" id="arquitetura">
 
                             <label for="permissao">Permissão</label>
-                            <input type="text" name="permissao" placeholder="Padrão / Admin" id="permissao">
+                            <input type="text" name="permissao" placeholder="true / false" id="permissao">
+
+                            <label for="fabricante">Fabricante</label>
+                            <input type="text" name="fabricante" placeholder="true / false" id="fabricante">
 
                           
                         </div>
@@ -199,15 +210,15 @@
     function cadastrarMaquina()
      {
         
-        var idEmpresa = sessionStorage.getItem('ID_USUARIO');
-
+         var hostName = host_name.value        
          var idMaquina = id_maquina.value;
+         var idFuncionario = id_funcionario.value
          var sistemaOperacional = sistema_Operacional.value;
          var arquitetura = arquitetura.value;
          var permissao = permissao.value;
-       
+         var fabricante = fabricante.value
  
-         if (idMaquina == "" || sistemaOperacional == "" || arquitetura == "" || permissao == "" ) {
+         if (hostName == ""||idMaquina == "" || idFuncionario == "" ||sistemaOperacional == "" || arquitetura == "" || permissao == "" || fabricante == "") {
             erro.style.display = "block"
             erro.innerHTML = "Preencha todos os campos para prosseguir!";
 
@@ -243,10 +254,13 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
+                hostNameServer: hostName,
                 idMaquinaServer: idMaquina,
+                idFuncionarioServer: idFuncionario,
                 sistemaOperacionalServer: sistemaOperacional,
                 arquiteturaServer: arquitetura,
                 permissaoServer: permissao,
+                fabricanteServer: fabricante,
                 idEmpresa,            
             })
         }).then(function(resposta) {

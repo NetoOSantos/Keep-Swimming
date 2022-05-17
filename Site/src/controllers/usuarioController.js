@@ -247,35 +247,42 @@ function updateFuncionario(req, res) {
 }
 
 function cadastrarMaquina(req, res) {
-    var nome = req.body.nomeServer;
-    var email = req.body.emailServer;
-    var gestor = req.body.gestorServer;
-    var cargo = req.body.cargoServer;
-    var senha = req.body.senhaServer;
-    var idEmpresa = req.body.idEmpresa;
+
+
+    var hostName = req.body.hostNameServer
+    var idMaquina = req.body.idMaquinaServer;
+    var idFuncionario = req.body.idFuncionarioServer;
+    var sistemaOperacional = req.body.sistemaOperacionalServer;
+    var arquitetura = req.body.arquiteturaServer;
+    var permissao = req.body.permissao;
+    var fabricante = req.body.fabricante
 
 
     console.log("req.body cadastro funcionário");
     console.log(req.body);
 
-    if (nome == undefined) {
-        res.status(400).send("O nome do funcionário está undefined!");
-    } else if (email == undefined) {
-        res.status(400).send("O email do funcionário está undefined!");
-    } else if (senha == undefined) {
-        res.status(400).send("A senha do funcionário está undefined!");
-    } else if (gestor == undefined) {
-        res.status(400).send("Campo gestor está undefined!");
-    } else if (cargo == undefined) {
-        res.status(400).send("Campo cargo está undefined!");
+    if (hostName == undefined) {
+        res.status(400).send("O hostName do funcionário está undefined!");
+    } else if (idMaquina == undefined) {
+        res.status(400).send("O idMaquina da máquina está undefined!");
+    } else if (idFuncionario == undefined) {
+        res.status(400).send("A o id do funcionário está undefined!");
+    } else if (sistemaOperacional == undefined) {
+        res.status(400).send("Campo sistema operacional está undefined!");
+    } else if (arquitetura == undefined) {
+        res.status(400).send("Campo de arquitetura está undefined!");
+    }else if (permissao == undefined) {
+        res.status(400).send("Campo de permissão inválido")
+    }else if (fabricante == undefined) {
+        resres.status(400).send("Campo de fabricante inválido")
     } else {
-        usuarioModel.buscarIdGestor(gestor).then(
-            function (resultadoGestor) {
-                console.log(resultadoGestor);
-                    resultadoGestor.JSON;
-                    JSON.stringify(resultadoGestor);
-                    var gestor = resultadoGestor[0];
-                usuarioModel.cadastrarFuncionario(nome, email,senha,cargo,idEmpresa, gestor.idFuncionario)
+        usuarioModel.buscarIdFuncionario(hostName).then(
+            function (resultadoFuncionario) {
+                console.log(resultadoFuncionario);
+                    resultadoFuncionario.JSON;
+                    JSON.stringify(resultadoFuncionario);
+                    var idFuncionario = resultadoFuncionario[0];
+                usuarioModel.cadastrarFuncionario(hostName, idMaquina, idFuncionario, sistemaOperacional, arquitetura, permissao)
                 .then(
                     function (resultado) {
                         res.json(resultado);
@@ -295,7 +302,7 @@ function cadastrarMaquina(req, res) {
             function (erro) {
                 console.log(erro);
                 console.log(
-                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    "\nHouve um erro ao realizar o cadastro da máquina! Erro: ",
                     erro.sqlMessage
                 );
                 res.status(500).json(erro.sqlMessage);
@@ -310,6 +317,7 @@ module.exports = {
     cadastrarFuncionario,
     deletarFuncionario,
     updateFuncionario,
+    cadastrarMaquina,
     listar,   
     testar
 }

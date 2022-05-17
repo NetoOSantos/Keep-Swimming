@@ -134,6 +134,37 @@ function updateFuncionario(idFuncionario,alteracao,coluna) {
     return database.executar(instrucao);
 }
 
+function cadastrarMaquina( idMaquina, sistemaOperacional, fabricante, arquitetura, permissao, hostName){
+
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarFuncionario():",idMaquina, sistemaOperacional, fabricante, arquitetura, permissao, hostName);
+
+    var instrucao = `       
+        INSERT INTO MAQUINA VALUES 
+        (null,
+            ${idMaquina},
+            ${sistemaOperacional}, 
+            '${hostName}', 
+            '${fabricante}', 
+            '${arquitetura}',
+            '${permissao},
+            '${hostName}');
+    `;
+    console.log("Executando a instrução SQL: \n"+instrucao);
+    return database.executar(instrucao);
+
+
+}
+
+
+function buscarIdFuncionario(nome){
+
+    console.log("Buscando id do funcionario pelo nome");
+
+    var instrucao = `SELECT idFuncionario FROM MAQUINA WHERE HostName = '${nome}';`;
+    return database.executar(instrucao);
+
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -142,4 +173,6 @@ module.exports = {
     updateFuncionario,
     listar,
     buscarIdGestor,
+    cadastrarMaquina,
+    buscarIdFuncionario,
 };
