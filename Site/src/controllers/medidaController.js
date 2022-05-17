@@ -79,6 +79,10 @@ function buscarConsumoCPU(req, res) {
     });
 }
 
+function teste(){
+    
+};
+
 
 module.exports = {
     buscarUltimasMedidas,
