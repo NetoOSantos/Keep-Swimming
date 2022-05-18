@@ -50,7 +50,7 @@
 			<div class="regua">
 				<div class="item-regua perigo-frio">
 					<h4>Consumo CPU</h4>
-					<h2></h2>
+					<h2 id="consumo_cpu"></h2>
 				</div>
 				<div class="item-regua alerta-frio">
 					<h4>Alerta Critico Baixo</h4>
@@ -84,6 +84,10 @@
 	</div>
 
 		<script>
+
+			function consumoCPU(){
+				consumo_cpu.innerHTML = ``;
+			}
 
 			var context = document.getElementById("chart").getContext("2d");
 			context.canvas.width = 1000;

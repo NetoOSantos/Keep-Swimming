@@ -16,4 +16,8 @@ router.get("/buscarMediaUmidade/:idMaquina", function(req, res) {
     medidaController.buscarMediaConsumoPC(req, res);
 })
 
+router.get("/buscarConsumoCPU/:idMaquina", function(req, res) {
+    medidaController.buscarConsumoCPU(req, res);
+})
+
 module.exports = router;
