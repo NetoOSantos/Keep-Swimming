@@ -423,8 +423,12 @@ main.cards1 section.card1.about {
     /* background-color: #62fd3b; */
     display: flex;
     flex-wrap: wrap;
-    width: 40%;
+    width: 100%;
     height: 100%;
+}
+
+.esseaqui{
+    display: flex;
 }
 
 .miniInfo{
@@ -432,39 +436,29 @@ main.cards1 section.card1.about {
     width:45%;
     height: 45%;
     background-color: #3a0f57;
-    border-radius: 10%;
+    border-radius: 5%;
 }
 
 .miniInfo h4 {
-    align-items: center;
-    justify-content: center;
+    /* background-color: #3E8AFF; */
     color: white;
-    margin: auto;
     margin: 2%;
     font-size: larger;
+    width: 35%;
     
 }
 .vlrMinInf{
     color: white;
     margin: auto;
     font-size: xx-large;
-    margin-left: 80%;
+    /* margin-left: 80%; */
     z-index: 50;
 }
-.linhaSeparaMeio{
-    background-color: #000000;
-    width: 0.5%;
-    height: 80%;
-    padding-top: 30%;
+
+.imgInfos{
     border-radius: 20%;
 }
 
-.LadoListarProcessos{
-    /* background-color: #ee0000; */
-    width: 60%;
-    height: 100%;
-    
-}
 
 .corpoDebaixo{
 

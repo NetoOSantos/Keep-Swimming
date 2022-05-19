@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="nav.css">
     <!-- <link rel="stylesheet" href="dashboards.css"> -->
     <script src="../assets/js/funcoes.js"></script>
-    <script src="../assets/js/dash.js"></script>
+  
 
     <!-- scripts do Chart.js -->
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
@@ -62,50 +62,78 @@
                     <div class="divMinisInfos">
 
                         <div class="miniInfo">
-                            <h4>Quantidade de devs:</h4>
+
+                            <div class="esseaqui">
+
+                                <h4>Quantidade de devs:</h4>
+                                <span id="valorDvs" class="vlrMinInf">00</span>
+                                <h4>Quantidade de devs com problemas:</h4>
+                                <span id="valorDvs" class="vlrMinInf">00</span>
+                            </div>
+
                             <div class="imgInfos">
-                                <img src="./imgs/dev.png" style="width: 40%;height: 40%; margin-left: 4%;">
+                                <img src="./imgs/dev.png" style="width: 10%;height: 10%; margin-left: 4%;">
                                 <img src="./imgs/stas.png" style="height: 30px;">
                             </div>
-                            <span id="valorDvs" class="vlrMinInf">00</span>
+
+                        </div>
+
+                        <div class="miniInfo">
+
+                            <div class="esseaqui">
+
+                                <h4>Quantidade de maquinas:</h4>
+                                <span id="valorMaq" class="vlrMinInf">00</span>
+                                <h4>Quantidade de maquinas com baixo desempenho:</h4>
+                                <span id="valorMaq" class="vlrMinInf">00</span>
+                            </div>
+
+                            <div class="imgInfos">
+                                <img src="./imgs/maquinas.png" style="width: 10%;height: 20%;">
+                                <img src="./imgs/stas.png" style="height: 30px;">
+                            </div>
 
                         </div>
                         <div class="miniInfo">
-                            <h4>Quantidade de maquinas:</h4>
-                            <div class="imgInfos">
-                                <img src="./imgs/maquinas.png" style="width: 40%;height: 40%;">
-                                <img src="./imgs/stas.png" style="height: 30px;">
-                            </div>
-                            <span id="valorMaq" class="vlrMinInf">00</span>
 
-                        </div>
-                        <div class="miniInfo">
-                            <h4>Sistemas linux:</h4>
+                            <div class="esseaqui">
+
+                                <h4>Quantidade Sistemas linux:</h4>
+                                <span id="valorLinux" class="vlrMinInf">00</span>
+                                <h4>Desempenho em Sistemas linux :</h4>
+                                <span id="valorLinux" class="vlrMinInf">00</span>
+                            </div>
+
                             <div class="imgInfos">
-                                <img src="./imgs/linux.png" style="width: 40%;height: 40%;">
+                                <img src="./imgs/linux.png" style="width: 20%;height: 20%;">
                                 <img src="./imgs/stas.png" style="width:30px;">
                             </div>
-                            <span id="valorLinux" class="vlrMinInf">00</span>
 
                         </div>
                         <div class="miniInfo">
-                            <h4>Sistema windons:</h4>
+
+                            <div class="esseaqui">
+
+                                <h4>Quantidade Sistema windons:</h4>
+                                <span id="valorWind" class="vlrMinInf">00</span>
+                                <h4>Desempenho em Sistema windons:</h4>
+                                <span id="valorWind" class="vlrMinInf">00</span>
+                            </div>
+
                             <div class="imgInfos">
-                                <img src="./imgs/wind.png" style="width: 50%;height: 40%; ">
+                                <img src="./imgs/wind.png" style="width: 20%;height: 20%; ">
                                 <img src="./imgs/stas.png" style="height: 30px;">
                             </div>
-                            <span id="valorWind" class="vlrMinInf">00</span>
 
                         </div>
 
                     </div>
 
-                    <div class="linhaSeparaMeio"></div>
 
-                    <div class="LadoListarProcessos">
 
-                        
-                    </div>
+
+
+
 
                 </div>
 
@@ -123,7 +151,7 @@
 
                 <!-- Grafico Pizza/Torta -->
                 <div class="graph1">
-                    <canvas id="chartline2"></canvas>
+                    <canvas id="chartBar"></canvas>
                 </div>
             </div>
 
@@ -134,332 +162,492 @@
 </body>
 
 </html>
+<script src="../assets/js/dash.js"></script>
 
 
+<!-- <script>
+    var ctxBar = document.getElementById("chartBar").getContext("2d");
+  var rotulosBar = ["colisa", "tetra", "coridora", "molinésia", "arco-íris", "betta"];
+  var dataBar = [10, 70, 50, 5, 30, 65];
+  var configBar = {
+    type: 'bar',
+    data: {
+      labels: rotulosBar, // referenciando a variável de rótulos (labels) para o gráfico de barras
+      datasets: [
+        {
+          label: 'Quantidade Espécies',
+          data: dataBar, // referenciando a variável de dados para o gráfico de barras
+          backgroundColor: [
+            '#FF000022',
+            '#FFFF0022',
+            '#FF00FF22',
+            '#00FFFF22',
+            '#99009922',
+            '#99990022',
+            '#F0F00022',
+            '#65002222',
+          ],
+          borderColor: [
+            '#FF0000',
+            '#FFFF00',
+            '#FF00FF',
+            '#00FFFF',
+            '#990099',
+            '#999900',
+            '#F0F000',
+            '#650022',
+          ],
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      // por padrão, vem como 'true', e faz com que o gráfico se 'mantenha com o mesmo aspecto de proporção', não ficando responsivo
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+        }
+      }
+    }
+  }
+  var ax_chartBar = new Chart(ctxBar, configBar); // criando o gráfico, chamando o new Chart da biblioteca, passando o contexto e as configurações
+
+
+
+// const ctx = document.getElementById('chartLine').getContext('2d');
+//     const graidient = ctx.createLinearGradient(0, 0, 0, 250);
+
+//     graidient.addColorStop(0, 'rgba(167, 121, 232, 1)');
+//     graidient.addColorStop(1, 'rgba(79, 92, 196, 1)');
+
+//     const myChart = new Chart(ctx, {
+//         type: 'bar',
+//         data: {
+//             color: 'black',
+//             labels: ['VsCode', 'NetBens'],
+//             datasets: 
+//             [{
+//                 label:'usoCpu',
+//                 data: [9, 13, 11, 12, 15, 17, 21, 19],
+//                 backgroundColor: [
+//                     graidient,
+//                     graidient,
+//                     graidient,
+//                     graidient,
+//                     graidient,
+//                     graidient
+//                 ],
+//                 borderColor: [
+//                     graidient,
+//                     graidient,
+//                     graidient,
+//                     graidient,
+//                     graidient,
+//                     graidient
+//                 ],
+//                 borderWidth: 1
+//             },
+//             {
+//                 label: 'usoRam',
+//                 data: [9, 13, 11, 12, 15, 17, 21, 19],
+//                 backgroundColor: [
+//                     graidient,
+//                     graidient,
+//                     graidient,
+//                     graidient,
+//                     graidient,
+//                     graidient
+//                 ],
+//                 borderColor: [
+//                     graidient,
+//                     graidient,
+//                     graidient,
+//                     graidient,
+//                     graidient,
+//                     graidient
+//                 ],
+//                 borderWidth: 1
+//             }]
+//         },
+//         options: {
+//             plugins: {  // 'legend' now within object 'plugins {}'
+//                 legend: {
+//                     labels: {
+//                         color: "white",  // not 'fontColor:' anymore
+//                         // fontSize: 18  // not 'fontSize:' anymore
+//                         font: {
+//                             size: 14 // 'size' now within object 'font {}'
+//                         }
+//                     }
+//                 }
+//             },
+//             scales: {
+//                 y: {
+//                     ticks: {
+//                         color: 'white'
+//                     },
+//                     beginAtZero: true
+//                 },
+//                 x: {
+//                     ticks: {
+//                         color: 'white'
+//                     }
+//                 },
+//             }
+//         }
+//     });
+
+
+
+</script>
+ -->
 
 <!-- Script antigo para pegar as cores -->
 
-<!-- <script>
-        function Monitorar() {
-            window.location = './graficos.html'
+<script>
+    function Monitorar() {
+        window.location = './graficos.html'
+    }
+
+    function gerar_grafico() {
+        var http = new XMLHttpRequest();
+        http.open('GET', 'http://localhost:3000/medidas/tempo_permanencia', false);//LOCAL DE ONDE VEM OS DADOS
+        http.send(null);
+
+        var obj = JSON.parse(http.responseText);
+        if (obj.length == 0) {
+            console.log("Nenhum dado a ser exibido")
         }
+        else {
+            var lista = obj.data;
 
-        function gerar_grafico() {
-            var http = new XMLHttpRequest();
-            http.open('GET', 'http://localhost:3000/medidas/tempo_permanencia', false);//LOCAL DE ONDE VEM OS DADOS
-            http.send(null);
-
-            var obj = JSON.parse(http.responseText);
-            if (obj.length == 0) {
-                console.log("Nenhum dado a ser exibido")
+            var vagas = [];
+            var totalHoras = [];
+            for (i = 0; i < lista.length; i++) {
+                vagas.push(lista[i].fksensor);
+                totalHoras.push(lista[i].tempo_de_permanencia)
             }
-            else {
-                var lista = obj.data;
 
-                var vagas = [];
-                var totalHoras = [];
-                for (i = 0; i < lista.length; i++) {
-                    vagas.push(lista[i].fksensor);
-                    totalHoras.push(lista[i].tempo_de_permanencia)
-                }
-
-                const ctx = document.getElementById('myChart').getContext('2d');
-                const myChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: vagas,
-                        datasets: [{
-                            label: 'Tempo de uso diário',
-                            data: totalHoras,
-                            backgroundColor: [
-                                'rgba(95, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
+            const ctx = document.getElementById('chartLine').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: vagas,
+                    datasets: [{
+                        label: 'Tempo de uso diário',
+                        data: totalHoras,
+                        backgroundColor: [
+                            'rgba(95, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 202, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
                         }
                     }
-                });
-            }
+                }
+            });
         }
+    }
 
 
 
-        const ctx = document.getElementById('myChart2').getContext('2d');
-        const graidient = ctx.createLinearGradient(0, 0, 0, 250);
+    const ctx = document.getElementById('chartLine1').getContext('2d');
+    const graidient = ctx.createLinearGradient(0, 0, 0, 250);
 
-        graidient.addColorStop(0, 'rgba(167, 121, 232, 1)');
-        graidient.addColorStop(1, 'rgba(79, 92, 196, 1)');
+    graidient.addColorStop(0, 'rgba(167, 121, 232, 1)');
+    graidient.addColorStop(1, 'rgba(79, 92, 196, 1)');
 
-        const myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                color: 'black',
-                labels: ['Domingo', 'Segunda', 'Terca', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
-                datasets: [{
-                    label: 'Tempo de uso por dia',
-                    data: [9, 13, 11, 12, 15, 17, 21, 19],
-                    backgroundColor: [
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient
-                    ],
-                    borderColor: [
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient
-                    ],
-                    borderWidth: 1
-                }]
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            color: 'black',
+            labels: ['VsCode', 'NetBens'],
+            datasets: 
+            [{
+                label:'usoCpu',
+                data: [9, 13, 11, 12, 15, 17, 21, 19],
+                backgroundColor: [
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient
+                ],
+                borderColor: [
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient
+                ],
+                borderWidth: 1
             },
-            options: {
-                plugins: {  // 'legend' now within object 'plugins {}'
-                    legend: {
-                        labels: {
-                            color: "white",  // not 'fontColor:' anymore
-                            // fontSize: 18  // not 'fontSize:' anymore
-                            font: {
-                                size: 14 // 'size' now within object 'font {}'
-                            }
+            {
+                label: 'usoRam',
+                data: [9, 13, 11, 12, 15, 17, 21, 19],
+                backgroundColor: [
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient
+                ],
+                borderColor: [
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {  // 'legend' now within object 'plugins {}'
+                legend: {
+                    labels: {
+                        color: "white",  // not 'fontColor:' anymore
+                        // fontSize: 18  // not 'fontSize:' anymore
+                        font: {
+                            size: 14 // 'size' now within object 'font {}'
                         }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true
+                },
+                x: {
+                    ticks: {
+                        color: 'white'
                     }
                 },
-                scales: {
-                    y: {
-                        ticks: {
-                            color: 'white'
-                        },
-                        beginAtZero: true
-                    },
-                    x: {
-                        ticks: {
-                            color: 'white'
-                        }
-                    },
-                }
             }
-        });
+        }
+    });
 
 
 
-        /* var ctxLine = document.getElementById("chartLine").getContext("2d");
-         var rotulosLine = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-         var dataLine = [7040.00, 8222.00, 1100.00, 6724.00, 7788.00, 8880.00, 10937.00, 12954.00, 9998.00, 9045.00, 11100.00, 18000.00];
-         var configLine = {
-             type: 'line',
-             data: {
-                 labels: rotulosLine,
-                 datasets: [
-                     {
-                         label: 'Lucro Mensal',
-                         data: dataLine,
-                         backgroundColor: [
-                             '#FF000022',
-                             '#FFFF0022',
-                             '#FF00FF22',
-                             '#00FFFF22',
-                             '#99009922',
-                             '#99990022',
-                             '#F0F00022',
-                             '#65002222',
-                         ],
-                         borderColor: [
-                             '#FF0000',
-                             '#FFFF00',
-                             '#FF00FF',
-                             '#00FFFF',
-                             '#990099',
-                             '#999900',
-                             '#F0F000',
-                             '#650022',
-                         ],
-                         borderWidth: 1
-                     }
-                 ]
-             },
-             options: {
+    /* var ctxLine = document.getElementById("chartLine").getContext("2d");
+     var rotulosLine = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+     var dataLine = [7040.00, 8222.00, 1100.00, 6724.00, 7788.00, 8880.00, 10937.00, 12954.00, 9998.00, 9045.00, 11100.00, 18000.00];
+     var configLine = {
+         type: 'line',
+         data: {
+             labels: rotulosLine,
+             datasets: [
+                 {
+                     label: 'Lucro Mensal',
+                     data: dataLine,
+                     backgroundColor: [
+                         '#FF000022',
+                         '#FFFF0022',
+                         '#FF00FF22',
+                         '#00FFFF22',
+                         '#99009922',
+                         '#99990022',
+                         '#F0F00022',
+                         '#65002222',
+                     ],
+                     borderColor: [
+                         '#FF0000',
+                         '#FFFF00',
+                         '#FF00FF',
+                         '#00FFFF',
+                         '#990099',
+                         '#999900',
+                         '#F0F000',
+                         '#650022',
+                     ],
+                     borderWidth: 1
+                 }
+             ]
+         },
+         options: {
  
-                 maintainAspectRatio: false,
-                 scales: {
-                     y: {
-                         beginAtZero: true,
-                     }
+             maintainAspectRatio: false,
+             scales: {
+                 y: {
+                     beginAtZero: true,
                  }
              }
          }
- */
+     }
+*/
 
 
 
 
 
 
-        const ctx3 = document.getElementById('chartLine').getContext('2d');
-        const gradientBG = ctx3.createLinearGradient(0, 0, 0, 250);
+    const ctx3 = document.getElementById('chartLine1').getContext('2d');
+    const gradientBG = ctx3.createLinearGradient(0, 0, 0, 250);
 
 
 
-        gradientBG.addColorStop(0, 'rgba(167, 121, 232, 1)');
-        gradientBG.addColorStop(1, 'rgba(79, 92, 196, 1)');
+    gradientBG.addColorStop(0, 'rgba(167, 121, 232, 1)');
+    gradientBG.addColorStop(1, 'rgba(79, 92, 196, 1)');
 
 
 
 
-        const myChart3 = new Chart(ctx3, {
-            type: 'bar',
-            data: {
-                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                datasets: [{
-                    label: 'Receita mensal',
-                    data: [7040.00, 8222.00, 1100.00, 6724.00, 7788.00, 8880.00, 10937.00, 12954.00, 9998.00, 9045.00, 11100.00, 18000.00],
-                    backgroundColor: [
-                        gradientBG,
-                        gradientBG,
-                        gradientBG,
-                        gradientBG,
-                        gradientBG,
-                        gradientBG
-                    ],
-                    borderColor: [
-                        gradientBG,
-                        gradientBG,
-                        gradientBG,
-                        gradientBG,
-                        gradientBG,
-                        gradientBG
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                plugins: {  // 'legend' now within object 'plugins {}'
-                    legend: {
-                        labels: {
-                            color: "white",  // not 'fontColor:' anymore
-                            // fontSize: 18  // not 'fontSize:' anymore
-                            font: {
-                                size: 14 // 'size' now within object 'font {}'
-                            }
+    const myChart2 = new Chart(ctx3, {
+        type: 'bar',
+        data: {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            datasets: [{
+                label: 'Receita mensal',
+                data: [7040.00, 8222.00, 1100.00, 6724.00, 7788.00, 8880.00, 10937.00, 12954.00, 9998.00, 9045.00, 11100.00, 18000.00],
+                backgroundColor: [
+                    gradientBG,
+                    gradientBG,
+                    gradientBG,
+                    gradientBG,
+                    gradientBG,
+                    gradientBG
+                ],
+                borderColor: [
+                    gradientBG,
+                    gradientBG,
+                    gradientBG,
+                    gradientBG,
+                    gradientBG,
+                    gradientBG
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {  // 'legend' now within object 'plugins {}'
+                legend: {
+                    labels: {
+                        color: "white",  // not 'fontColor:' anymore
+                        // fontSize: 18  // not 'fontSize:' anymore
+                        font: {
+                            size: 14 // 'size' now within object 'font {}'
                         }
                     }
-                },
-                scales: {
-                    y: {
-                        ticks: {
-                            color: 'white'
-                        },
-                        beginAtZero: true
-                    },
-                    x: {
-                        ticks: {
-                            color: 'white'
-
-                        }
-                    },
-
-
                 }
-            }
-        });
-
-        const ctx4 = document.getElementById('myChartLine').getContext('2d');
-        const graidientBack = ctx4.createLinearGradient(0, 0, 0, 250);
-
-        graidientBack.addColorStop(0, 'rgba(167, 121, 232, 1)');
-        graidientBack.addColorStop(1, 'rgba(79, 92, 196, 1)');
-
-        const myChart4 = new Chart(ctx4, {
-            type: 'line',
-            data: {
-                color: 'black',
-                labels: ['Domingo', 'Segunda', 'Terca', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
-                datasets: [{
-                    label: 'Dia de maior consumo',
-                    data: [9, 13, 11, 12, 15, 17, 21, 19],
-                    backgroundColor: [
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient
-                    ],
-                    borderColor: [
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient
-                    ],
-                    borderWidth: 1
-                }]
             },
-            options: {
-                maintainAspectRatio: false,
-                plugins: {  // 'legend' now within object 'plugins {}'
-                    legend: {
-                        labels: {
-                            color: "white",  // not 'fontColor:' anymore
-                            // fontSize: 18  // not 'fontSize:' anymore
-                            font: {
-                                size: 14 // 'size' now within object 'font {}'
-                            }
-                        }
+            scales: {
+                y: {
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true
+                },
+                x: {
+                    ticks: {
+                        color: 'white'
+
                     }
                 },
-                scales: {
-                    y: {
-                        ticks: {
-                            color: 'white'
-                        },
-                        beginAtZero: true
-                    },
-                    x: {
-                        ticks: {
-                            color: 'white'
-                        }
-                    },
-                }
+
+
             }
-        });
+        }
+    });
+
+    const ctx4 = document.getElementById('myChartLine').getContext('2d');
+    const graidientBack = ctx4.createLinearGradient(0, 0, 0, 250);
+
+    graidientBack.addColorStop(0, 'rgba(167, 121, 232, 1)');
+    graidientBack.addColorStop(1, 'rgba(79, 92, 196, 1)');
+
+    const myChart4 = new Chart(ctx4, {
+        type: 'line',
+        data: {
+            color: 'black',
+            labels: ['Domingo', 'Segunda', 'Terca', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
+            datasets: [{
+                label: 'Dia de maior consumo',
+                data: [9, 13, 11, 12, 15, 17, 21, 19],
+                backgroundColor: [
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient
+                ],
+                borderColor: [
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: {  // 'legend' now within object 'plugins {}'
+                legend: {
+                    labels: {
+                        color: "white",  // not 'fontColor:' anymore
+                        // fontSize: 18  // not 'fontSize:' anymore
+                        font: {
+                            size: 14 // 'size' now within object 'font {}'
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true
+                },
+                x: {
+                    ticks: {
+                        color: 'white'
+                    }
+                },
+            }
+        }
+    });
 
 
 
 
 
 
-        setInterval(function () {
-            gerar_grafico()
-        }, 1000);
+    setInterval(function () {
+        gerar_grafico()
+    }, 1000);
 
 
 
     function Monitorar() {
         window.location = './graficos.html'
     }
-</script> -->
+</script>-->
