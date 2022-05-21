@@ -282,7 +282,7 @@ function cadastrarMaquina(req, res) {
                     resultadoFuncionario.JSON;
                     JSON.stringify(resultadoFuncionario);
                     var idFuncionario = resultadoFuncionario[0];
-                usuarioModel.cadastrarFuncionario(idMaquina, idFuncionario, sistemaOperacional, arquitetura, permissao,hostName)
+                usuarioModel.cadastrarMaquina(idMaquina, idFuncionario, sistemaOperacional, arquitetura, permissao,hostName)
                 .then(
                     function (resultado) {
                         res.json(resultado);
