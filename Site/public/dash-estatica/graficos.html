@@ -50,7 +50,7 @@
 		<div id='center' class="main">
 			<div class="dash">
 				<div class="div_maquinas">
-					<div class="div_maquina1"><b>Bruno</b></div>
+					<div class="div_maquina1"><button onclick="obterDadosGrafico(1)">Bruno</button></div>
 					<div class="div_maquina2"><b>Lucas</b></div>
 					<div class="div_maquina3"><b>Raul</b></div>
 					<div class="div_maquina4"><b>Victor</b></div>
@@ -113,7 +113,56 @@
 
 		<script>
 
+		let proximaAtualizacao;
+	
 
+		function obterDadosGrafico(idMaquina) {
+				if (proximaAtualizacao != undefined) {
+					clearTimeout(proximaAtualizacao);
+				}
+
+				fetch(`/medidas/ultimas/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+					if (response.ok) {
+						response.json().then(function (resposta) {
+							console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+							resposta.reverse();
+
+							plotarGrafico(resposta, idMaquina);
+						
+						});
+					} else {
+						console.error('Nenhum dado encontrado ou erro na API');
+					}
+				})
+					.catch(function (error) {
+						console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+					});
+
+				}
+
+				
+		function plotarGrafico(resposta, idSensor) {
+				console.log('iniciando plotagem do gráfico...');
+
+        var dados = {
+            labels: [],
+            datasets: [
+                {
+                   
+                    label: 'Luminosidade',
+                    borderColor: '#32B9CD',
+                    backgroundColor: '#32b9cd8f',
+                    fill: true,
+                    data: []
+                }
+            ]
+        };
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            dados.labels.push(registro.momento_grafico);
+            dados.datasets[0].data.push(registro.logLuminosidade * Math.random());
+        }
 
 			var context = document.getElementById("chart").getContext("2d");
 			context.canvas.width = 1000;
@@ -126,7 +175,8 @@
 						label: "Uso",
 						type: 'line',
 						borderColor: ['rgb(0, 139, 212)'],
-						backgroundColor: ['rgb(26, 28, 92)']
+						backgroundColor: ['rgb(26, 28, 92)'],
+						data: []
 					}]
 				},
 				options: {
@@ -160,14 +210,28 @@
 				}
 			};
 
-			var chart = new Chart(context, configuration);
+			for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+          //  dados.labels.push(registro.momento_grafico);
+		  configuration.data.datasets[0].data.push(registro)
+           // dados.datasets[0].data.push(registro.logLuminosidade * Math.random());
+        }
+    
+
+		}
+		
+		
+		
+		
+		
+		var chart = new Chart(context, configuration);
 
 
 
-
-			setInterval(() => {
-				get_data();
-			}, 800);
+		
+		setInterval(() => {
+			obterDadosGrafico();
+		}, 800);
 
 		</script>
 </body>

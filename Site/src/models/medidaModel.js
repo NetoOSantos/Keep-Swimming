@@ -1,27 +1,13 @@
 var database = require("../database/config");
 
 function buscarUltimasMedidas(idMaquina, limite_linhas) {
-    
+    idMaquina = 1;
 //local
-    // instrucaoSql = `select 
-    //                     temperatura_lm35, 
-    //                     umidade, 
-    //                     hr_medida,
-    //                     DATE_FORMAT(hr_medida,'%H:%i:%s') as momento_grafico
-    //                     from medidas
-    //                     where fkMaquina = ${idMaquina}
-    //                     order by idMedidas desc limit ${limite_linhas}`;
+    // instrucaoSql = `select format(sum(usoCPU), 1) from Maquina join processos on idMaquina = fkMaquina where idMaquina = ${idMaquina};`;
 
 
 //nuvem
-    instrucaoSql = `select      
-                        temperatura_lm35, 
-                        umidade, 
-                        hr_medida,
-                        convert(varchar, getdate(),13) as momento_grafico
-                        from [dbo].[medidas]
-                        where fkMaquina = ${idMaquina}
-                        order by hr_medida`;
+    instrucaoSql = `select format(sum(usoCPU), 'N') from Maquina join processos on idMaquina = fkMaquina where idMaquina = ${idMaquina};`;
 
 
 
