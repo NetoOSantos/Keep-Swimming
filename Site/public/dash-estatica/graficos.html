@@ -11,7 +11,7 @@
 	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
 	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
 	<script src="../../src/controllers/medidaController.js"></script>
-	
+
 	<style>
 		.canvas {
 			-moz-user-select: none;
@@ -19,7 +19,7 @@
 			-ms-user-select: none;
 		}
 	</style>
-	
+
 </head>
 
 <body>
@@ -35,54 +35,81 @@
 			<ul class="sidebarMenuInner">
 				<li><a href="./dashboard.html"><img src="./dash.png" alt="" height="25px"> Dashboard</a> </li>
 				<li> <a href="graficos.html"><img src="./monitoramento.png" alt="" height="25px">Monitoramento</a></li>
-				<li> <a href="dash-cadastros.html"><img src="./perfil.png" alt="" height="25px">Cadastrar Desenvolvedor</a></li>
+				<li> <a href="dash-cadastros.html"><img src="./perfil.png" alt="" height="25px">Cadastrar
+						Desenvolvedor</a></li>
 				<li> <a href="https://app.pipefy.com/public/form/w7YSTr_A">
-					<img src="./suporte.png" alt="" height="25px"> Suporte</a></li>
+						<img src="./suporte.png" alt="" height="25px"> Suporte</a></li>
 				<li><a href="../index.html">
-					<div class="sair">
-						<img src="./logout 1.png" alt=""  height="50px">
-					</div>
-				</a></li>
+						<div class="sair">
+							<img src="./logout 1.png" alt="" height="50px">
+						</div>
+					</a></li>
 			</ul>
 		</div>
-		
-	<div id='center' class="main">
-		<div class="dash">
-			<div class="regua">
-				<div class="item-regua perigo-frio">
-					<h4>Consumo CPU</h4>
-					<h2 id="consumo_cpu"></h2>
+
+		<div id='center' class="main">
+			<div class="dash">
+				<div class="div_maquinas">
+					<div class="div_maquina1"><b>Bruno</b></div>
+					<div class="div_maquina2"><b>Lucas</b></div>
+					<div class="div_maquina3"><b>Raul</b></div>
+					<div class="div_maquina4"><b>Victor</b></div>
+					<div class="div_maquina5"><b>Neto</b></div>
 				</div>
-				<div class="item-regua alerta-frio">
-					<h4>Alerta Critico Baixo</h4>
-					<h2>11-25% Consumo</h2>
+				<div class="regua">
+					<div class="item-regua perigo-frio">
+						<h4>Consumo CPU</h4>
+						<h2 id="consumo_cpu"></h2>
+					</div>
+					<div class="item-regua alerta-frio">
+						<h4>Alerta Critico Baixo</h4>
+						<h2>11-25% Consumo</h2>
+					</div>
+					<div class="item-regua ideal">
+						<h4>Ideal</h4>
+						<h2>26-75% Consumo</h2>
+					</div>
+					<div class="item-regua alerta-quente">
+						<h4>Alerta Critico Alto</h4>
+						<h2>76-90% Consumo</h2>
+					</div>
+					<div class="item-regua perigo-quente">
+						<h4>Alto nível de requisições</h4>
+						<h2> 90-100% </h2>
+					</div>
 				</div>
-				<div class="item-regua ideal">
-					<h4>Ideal</h4>
-					<h2>26-75% Consumo</h2>
-				</div>
-				<div class="item-regua alerta-quente">
-					<h4>Alerta Critico Alto</h4>
-					<h2>76-90% Consumo</h2>
-				</div>
-				<div class="item-regua perigo-quente">
-					<h4>Alto nível de requisições</h4>
-					<h2> 90-100% </h2>
+
+				<div class="inf_dash">
+
+
+					<select name="" id="sel_comp" class="sel_componentescss">
+						<option value="">--Selecione--</option>
+						<option value="">ram</option>
+						<option value="">processador</option>
+						<option value="">Memoria</option>
+						<option value="">Memoria virtual</option>
+					</select>
+
+
+					<div class="grafico">
+						<h1>
+							Monitoramento de Hardware
+						</h1>
+						<div id="divMostrar"></div>
+
+						<canvas id="chart"></canvas>
+						<br>
+					</div>
+
+					<div class="div_componente">
+
+					</div>
+
+
 				</div>
 			</div>
 
-			<div class="grafico">
-				<h1>
-					Monitoramento de Hardware
-				</h1>
-				<div id="divMostrar"></div>
-	
-				<canvas id="chart"></canvas>
-				<br>
-			</div>
 		</div>
-
-	</div>
 
 		<script>
 
@@ -144,6 +171,7 @@
 
 		</script>
 </body>
+
 </html>
 
 
