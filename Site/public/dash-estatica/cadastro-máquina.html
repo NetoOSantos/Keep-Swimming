@@ -53,10 +53,10 @@
                         <div class="ladoEsquerdo">
 
                             <label for="hostName">HostName</label>
-                            <input type="text" name="nome_Funcionario" placeholder="Host name" id="host_name">
+                            <input type="text" name="hostName" placeholder="Host name" id="host_name">
                             
-                            <label for="username">ID Máquina</label>
-                            <input type="text" name="nome_Funcionario" placeholder="ID" id="id_maquina">
+                            <label for="idMaquina>ID Máquina</label>
+                            <input type="text" name="idMaquina" placeholder="ID" id="id_maquina">
 
                             <label for="idFuncionario">ID Funcionário</label>
                             <input type="text" name="idFuncionario" placeholder="ID Funcionário" id="id_funcionario">
@@ -72,13 +72,13 @@
                         <div class="ladodireito">
                          
                             <label for="arquitetura">Arquitetura</label>
-                            <input type="" name="Gestor" placeholder="32bits/64 bits" id="arquitetura">
+                            <input type="" name="arquitetura" placeholder="32bits/64 bits" id="arquitetura_">
 
                             <label for="permissao">Permissão</label>
-                            <input type="text" name="permissao" placeholder="true / false" id="permissao">
+                            <input type="text" name="permissao" placeholder="true / false" id="permissao_">
 
                             <label for="fabricante">Fabricante</label>
-                            <input type="text" name="fabricante" placeholder="true / false" id="fabricante">
+                            <input type="text" name="fabricante" placeholder="true / false" id="fabricante_">
 
                           
                         </div>
@@ -87,7 +87,7 @@
 
                     </div>
                     <div class="div_botao">
-                        <button class="btn efeito" type="button" onclick="cadastrarFuncionario()">Cadastrar</button>
+                        <button class="btn efeito" type="button" onclick="cadastrarMaquina()">Cadastrar</button>
                     </div>
 
                 </form>
@@ -214,9 +214,9 @@
          var idMaquina = id_maquina.value;
          var idFuncionario = id_funcionario.value
          var sistemaOperacional = sistema_Operacional.value;
-         var arquitetura = arquitetura.value;
-         var permissao = permissao.value;
-         var fabricante = fabricante.value
+         var arquitetura = arquitetura_.value;
+         var permissao = permissao_.value;
+         var fabricante = fabricante_.value
  
          if (hostName == ""||idMaquina == "" || idFuncionario == "" ||sistemaOperacional == "" || arquitetura == "" || permissao == "" || fabricante == "") {
             erro.style.display = "block"
@@ -228,22 +228,12 @@
             setInterval(sumirMensagem, 5000)
         }
 
-        if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".com") == -1) {
-            erro.style.display = "block"
-            erro.innerHTML = "Ops, e-mail inválido! Verifique e tente novamente.";
-           // finalizarAguardar();
-            return false;
-        } 
-
-        if (arquitetura != 32 || arquitetura != 64) {
+        if (arquitetura != 32 && arquitetura != 64) {
             erro.style.display = "block"
             erro.innerHTML = "Arquitetura inválida, preencha com um valor válido 32 ou 64 bits"
             
             return false;
         }
-
-    
-
 
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrarMaquina", {
@@ -261,7 +251,7 @@
                 arquiteturaServer: arquitetura,
                 permissaoServer: permissao,
                 fabricanteServer: fabricante,
-                idEmpresa,            
+              
             })
         }).then(function(resposta) {
 
@@ -270,7 +260,7 @@
             if (resposta.ok) {
                 alert("cadastro realizado com sucesso!");
                 console.log('cadastro realizado com sucesso');
-                limparFormulario();
+                //limparFormulario();
                // finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");

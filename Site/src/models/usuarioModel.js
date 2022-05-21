@@ -140,10 +140,9 @@ function cadastrarMaquina( idMaquina, sistemaOperacional, fabricante, arquitetur
 
     var instrucao = `       
         INSERT INTO MAQUINA VALUES 
-        (null,
+        (
             ${idMaquina},
-            ${sistemaOperacional}, 
-            '${hostName}', 
+            ${sistemaOperacional},  
             '${fabricante}', 
             '${arquitetura}',
             '${permissao},

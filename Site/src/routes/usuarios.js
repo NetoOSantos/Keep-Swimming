@@ -32,7 +32,7 @@ router.post("/autenticar", function(req, res) {
 });
 
 router.post("/cadastrarMaquina", function(req, res){
-    usuarioController.cadastrarMaquina(req,res);
+    usuarioController.cadastrarMaquina(req, res);
 });
   
 module.exports = router;
