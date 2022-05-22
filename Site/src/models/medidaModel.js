@@ -14,7 +14,11 @@ function buscarUltimasMedidas(idMaquina, limite_linhas) {
 
 
 //nuvem
-    instrucaoSql = `select round(memoriaEmUso, -7) AS dadosMemoria from Maquina join [dbo].[Historico] on idMaquina = fkMaquina where idMaquina = ${idMaquina}`;
+    instrucaoSql = `select top ${limite_linhas} 
+                        round(memoriaEmUso, 0) AS dadosMemoria,
+                        round(processadorUso,2) AS dadosProcessador,
+                        convert(varchar,data,13) AS Hora
+                  from Maquina join [dbo].[Historico] on idMaquina = fkMaquina where idMaquina = ${idMaquina} order by Hora desc`;
 
 
 
@@ -23,7 +27,8 @@ return database.executar(instrucaoSql);
     
 }
 
-function buscarMedidasEmTempoReal(idMaquina) {
+
+function buscarMedidasEmTempoReal(idMaquina,limite_linhas) {
 
     //local
     // instrucaoSql = `select temperatura_lm35, 
@@ -34,12 +39,11 @@ function buscarMedidasEmTempoReal(idMaquina) {
     //                         order by idMedidas desc limit 1`;
 
 //nuvem
-    instrucaoSql = `select temperatura_lm35, 
-                            umidade, 
-                            convert(varchar, getdate(),13) as momento_grafico,
-                            fkMaquina
-                            from [dbo].[medidas] where fkMaquina = ${idMaquina} 
-                            order by hr_medida`;
+    instrucaoSql = `select top 1
+                        round(memoriaEmUso, 0) AS dadosMemoria,
+                        round(processadorUso,2) AS dadosProcessador,
+                        convert(varchar,data,13) AS Hora
+                    from Maquina join [dbo].[Historico] on idMaquina = fkMaquina where idMaquina = ${idMaquina} order by Hora desc`;
 
 
 console.log("Executando a instrução SQL: \n" + instrucaoSql);
