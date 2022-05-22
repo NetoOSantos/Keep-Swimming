@@ -134,7 +134,7 @@ function updateFuncionario(idFuncionario,alteracao,coluna) {
     return database.executar(instrucao);
 }
 
-function cadastrarMaquina( idMaquina, sistemaOperacional, fabricante, arquitetura, permissao, hostName){
+function cadastrarMaquina( idMaquina,idFuncionario, sistemaOperacional, fabricante, arquitetura, permissao, fabricante,hostName){
 
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarFuncionario():",idMaquina, sistemaOperacional, fabricante, arquitetura, permissao, hostName);
 
@@ -142,10 +142,11 @@ function cadastrarMaquina( idMaquina, sistemaOperacional, fabricante, arquitetur
         INSERT INTO MAQUINA VALUES 
         (
             ${idMaquina},
-            ${sistemaOperacional},  
+            ${idFuncionario},
+            '${sistemaOperacional}',  
             '${fabricante}', 
             '${arquitetura}',
-            '${permissao},
+            '${permissao}',
             '${hostName}');
     `;
     console.log("Executando a instrução SQL: \n"+instrucao);

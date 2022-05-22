@@ -249,21 +249,19 @@ function updateFuncionario(req, res) {
 function cadastrarMaquina(req, res) {
 
 
-    var hostName = req.body.hostNameServer
     var idMaquina = req.body.idMaquinaServer;
     var idFuncionario = req.body.idFuncionarioServer;
     var sistemaOperacional = req.body.sistemaOperacionalServer;
+    var fabricante = req.body.fabricante
     var arquitetura = req.body.arquiteturaServer;
     var permissao = req.body.permissao;
-    var fabricante = req.body.fabricante
+    var hostName = req.body.hostNameServer
 
 
-    console.log("req.body cadastro funcionário");
+    console.log("req.body cadastro maquina");
     console.log(req.body);
 
-    if (hostName == undefined) {
-        res.status(400).send("O hostName do funcionário está undefined!");
-    } else if (idMaquina == undefined) {
+     if (idMaquina == undefined) {
         res.status(400).send("O idMaquina da máquina está undefined!");
     } else if (idFuncionario == undefined) {
         res.status(400).send("A o id do funcionário está undefined!");
@@ -275,14 +273,17 @@ function cadastrarMaquina(req, res) {
         res.status(400).send("Campo de permissão inválido")
     }else if (fabricante == undefined) {
         resres.status(400).send("Campo de fabricante inválido")
-    } else {
-        usuarioModel.buscarIdFuncionario(hostName).then(
-            function (resultadoFuncionario) {
-                console.log(resultadoFuncionario);
-                    resultadoFuncionario.JSON;
-                    JSON.stringify(resultadoFuncionario);
-                    var idFuncionario = resultadoFuncionario[0];
-                usuarioModel.cadastrarMaquina(idMaquina, idFuncionario, sistemaOperacional, arquitetura, permissao,hostName)
+    } else if (hostName == undefined) {
+        res.status(400).send("O hostName do funcionário está undefined!");
+   
+    }  else {
+        // usuarioModel.buscarIdFuncionario(hostName).then(
+        //     function (resultadoFuncionario) {
+        //         console.log(resultadoFuncionario);
+        //             resultadoFuncionario.JSON;
+        //             JSON.stringify(resultadoFuncionario);
+        //             var idFuncionario = resultadoFuncionario[0];
+                usuarioModel.cadastrarMaquina(idMaquina, idFuncionario, sistemaOperacional,fabricante, arquitetura, permissao,hostName)
                 .then(
                     function (resultado) {
                         res.json(resultado);
@@ -298,18 +299,18 @@ function cadastrarMaquina(req, res) {
                     }
                 );
             }
-        ).catch(
-            function (erro) {
-                console.log(erro);
-                console.log(
-                    "\nHouve um erro ao realizar o cadastro da máquina! Erro: ",
-                    erro.sqlMessage
-                );
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
+        // ).catch(
+        //     function (erro) {
+        //         console.log(erro);
+        //         console.log(
+        //             "\nHouve um erro ao realizar o cadastro da máquina! Erro: ",
+        //             erro.sqlMessage
+        //         );
+        //         res.status(500).json(erro.sqlMessage);
+        //     }
+        // );
     }
-}
+
 
 module.exports = {
     entrar,
