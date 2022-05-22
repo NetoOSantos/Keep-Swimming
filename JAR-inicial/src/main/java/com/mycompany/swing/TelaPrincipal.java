@@ -57,12 +57,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Integer arquitetura = looca.getSistema().getArquitetura();
         String permissao = looca.getSistema().getPermissao().toString();
         
-         String inserirDadosMaquina = "Insert into Maquina VALUES "
-                + "(null,2,?,?,?,?);";
+        // String inserirDadosMaquina = "Insert into Maquina VALUES "
+          //      + "(null,2,?,?,?,?);";
         
         //AZURE
-        // String inserirDadosMaquina = "Insert into Maquina VALUES "
-              //  + "(2,?,?,?,?);";
+         String inserirDadosMaquina = "Insert into Maquina VALUES "
+                + "(2,?,?,?,?);";
 
         con.update(inserirDadosMaquina, sO, fabricante, arquitetura, permissao);
         
@@ -108,12 +108,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
            Integer totalProcessos = looca.getGrupoDeProcessos().getTotalProcessos();
            Integer threads = looca.getGrupoDeProcessos().getTotalThreads();
            //para Mysql local
-           String inserirDadosProcessos = "Insert into Processos VALUES "
-               + "(null,1,?,?,?,?,?,?,?,?);";
+          // String inserirDadosProcessos = "Insert into Processos VALUES "
+            //   + "(null,1,?,?,?,?,?,?,?,?);";
              
               //Para azure
-               //String inserirDadosProcessos = "Insert into Processos VALUES "
-                //+ "(1,?,?,?,?,?,?,?,?);";
+               String inserirDadosProcessos = "Insert into Processos VALUES "
+                + "(1,?,?,?,?,?,?,?,?);";
            
            con.update(inserirDadosProcessos, PID,Nome,UsoCpu,usoMemoria,
                    bytesUtilizados,memVirtualUtilizada, totalProcessos, threads);
@@ -156,12 +156,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
              String processadorNome = processador.getNome();
              
               //Para Mysql local
-          String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
-                    + "(null,1,?,?,?,?,?,?);";
+        //  String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
+          //          + "(null,1,?,?,?,?,?,?);";
                    
          //Para AZURE
-           //String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
-                  //  + "(1,?,?,?,?,?,?);";
+           String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
+                    + "(1,?,?,?,?,?,?);";
          
            
            con.update(inserirDadosHardware,
@@ -199,12 +199,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
              @Override
              public void run() {
            //MySQL local         
-           String inserirHistorico = "Insert into Historico VALUES "
-                + "(null,1,?,?,?,?,?,?,?);";
+           //String inserirHistorico = "Insert into Historico VALUES "
+             //   + "(null,1,?,?,?,?,?,?,?);";
            
            //AZURE
-            // String inserirHistorico = "Insert into Historico VALUES "
-              //  + "(1,?,?,?,?,?,?,?);";
+             String inserirHistorico = "Insert into Historico VALUES "
+                + "(1,?,?,?,?,?,?,?);";
            
            con.update(inserirHistorico,data,tempoInicializado,tempoDeAtividade,
                    temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);

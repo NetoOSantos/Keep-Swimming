@@ -92,16 +92,16 @@
                     <button onclick="atualizarFeed()" class="btn_mural_funcionarios" id="btn_funcionarios">USUÁRIO CADASTRADOS</button>
                        <div id="feed_container" class="feed-container"></div>
 
-                                    <button onclick="atualizarFeed()" style="display: none;" id="atualizar">Atualizar Feed</button>
-
+                       
+                       <button onclick="atualizarFeed()" style="display: none;" id="atualizar" class="atualizarMural">Atualizar Feed</button>
                             <div class="botoes_crud">
-                                    <button style="display: none;" id="btn_deletar" onclick="deletarUsuario()">Deletar usuário</button>   
-                                    <button style="display: none;" id="btn_atualizar" onclick="updateUsuario()">Atualizar usuário</button>             
+                                    <button style="display: none;" id="btn_deletar" onclick="deletarUsuario()" class="btnDeletar">Deletar usuário</button>   
+                                    <button style="display: none;" id="btn_atualizar" onclick="updateUsuario()" class="btnUpdate">Atualizar usuário</button>             
                             </div>
-
                             <input type = "number" placeholder="id do Funcionário" id="updateDelete" style="display: none;" class="inputDeleteUpdate">
+
                             
-                            <select  id="atualizarOpcoes" style="display: none;">
+                            <select  id="atualizarOpcoes" style="display: none;" class="selectUpdate">
                                 <option value="">Atualizar:</option>
                                 <option value="id">ID</option>
                                 <option value="nome">Nome</option>
@@ -114,10 +114,10 @@
                             <div id="respostaDeleteUpdate"></div>
 
                       </div>
-
-
                  </div>
             </div>
+
+
         </div>
 
 
@@ -221,7 +221,7 @@
         //aguardar();
         btn_funcionarios.style.display = 'none';
         atualizarOpcoes.style.display = 'none';
-            ipt_update.style.display = 'none';
+        ipt_update.style.display = 'none';
         btn_deletar.style.display = 'block';
         btn_atualizar.style.display = 'block';
         updateDelete.style.display = 'block';
@@ -260,16 +260,16 @@
                        // spanGestor.innerHTML = "Gestor: <b>"+ publicacao.fkGestor + "</b>";
                         spanNome.innerHTML = "Nome: <b>"+publicacao.Nome+"</b>";
                         spanEmail.innerHTML = "Email: <b>" + publicacao.EMAIL + "</b>";
-                        spanCargo.innerHTML = "Cargo: <b>" + publicacao.Cargo + "</b>";
+                        spanCargo.innerHTML = "Cargo: <b>" + publicacao.Cargo + "</b> <br><br>";
                         //divDescricao.innerHTML = "Descrição: <b>"+publicacao.descricao+"</b>";
 
                         divPublicacao.className = "publicacao";
                        // spanTitulo.id = "inputNumero"+publicacao.idAviso;
-                        spanID.className = "id-funcionario";
+                        spanID.className = "id-funcionario-span";
                      //   spanGestor.className = "Gestor";
-                        spanNome.className = "nome";
-                        spanEmail.className = "Email";
-                        spanCargo.className = "cargo";
+                        spanNome.className = "nome-span";
+                        spanEmail.className = "Email-span";
+                        spanCargo.className = "cargo-span";
                        // spanTitulo.className = "publicacao-titulo";
                        // divDescricao.className = "publicacao-descricao";
 
@@ -300,9 +300,10 @@
     }
 
     function deletarUsuario(){
+
         var idFuncionario = updateDelete.value;
         respostaDeleteUpdate.innerHTML = "";
-        ipt_update.style.display = 'block';
+    
 
         if(idFuncionario == ''  )
         {
@@ -335,6 +336,7 @@
                 limparFormulario();
                // finalizarAguardar();
             } else {
+                alert("Houve um erro ao tentar realizar o delete!");
                 throw ("Houve um erro ao tentar realizar o delete!");
             }
         }).catch(function(resposta) {

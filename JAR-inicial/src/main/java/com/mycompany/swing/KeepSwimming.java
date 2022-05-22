@@ -187,7 +187,7 @@ public class KeepSwimming extends javax.swing.JFrame {
                 
                
                new EnviaToken().setVisible(true);
-                this.dispose();
+               this.dispose();
                 
                 try {
             TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);

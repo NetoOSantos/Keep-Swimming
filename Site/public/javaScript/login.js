@@ -2,7 +2,7 @@ function limparFormulario() {
     document.getElementById("form_login").reset();
 }
 
-function entrar() {
+function logar() {
     aguardar();
 
     var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));

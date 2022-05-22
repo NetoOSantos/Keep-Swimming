@@ -22,7 +22,7 @@ function validarSessao() {
    
 function limparSessao() {
 
-    alert('See you space Cowboy');
+    alert('Always KeepSwimming...');
 
     imgfinish.style.display = 'block';
 

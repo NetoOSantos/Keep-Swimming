@@ -82,8 +82,8 @@
 				<div class="inf_dash">
 
 
-					<select name="" id="sel_comp" class="sel_componentescss" >
-						<option value="">--Selecione--</option>
+					<select name="" id="sel_comp" class="sel_componentescss" onclick="obterDadosGrafico(1)">
+						<option value="1">--Selecione--</option>
 						<option value="1">Memoria</option>
 						<option value="2">processador</option>
 						<option value="">ram</option>
@@ -144,6 +144,16 @@
 		function plotarGrafico(resposta, idMaquina) {
 			console.log('iniciando plotagem do gráfico...');
 			var componenteSelecionado = sel_comp.value;
+			var nomeLabel;
+
+			          if(componenteSelecionado == 1)
+					{
+						nomeLabel = 'Memoria';		
+					} else if (componenteSelecionado == 2)
+					{
+						
+						nomeLabel = 'Processador';				
+					}
 
 			
 			
@@ -152,7 +162,7 @@
 				datasets: [
 					{
 						
-						label: 'Memoria',
+						label: nomeLabel,
 						borderColor: '#32B9CD',
 						backgroundColor: '#32b9cd8f',
 						fill: true,
@@ -185,7 +195,15 @@
 			// }
 
             dados.labels.push(registroHora);
-            dados.datasets[0].data.push(registro.dadosMemoria);
+
+			if(componenteSelecionado == 1)
+			{
+				dados.datasets[0].data.push(registro.dadosMemoria);				
+			} else if (componenteSelecionado == 2)
+			{
+				
+				dados.datasets[0].data.push(registro.dadosProcessador);				
+			}
         }
 
 			console.log(JSON.stringify(dados));
@@ -271,6 +289,8 @@
     }
 
 	function atualizarGrafico(idMaquina, dados) {
+		var componenteSelecionado = sel_comp.value;
+
         fetch(`/medidas/tempo-real/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
@@ -287,7 +307,16 @@
                     dados.labels.shift(); // apagar o primeiro
                     dados.labels.push(registroHora); // incluir um novo momento
                     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                    dados.datasets[0].data.push(novoRegistro[0].dadosMemoria); // incluir uma nova medida de umidade
+
+					if(componenteSelecionado == 1)
+					{
+						dados.datasets[0].data.push(novoRegistro[0].dadosMemoria);			
+					} else if (componenteSelecionado == 2)
+					{
+						
+						dados.datasets[0].data.push(novoRegistro[0].dadosProcessador);				
+					}
+                   // dados.datasets[0].data.push(novoRegistro[0].dadosMemoria); // incluir uma nova medida de umidade
 
                     // if(novoRegistro[0].logLuminosidade < 300) {
                     //     dados.datasets[0].borderColor = "#cd32328f";
