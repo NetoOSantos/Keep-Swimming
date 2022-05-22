@@ -14,14 +14,7 @@ function buscarUltimasMedidas(idMaquina, limite_linhas) {
 
 
 //nuvem
-    instrucaoSql = `select      
-                        temperatura_lm35, 
-                        umidade, 
-                        hr_medida,
-                        convert(varchar, getdate(),13) as momento_grafico
-                        from [dbo].[medidas]
-                        where fkMaquina = ${idMaquina}
-                        order by hr_medida`;
+    instrucaoSql = `select round(memoriaEmUso, -7) AS dadosMemoria from Maquina join [dbo].[Historico] on idMaquina = fkMaquina where idMaquina = ${idMaquina}`;
 
 
 

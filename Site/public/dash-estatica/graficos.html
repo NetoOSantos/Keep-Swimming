@@ -22,7 +22,7 @@
 
 </head>
 
-<body>
+<body onload="obterDadosGrafico(1)">
 
 	<div class="header">
 		<img src="./logo ppt2.png" alt="" height="60px">
@@ -113,61 +113,143 @@
 
 		<script>
 
+		let proximaAtualizacao;
 
-
-			var context = document.getElementById("chart").getContext("2d");
-			context.canvas.width = 1000;
-			context.canvas.height = 300;
-
-			var configuration = {
-				type: 'line',
-				data: {
-					datasets: [{
-						label: "Uso",
-						type: 'line',
-						borderColor: ['rgb(0, 139, 212)'],
-						backgroundColor: ['rgb(26, 28, 92)']
-					}]
-				},
-				options: {
-					scales: {
-						xAxes: [{
-							distribution: 'series',
-							ticks: {
-								beginAtZero: true
-							}
-						}],
-						yAxes: [{
-							scaleLabel: {
-								display: true,
-								labelString: 'Uso'
-							},
-							ticks: {
-								beginAtZero: true
-							}
-						}]
-					},
-					animation: {
-						tension: {
-							duration: 1000,
-							easing: 'easeInOutBack',
-							from: 1,
-							to: 0,
-							loop: true
-						}
-
-					}
+		function obterDadosGrafico(idMaquina) {
+				if (proximaAtualizacao != undefined) {
+					clearTimeout(proximaAtualizacao);
 				}
+
+				fetch(`/medidas/ultimas/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+					if (response.ok) {
+						response.json().then(function (resposta) {
+							console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+							resposta.reverse();
+
+							plotarGrafico(resposta, idMaquina);
+						});
+					} else {
+						console.error('Nenhum dado encontrado ou erro na API');
+					}
+				})
+					.catch(function (error) {
+						console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+					});
+
+		}
+
+
+		function plotarGrafico(resposta, idSensor) {
+			console.log('iniciando plotagem do gráfico...');
+
+			
+			var dados = {
+				labels: [],
+				datasets: [
+					{
+					
+						label: 'uso',
+						borderColor: '#32B9CD',
+						backgroundColor: '#32b9cd8f',
+						fill: true,
+						data: []
+					}
+				]
 			};
 
-			var chart = new Chart(context, configuration);
+			for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            console.log("registro::::::::");
+            console.log(registro);
+            dados.labels.push(registro.momento_grafico);
+            dados.datasets[0].data.push(registro);
+        }
 
+			console.log(JSON.stringify(dados));
 
+		// 	var ctx =chart.getContext('2d');
+		// 	window.grafico_linha = Chart.Line(ctx, {
+		// 		data: dados,
+		// 		//Configurações do gráfico
+		// 		options: {
+		// 			responsive: true,
+		// 			animation: { duration: 500 },
+		// 			hoverMode: 'index',
+		// 			stacked: false,
+		// 			title: {
+			// 				display: true,
+		// 				text: 'Histórico recente de Luminosidade'
+		// 			},
+		// 			scales: {
+		// 				yAxes: [ {
+		// 					type: 'linear',
+		// 					display: true,
+		// 					position: 'right',
+		// 					id: 'y-luminosidade',
 
+		// 					gridLines: {
+		// 						drawOnChartArea: false,
+		// 					},
+		// 				}],
+		// 			}
+		// 		}
+		// 	});
 
-			setInterval(() => {
-				get_data();
-			}, 800);
+		// 	for (i = 0; i < resposta.length; i++) {
+		// 		var registro = resposta[i];
+		// 		dados.labels.push(registro.momento_grafico);
+		// 		dados.datasets[0].data.push(registro.dadosMemoria);
+		// 	}
+		
+        
+        // //Atualiza os dados de 2 em 2 segundos
+        // setTimeout(() => atualizarGrafico(idMaquina, dados), 3000);
+
+		var context = document.getElementById("chart").getContext("2d");
+		context.canvas.width = 1000;
+		context.canvas.height = 300;
+	
+		var configuration = {
+			type: 'line',
+			data: dados,
+			options: {
+				scales: {
+					xAxes: [{
+						distribution: 'series',
+						ticks: {
+							beginAtZero: true
+						}
+					}],
+					yAxes: [{
+						scaleLabel: {
+							display: true,
+							labelString: 'Uso'
+						},
+						ticks: {
+							beginAtZero: true
+						}
+					}]
+				},
+				animation: {
+					tension: {
+						duration: 1000,
+						easing: 'easeInOutBack',
+						from: 1,
+						to: 0,
+						loop: true
+					}
+	
+				}
+			}
+		};
+	
+		var chart = new Chart(context, configuration);
+    }
+	
+
+			// setInterval(() => {
+			// 	get_data();
+			// }, 800);
 
 		</script>
 </body>
