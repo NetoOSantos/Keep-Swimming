@@ -55,8 +55,8 @@
                             <label for="hostName">HostName</label>
                             <input type="text" name="hostName" placeholder="Host name" id="host_name">
                             
-                            <label for="idMaquina>ID Máquina</label>
-                            <input type="text" name="idMaquina" placeholder="ID" id="id_maquina">
+                            <label for="idMaquina>">ID Máquina</label>
+                            <input type="text" name="idMaquina" placeholder="ID da maquina" id="id_maquina">
 
                             <label for="idFuncionario">ID Funcionário</label>
                             <input type="text" name="idFuncionario" placeholder="ID Funcionário" id="id_funcionario">
@@ -210,15 +210,15 @@
     function cadastrarMaquina()
      {
         
-         var hostName = host_name.value        
          var idMaquina = id_maquina.value;
          var idFuncionario = id_funcionario.value
          var sistemaOperacional = sistema_Operacional.value;
          var arquitetura = arquitetura_.value;
          var permissao = permissao_.value;
          var fabricante = fabricante_.value
- 
-         if (hostName == ""||idMaquina == "" || idFuncionario == "" ||sistemaOperacional == "" || arquitetura == "" || permissao == "" || fabricante == "") {
+         var hostName = host_name.value        
+         
+         if (idMaquina == "" || idFuncionario == "" ||sistemaOperacional == "" || arquitetura == "" || permissao == "" || fabricante == "" || hostName == "" ) {
             erro.style.display = "block"
             erro.innerHTML = "Preencha todos os campos para prosseguir!";
 
