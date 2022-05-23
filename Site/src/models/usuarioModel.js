@@ -134,19 +134,19 @@ function updateFuncionario(idFuncionario,alteracao,coluna) {
     return database.executar(instrucao);
 }
 
-function cadastrarMaquina( idmaquina, sistemaoperacional, fabricante, arquitetura, permissao,hostname){
+function cadastrarMaquina(sistemaoperacional, fabricante, arquitetura, permissao,hostname){
 
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarMaquina():", idmaquina, sistemaoperacional, fabricante, arquitetura,permissao,hostname);
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarMaquina():", sistemaoperacional, fabricante, arquitetura,permissao,hostname);
 
     var instrucao = `       
         INSERT INTO [dbo].[Maquina] 
-        (idmaquina,
+        (
             sistemaoperacional,
             fabricante,
             arquitetura,
-            permissao,
-            hostname) VALUES   
-            (${idmaquina},
+            permissoes,
+            hostName) VALUES   
+            (
             '${sistemaoperacional}',  
             '${fabricante}', 
             '${arquitetura}',

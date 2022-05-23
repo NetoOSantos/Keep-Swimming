@@ -1,4 +1,5 @@
-create database keepSwimming;
+//create database keepSwimming;
+
 
 use keepSwimming;
 

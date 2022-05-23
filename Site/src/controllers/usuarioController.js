@@ -248,9 +248,9 @@ function updateFuncionario(req, res) {
 
 function cadastrarMaquina(req, res) {
 
-    var idmaquina = req.body.idmaquina;
-    var idfuncionario = req.body.idfuncionario;
-    var sistemaoperacional = req.body.sistemaoperacional;
+
+    var idfuncionario = req.body.funcionarioId;
+    var sistemaoperacional = req.body.sistemaOperacional;
     var fabricante = req.body.fabricante;
     var arquitetura = req.body.arquitetura;
     var permissao = req.body.permissao;
@@ -260,9 +260,7 @@ function cadastrarMaquina(req, res) {
     console.log("req.body cadastro maquina");
     console.log(req.body);
 
-     if (idmaquina == undefined) {
-        res.status(400).send("O idMaquina da máquina está undefined!");
-    } else if (idfuncionario == undefined) {
+     if (idfuncionario == undefined) {
         res.status(400).send("A o id do funcionário está undefined!");
     } else if (sistemaoperacional == undefined) {
         res.status(400).send("Campo sistema operacional está undefined!");
@@ -276,13 +274,14 @@ function cadastrarMaquina(req, res) {
         res.status(400).send("O hostName do funcionário está undefined!");
    
     }  else {
+       
         // usuarioModel.buscarIdFuncionario(hostName).then(
         //     function (resultadoFuncionario) {
         //         console.log(resultadoFuncionario);
         //             resultadoFuncionario.JSON;
         //             JSON.stringify(resultadoFuncionario);
         //             var idFuncionario = resultadoFuncionario[0];
-                usuarioModel.cadastrarMaquina(idmaquina,sistemaoperacional,arquitetura, arquitetura, permissao,fabricante,hostname)
+                usuarioModel.cadastrarMaquina(sistemaoperacional,fabricante, arquitetura, permissao,hostname)
                 .then(
                     function (resultado) {
                         res.json(resultado);
