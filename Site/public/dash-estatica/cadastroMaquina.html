@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keep Swimming | dash-Cadastro</title>
+
+    <script src="../assets/js/funcoes.js"></script>
+    <!-- <script src="../javaScript/cadastroMaquina.js"></script> -->
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="cad-maquina.css">
+    <!-- <link rel="stylesheet" href="../public/css/tela-cadastro.css"> -->
+
+</head>
+
+<body>
+
+    <div class="header">
+        <img src="./logo ppt2.png" alt="" height="60px">
+    </div>
+
+    <div class="corpoDebaixo">
+
+        <div class="header"></div>
+
+        <div id="sidebarMenu">
+            <ul class="sidebarMenuInner">
+                <li> <a> <img src="./dash.png" alt="" height="25px"> Dashboard</a></li>
+                <li> <a href="graficos.html"><img src="./monitoramento.png" alt="" height="25px">Monitoramento</a></li>
+                <li> <a href="dash-cadastros.html"><img src="./perfil.png" alt="" height="25px">Cadastrar
+                        Desenvolvedor</a></li>
+                <li> <a href="cadastroMaquina.html"><img src="./perfil.png" alt="" height="25px">Cadastrar Máquina</a>
+                </li>
+                <li> <a href="https://app.pipefy.com/public/form/w7YSTr_A">
+                        <img src="./suporte.png" alt="" height="25px"> Suporte</a></li>
+                <li><a href="../index.html">
+                        <div class="sair">
+                            <img src="./logout 1.png" alt="" height="50px">
+                        </div>
+                    </a></li>
+            </ul>
+        </div>
+
+        <div id='center' class="main ">
+
+            <div class="baixo">
+
+
+                <div class="formulario">
+                    <form id="form_cadastro_maquina" method="post" onsubmit="return bt_cadastro()">
+
+                        <h3>Cadastre sua Máquina</h3>
+
+                        <div class="roles">
+
+                            <div class="ladoEsquerdo">
+
+                                <label for="hostName">HostName</label>
+                                <input type="text" name="hostname" placeholder="Host name" id="hostname_ipt">
+
+                                <label for="idMaquina>">ID Máquina</label>
+                                <input type="text" name="idmaquina" placeholder="ID da maquina" id="idmaquina_ipt">
+
+                                <label for="idFuncionario">ID Funcionário</label>
+                                <input type="text" name="idfuncionario" placeholder="ID Funcionário"
+                                    id="idfuncionario_ipt">
+
+                                <label for="sistemaOperacional">Sistema Operacional</label>
+                                <input type="text" name="sistemaoperacional" placeholder="Sistema Operacional"
+                                    id="sistemaoperacional_ipt">
+
+
+                            </div>
+
+
+
+                            <div class="ladodireito">
+
+                                <label for="arquitetura">Arquitetura</label>
+                                <input type="text" name="arquitetura" placeholder="32bits/64 bits" id="arquitetura_ipt">
+
+                                <label for="permissao">Permissão</label>
+                                <input type="text" name="permissao" placeholder="true / false" id="permissao_ipt">
+
+                                <label for="fabricante">Fabricante</label>
+                                <input type="text" name="fabricante" placeholder="GNU" id="fabricante_ipt">
+
+
+                                <div class="div_botao">
+                                    <button class="btn efeito">Cadastrar</button>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </form>
+                </div>
+                <!-- <div class="mural-maquina">
+                    <div class="conteiner">
+                        <button href="#" class="list">Listar Máquinas</button>
+                        <div class="card">
+                            <div class="box">
+                                <div class="conteudo">
+                                    <h2>01</h2>
+                                    <h3>Máquina 01</h3>
+                                    <div class="alinhar">
+                                        <input type="text" name="email_funcionario" placeholder="Numero da máquina"
+                                            id="maquina">
+                                        <button href="#" class="att">Atualizar</button>
+                                        <button href="#" class="rmv">Remover</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="conteiner">
+                        <div class="card">
+                            <div class="box">
+                                <div class="conteudo">
+                                    <h2>02</h2>
+                                    <h3>Máquina 02</h3>
+                                    <div class="alinhar">
+                                        <input type="text" name="email_funcionario" placeholder="Numero da máquina"
+                                            id="maquina">
+                                        <button href="#" class="att">Atualizar</button>
+                                        <button href="#" class="rmv">Remover</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conteiner">
+                        <div class="card">
+                            <div class="box">
+                                <div class="conteudo">
+                                    <h2>03</h2>
+                                    <h3>Máquina 03</h3>
+                                    <div class="alinhar">
+                                        <input type="text" name="email_funcionario" placeholder="Numero da máquina"
+                                            id="maquina">
+                                        <button href="#" class="att">Atualizar</button>
+                                        <button href="#" class="rmv">Remover</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conteiner">
+                        <div class="card">
+                            <div class="box">
+                                <div class="conteudo">
+                                    <h2>04</h2>
+                                    <h3>Máquina 04</h3>
+                                    <div class="alinhar">
+                                        <input type="text" name="email_funcionario" placeholder="Numero da máquina"
+                                            id="maquina">
+                                        <button href="#" class="att">Atualizar</button>
+                                        <button href="#" class="rmv">Remover</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div> -->
+
+
+
+            </div>
+
+
+        </div>
+
+</body>
+
+</html>
+
+<script>
+
+    function limparFormulario() {
+        document.getElementById("form_cadastro_maquina").reset();
+    }
+
+    function bt_cadastro() {
+        aguardar();
+
+        // Nessa parte ele da um get (Pegar) la no formulario de cadastro pelo id = form_cadastro 
+        // e entende que tudo que estiver dentro dessa form e de cadastro 
+
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro_maquina")));
+
+        // Aqui setamos os campos que o usuario vai digitar atraves do campo "name" contido nas inputs
+
+        var idmaquina = formulario.get("idmaquina");
+        var idfuncionario = formulario.get("idfuncionario");
+        var sistemaoperacional = formulario.get("sistemaoperacional");
+        var arquitetura = formulario.get("arquitetura");
+        var permissao = formulario.get("permissao");
+        var fabricante = formulario.get("fabricante");
+        var hostname = formulario.get("hostname");
+
+
+
+        // TODO: VERIFICAR AS VALIDAÇÕES 
+        if (idmaquina == "" || idfuncionario == "" || sistemaoperacional == "" || arquitetura == "" || permissao == "" || fabricante == "" || hostname == "") {
+
+            window.alert("Preencha todos os campos para prosseguir!");
+            if (idmaquina == "") {
+                console.log('empresa está em branco')
+            }
+            if (idfuncionario == "") {
+                console.log('email está em branco')
+            }
+            if (sistemaoperacional == "") {
+                console.log('senha está em branco')
+            }
+            if (arquitetura == "") {
+                console.log('confirmacaoSenha está em branco')
+            }
+            if (permissao == "") {
+                console.log('confirmacaoEmail está em branco')
+            }
+            if (perfabricantemissao == "") {
+                console.log('CEP está em branco')
+            }
+            if (hostname == "") {
+                console.log('CNPJ está em branco')
+            }
+            finalizarAguardar();
+            return false;
+        }
+
+
+        // Se tudo estiver ok ele faz uma busca la na ROUTERS por USUARIOS e o metdodo /CADASTRAR
+
+        fetch("/usuarios/cadastrarMaquina", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+                window.location = "cadastro-maquina.html";
+                limparFormulario();
+                finalizarAguardar();
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+</script>
