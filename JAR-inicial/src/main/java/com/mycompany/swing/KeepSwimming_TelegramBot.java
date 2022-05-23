@@ -18,13 +18,6 @@ public class KeepSwimming_TelegramBot extends TelegramLongPollingBot  {
 
     private String token = DadosBot.BOT_TOKEN;
     
-    
-    private Boolean seila;
-
-    public KeepSwimming_TelegramBot(Boolean seila) {
-        this.seila = seila;
-    }
-    
 
     @Override
     public String getBotUsername() {
@@ -71,7 +64,18 @@ public class KeepSwimming_TelegramBot extends TelegramLongPollingBot  {
             resposta = "\uD83E\uDD16 Somos uma empresa de monitoramento de monitoramento de hardaware e IDES!!\nPara mais informaçoes acesse nosso site!😉\n http://www.localhost:3333/";
         } else if (textoMensagem.startsWith("/help")) {
             resposta = "Utilize um dos comandos:\nolá\ndata\nhora\nquem é você?";
-        } else {
+        } 
+        
+         else if (textoMensagem.startsWith("/ram")) {
+            resposta = "Utilize um dos comandos:\nolá\ndata\nhora\nquem é você?";
+        } 
+        
+        
+        
+        
+        
+        
+        else {
             resposta = "Não entendi!\nDigite /help para ver os comandos disponíveis.";
         }
 
