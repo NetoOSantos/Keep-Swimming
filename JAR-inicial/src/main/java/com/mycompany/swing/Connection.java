@@ -22,19 +22,19 @@ public class Connection {
       //  this.datasource.setUsername("sa");
         
          // usuário utilizado em um container MySQL
-        this.datasource.setUsername("root");
+        this.datasource.setUsername("urubu100");
         
         //usuário AZURE
-      //  this.datasource.setUsername("KeepSwimmin@keepswimming");
+        this.datasource.setUsername("KeepSwimmin@keepswimming");
 
         // senha padrao H2
       //  this.datasource.setPassword("");
         
          // senha padrao utilizada no container MySQL
-        this.datasource.setPassword("YES");
+        this.datasource.setPassword("urubu100");
        
        //senha padrao AZURE
-      //this.datasource.setPassword("");
+      this.datasource.setPassword("2ads@grupo8");
     }
     
      public BasicDataSource getDatasource() {
