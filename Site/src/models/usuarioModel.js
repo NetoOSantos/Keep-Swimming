@@ -155,8 +155,16 @@ function cadastrarMaquina(sistemaoperacional, fabricante, arquitetura, permissao
     `;
     console.log("Executando a instrução SQL: \n"+instrucao);
     return database.executar(instrucao);
+}
 
-
+function deletarMaquina(idMaquina) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletarFuncionario():");
+    
+    var instrucao = `
+        DELETE FROM MAQUINA WHERE idMaquina = ${idMaquina};
+    `;
+    console.log("Executando a instrução SQL: \n"+instrucao);
+    return database.executar(instrucao);
 }
 
 
@@ -179,4 +187,5 @@ module.exports = {
     buscarIdGestor,
     cadastrarMaquina,
     buscarIdFuncionario,
+    deletarMaquina,
 };

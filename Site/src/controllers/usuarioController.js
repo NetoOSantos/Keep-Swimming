@@ -299,6 +299,71 @@ function cadastrarMaquina(req, res) {
             }
 }
 
+function deletarMaquina(req, res) {
+    var idMaquina = req.body.idDelete;
+ 
+
+    console.log("req.body delete máquina");
+    console.log(req.body);
+
+    if (idMaquina == undefined) {
+        res.status(400).send("O id da maquina está undefined!");
+    } else {
+        usuarioModel.deletarMaquina(idMaquina)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o delete! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    }
+}
+
+
+function updatePermissao(req, res) {
+    var idMaquina = req.body.idUpdate;
+    var alteraçãoMaquina = req.body.alteracao;
+    var  update = req.body.updateEscolhido;
+ 
+
+
+    console.log("req.body Update funcionário");
+    console.log(req.body);
+
+    if (idMaquina == undefined) {
+        res.status(400).send("O id do máquina está undefined!");
+    } else if(alteraçãoMaquina == undefined){
+        res.status(400).send("A input para alteração do máquina está undefined!");
+    } else if(update == undefined){
+        res.status(400).send("A select para alteração do funcionário está undefined!");
+   
+    }else {
+        usuarioModel.updatePermissao(idMaquina,alteraçãoMaquina,update)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o update! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    }
+}
+
 
 module.exports = {
     entrar,
@@ -307,6 +372,8 @@ module.exports = {
     deletarFuncionario,
     updateFuncionario,
     cadastrarMaquina,
+    deletarMaquina,
+    updatePermissao,
     listar,   
     testar
 }

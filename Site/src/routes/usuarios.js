@@ -30,6 +30,14 @@ router.post("/updateFuncionario", function(req, res){
 router.post("/cadastrarMaquina", function(req, res){
     usuarioController.cadastrarMaquina(req, res);
 })
+
+router.post("/deletarMaquina", function(req, res){
+    usuarioController.deletarMaquina(req, res);
+})
+
+router.post("/updatePermissao", function(req, res){
+    usuarioController.updatePermissao(req, res);
+})
 router.post("/autenticar", function(req, res) {
     usuarioController.entrar(req, res);
 });

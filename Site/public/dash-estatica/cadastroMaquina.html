@@ -28,19 +28,15 @@
 
         <div id="sidebarMenu">
             <ul class="sidebarMenuInner">
-                <li> <a> <img src="./dash.png" alt="" height="25px"> Dashboard</a></li>
-                <li> <a href="graficos.html"><img src="./monitoramento.png" alt="" height="25px">Monitoramento</a></li>
-                <li> <a href="dash-cadastros.html"><img src="./perfil.png" alt="" height="25px">Cadastrar
+                <li> <a> <img src="./dashIcon.png" alt="" height="25px"> Dashboard</a></li>
+                <li> <a href="graficos.html"><img src="./monitoramentoIcon.png" alt="" height="25px">Monitoramento</a></li>
+                <li> <a href="dash-cadastros.html"><img src="./perfilIcon.png" alt="" height="25px">Cadastrar
                         Desenvolvedor</a></li>
-                <li> <a href="cadastroMaquina.html"><img src="./perfil.png" alt="" height="25px">Cadastrar Máquina</a>
+                <li> <a href="cadastroMaquina.html"><img src="./laptopIcon.png" alt="" height="25px">Cadastrar Máquina</a>
                 </li>
                 <li> <a href="https://app.pipefy.com/public/form/w7YSTr_A">
-                        <img src="./suporte.png" alt="" height="25px"> Suporte</a></li>
-                <li><a href="../index.html">
-                        <div class="sair">
-                            <img src="./logout 1.png" alt="" height="50px">
-                        </div>
-                    </a></li>
+                        <img src="./suporteIcon.png" alt="" height="25px"> Suporte</a></li>
+                <li> <a href="../index.html"><img src="./logout 1.png" alt="" height="25px">Sair</a></li>
             </ul>
         </div>
 
@@ -50,8 +46,8 @@
 
 
                 <div class="formulario">
-                    <h3>Cadastre sua Máquina</h3>
                     <form id="form_cadastro_maquina" method="post" onsubmit="return bt_cadastro_maquina()">
+                        <h3>Cadastre sua Máquina</h3>
 
 
                         <div class="roles">
@@ -85,11 +81,11 @@
                                 <label for="fabricante">Fabricante</label>
                                 <input name="fabricante" type="text" placeholder="GNU" id="fabricante_ipt">
 
-
-                                <div class="div_botao">
-                                    <button class="btn efeito">Cadastrar</button>
-                                </div>
                             </div>
+                            
+                                                            <div class="div_botao">
+                                                                <button class="btn efeito">Cadastrar</button>
+                                                            </div>
 
 
                         </div>
@@ -101,7 +97,36 @@
 
                 </div>
                 <div id="div_erros_login"></div>
-                <!-- <div class="mural-maquina">
+
+
+                <div class="mural_funcionarios" id="mural">
+                        
+                    <button onclick="atualizarFeed()" class="btn_mural_funcionarios" id="btn_funcionarios">Máquinas cadastradas</button>
+                       <div id="feed_container" class="feed-container"></div>
+
+                                    <button onclick="atualizarFeed()" style="display: none;" id="atualizar">Atualizar Feed</button>
+
+                            <div class="botoes_crud">
+                                    <button style="display: none;" id="btn_deletar" onclick="deletarMaquina()">Deletar Maquina</button>   
+                                    <button style="display: none;" id="btn_atualizar" onclick="updatePermissao()">Atualizar Maquina</button>             
+                            </div>
+
+                            <input type = "number" placeholder="id da Maquina" id="updateDelete" style="display: none;" class="inputDeleteUpdate">
+                            
+                            <select  id="atualizarOpcoes" style="display: none;">
+                                <option value="">Atualizar</option>
+                                <option value="id">ID</option>
+                                <option value="hostName">HostName</option>
+                                <option value="permissao">Permissão</option>
+                                <option value="sistema">Sistema Operacional</option>
+                            </select>
+
+                            <input id="ipt_update" style="display: none;" class="ipt_update"> 
+
+                            <div id="respostaDeleteUpdate"></div>
+
+                      </div>
+                               <!-- <div class="mural-maquina">
                     <div class="conteiner">
                         <button href="#" class="list">Listar Máquinas</button>
                         <div class="card">
@@ -184,3 +209,185 @@
 </body>
 
 </html>
+<script>
+
+
+
+function atualizarFeed() {
+        //aguardar();
+        btn_funcionarios.style.display = 'none';
+        atualizarOpcoes.style.display = 'none';
+            ipt_update.style.display = 'none';
+        btn_deletar.style.display = 'block';
+        btn_atualizar.style.display = 'block';
+        updateDelete.style.display = 'block';
+        atualizar.style.display = 'block';
+        respostaDeleteUpdate.innerHTML = "";
+      
+        fetch("/usuarios/listar").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("feed_container");
+                    feed.innerHTML = "";
+                    for (var i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+
+                        // criando e manipulando elementos do HTML via JavaScript
+                        var divPublicacao = document.createElement("div");
+                        var spanID = document.createElement("span");
+                     //   var spanGestor = document.createElement("span");
+                        var spanNome = document.createElement("span");
+                        var spanEmail = document.createElement("span");
+                        var spanCargo = document.createElement("span");
+                       // var divDescricao = document.createElement("div");
+                      //  var divButtons = document.createElement("div");
+
+                        spanID.innerHTML = "ID: <b>" + publicacao.idFuncionario + "</b>";
+                       // spanGestor.innerHTML = "Gestor: <b>"+ publicacao.fkGestor + "</b>";
+                        spanNome.innerHTML = "Nome: <b>"+publicacao.Nome+"</b>";
+                        spanEmail.innerHTML = "Email: <b>" + publicacao.EMAIL + "</b>";
+                        spanCargo.innerHTML = "Cargo: <b>" + publicacao.Cargo + "</b>";
+                        //divDescricao.innerHTML = "Descrição: <b>"+publicacao.descricao+"</b>";
+
+                        divPublicacao.className = "publicacao";
+                       // spanTitulo.id = "inputNumero"+publicacao.idAviso;
+                        spanID.className = "id-funcionario";
+                     //   spanGestor.className = "Gestor";
+                        spanNome.className = "nome";
+                        spanEmail.className = "Email";
+                        spanCargo.className = "cargo";
+                       // spanTitulo.className = "publicacao-titulo";
+                       // divDescricao.className = "publicacao-descricao";
+
+                       // divButtons.className = "div-buttons"
+
+                        divPublicacao.appendChild(spanID);
+                       // divPublicacao.appendChild(spanGestor);
+                        divPublicacao.appendChild(spanNome);
+                        divPublicacao.appendChild(spanEmail);
+                        divPublicacao.appendChild(spanCargo);
+                       // divPublicacao.appendChild(spanTitulo);
+                       // divPublicacao.appendChild(divDescricao);
+                      //  divPublicacao.appendChild(divButtons);
+                        feed.appendChild(divPublicacao);
+
+                        ultimoIdFuncionario = publicacao.idFuncionario;
+                    }
+
+                   // finalizarAguardar();
+                });
+            } else {
+                throw('Houve um erro na API!');
+            }
+        }).catch(function(resposta) {
+            console.error(resposta);
+            //finalizarAguardar();
+        });
+    }
+
+    function deletarMaquina(){
+        var idMaquina= updateDelete.value;
+        respostaDeleteUpdate.innerHTML = "";
+        ipt_update.style.display = 'block';
+
+        if(idMaquina == ''  )
+        {
+            alert("id vazio");
+        }
+        else{
+
+        fetch("/usuarios/deletarMaquina", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                
+                idDelete: idMaquina,
+            })
+        }).then(function(resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log('delete realizado com sucesso');
+                respostaDeleteUpdate.innerHTML = "Delete realizado com sucesso";
+                limparFormulario();
+               // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o delete!");
+            }
+        }).catch(function(resposta) {
+            console.log(`#ERRO: ${resposta}`);
+           // finalizarAguardar();
+        });
+    }
+
+        return false;
+    }
+
+    function updatePermissao(){
+        var idMaquina = updateDelete.value;
+        var alteracaoMaquina= ipt_update.value;
+        var select_update = atualizarOpcoes.value;
+        respostaDeleteUpdate.innerHTML = "";
+       
+        
+        
+
+        if(idMaquina == ''  )
+        {
+            alert("id vazio");
+        }
+        else{
+            atualizarOpcoes.style.display = 'block';
+            ipt_update.style.display = 'block';
+      
+
+        fetch("/usuarios/updatePermissao", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                
+                idUpdateMaquina: idMaquina,
+                alteracao: alteracaoPermissao,
+                updateEscolhido :  select_update,
+            })
+        }).then(function(resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log('');
+                respostaDeleteUpdate.innerHTML = "Alteração" + ipt_update.value + "do maquina"+ idMaquina + "realizado com sucesso";
+                limparFormulario();
+               // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar a alteração!");
+            }
+        }).catch(function(resposta) {
+            console.log(`#ERRO: ${resposta}`);
+           // finalizarAguardar();
+        });
+    }
+        return false;
+    }
+
+   
+</script>
