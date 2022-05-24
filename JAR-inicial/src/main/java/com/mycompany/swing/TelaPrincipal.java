@@ -62,7 +62,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         //AZURE
          String inserirDadosMaquina = "Insert into Maquina VALUES "
-                + "(2,?,?,?,?);";
+                + "(2,?,?,?,?,null);";
 
         con.update(inserirDadosMaquina, sO, fabricante, arquitetura, permissao);
         
