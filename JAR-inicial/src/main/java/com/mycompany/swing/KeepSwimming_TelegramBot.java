@@ -62,7 +62,11 @@ public class KeepSwimming_TelegramBot extends TelegramLongPollingBot  {
             resposta = "Olá, Bem vindo a Keep Swimming!\nComo podemos te ajudar?!😉";
         } else if (textoMensagem.startsWith("quem é você") || textoMensagem.startsWith("quem e voce")) {
             resposta = "\uD83E\uDD16 Somos uma empresa de monitoramento de monitoramento de hardaware e IDES!!\nPara mais informaçoes acesse nosso site!😉\n http://www.localhost:3333/";
-        } else if (textoMensagem.startsWith("/help")) {
+        } 
+        
+        
+        
+        else if (textoMensagem.startsWith("/Minha equipe esta trabalhando?")) {
             resposta = "Utilize um dos comandos:\nolá\ndata\nhora\nquem é você?";
         } 
         

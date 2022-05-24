@@ -147,7 +147,7 @@
                 datasets: 
                 [{
                     label:'usoCpu',
-                    data: [9, 13, 11, 12, 15, 17, 21, 19],
+                    data: [],
                     backgroundColor: [
                         graidient,
                         graidient,
@@ -168,7 +168,7 @@
                 },
                 {
                     label: 'usoRam',
-                    data: [9, 13, 11, 12, 15, 17, 21, 19],
+                    data: [],
                     backgroundColor: [
                         graidient,
                         graidient,
@@ -217,67 +217,15 @@
         });
 
 
-
-        // {
-        //     labels: [],
-        //     datasets: [
-        //         {
-        //             yAxisID: 'y-temperatura_lm35',
-        //             label: 'temperatura_lm35',
-        //             borderColor: '#00b300',
-        //             backgroundColor: '#00800090',
-        //             fill: true,
-        //             data: []
-        //         }
-        //     ]
-        // };
-
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-           
+            dados.labels.push(registro.momento_grafico);
             myChart.datasets[0].data.push(registro.cpu);
         }
 
         console.log(JSON.stringify(dados));
 
 
-
-
-
-
-
-        // var ctx2 = chartline2.getContext('2d');
-        // window.grafico_linha2 = Chart.Line(ctx2, {
-        //     data: dados,
-        //     //Configurações do gráfico
-        //     options: {
-        //         responsive: true,
-        //         animation: { duration: 500 },
-        //         hoverMode: 'index',
-        //         stacked: false,
-        //         title: {
-        //             display: true,
-        //             text: 'Histórico recente de temperatura_lm35'
-        //         },
-        //         scales: {
-        //             yAxes: [{
-        //                 type: 'linear',
-        //                 display: true,
-        //                 position: 'left',
-        //                 id: 'y-temperatura_lm35',
-        //             }, {
-        //                 type: 'linear',
-        //                 display: true,
-        //                 position: 'right',
-        //                 id: 'y-temperatura_lm35',
-
-        //                 gridLines: {
-        //                     drawOnChartArea: false,
-        //                 },
-        //             }],
-        //         }
-        //     }
-        // });
 
         //Atualiza os dados de 2 em 2 segundos
         setTimeout(() => atualizarGrafico2(idMaquina, dados), 2000);
