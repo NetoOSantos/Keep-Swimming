@@ -117,7 +117,7 @@ public class EnviaToken extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReenviaCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReenviaCodigoActionPerformed
-        emiteCodigo ();
+        emiteCodigo();
         System.out.println(getGuardaCodig());
         
         try {
@@ -138,7 +138,7 @@ public class EnviaToken extends javax.swing.JFrame {
             lblRespostaToken.setText("Digite um token valido para continuar!!");
         }
         else if(usarioDigitou.equalsIgnoreCase(guardaCodig)){
-//            new TelaUsuarioLogado().setVisible(true);
+//           new TelaUsuarioLogado().setVisible(true);
              new TelaPrincipal(funcionario).setVisible(true);
              this.dispose();
         }
