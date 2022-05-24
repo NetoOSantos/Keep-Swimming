@@ -187,17 +187,9 @@ public class KeepSwimming extends javax.swing.JFrame {
                 
                
                new EnviaToken().setVisible(true);
-                this.dispose();
-                
-                try {
-            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-            telegramBotsApi.registerBot(new KeepSwimming_TelegramBot(true));  
-            
-            KeepSwimming_TelegramBot.sendToTelegram();
-                    
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        } 
+               EnviaToken enviaId = new EnviaToken();
+               enviaId.setIdsFuncionario(func);
+               this.dispose();
                 
                
             } else {
