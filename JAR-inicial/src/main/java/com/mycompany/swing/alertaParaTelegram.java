@@ -9,9 +9,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class alertaParaTelegram {
     
     private Long mediaMemoria;
-    private Long abaixoDaMedia;
-    private Integer idMaquina;
-    private Integer idFuncionario;
+    private List<dadosFuncionarioOcioso> listFuncionarios = new ArrayList<>();
+    
     
     Connection config = new Connection();
     JdbcTemplate con = new JdbcTemplate(config.getDatasource());
@@ -44,17 +43,24 @@ public class alertaParaTelegram {
         {
             if(media.getMediaMemoria() < getMedia())
             {
-                mediaMemoria usuarioOcioso = new mediaMemoria(media.getIdMaquina(), media.getMediaMemoria());
+           //     mediaMemoria usuarioOcioso = new mediaMemoria(media.getIdMaquina(), media.getMediaMemoria());
                 
-                abaixoDaMedia = media.getMediaMemoria();            
-                return  getFuncionarioOcioso(media.getIdMaquina());
+                          
+                getFuncionarioOcioso(media.getIdMaquina());
             }
         }
-                
+        if(listFuncionarios.isEmpty())
+        {
          return "Nenhum usuário ocioso";
+        }
+        else
+        {
+            return listFuncionarios.toString();
+        }
+        
     }
     
-    public String getFuncionarioOcioso(Integer idMaquina)
+    public void getFuncionarioOcioso(Integer idMaquina)
     {
         
         String select = String.format("select top 1 idFuncionario, Nome,Cargo,\n" +
@@ -70,14 +76,14 @@ public class alertaParaTelegram {
          
          for(dadosFuncionarioOcioso dados : funcionario)
          {
-             dadosFuncionarioOcioso funcionarioToString = new dadosFuncionarioOcioso
-        (dados.getIdFuncionario(), dados.getNome(), dados.getCargo(), dados.getHostName(), 
-                dados.getTempoInicializado());
+        //     dadosFuncionarioOcioso funcionarioToString = new dadosFuncionarioOcioso
+        //(dados.getIdFuncionario(), dados.getNome(), dados.getCargo(), dados.getHostName(), 
+          //      dados.getTempoInicializado());
              
-             return funcionarioToString.toString();
+             listFuncionarios.add(dados);            
           
          }
-           return String.format("Nenhum dado encontrado");
+         //  return listFuncionarios;
     }
    
 //select idFuncionario,Nome,cargo, memoriaEmUso from [dbo].[FUNCIONARIO] join [dbo].[Maquina]

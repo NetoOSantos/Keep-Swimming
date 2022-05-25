@@ -25,7 +25,12 @@ public class dadosFuncionarioOcioso {
 
     @Override
     public String toString() {
-        return "dadosFuncionarioOcioso{" + "idFuncionario=" + idFuncionario + ", Nome=" + Nome + ", Cargo=" + Cargo + ", hostName=" + hostName + ", tempoInicializado=" + tempoInicializado + '}';
+        return "Dados Funcionario:"
+                + "\nidFuncionario=" + idFuncionario 
+                + "\nNome=" + Nome
+                + "\nCargo=" + Cargo 
+                + "\nhostName=" + hostName
+                + "\ntempoInicializado=" + tempoInicializado;
     }
 
     public void setIdFuncionario(Integer idFuncionario) {
