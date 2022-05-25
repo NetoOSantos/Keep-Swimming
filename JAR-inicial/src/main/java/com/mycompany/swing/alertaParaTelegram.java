@@ -29,13 +29,12 @@ public class alertaParaTelegram {
        }
        
        
-            return mediaMemoria ;
+            return mediaMemoria + mediaMemoria;
     }
      
     public String getAbaixoDaMedia()
     {
-        
-        
+           
         List<mediaMemoria> mediaMemoriaSelect = con.query("select fkMaquina AS idMaquina, "
                 + "round(avg(memoriaEmUso),0) AS mediaMemoria\n" +
                                 "from [dbo].[Historico] group by fkMaquina", 
