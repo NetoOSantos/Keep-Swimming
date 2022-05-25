@@ -3,32 +3,28 @@ package com.mycompany.swing;
 
 
 public class Funcionario {
-    public int ID;
+    public Integer idFuncionario;
     public String EMAIL;
     public String SENHA;
-    public Integer idMaquina;
+
 
     public Funcionario() {
     }
 
-    public int getID() {
-        return ID;
+    public Integer getIdFuncionario() {
+        return idFuncionario;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setIdFuncionario(Integer idFuncionario) {
+        this.idFuncionario = idFuncionario;
     }
-    
-    
 
-     public Integer getIdMaquina() {
-        return idMaquina;
+    @Override
+    public String toString() {
+        return "Funcionario{" + "idFuncionario=" + idFuncionario + ", EMAIL=" + EMAIL + ", SENHA=" + SENHA  + '}';
     }
-     
-     public void setIdMaquina()
-     {
-         this.idMaquina = idMaquina;
-     }
+
+   
     
     public String getEMAIL() {
         return EMAIL;

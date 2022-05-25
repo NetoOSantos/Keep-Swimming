@@ -177,9 +177,11 @@ public class KeepSwimming extends javax.swing.JFrame {
         SENHA = (new String(CampoSenha.getPassword()));
 
 
-        List<Funcionario> Select = con.query("SELECT EMAIL, "
+        List<Funcionario> Select = con.query("SELECT"
+                + " idFuncionario,"
+                + " EMAIL, "
                 + "SENHA, "
-                + "idMaquina "
+                + "idMaquina AS Maquina "
                 + "from [dbo].[FUNCIONARIO] join\n" +
             "[dbo].[Maquina] ON idFuncionario = fkUsuario",
             new BeanPropertyRowMapper(Funcionario.class));
@@ -189,7 +191,7 @@ public class KeepSwimming extends javax.swing.JFrame {
             if(func.getEMAIL().equals(EMAIL) && func.getSENHA().equals(SENHA)) {
                 Resultado.setText("LOGADO COM SUCESSO!");
                 
-               
+        
            //    new EnviaToken().setVisible(true);
                EnviaToken token = new EnviaToken();
                token.setVisible(true);
