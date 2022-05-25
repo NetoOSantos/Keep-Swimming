@@ -1,6 +1,7 @@
 
 package com.mycompany.swing;
 
+import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 
@@ -28,8 +29,7 @@ public class Connection {
       this.datasource.setPassword("2ads@grupo8");
     
       
-      this.dataSourceLocal.setUrl("jdbc:mysql://localhost:3306/KeepSwimming?useTimezone=true&serverTimezone=UTC"); 
-         // senha padrao utilizada no container MySQL
+      this.dataSourceLocal.setUrl("jdbc:mysql://localhost:3306/KeepSwimming");
       this.dataSourceLocal.setUsername("urubu100");
       this.dataSourceLocal.setPassword("urubu100");
        
@@ -37,5 +37,9 @@ public class Connection {
     
      public BasicDataSource getDatasource() {
         return datasource;
+    }
+
+    DataSource getDatasourceLocal() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
