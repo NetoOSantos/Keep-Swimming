@@ -6,5 +6,7 @@ public class MainTeste {
         alertaParaTelegram media = new alertaParaTelegram();
         
         System.out.println(media.getMedia());
+        System.out.println(media.getAbaixoDaMedia());
+
     }
 }

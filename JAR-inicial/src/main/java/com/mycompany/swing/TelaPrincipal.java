@@ -206,6 +206,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 //-------------------------------INSERT HISTORICO------------------------------
         Date data = new Date();
+        
+     
+
 
        // LocalDateTime data = LocalDateTime.now();
         
@@ -231,6 +234,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
            
            con.update(inserirHistorico,idDaMaquina,data,tempoInicializado,tempoDeAtividade,
                    temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);
+           
+           
            
            System.out.println("Data "  + data);
            System.out.println("Tempo inicializado "  + tempoInicializado);
