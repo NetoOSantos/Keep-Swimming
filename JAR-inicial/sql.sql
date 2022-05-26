@@ -10,7 +10,7 @@ create table [dbo].[Empresa](
 			);
 
 INSERT INTO empresa VALUES 
-(null,"03.778.130/0001-48", "Keep Swimming", 'Keep@hotmail.com', 06126020,'123');
+("03.778.130/0001-48", "Keep Swimming", 'Keep@hotmail.com', 06126020,'123');
 
 CREATE TABLE [dbo].[FUNCIONARIO] (
          idFuncionario INT PRIMARY KEY IDENTITY,
@@ -25,7 +25,7 @@ CREATE TABLE [dbo].[FUNCIONARIO] (
          on delete cascade
          );
 
-INSERT INTO [dbo].[FUNCIONARIO] VALUES (null, 100, 'Gerson', 'Gerson@hotmail.com', '123', 'Gestor');
+INSERT INTO [dbo].[FUNCIONARIO] VALUES (100, 'Gerson', 'Gerson@hotmail.com', '123', 'Gestor');
 INSERT INTO [dbo].[FUNCIONARIO] VALUES ( 1, 100, 'Bruno', 'bruno@hotmail.com', '123', 'Desenvolvedor');
 
 CREATE TABLE [dbo].[Maquina] (

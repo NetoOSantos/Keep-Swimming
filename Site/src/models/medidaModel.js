@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idMaquina, limite_linhas) {
+function buscarUltimasMedidas(limite_linhas) {
     
 //local
     // instrucaoSql = `select 
@@ -14,14 +14,13 @@ function buscarUltimasMedidas(idMaquina, limite_linhas) {
 
 
 //nuvem
-    instrucaoSql = `select      
-                        temperatura_lm35, 
-                        umidade, 
-                        hr_medida,
-                        convert(varchar, getdate(),13) as momento_grafico
-                        from [dbo].[medidas]
-                        where fkMaquina = ${idMaquina}
-                        order by hr_medida`;
+    instrucaoSql = `Select DISTINCT
+                    Nome ,
+                    round(avg(usoCPU *100),2)as 'mediaUsoCPU',
+                    round(avg(usoMemoria *100),2)as 'mediaUsoMemoria' 
+                    from [dbo].[Processos] 
+                    where Nome in ('opera','AvastUI')
+                    GROUP BY Nome`;
 
 
 
@@ -60,7 +59,14 @@ function buscarMediaConsumoPC(idMaquina) {
     // instrucaoSql = ` select round( avg(umidade),2) as mediaUmi from medidas ;`;
 
     //nuvem
-    instrucaoSql = ` select round( avg(umidade),2) as mediaUmi from [dbo].[medidas] ;`;
+    instrucaoSql = ` 
+    Select DISTINCT 
+        Nome ,
+        round(avg(usoCPU *100),2)as 'mediaUsoCPU',
+        round(avg(usoMemoria *100),2)as 'mediaUsoMemoria' 
+    from [dbo].[Processos] 
+    where 
+    Nome in ('opera','AvastUI')  GROUP BY Nome ;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

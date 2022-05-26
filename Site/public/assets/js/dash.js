@@ -23,8 +23,7 @@
                     resposta.reverse();
 
                     plotarGrafico(resposta);
-                    plotarGrafico2(resposta);
-                    mediaMaquina();
+                    
 
                 });
             } else {
@@ -36,118 +35,112 @@
             });
 
     }
-    function mediaMaquina(idMaquina) {
 
-        fetch(`/medidas/buscarMediaMaquina/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
+    // function mediaMaquina(idMaquina) {
+
+    //     fetch(`/medidas/buscarMediaMaquina/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+    //         if (response.ok) {
+    //             response.json().then(function (resposta) {
+    //                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+    //                 resposta.reverse();
 
 
-                    for (let i = 0; i < resposta.length; i++) {
-                        let publicacao = resposta[i];
-                        span_mediaUmi.innerHTML = `${publicacao.mediaUmi}%`
-                    }
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
+    //                 for (let i = 0; i < resposta.length; i++) {
+    //                     let publicacao = resposta[i];
+    //                     span_mediaUmi.innerHTML = `${publicacao.mediaUmi}%`
+    //                 }
+    //             });
+    //         } else {
+    //             console.error('Nenhum dado encontrado ou erro na API');
+    //         }
+    //     })
+    //         .catch(function (error) {
+    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    //         });
 
-    }
+    // }
 
 
     // só altere aqui se souber o que está fazendo!
-    function plotarGrafico(resposta, idMaquina) {
-        console.log('iniciando plotagem do gráfico...');
+    // function plotarGrafico(resposta, idMaquina) {
+    //     console.log('iniciando plotagem do gráfico...');
 
 
         
+
+    //     var dados = {
+    //         labels: [],
+    //         datasets: [
+    //             {
+    //                 yAxisID: 'y-Maquina',
+    //                 label: 'Maquina',
+    //                 borderColor: '#32B9CD',
+    //                 backgroundColor: '#32b9cd8f',
+    //                 fill: true,
+    //                 data: []
+    //             }
+    //         ]
+    //     };
+
+    //     for (i = 0; i < resposta.length; i++) {
+    //         var registro = resposta[i];
+    //         dados.labels.push(registro.momento_grafico);
+    //         dados.datasets[0].data.push(registro.Maquina);
+    //     }
+
+    //     console.log(JSON.stringify(dados));
+
+    //     var ctx = chartLine1.getContext('2d');
+    //     window.grafico_linha = Chart.Line(ctx, {
+    //         data: dados,
+    //         //Configurações do gráfico
+    //         options: {
+    //             responsive: true,
+    //             animation: { duration: 500 },
+    //             hoverMode: 'index',
+    //             stacked: false,
+    //             title: {
+    //                 display: true,
+    //                 text: 'Histórico recente de Maquina'
+    //             },
+    //             scales: {
+    //                 yAxes: [{
+    //                     type: 'linear',
+    //                     display: true,
+    //                     position: 'left',
+    //                     id: 'y-temperatura',
+    //                 }, {
+    //                     type: 'linear',
+    //                     display: true,
+    //                     position: 'right',
+    //                     id: 'y-Maquina',
+
+    //                     gridLines: {
+    //                         drawOnChartArea: false,
+    //                     },
+    //                 }],
+    //             }
+    //         }
+    //     });
+
+    //     //Atualiza os dados de 2 em 2 segundos
+    //     setTimeout(() => atualizarGrafico(idMaquina, dados), 2000);
+    // }
+
+    // só altere aqui se souber o que está fazendo!
+    function plotarGrafico(resposta) {
+        console.log('iniciando plotagem do gráfico...');
+
+
+        graidient.addColorStop(0, 'rgba(167, 121, 232, 1)');
+        graidient.addColorStop(1, 'rgba(79, 92, 196, 1)'); 
 
         var dados = {
-            labels: [],
+            labels: ['VsCode', 'NetBens'],
             datasets: [
                 {
-                    yAxisID: 'y-Maquina',
-                    label: 'Maquina',
-                    borderColor: '#32B9CD',
-                    backgroundColor: '#32b9cd8f',
-                    fill: true,
-                    data: []
-                }
-            ]
-        };
-
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            dados.labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.Maquina);
-        }
-
-        console.log(JSON.stringify(dados));
-
-        var ctx = chartLine1.getContext('2d');
-        window.grafico_linha = Chart.Line(ctx, {
-            data: dados,
-            //Configurações do gráfico
-            options: {
-                responsive: true,
-                animation: { duration: 500 },
-                hoverMode: 'index',
-                stacked: false,
-                title: {
-                    display: true,
-                    text: 'Histórico recente de Maquina'
-                },
-                scales: {
-                    yAxes: [{
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                        id: 'y-temperatura',
-                    }, {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-                        id: 'y-Maquina',
-
-                        gridLines: {
-                            drawOnChartArea: false,
-                        },
-                    }],
-                }
-            }
-        });
-
-        //Atualiza os dados de 2 em 2 segundos
-        setTimeout(() => atualizarGrafico(idMaquina, dados), 2000);
-    }
-
-    // só altere aqui se souber o que está fazendo!
-    function plotarGrafico2(resposta, idMaquina) {
-        console.log('iniciando plotagem do gráfico...');
-
-       
-        
-        const ctx = document.getElementById('chartLine1').getContext('2d');
-        const graidient = ctx.createLinearGradient(0, 0, 0, 250);
-    
-        graidient.addColorStop(0, 'rgba(167, 121, 232, 1)');
-        graidient.addColorStop(1, 'rgba(79, 92, 196, 1)');
-    
-        const myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                color: 'black',
-                labels: [],
-                datasets: 
-                [{
                     label:'usoCpu',
-                    data: [],
+                    data: [9, 13, 11, 12, 15, 17, 21, 19],
                     backgroundColor: [
                         graidient,
                         graidient,
@@ -168,7 +161,7 @@
                 },
                 {
                     label: 'usoRam',
-                    data: [],
+                    data: [9, 13, 11, 12, 15, 17, 21, 19],
                     backgroundColor: [
                         graidient,
                         graidient,
@@ -186,9 +179,28 @@
                         graidient
                     ],
                     borderWidth: 1
-                }]
-            },
+                }
+            ]
+        };
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            dados.labels.push(registro.momento_grafico);
+            myChart.datasets[0].data.push(registro.cpu);
+        }
+
+        console.log(JSON.stringify(dados));
+
+       
+        var ctx = chartBar.getContext('2d');
+        window.grafico_barra = Chart.Line(ctx, {
+            type: 'bar',
+            data: dados,
+               //Configurações do gráfico
             options: {
+                title: {
+                    display: true,
+                    text: 'Comparação de processamento por uso de Ides'},
                 plugins: {  // 'legend' now within object 'plugins {}'
                     legend: {
                         labels: {
@@ -217,24 +229,17 @@
         });
 
 
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            dados.labels.push(registro.momento_grafico);
-            myChart.datasets[0].data.push(registro.cpu);
-        }
-
-        console.log(JSON.stringify(dados));
-
+        
 
 
         //Atualiza os dados de 2 em 2 segundos
-        setTimeout(() => atualizarGrafico2(idMaquina, dados), 2000);
+        setTimeout(() => atualizarGrafico2(dados), 2000);
     }
 
     // só mexer se quiser alterar o tempo de atualização
     // ou se souber o que está fazendo!
-    function atualizarGrafico(idMaquina, dados) {
-        fetch(`/medidas/tempo-real/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+    function atualizarGrafico(dados) {
+        fetch(`/medidas/tempo-real/`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
@@ -272,11 +277,11 @@
 
                     window.grafico_linha.update();
 
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idMaquina, dados), 5000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(dados), 5000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idMaquina, dados), 5000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(dados), 5000);
             }
         })
             .catch(function (error) {
@@ -286,60 +291,60 @@
     }
     // só mexer se quiser alterar o tempo de atualização
     // ou se souber o que está fazendo!
-    function atualizarGrafico2(idMaquina, dados) {
-        fetch(`/medidas/tempo-real/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (novoRegistro) {
+    // function atualizarGrafico2( dados) {
+    //     fetch(`/medidas/tempo-real/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+    //         if (response.ok) {
+    //             response.json().then(function (novoRegistro) {
 
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico: ${dados}`);
+    //                 console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+    //                 console.log(`Dados atuais do gráfico: ${dados}`);
 
-                    // tirando e colocando valores no gráfico
-                    dados.labels.shift(); // apagar o primeiro
-                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-                    dados.datasets[0].data.shift();  // apagar o primeiro de temperatura_lm35
-                    dados.datasets[0].data.push(novoRegistro[0].temperatura_lm35); // incluir uma nova medida de temperatura_lm35
-
-
-
-                    // Alertas por Cores de Temperatura
-
-                    if (novoRegistro[0].temperatura_lm35 >= 33) {
-                        img_alertas_temp.src = "../assets/errado_gif.gif"
-                        dados.datasets[0].borderColor = 'red';
-                        dados.datasets[0].backgroundColor = 'red';
-
-                    } else if (novoRegistro[0].temperatura_lm35 <= 19) {
-                        img_alertas_temp.src = "../assets/errado_gif.gif"
-                        dados.datasets[0].borderColor = '#483D8B';
-                        dados.datasets[0].backgroundColor = '#826fff9c';
-
-                    } else if ((novoRegistro[0].temperatura_lm35 >= 20 && novoRegistro[0].temperatura_lm35 <= 23) || novoRegistro[0].temperatura_lm35 >= 28 && novoRegistro[0].temperatura_lm35 <= 31) {
-                        img_alertas_temp.src = "../assets/atencao_gif.gif"
-                        dados.datasets[0].borderColor = '#FFFF00';
-                        dados.datasets[0].backgroundColor = '#ffe6006b';
-                    } else if (novoRegistro[0].temperatura_lm35 > 23 && novoRegistro[0].temperatura_lm35 < 28) {
-                        dados.datasets[0].borderColor = '#00b300';
-                        dados.datasets[0].backgroundColor = '#00800090';
-                        img_alertas_temp.src = "../assets/correto_gif.gif"
-                    }
+    //                 // tirando e colocando valores no gráfico
+    //                 dados.labels.shift(); // apagar o primeiro
+    //                 dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+    //                 dados.datasets[0].data.shift();  // apagar o primeiro de temperatura_lm35
+    //                 dados.datasets[0].data.push(novoRegistro[0].temperatura_lm35); // incluir uma nova medida de temperatura_lm35
 
 
 
-                    window.grafico_linha2.update();
+    //                 // Alertas por Cores de Temperatura
 
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico2(idMaquina, dados), 5000);
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-                proximaAtualizacao = setTimeout(() => atualizarGrafico2(idMaquina, dados), 5000);
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
+    //                 if (novoRegistro[0].temperatura_lm35 >= 33) {
+    //                     img_alertas_temp.src = "../assets/errado_gif.gif"
+    //                     dados.datasets[0].borderColor = 'red';
+    //                     dados.datasets[0].backgroundColor = 'red';
 
-    }
+    //                 } else if (novoRegistro[0].temperatura_lm35 <= 19) {
+    //                     img_alertas_temp.src = "../assets/errado_gif.gif"
+    //                     dados.datasets[0].borderColor = '#483D8B';
+    //                     dados.datasets[0].backgroundColor = '#826fff9c';
+
+    //                 } else if ((novoRegistro[0].temperatura_lm35 >= 20 && novoRegistro[0].temperatura_lm35 <= 23) || novoRegistro[0].temperatura_lm35 >= 28 && novoRegistro[0].temperatura_lm35 <= 31) {
+    //                     img_alertas_temp.src = "../assets/atencao_gif.gif"
+    //                     dados.datasets[0].borderColor = '#FFFF00';
+    //                     dados.datasets[0].backgroundColor = '#ffe6006b';
+    //                 } else if (novoRegistro[0].temperatura_lm35 > 23 && novoRegistro[0].temperatura_lm35 < 28) {
+    //                     dados.datasets[0].borderColor = '#00b300';
+    //                     dados.datasets[0].backgroundColor = '#00800090';
+    //                     img_alertas_temp.src = "../assets/correto_gif.gif"
+    //                 }
+
+
+
+    //                 window.grafico_linha2.update();
+
+    //                 proximaAtualizacao = setTimeout(() => atualizarGrafico2(idMaquina, dados), 5000);
+    //             });
+    //         } else {
+    //             console.error('Nenhum dado encontrado ou erro na API');
+    //             proximaAtualizacao = setTimeout(() => atualizarGrafico2(idMaquina, dados), 5000);
+    //         }
+    //     })
+    //         .catch(function (error) {
+    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    //         });
+
+    // }
 
 
     // <!-- Script antigo para pegar as cores -->
