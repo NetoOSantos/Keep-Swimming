@@ -86,6 +86,7 @@ public class alertaParaTelegram {
          //  return listFuncionarios;
     }
    
-//select idFuncionario,Nome,cargo, memoriaEmUso from [dbo].[FUNCIONARIO] join [dbo].[Maquina]
- // idFuncionario = fkUsuario join [dbo].[Historico] on idMaquina = fkMaquina
+//select top 10 usoMemoria from [dbo].[Processos]
+//join [dbo].[Maquina] on fkMaquina = idMaquina where idMaquina = 1  
+//order by usoMemoria desc 
 }
