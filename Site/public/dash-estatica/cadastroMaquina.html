@@ -9,123 +9,233 @@
 
     <script src="../assets/js/funcoes.js"></script>
     <script src="../javaScript/cadastroMaquina.js"></script>
-    <link rel="stylesheet" href="nav.css">
+    <!-- <link rel="stylesheet" href="nav.css"> -->
     <link rel="stylesheet" href="cad-maquina.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
     <!-- <link rel="stylesheet" href="./css/tela-cadastro.css"> -->
     <!-- <link rel="stylesheet" href="../public/css/tela-cadastro.css"> -->
 
-</head>
+</head>     
 
 <body>
 
-    <div class="header">
-        <img src="./logo ppt2.png" alt="" height="60px">
-    </div>
-
-    <div class="corpoDebaixo">
-
-        <div class="header"></div>
-
-        <div id="sidebarMenu">
-            <ul class="sidebarMenuInner">
-                <li> <a> <img src="./dashIcon.png" alt="" height="25px"> Dashboard</a></li>
-                <li> <a href="graficos.html"><img src="./monitoramentoIcon.png" alt="" height="25px">Monitoramento</a></li>
-                <li> <a href="dash-cadastros.html"><img src="./perfilIcon.png" alt="" height="25px">Cadastrar
-                        Desenvolvedor</a></li>
-                <li> <a href="cadastroMaquina.html"><img src="./laptopIcon.png" alt="" height="25px">Cadastrar Máquina</a>
-                </li>
-                <li> <a href="https://app.pipefy.com/public/form/w7YSTr_A">
-                        <img src="./suporteIcon.png" alt="" height="25px"> Suporte</a></li>
-                <li> <a href="../index.html"><img src="./logout 1.png" alt="" height="25px">Sair</a></li>
-            </ul>
+    <nav>
+        <div class="sidebar-top">
+          <span class="shrink-btn">
+            <i class='bx bx-chevron-left'></i>
+          </span>
+          <img src="../assets/icons/logoSemTexto.png" class="logo" alt="">
+          <h3 class="hide">KeepSwimming</h3>
         </div>
-
-        <div id='center' class="main ">
-
-            <div class="baixo">
-
-
-                <div class="formulario">
-                    <form id="form_cadastro_maquina" method="post" onsubmit="return bt_cadastro_maquina()">
-                        <h3>Cadastre sua Máquina</h3>
-
-
-                        <div class="roles">
-
-                            <div class="ladoEsquerdo">
-
-                                <label for="hostName">HostName</label>
-                                <input name="hostname" type="text" placeholder="Host name" id="hostname_ipt">
-
-                                <label for="idFuncionario">ID Funcionário</label>
-                                <input name="funcionarioId" type="text" placeholder="ID Funcionário"
-                                    id="idfuncionario_ipt">
-
-                                <label for="sistemaOperacional">Sistema Operacional</label>
-                                <input name="sistemaOperacional" type="text" placeholder="Sistema Operacional"
-                                    id="sistemaoperacional_ipt">
-
-
-                            </div>
-
-
-
-                            <div class="ladodireito">
-
-                                <label for="arquitetura">Arquitetura</label>
-                                <input name="arquitetura" type="text" placeholder="32bits/64 bits" id="arquitetura_ipt">
-
-                                <label for="permissao">Permissão</label>
-                                <input name="permissao" type="text" placeholder="true / false" id="permissao_ipt">
-
-                                <label for="fabricante">Fabricante</label>
-                                <input name="fabricante" type="text" placeholder="GNU" id="fabricante_ipt">
-
-                            </div>
-                            
-                                                            <div class="div_botao">
-                                                                <button class="btn efeito">Cadastrar</button>
-                                                            </div>
-
-
-                        </div>
-
-                    </form>
+    
+        <div class="search">
+         
+        </div>
+    
+        <div class="sidebar-links">
+          <ul>
+            <div class="active-tab"></div>
+            <li class="tooltip-element" data-tooltip="0">
+              <a href="#" class="active" data-active="0">
+                <div class="icon">
+                  <i class='bx bx-comment'></i>
+                  <i class='bx bxs-comment'></i>
                 </div>
-                <div id="div_aguardar" class="loading-div">
-                    <img src="../assets/aguarde-pink.gif" id="loading-gif">
-
+                <span class="link hide">Dashboard</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="1">
+              <a href="dashboard.html" data-active="1">
+                <div class="icon" href>
+                  <i class='bx bx-folder'></i>
+                  <i class='bx bxs-folder'></i>
                 </div>
-                <div id="div_erros_login"></div>
-
-
-                <div class="mural_funcionarios" id="mural">
-                        
-                    <button onclick="atualizarFeed()" class="btn_mural_funcionarios" id="btn_funcionarios">Máquinas cadastradas</button>
-                       <div id="feed_container" class="feed-container"></div>
-
-                                    <button onclick="atualizarFeed()" style="display: none;" id="atualizar">Atualizar Feed</button>
-
-                            <div class="botoes_crud">
-                                    <button style="display: none;" id="btn_deletar" onclick="deletarMaquina()">Deletar Maquina</button>   
-                                    <button style="display: none;" id="btn_atualizar" onclick="updatePermissao()">Atualizar Maquina</button>             
+                <span class="link hide"> Projects </span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="2">
+              <a href="#" data-active="2">
+                <div class="icon">
+                  <i class='bx bx-message-square-detail'></i>
+                  <i class='bx bxs-message-square-detail'></i>
+                </div>
+                <span class="link hide">Messages</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="3">
+              <a href="#" data-active="3">
+                <div class="icon">
+                  <i class='bx bx-bar-chart-square'></i>
+                  <i class='bx bxs-bar-chart-square'></i>
+                </div>
+                <span class="link hide">Analytics</span>
+              </a>
+            </li>
+            <div class="tooltip">
+              <span class="show">Dashboard</span>
+              <span>Projects</span>
+              <span>Messages</span>
+              <span>Analytics</span>
+            </div>
+          </ul>
+    
+          <h4 class="hide">Shortcuts</h4>
+    
+          <ul>
+            <li class="tooltip-element" data-tooltip="0">
+              <a href="#" data-active="4">
+                <div class="icon">
+                  <i class='bx bx-notepad'></i>
+                  <i class='bx bxs-notepad'></i>
+                </div>
+                <span class="link hide">Tasks</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="1">
+              <a href="https://app.pipefy.com/public/form/w7YSTr_A" data-active="5">
+                <div class="icon">
+                  <i class='bx bx-help-circle'></i>
+                  <i class='bx bxs-help-circle'></i>
+                </div>
+                <span class="link hide">Help</span>
+              </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="2">
+              <a href="#" data-active="6">
+                <div class="icon">
+                  <i class='bx bx-cog'></i>
+                  <i class='bx bxs-cog'></i>
+                </div>
+                <span class="link hide">Settings</span>
+              </a>
+            </li>
+            <div class="tooltip">
+              <span class="show">Tasks</span>
+              <span>Help</span>
+              <span>Settings</span>
+            </div>
+          </ul>
+        </div>
+    
+        <div class="sidebar-footer">
+          <a href="#" class="account tooltip-element" data-tooltip="0">
+            <i class='bx bx-user'></i>
+          </a>
+          <div class="admin-user tooltip-element" data-tooltip="1">
+            <div class="admin-profile hide">
+              <img src="./img/face-1.png" alt="">
+              <div class="admin-info">
+                <h3>Raul Peterson</h3>
+                <h5>Admin</h5>
+              </div>
+            </div>
+            <a href="#" class="log-out">
+              <i class='bx bx-log-out'></i>
+            </a>
+          </div>
+          <div class="tooltip">
+            <span class="show">Raul</span>
+            <span>Logout</span>
+          </div>
+        </div>
+      </nav>
+    
+    
+      <main>
+     
+    
+                <div class="baixo">
+    
+    
+                    <div class="formulario">
+                        <form id="form_cadastro_maquina" method="post" onsubmit="return bt_cadastro_maquina()">
+                            <h3>Cadastre sua Máquina</h3>
+    
+    
+                            <div class="roles">
+    
+                                <div class="ladoEsquerdo">
+    
+                                    <label for="hostName">HostName</label>
+                                    <input name="hostname" type="text" placeholder="Host name" id="hostname_ipt">
+    
+                                    <label for="idFuncionario">ID Funcionário</label>
+                                    <input name="funcionarioId" type="text" placeholder="ID Funcionário"
+                                        id="idfuncionario_ipt">
+    
+                                    <label for="sistemaOperacional">Sistema Operacional</label>
+                                    <input name="sistemaOperacional" type="text" placeholder="Sistema Operacional"
+                                        id="sistemaoperacional_ipt">
+    
+    
+                                </div>
+    
+    
+    
+                                <div class="ladodireito">
+    
+                                    <label for="arquitetura">Arquitetura</label>
+                                    <input name="arquitetura" type="text" placeholder="32bits/64 bits" id="arquitetura_ipt">
+    
+                                    <label for="permissao">Permissão</label>
+                                    <input name="permissao" type="text" placeholder="true / false" id="permissao_ipt">
+    
+                                    <label for="fabricante">Fabricante</label>
+                                    <input name="fabricante" type="text" placeholder="GNU" id="fabricante_ipt">
+    
+                                </div>
+                                
+                                                                <div class="div_botao">
+                                                                    <button class="btn efeito">Cadastrar</button>
+                                                                </div>
+    
+    
                             </div>
-
-                            <input type = "number" placeholder="id da Maquina" id="updateDelete" style="display: none;" class="inputDeleteUpdate">
+    
+                        </form>
+                    </div>
+                    <div id="div_aguardar" class="loading-div">
+                        <img src="../assets/aguarde-pink.gif" id="loading-gif">
+    
+                    </div>
+                    <div id="div_erros_login"></div>
+    
+    
+                    <div class="mural_funcionarios" id="mural">
                             
-                            <select  id="atualizarOpcoes" style="display: none;">
-                                <option value="">Atualizar</option>
-                                <option value="id">ID</option>
-                                <option value="hostName">HostName</option>
-                                <option value="permissao">Permissão</option>
-                                <option value="sistema">Sistema Operacional</option>
-                            </select>
+                        <button onclick="atualizarFeed()" class="btn_mural_funcionarios" id="btn_funcionarios">Máquinas cadastradas</button>
+                           <div id="feed_container" class="feed-container"></div>
+    
+                                        <button onclick="atualizarFeed()" style="display: none;" id="atualizar">Atualizar Feed</button>
+    
+                                <div class="botoes_crud">
+                                        <button style="display: none;" id="btn_deletar" onclick="deletarMaquina()">Deletar Maquina</button>   
+                                        <button style="display: none;" id="btn_atualizar" onclick="updatePermissao()">Atualizar Maquina</button>             
+                                </div>
+    
+                                <input type = "number" placeholder="id da Maquina" id="updateDelete" style="display: none;" class="inputDeleteUpdate">
+                                
+                                <select  id="atualizarOpcoes" style="display: none;">
+                                    <option value="">Atualizar</option>
+                                    <option value="id">ID</option>
+                                    <option value="hostname">HostName</option>
+                                    <option value="permissao">Permissão</option>
+                                    <option value="sistema">Sistema Operacional</option>
+                                </select>
+    
+                                <input id="ipt_update" style="display: none;" class="ipt_update"> 
+    
+                                <div id="respostaDeleteUpdate"></div>
+    
+                          </div>
 
-                            <input id="ipt_update" style="display: none;" class="ipt_update"> 
+        
+       
+      </main>
+    
 
-                            <div id="respostaDeleteUpdate"></div>
-
-                      </div>
+   
                                <!-- <div class="mural-maquina">
                     <div class="conteiner">
                         <button href="#" class="list">Listar Máquinas</button>
@@ -209,6 +319,7 @@
 </body>
 
 </html>
+<script src="app.js"></script>
 <script>
 
 
@@ -338,9 +449,9 @@ function atualizarFeed() {
         return false;
     }
 
-    function updatePermissao(){
+    function updateMaquina(){
         var idMaquina = updateDelete.value;
-        var alteracaoMaquina= ipt_update.value;
+        var alteracaoMaquina = ipt_update.value;
         var select_update = atualizarOpcoes.value;
         respostaDeleteUpdate.innerHTML = "";
        
@@ -351,12 +462,15 @@ function atualizarFeed() {
         {
             alert("id vazio");
         }
-        else{
+        else if(ultimoIdFuncionario  < idFuncionario)
+        {
+            alert("Digite um id válido");
+        } else{
             atualizarOpcoes.style.display = 'block';
             ipt_update.style.display = 'block';
       
 
-        fetch("/usuarios/updatePermissao", {
+        fetch("/usuarios/updateMaquina", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -365,8 +479,8 @@ function atualizarFeed() {
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 
-                idUpdateMaquina: idMaquina,
-                alteracao: alteracaoPermissao,
+                idUpdate: idMaquina,
+                alteracao: alteracaoMaquina,
                 updateEscolhido :  select_update,
             })
         }).then(function(resposta) {
@@ -375,7 +489,7 @@ function atualizarFeed() {
 
             if (resposta.ok) {
                 console.log('');
-                respostaDeleteUpdate.innerHTML = "Alteração" + ipt_update.value + "do maquina"+ idMaquina + "realizado com sucesso";
+                respostaDeleteUpdate.innerHTML = "Alteração" + ipt_update.value + "do funcionário"+ idMaquina + "realizado com sucesso";
                 limparFormulario();
                // finalizarAguardar();
             } else {
@@ -388,6 +502,5 @@ function atualizarFeed() {
     }
         return false;
     }
-
    
 </script>

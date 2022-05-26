@@ -331,11 +331,11 @@ function deletarMaquina(req, res) {
 function updatePermissao(req, res) {
     var idMaquina = req.body.idUpdate;
     var alteraçãoMaquina = req.body.alteracao;
-    var  update = req.body.updateEscolhido;
+    var update = req.body.updateEscolhido;
  
 
 
-    console.log("req.body Update funcionário");
+    console.log("req.body Update máquina");
     console.log(req.body);
 
     if (idMaquina == undefined) {

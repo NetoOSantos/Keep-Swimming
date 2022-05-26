@@ -422,11 +422,11 @@ main.cards1 section.card1.about {
 }
 
 
-.corpoDebaixo{
+/* .corpoDebaixo{
 
     display: flex;
     height: 100vh;
-}
+} */
 .sair{
     margin-top: 19rem;
 }

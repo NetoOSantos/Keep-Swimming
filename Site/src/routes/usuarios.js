@@ -35,8 +35,8 @@ router.post("/deletarMaquina", function(req, res){
     usuarioController.deletarMaquina(req, res);
 })
 
-router.post("/updatePermissao", function(req, res){
-    usuarioController.updatePermissao(req, res);
+router.post("/updateMaquina", function(req, res){
+    usuarioController.updateMaquina(req, res);
 })
 router.post("/autenticar", function(req, res) {
     usuarioController.entrar(req, res);
