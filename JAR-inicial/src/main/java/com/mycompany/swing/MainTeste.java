@@ -7,6 +7,7 @@ public class MainTeste {
         
         System.out.println(media.getMedia());
         System.out.println(media.getAbaixoDaMedia());
+        System.out.println(media.getTopDezProcessos(1));
 
     }
 }

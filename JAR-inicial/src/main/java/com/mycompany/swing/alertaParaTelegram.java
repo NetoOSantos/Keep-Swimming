@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class alertaParaTelegram {
     
+    private Integer idMaquina;
     private Long mediaMemoria;
     private List<dadosFuncionarioOcioso> listFuncionarios = new ArrayList<>();
     
@@ -44,8 +45,7 @@ public class alertaParaTelegram {
             if(media.getMediaMemoria() < getMedia())
             {
            //     mediaMemoria usuarioOcioso = new mediaMemoria(media.getIdMaquina(), media.getMediaMemoria());
-                
-                          
+             
                 getFuncionarioOcioso(media.getIdMaquina());
             }
         }
@@ -84,6 +84,17 @@ public class alertaParaTelegram {
           
          }
          //  return listFuncionarios;
+    }
+    
+    public List getTopDezProcessos(Integer idMaquina)
+    {
+        List<ProcessosAlerta> selectProcessos = con.query(
+                 "select distinct top 10 Nome,usoMemoria,usoCPU from [dbo].[Processos]\n" +
+                  " join [dbo].[Maquina] on fkMaquina = idMaquina where idMaquina = "+
+                 idMaquina + " order by usoMemoria desc ",
+                new BeanPropertyRowMapper(ProcessosAlerta.class));
+        
+        return  selectProcessos;
     }
    
 //select top 10 usoMemoria from [dbo].[Processos]
