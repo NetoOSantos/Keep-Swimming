@@ -19,7 +19,8 @@ public class alertaParaTelegram {
     public Long getMedia()
     {        
          List<mediaMemoria> comandoMedia = con.query(
-                 "select round(avg(memoriaEmUso),0) AS mediaMemoria from [dbo].[Historico]",
+                 "select round(avg(memoriaEmUso),0) AS mediaMemoria from [dbo].[Historico]\n" +
+"join [dbo].[Maquina] on fkMaquina = idMaquina group by idMaquina",
             new BeanPropertyRowMapper(mediaMemoria.class));
         
         
@@ -69,7 +70,8 @@ public class alertaParaTelegram {
                                     " from [dbo].[FUNCIONARIO] join [dbo].[Maquina] "
                                      + "on idFuncionario = fkUsuario\n" +
                                     " join [dbo].[Historico] "
-                + "on fkMaquina = idMaquina where idMaquina = %d", idMaquina);
+                + "on fkMaquina = idMaquina where idMaquina = %d "
+                + "order by tempoInicializado desc ", idMaquina);
         
          List<dadosFuncionarioOcioso> funcionario = con.query(select, 
                 new BeanPropertyRowMapper(dadosFuncionarioOcioso.class));
