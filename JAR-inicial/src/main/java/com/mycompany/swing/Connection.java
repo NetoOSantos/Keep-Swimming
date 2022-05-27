@@ -8,9 +8,11 @@ import org.apache.commons.dbcp2.BasicDataSource;
 public class Connection {
     private BasicDataSource datasource;
     private BasicDataSource dataSourceLocal;
-        
+    
+    Log gravar = new Log();
     
         public Connection() {
+            gravar.criarLog("fazendo a conecão com o Azure");
         this.datasource = new BasicDataSource();
         
        // this.datasource.setDriverClassName("org.h2.Driver");

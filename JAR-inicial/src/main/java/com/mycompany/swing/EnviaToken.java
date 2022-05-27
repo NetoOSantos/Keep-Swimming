@@ -26,7 +26,6 @@ public class EnviaToken extends javax.swing.JFrame {
     
     public Boolean getPassou() {
         return passou;
-        gravar.criarLog("aa");
     }
 
     public void setPassou(Boolean passou) {
