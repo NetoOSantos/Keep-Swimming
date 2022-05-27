@@ -18,9 +18,12 @@ public class KeepSwimming_TelegramBot extends TelegramLongPollingBot  {
 
     private String token = DadosBot.BOT_TOKEN;
     
+    private Boolean seila;
 
+    public KeepSwimming_TelegramBot(Boolean seila) {
+        this.seila = seila;
+    }
     
-
     @Override
     public String getBotUsername() {
         return DadosBot.BOT_USER_NAME;
@@ -85,15 +88,12 @@ public class KeepSwimming_TelegramBot extends TelegramLongPollingBot  {
         var formatter = new SimpleDateFormat("HH:mm:ss");
         return "A hora atual é: " + formatter.format(new Date());
     }
-
-    
-    
-   
+        
     public static void sendToTelegram() {
         String urlString = "https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s";
         //Telegram token 
         String apiToken = "5226424793:AAEqECvlTAc_63u7hl702KBKS5HiF7PHrmE";
-      
+
         //chatId 
         String chatId = "-667290625";
         //Message
@@ -110,13 +110,14 @@ public class KeepSwimming_TelegramBot extends TelegramLongPollingBot  {
             e.printStackTrace();
         }
     }
+    
     public static void sendToTelegramToken(String txt) {
         String urlString = "https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s";
         //Telegram token 
         String apiToken = "5226424793:AAEqECvlTAc_63u7hl702KBKS5HiF7PHrmE";
-      
+
         //chatId 
-        String chatId = "-667290625";
+        String chatId = "-1687266578";
         //Message
         String text = String.format("Seu token é: %s .Se você nao solicitou entre em contanto imediantamente conosco!!", txt);
 

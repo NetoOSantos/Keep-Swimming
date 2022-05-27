@@ -31,7 +31,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             public void run() {
                 
                 inicializacao();
-                  
+                 
             }
         });
     }
@@ -39,7 +39,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void inicializacao()
     {
       
-        
         // classe de de conexão com o banco
         Connection config = new Connection();
 
@@ -52,24 +51,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // Insersão dos dados do sistema no banco
         LoocaSistema loocadb = new LoocaSistema();
         
-  /////////////////////  Pegando o id da Maquina    ///////////////////////
+     /////////////////////  Pegando o id da Maquina    ///////////////////////
   
-    List<maquina> idMaquina = con.query("select idMaquina from [dbo].[Maquina] \n" +
+        List<maquina> idMaquina = con.query("select idMaquina from [dbo].[Maquina] \n" +
                             "JOIN [dbo].[FUNCIONARIO] on fkUsuario = idFuncionario \n" +
                             "WHERE idFuncionario = " + funcionario.getIdFuncionario(),
             new BeanPropertyRowMapper(maquina.class));
-    
-    
-    
+
         System.out.println( "pegando o ID MAQUINA" + idMaquina.toString());
         
         Integer idDaMaquina = idMaquina.get(0).getIdMaquina();
   
-  //----------------------------------------------------------------------------
+  //---------------------------- INSERT DE MAQUINA ---------------------------
   
-       System.out.println("=".repeat(40));
-       
-
         // Listando e inserindo dados do Sistema no banco
        // String sO = looca.getSistema().getSistemaOperacional();
         //String fabricante = looca.getSistema().getFabricante();
@@ -100,7 +94,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
           //  System.out.println(sistema);
         //}
-//------------------------------INSERT DE  PROCESSOS ---------------------------
+        
+//------------------------------ INSERT DE PROCESSOS ---------------------------
    
         System.out.println("=".repeat(40));
         Date dataHoraProcesso = new Date();
@@ -138,34 +133,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
            con.update(inserirDadosProcessos,idDaMaquina, PID,Nome,UsoCpu,usoMemoria,
                    bytesUtilizados,memVirtualUtilizada, totalProcessos, threads,dataHoraProcesso);
         }
-
       }
- },delay,interval);
+    },delay,interval);
         
-        
-
-        
- 
-
         for (Processo processo : processos) {
 
             System.out.println(processo);
         }
-
-        // ------------------------------------------------------------------------- 
           
 //----------------------------INSERT COMPONENTES HARDWARE----------------------
     
-     
-        
+
         DiscosGroup disco = new DiscosGroup();
         Memoria memoria = new Memoria();
         Processador processador = new Processador();
         
          List<Disco> listaDeDisco = disco.getDiscos();
-       
-         
-         
+                     
            for (int i = 0; i < listaDeDisco.size(); i++) {
             
              String nomeDisco = disco.getDiscos().get(i).getNome();
@@ -177,8 +161,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
              
               //Para Mysql local
         //  String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
-          //          + "(null,1,?,?,?,?,?,?);";
-                   
+        //          + "(null,1,?,?,?,?,?,?);";
+                         
          //Para AZURE
            String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
                     + "(?,?,?,?,?,?,?);";
@@ -199,15 +183,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
              System.out.println("Memoria total"  + memoriaTotal);
              System.out.println("Nome processador"  + processadorNome);
         }
-         
 
 //-------------------------------INSERT HISTORICO------------------------------
         Date data = new Date();
         
-        
-     
-
-
        // LocalDateTime data = LocalDateTime.now();
         
         String tempoInicializado = looca.getSistema().getInicializado().toString();
@@ -232,8 +211,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
            
            con.update(inserirHistorico,idDaMaquina,data,tempoInicializado,tempoDeAtividade,
                    temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);
-           
-           
+
            System.out.println("Data "  + data);
            System.out.println("Tempo inicializado "  + tempoInicializado);
            System.out.println("Tempo de atividade "  + tempoDeAtividade);
@@ -241,7 +219,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
            System.out.println("Memoria em uso "  + memoriaEmUso);
            System.out.println("Memoria disponível "  + memoriaDisponível);
            System.out.println("Uso do processador "  + processadorUso);
-        
 
       }
  },delay,interval);
@@ -317,7 +294,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     public static void main(String args[]) {
     
-   
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
