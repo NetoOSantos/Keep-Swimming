@@ -314,7 +314,7 @@ z<!DOCTYPE html>
 					{
 						dados.datasets[0].data.push((novoRegistro[0].usoCPU)/100)
 					}
-            
+            ///////////////// ALERTAS ///////////////////
 
                      if((novoRegistro[0].usoCPU)/100 > 5) {
                          dados.datasets[0].borderColor = "#cd32328f";
@@ -327,38 +327,8 @@ z<!DOCTYPE html>
                          dados.datasets[0].backgroundColor = "#cd32328f";
 						div_alerta.innerHTML = "Processador com baixo nível de processamento!\n"
 						+ "recomendamos: reiniciar o PC\n";
-					 }else if ((novoRegistro[0].memoriaDisponivel)/1048576 >)
-					 //else if (novoRegistro[0].logLuminosidade < 400) {
-                    //     dados.datasets[0].borderColor = "#eb720f8f";
-                    //     dados.datasets[0].backgroundColor = "#eb720f8f";
-                    //     div_msg.innerHTML = `<h2 style="color: #eb720f8f;">Luminosidade ${novoRegistro[0].logLuminosidade}, abaixo dos padrões ideais, estado emergêncial</h2><br>
-                    //     <h4 style="color: #fff;"> Resolva o controle de Luminosidade da sua Estufa o mais cedo possível</h4>`
-                    // } else if (novoRegistro[0].logLuminosidade < 500) {
-                    //     dados.datasets[0].borderColor = "#dfca158f";
-                    //     dados.datasets[0].backgroundColor = "#dfca158f";
-                    //     div_msg.innerHTML = `<h2 style="color: #dfca158f;">Luminosidade ${novoRegistro[0].logLuminosidade}, abaixo do padrão ideal </h2><br>
-                    //     <h4 style="color: #fff;"> Cheque o controle de Luminosidade da sua Estufa</h4>`
-                    // } else if (novoRegistro[0].logLuminosidade < 900) {
-                    //     dados.datasets[0].borderColor = "#6bcd328f";
-                    //     dados.datasets[0].backgroundColor = "#6bcd328f";
-                    //     div_msg.innerHTML = `<h2 style="color: #6bcd328f;">Luminosidade ${novoRegistro[0].logLuminosidade},  nos padrões ideais</h2> <br>
-                    //     <h4 style="color: #fff;"> Nada a se fazer</h4>`
-                    // } else if (novoRegistro[0].logLuminosidade < 1000) {
-                    //     dados.datasets[0].borderColor = "#dfca158f";
-                    //     dados.datasets[0].backgroundColor = "#dfca158f";
-                    //     div_msg.innerHTML = `<h2 style="color: #dfca158f;">Luminosidade ${novoRegistro[0].logLuminosidade}, acima dos padrões ideais </h2><br>
-                    //     <h4 style="color: #fff;">  Cheque o controle de Luminosidade da sua Estufa</h4>`
-                    // } else if (novoRegistro[0].logLuminosidade <= 1100) {
-                    //     dados.datasets[0].borderColor = "#eb720f8f";
-                    //     dados.datasets[0].backgroundColor = "#eb720f8f";
-                    //     div_msg2.innerHTML = `<h2 style="color: #eb720f8f;">Luminosidade ${novoRegistro[0].logLuminosidade}, acima dos padrões ideais, estado emergêncial</h2><br>
-                    //     <h4 style="color: #fff;">Resolva o controle de Luminosidade da sua Estufa o mais cedo possível</h4>`
-                    // } else if (novoRegistro[0].logLuminosidade > 1100) {
-                    //     dados.datasets[0].borderColor = "#cd32328f";
-                    //     dados.datasets[0].backgroundColor = "#cd32328f";
-                    //     div_msg.innerHTML = `<h2 style="color: #cd32328f;">Luminosidade ${novoRegistro[0].logLuminosidade}, muito acima dos padrões ideais, estado crítico!!!</h2><br>
-                    //     <h4 style="color: #fff;"> Resolva URGENTEMETE o controle de Luminosidade da sua Estufa!</h4>`
-                    // }
+					 }
+				
 
                     window.grafico_linha.update();
 
