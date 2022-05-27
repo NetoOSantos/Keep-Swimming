@@ -3,9 +3,10 @@
     var responsavel = sessionStorage.responsavel_USUARIO;
     var id = sessionStorage.ID_EMPRESA;
 
-    sp_empresa.innerHTML = razaoEmp;
-    sp_resp.innerHTML = responsavel;
+    // sp_empresa.innerHTML = razaoEmp;
+    // sp_resp.innerHTML = responsavel;
     let proximaAtualizacao;
+    var gradient;
 
     //verificar_autenticacao();
 
@@ -44,7 +45,7 @@
     //                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
     //                 resposta.reverse();
 
-
+    // momento_grafico
     //                 for (let i = 0; i < resposta.length; i++) {
     //                     let publicacao = resposta[i];
     //                     span_mediaUmi.innerHTML = `${publicacao.mediaUmi}%`
@@ -126,58 +127,38 @@
     //     //Atualiza os dados de 2 em 2 segundos
     //     setTimeout(() => atualizarGrafico(idMaquina, dados), 2000);
     // }
-
+    // graidient.addColorStop(0, 'rgba(167, 121, 232, 1)');
+    // graidient.addColorStop(1, 'rgba(79, 92, 196, 1)'); 
     // só altere aqui se souber o que está fazendo!
     function plotarGrafico(resposta) {
         console.log('iniciando plotagem do gráfico...');
 
 
-        graidient.addColorStop(0, 'rgba(167, 121, 232, 1)');
-        graidient.addColorStop(1, 'rgba(79, 92, 196, 1)'); 
+       
 
         var dados = {
-            labels: ['VsCode', 'NetBens'],
+            labels: [],
             datasets: [
                 {
                     label:'usoCpu',
                     data: [9, 13, 11, 12, 15, 17, 21, 19],
                     backgroundColor: [
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient
-                    ],
+                        
+                                                                                              ],
                     borderColor: [
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient
-                    ],
+                        
+                                                                                              ],
                     borderWidth: 1
                 },
                 {
                     label: 'usoRam',
                     data: [9, 13, 11, 12, 15, 17, 21, 19],
                     backgroundColor: [
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient
-                    ],
+                        
+                                                                                              ],
                     borderColor: [
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient,
-                        graidient
-                    ],
+                        
+                                                                                              ],
                     borderWidth: 1
                 }
             ]
@@ -186,7 +167,7 @@
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
             dados.labels.push(registro.momento_grafico);
-            myChart.datasets[0].data.push(registro.cpu);
+            chartBar.datasets[1].data.push(registro.usoCPU);
         }
 
         console.log(JSON.stringify(dados));
@@ -428,9 +409,8 @@
                         label: 'Tempo de uso por dia',
                         data: [9, 13, 11, 12, 15, 17, 21, 19],
                         backgroundColor: [
-                            graidient,
-                            graidient,
-                            graidient,
+                            
+                                                       graidient,
                             graidient,
                             graidient,
                             graidient

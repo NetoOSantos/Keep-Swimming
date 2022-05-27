@@ -14,13 +14,13 @@ function buscarUltimasMedidas(limite_linhas) {
 
 
 //nuvem
-    instrucaoSql = `Select DISTINCT
-                    Nome ,
-                    round(avg(usoCPU *100),2)as 'mediaUsoCPU',
-                    round(avg(usoMemoria *100),2)as 'mediaUsoMemoria' 
+    instrucaoSql = `Select DISTINCT Nome ,
+                    usoCPU ,
+                    usoMemoria ,
+                    dataHoraProcesso,
+                    FORMAT(dataHoraProcesso,'hh:mm:ss') as momento_grafico
                     from [dbo].[Processos] 
-                    where Nome in ('opera','AvastUI')
-                    GROUP BY Nome`;
+                    where Nome in ('opera','AvastUI')`;
 
 
 
