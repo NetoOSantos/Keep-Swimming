@@ -1,10 +1,12 @@
 
 package com.mycompany.swing;
 
+import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 
 public class Connection {
+    
     private BasicDataSource datasource;
     
     public Connection() {
@@ -40,4 +42,5 @@ public class Connection {
      public BasicDataSource getDatasource() {
         return datasource;
     }
+
 }

@@ -1,7 +1,12 @@
 
+# Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+# Click nbfs://nbhost/SystemFileSystem/Templates/Other/Dockerfile to edit this template
+
 FROM alpine:latest
-WORKDIR /app
-COPY ./Project Files/pom.xml
-COPY . .
-EXPOSE 8080
-CMD ["/bin/sh", 'java', '-jar', 'Swing-1.0-SNAPSHOT-jar-with-dependencies.jar']
+
+CMD ["/bin/sh"]
+
+FROM openjdk:keepSwimmingJava
+ADD /target/Swing-1.0-SNAPSHOT-jar-with-dependencies.jar Swing-1.0-SNAPSHOT-jar-with-dependencies.jar
+expose 8080
+ENTRYPOINT java -jar Swing-1.0-SNAPSHOT-jar-with-dependencies.jar

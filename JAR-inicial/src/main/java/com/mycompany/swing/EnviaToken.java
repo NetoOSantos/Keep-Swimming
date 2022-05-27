@@ -14,8 +14,14 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
  * @author lucas.alves@VALEMOBI.CORP
  */
 public class EnviaToken extends javax.swing.JFrame {
+    public Funcionario funcionario;
     private String guardaCodig ="";
 
+    public void setIdsFuncionario(Funcionario idsFuncionario)
+    {
+        this.funcionario = idsFuncionario;
+    }
+    
     public Boolean getPassou() {
         return passou;
     }
@@ -84,7 +90,7 @@ public class EnviaToken extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConfereToken);
-        btnConfereToken.setBounds(140, 250, 83, 22);
+        btnConfereToken.setBounds(140, 250, 83, 24);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,13 +117,12 @@ public class EnviaToken extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReenviaCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReenviaCodigoActionPerformed
-        emiteCodigo ();
+        emiteCodigo();
         System.out.println(getGuardaCodig());
         
         try {
             TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-            telegramBotsApi.registerBot(new KeepSwimming_TelegramBot(true));  
-            
+            telegramBotsApi.registerBot(new KeepSwimming_TelegramBot(true));
             KeepSwimming_TelegramBot.sendToTelegramToken(guardaCodig);
                     
         } catch (TelegramApiException e) {
@@ -132,8 +137,8 @@ public class EnviaToken extends javax.swing.JFrame {
             lblRespostaToken.setText("Digite um token valido para continuar!!");
         }
         else if(usarioDigitou.equalsIgnoreCase(guardaCodig)){
-//            new TelaUsuarioLogado().setVisible(true);
-             new TelaPrincipal().setVisible(true);
+//           new TelaUsuarioLogado().setVisible(true);
+             new TelaPrincipal(funcionario).setVisible(true);
              this.dispose();
         }
         
@@ -150,8 +155,6 @@ public class EnviaToken extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
       
-        
-        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -170,11 +173,6 @@ public class EnviaToken extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        
-        
-        
-        
-        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
