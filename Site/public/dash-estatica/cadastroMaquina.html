@@ -211,14 +211,13 @@
     
                                 <div class="botoes_crud">
                                         <button style="display: none;" id="btn_deletar" onclick="deletarMaquina()">Deletar Maquina</button>   
-                                        <button style="display: none;" id="btn_atualizar" onclick="updatePermissao()">Atualizar Maquina</button>             
+                                        <button style="display: none;" id="btn_atualizar" onclick="updateMaquina()">Atualizar Maquina</button>             
                                 </div>
     
                                 <input type = "number" placeholder="id da Maquina" id="updateDelete" style="display: none;" class="inputDeleteUpdate">
                                 
                                 <select  id="atualizarOpcoes" style="display: none;">
                                     <option value="">Atualizar</option>
-                                    <option value="id">ID</option>
                                     <option value="hostname">HostName</option>
                                     <option value="permissao">Permissão</option>
                                     <option value="sistema">Sistema Operacional</option>
@@ -454,18 +453,13 @@ function atualizarFeed() {
         var alteracaoMaquina = ipt_update.value;
         var select_update = atualizarOpcoes.value;
         respostaDeleteUpdate.innerHTML = "";
-       
+               
         
-        
-
         if(idMaquina == ''  )
         {
             alert("id vazio");
         }
-        else if(ultimoIdFuncionario  < idFuncionario)
-        {
-            alert("Digite um id válido");
-        } else{
+         else{
             atualizarOpcoes.style.display = 'block';
             ipt_update.style.display = 'block';
       
@@ -502,5 +496,6 @@ function atualizarFeed() {
     }
         return false;
     }
+
    
 </script>

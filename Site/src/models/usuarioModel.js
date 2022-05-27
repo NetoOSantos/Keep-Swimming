@@ -21,7 +21,7 @@ function listar() {
     // azure
     
     var instrucao = `
-        SELECT * FROM [dbo].[empresa];
+        SELECT * FROM [dbo].[FUNCIONARIO];
     `;
 
     console.log("Executando a instrução SQL: \n"+instrucao);
@@ -91,7 +91,7 @@ function cadastrarFuncionario(nome, email, senha, cargo,idEmpresa, idGestor) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarFuncionario():",nome, email,cargo, senha,idEmpresa,idGestor);
 
     var instrucao = `       
-        INSERT INTO FUNCIONARIO  VALUES (null,${idGestor},${idEmpresa}, '${nome}', '${email}', '${senha}', '${cargo}');
+        INSERT INTO FUNCIONARIO  VALUES (${idGestor},${idEmpresa}, '${nome}', '${email}', '${senha}', '${cargo}');
     `;
     console.log("Executando a instrução SQL: \n"+instrucao);
     return database.executar(instrucao);
@@ -100,10 +100,17 @@ function cadastrarFuncionario(nome, email, senha, cargo,idEmpresa, idGestor) {
 
 function deletarFuncionario(idFuncionario) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletarFuncionario():");
-    
+    /*MySQL local
     var instrucao = `
         DELETE FROM FUNCIONARIO WHERE idFuncionario = ${idFuncionario};
-    `;
+    `;*/
+
+    //Azure
+    var instrucao = `
+    
+    Delete [dbo].[FUNCIONARIO] where idFuncionario =  ${idFuncionario};
+`;
+
     console.log("Executando a instrução SQL: \n"+instrucao);
     return database.executar(instrucao);
 }
@@ -169,31 +176,31 @@ function deletarMaquina(idMaquina) {
 
 
 function updateMaquina(idMaquina,alteracao,coluna) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function updateMaquina():");
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function updateFuncionario():");
 
     var instrucao;
 
-    if(coluna == "id")
+    // if(coluna == "id")
+    // {
+    //     instrucao = `update Maquina SET idMaquina = ${alteracao} Where idMaquina = ${idMaquina};`;
+    // } 
+    // else
+     if(coluna == "sistema")
     {
-        instrucao = `update MAQUINA SET idMaquina = ${alteracao} Where idMaquina = ${idMaquina};`;
-    } 
-    // else if(coluna == "hostname")
-    // {
-    //      instrucao = `update MAQUINA SET hostName = '${alteracao}' Where idMaquina = ${idMaquina};`;
-    // }   
-    // else if(coluna == "permissao")
-    // {
-    //      instrucao = `update MAQUINA SET permissoes = '${alteracao}' Where idMaquina = ${idMaquina};`;
-    // }
-    // else if(coluna == "sistema")
-    // {
-    //      instrucao = `update MAQUINA SET sistemaOperacional = '${alteracao}' Where idMaquina = ${idMaquina};`;
-    // }
+         instrucao = `update Maquina SET sistemaOperacional = '${alteracao}' Where idMaquina = ${idMaquina};`;
+    }   
+    else if(coluna == "permissao")
+    {
+         instrucao = `update Maquina SET permissoes = '${alteracao}' Where idMaquina = ${idMaquina};`;
+    }
+    else if(coluna == "hostname")
+    {
+         instrucao = `update Maquina SET hostName = '${alteracao}' Where idMaquina = ${idMaquina};`;
+    }
     
     console.log("Executando a instrução SQL: \n"+instrucao);
     return database.executar(instrucao);
 }
-
 
 function buscarIdFuncionario(nome){
 
@@ -216,4 +223,5 @@ module.exports = {
     buscarIdFuncionario,
     deletarMaquina,
     updateMaquina,
+
 };

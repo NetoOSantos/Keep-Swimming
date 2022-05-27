@@ -327,26 +327,25 @@ function deletarMaquina(req, res) {
     }
 }
 
-
-function updatePermissao(req, res) {
+function updateMaquina(req, res) {
     var idMaquina = req.body.idUpdate;
     var alteraçãoMaquina = req.body.alteracao;
-    var update = req.body.updateEscolhido;
+    var  update = req.body.updateEscolhido;
  
 
 
-    console.log("req.body Update máquina");
+    console.log("req.body Update maquina");
     console.log(req.body);
 
     if (idMaquina == undefined) {
-        res.status(400).send("O id do máquina está undefined!");
+        res.status(400).send("O id do funcionário está undefined!");
     } else if(alteraçãoMaquina == undefined){
-        res.status(400).send("A input para alteração do máquina está undefined!");
+        res.status(400).send("A input para alteração do funcionário está undefined!");
     } else if(update == undefined){
         res.status(400).send("A select para alteração do funcionário está undefined!");
    
     }else {
-        usuarioModel.updatePermissao(idMaquina,alteraçãoMaquina,update)
+        usuarioModel.updateMaquina(idMaquina,alteraçãoMaquina,update)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -365,6 +364,7 @@ function updatePermissao(req, res) {
 }
 
 
+
 module.exports = {
     entrar,
     cadastrar,
@@ -373,7 +373,7 @@ module.exports = {
     updateFuncionario,
     cadastrarMaquina,
     deletarMaquina,
-    updatePermissao,
+    updateMaquina,
     listar,   
     testar
 }

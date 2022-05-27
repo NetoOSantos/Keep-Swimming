@@ -177,7 +177,13 @@ public class KeepSwimming extends javax.swing.JFrame {
         SENHA = (new String(CampoSenha.getPassword()));
 
 
-        List<Funcionario> Select = con.query("SELECT * FROM FUNCIONARIO",
+        List<Funcionario> Select = con.query("SELECT"
+                + " idFuncionario,"
+                + " EMAIL, "
+                + "SENHA, "
+                + "idMaquina AS Maquina "
+                + "from [dbo].[FUNCIONARIO] join\n" +
+            "[dbo].[Maquina] ON idFuncionario = fkUsuario",
             new BeanPropertyRowMapper(Funcionario.class));
 
         for (Funcionario func : Select)
@@ -185,19 +191,12 @@ public class KeepSwimming extends javax.swing.JFrame {
             if(func.getEMAIL().equals(EMAIL) && func.getSENHA().equals(SENHA)) {
                 Resultado.setText("LOGADO COM SUCESSO!");
                 
-               
-               new EnviaToken().setVisible(true);
-                this.dispose();
-                
-                try {
-            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-            telegramBotsApi.registerBot(new KeepSwimming_TelegramBot(true));  
-            
-            KeepSwimming_TelegramBot.sendToTelegram();
-                    
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        } 
+        
+           //    new EnviaToken().setVisible(true);
+               EnviaToken token = new EnviaToken();
+               token.setVisible(true);
+               token.setIdsFuncionario(func);
+               this.dispose();
                 
                
             } else {

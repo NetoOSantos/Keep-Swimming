@@ -98,13 +98,13 @@ public class LoocaProcessos {
         this.threads = threads;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Total de Processos = %d"
-                             + "\nThreads = %d",
-                             totalProcessos,
-                             threads);
+    public LoocaProcessos(String Nome, Double usoCPU, Long usoMemoria) {
+        this.Nome = Nome;
+        this.usoCPU = usoCPU;
+        this.usoMemoria = usoMemoria;
     }
+
+  
     
     
    

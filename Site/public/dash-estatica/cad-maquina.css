@@ -802,3 +802,133 @@ form .div_botao{
   height: 50px;
   width: 50px;
 }
+
+
+.mural_funcionarios
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10%;
+
+  margin-top: 10%;
+  margin-left: 10%;
+
+  width: 85%;
+  height: 100vh;
+  background-color: rgba(255,255,255,0.13);
+
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.1);
+}
+.btn_mural_funcionarios
+{
+  border: none;
+  color: #ffffff;
+  padding: 20px;
+  margin: 10px;
+  font-size: 15px;
+  line-height: 24px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 400ms ease;
+  background-color: #34aedf;
+  width: 30%;
+}
+.botoes_crud
+{
+
+  display: flex;
+  justify-content: space-around;
+
+}
+.publicacao span
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: #ffffff 2px;
+  width: 100%;
+  
+  color: #ffffff;
+}
+.atualizarMural
+{
+    border: none;
+    color: #ffffff;
+    padding: 10px;
+    margin: 10px;
+    font-size: 15px;
+    line-height: 24px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #34aedf;
+    width: 20%;
+}
+.btnDeletar
+{
+    border: none;
+    color: #ffffff;
+    padding: 2px;
+    margin: 5px;
+    font-size: 15px;
+    line-height: 24px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #df343f;
+    width: 60%;
+}
+.btnUpdate
+{
+  border: none;
+  color: #ffffff;
+  padding: 2px;
+  margin: 5px;
+  font-size: 15px;
+  line-height: 24px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: #3ddf34;
+  width: 60%;
+}
+.selectUpdate
+{
+  border: none;
+  color: #ffffff;
+  padding: 2px;
+  margin: 5px;
+  font-size: 15px;
+  line-height: 24px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: #17203E;
+  width: 20%;
+}
+.inputDeleteUpdate
+{
+  text-align: center;
+  color: white;
+  
+  width: 20%;
+  height: 5%;
+  background-color: #17203E;
+}
+.ipt_update
+{
+  text-align: center;
+  color: white;
+  
+  width: 20%;
+  height: 5%;
+  background-color: #17203E;
+
+}
+
