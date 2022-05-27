@@ -85,27 +85,21 @@ public class KeepSwimming extends javax.swing.JFrame {
 
         Resultado.setBackground(new java.awt.Color(255, 255, 255));
         Resultado.setForeground(new java.awt.Color(255, 255, 255));
-        Resultado.setText("resultado");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(28, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextoEmail)
-                            .addComponent(TextoSenha)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnNavegar, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CampoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(21, 21, 21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(TextoEmail)
+                    .addComponent(TextoSenha)
+                    .addComponent(btnNavegar, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                    .addComponent(CampoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                    .addComponent(CampoEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                    .addComponent(Resultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,11 +112,11 @@ public class KeepSwimming extends javax.swing.JFrame {
                 .addComponent(TextoSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(Resultado)
-                .addGap(55, 55, 55)
+                .addGap(46, 46, 46)
                 .addComponent(btnNavegar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -177,7 +171,13 @@ public class KeepSwimming extends javax.swing.JFrame {
         SENHA = (new String(CampoSenha.getPassword()));
 
 
-        List<Funcionario> Select = con.query("SELECT * FROM FUNCIONARIO",
+        List<Funcionario> Select = con.query("SELECT"
+                + " idFuncionario,"
+                + " EMAIL, "
+                + "SENHA, "
+                + "idMaquina AS Maquina "
+                + "from [dbo].[FUNCIONARIO] join\n" +
+            "[dbo].[Maquina] ON idFuncionario = fkUsuario",
             new BeanPropertyRowMapper(Funcionario.class));
 
         for (Funcionario func : Select)
@@ -185,24 +185,17 @@ public class KeepSwimming extends javax.swing.JFrame {
             if(func.getEMAIL().equals(EMAIL) && func.getSENHA().equals(SENHA)) {
                 Resultado.setText("LOGADO COM SUCESSO!");
                 
-               
-               new EnviaToken().setVisible(true);
-                this.dispose();
-                
-                try {
-            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-            telegramBotsApi.registerBot(new KeepSwimming_TelegramBot(true));  
-            
-            KeepSwimming_TelegramBot.sendToTelegram();
-                    
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        } 
+        
+           //    new EnviaToken().setVisible(true);
+               EnviaToken token = new EnviaToken();
+               token.setVisible(true);
+               token.setIdsFuncionario(func);
+               this.dispose();
                 
                
             } else {
 
-                Resultado.setText("=(");
+                Resultado.setText("Nome de usuário ou senha errados. Por favor tente outra vez. =( ");
             }
         }
     }//GEN-LAST:event_btnNavegarActionPerformed

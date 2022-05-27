@@ -8,8 +8,7 @@ public class RegistraBot {
     
     public static void main(String[] args) {
         try {
-            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-            telegramBotsApi.registerBot(new KeepSwimming_TelegramBot(true));       
+            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);      
             KeepSwimming_TelegramBot.sendToTelegram();
         } catch (TelegramApiException e) {
             e.printStackTrace();
