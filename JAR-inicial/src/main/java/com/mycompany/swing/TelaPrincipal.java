@@ -45,7 +45,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         //conexão com o banco
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
-        JdbcTemplate conLocal = new JdbcTemplate(config.getDatasourceLocal());
         
         // looca
         com.github.britooo.looca.api.core.Looca looca = new com.github.britooo.looca.api.core.Looca();
@@ -138,8 +137,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
            
            con.update(inserirDadosProcessos,idDaMaquina, PID,Nome,UsoCpu,usoMemoria,
                    bytesUtilizados,memVirtualUtilizada, totalProcessos, threads);
-           conLocal.update(inserirDadosProcessos, PID,Nome,UsoCpu,usoMemoria,
-                   bytesUtilizados,memVirtualUtilizada, totalProcessos, threads);
+           
         }
 
       }
@@ -197,13 +195,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             qtdDiscos, 
                             memoriaTotal,
                             processadorNome);
-           conLocal.update(inserirDadosHardware,
-                            nomeDisco,
-                            tamanhoDisco,
-                            modeloDisco,
-                            qtdDiscos, 
-                            memoriaTotal,
-                            processadorNome);
+         
            
              System.out.println("nome do disco: " + nomeDisco);
              System.out.println("tamanho do disco: " + tamanhoDisco);
@@ -243,8 +235,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 + "(?,?,?,?,?,?,?,?);";
            
            con.update(inserirHistorico,idDaMaquina,data,tempoInicializado,tempoDeAtividade,
-                   temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);
-           conLocal.update(inserirHistorico,data,tempoInicializado,tempoDeAtividade,
                    temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);
            
            
