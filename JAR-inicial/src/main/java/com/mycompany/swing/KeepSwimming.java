@@ -23,7 +23,6 @@ public class KeepSwimming extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -87,27 +86,21 @@ public class KeepSwimming extends javax.swing.JFrame {
 
         Resultado.setBackground(new java.awt.Color(255, 255, 255));
         Resultado.setForeground(new java.awt.Color(255, 255, 255));
-        Resultado.setText("resultado");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(28, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextoEmail)
-                            .addComponent(TextoSenha)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnNavegar, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(CampoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(21, 21, 21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(TextoEmail)
+                    .addComponent(TextoSenha)
+                    .addComponent(btnNavegar, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                    .addComponent(CampoSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                    .addComponent(CampoEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                    .addComponent(Resultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,11 +113,11 @@ public class KeepSwimming extends javax.swing.JFrame {
                 .addComponent(TextoSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CampoSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(Resultado)
-                .addGap(55, 55, 55)
+                .addGap(46, 46, 46)
                 .addComponent(btnNavegar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -169,12 +162,15 @@ public class KeepSwimming extends javax.swing.JFrame {
         
         //Instancia a classe Connection
         //Instancia um objeto Jdbc e pega o retorno getDataSource
+        
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
         List funcionario = new ArrayList();
         Funcionario usuario = new Funcionario();
         BeanPropertyRowMapper Bean = new BeanPropertyRowMapper();
+        
         ///////////////////////////////////////////////
+        
         EMAIL = (CampoEmail.getText());
         SENHA = (new String(CampoSenha.getPassword()));
 
@@ -198,8 +194,7 @@ public class KeepSwimming extends javax.swing.JFrame {
                token.setVisible(true);
                token.setIdsFuncionario(func);
                this.dispose();
-                
-               
+                 
             } else {
 
                 Resultado.setText("=(");
@@ -216,10 +211,8 @@ public class KeepSwimming extends javax.swing.JFrame {
 
     }//GEN-LAST:event_CampoEmailActionPerformed
 
-   
     public static void main(String args[]) {
-               
-               
+                     
        /////////////////Padrão do SWING////////////////////////
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -243,6 +236,7 @@ public class KeepSwimming extends javax.swing.JFrame {
                 new KeepSwimming().setVisible(true);
             }
         });
+        
         /////////////////////////////////////////////////////////////////
     }
 

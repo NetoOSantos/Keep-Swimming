@@ -124,8 +124,7 @@ public class EnviaToken extends javax.swing.JFrame {
         
         try {
             TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-            telegramBotsApi.registerBot(new KeepSwimming_TelegramBot(true));  
-            
+            telegramBotsApi.registerBot(new KeepSwimming_TelegramBot(true));
             KeepSwimming_TelegramBot.sendToTelegramToken(guardaCodig);
                     
         } catch (TelegramApiException e) {
@@ -177,11 +176,6 @@ public class EnviaToken extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        
-        
-        
-        
-        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

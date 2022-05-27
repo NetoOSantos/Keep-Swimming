@@ -1,3 +1,4 @@
+com\mycompany\swing\ProcessosAlerta.class
 com\mycompany\swing\TelaPrincipal$3.class
 com\mycompany\swing\EnviaToken.class
 com\mycompany\swing\KeepSwimming_TelegramBot.class
@@ -8,7 +9,6 @@ com\mycompany\swing\TelaPrincipal$1.class
 com\mycompany\swing\TelaPrincipal.class
 com\mycompany\swing\Funcionario.class
 com\mycompany\swing\TelaUsuarioLogado.class
-com\mycompany\swing\GetHardware.class
 com\mycompany\swing\LoocaSistema.class
 com\mycompany\swing\Connection.class
 com\mycompany\swing\KeepSwimming$2.class
@@ -24,9 +24,7 @@ com\mycompany\swing\KeepSwimming$4.class
 com\mycompany\swing\maquina.class
 com\mycompany\swing\LoocaHardware.class
 com\mycompany\swing\RegistraBot.class
-com\mycompany\swing\GetProcessos$1.class
 com\mycompany\swing\dadosFuncionarioOcioso.class
 com\mycompany\swing\EnviaToken$1.class
-com\mycompany\swing\GetProcessos.class
 com\mycompany\swing\KeepSwimming$1.class
 com\mycompany\swing\TelaUsuarioLogado$1.class
