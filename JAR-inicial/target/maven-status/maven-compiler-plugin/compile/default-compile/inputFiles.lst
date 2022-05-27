@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/Connection.java
 /home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/MainTeste.java
 /home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/RegistraBot.java
@@ -17,3 +18,24 @@
 /home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/LoocaHardware.java
 /home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/TelaPrincipal.java
 /home/lucas.alves@VALEMOBI.CORP/Documentos/Faculdade/Repositorios Git/Keep-Swimming/JAR-inicial/src/main/java/com/mycompany/swing/Funcionario.java
+=======
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\LoocaHardware.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\TelaUsuarioLogado.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\alertaParaTelegram.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\maquina.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\dadosFuncionarioOcioso.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\LoocaSistema.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\MainTeste.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\DadosBot.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\KeepSwimming_TelegramBot.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\LoocaProcessos.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\TelaPrincipal.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\Looca.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\mediaMemoria.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\KeepSwimming.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\Connection.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\ProcessosAlerta.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\RegistraBot.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\Funcionario.java
+D:\SPTECH DIGITAL SCHOOL\S02\KEEP SWIMMING\Keep-Swimming\JAR-inicial\src\main\java\com\mycompany\swing\EnviaToken.java
+>>>>>>> e5c851a5edb58fe32a97d72d91314415af1c779e
