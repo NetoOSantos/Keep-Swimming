@@ -18,12 +18,7 @@ public class KeepSwimming_TelegramBot extends TelegramLongPollingBot  {
 
     private String token = DadosBot.BOT_TOKEN;
     
-    
-    private Boolean seila;
 
-    public KeepSwimming_TelegramBot(Boolean seila) {
-        this.seila = seila;
-    }
     
 
     @Override

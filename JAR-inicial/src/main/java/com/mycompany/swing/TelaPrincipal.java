@@ -45,7 +45,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         //conexão com o banco
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
-        JdbcTemplate conLocal = new JdbcTemplate(config.getDatasourceLocal());
         
         // looca
         com.github.britooo.looca.api.core.Looca looca = new com.github.britooo.looca.api.core.Looca();
@@ -104,7 +103,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 //------------------------------INSERT DE  PROCESSOS ---------------------------
    
         System.out.println("=".repeat(40));
-
+        Date dataHoraProcesso = new Date();
         
         List<Processo> processos = looca.getGrupoDeProcessos().getProcessos();
        
@@ -134,12 +133,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             
               //Para azure
                String inserirDadosProcessos = "Insert into Processos VALUES "
-                + "(?,?,?,?,?,?,?,?,?);";
+                + "(?,?,?,?,?,?,?,?,?,?);";
            
            con.update(inserirDadosProcessos,idDaMaquina, PID,Nome,UsoCpu,usoMemoria,
-                   bytesUtilizados,memVirtualUtilizada, totalProcessos, threads);
-           conLocal.update(inserirDadosProcessos, PID,Nome,UsoCpu,usoMemoria,
-                   bytesUtilizados,memVirtualUtilizada, totalProcessos, threads);
+                   bytesUtilizados,memVirtualUtilizada, totalProcessos, threads,dataHoraProcesso);
         }
 
       }
@@ -149,10 +146,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         
  
-        List<LoocaProcessos> processosSelect = con.query("select * from Processos",
-                new BeanPropertyRowMapper<>(LoocaProcessos.class));
 
-        for (LoocaProcessos processo : processosSelect) {
+        for (Processo processo : processos) {
 
             System.out.println(processo);
         }
@@ -197,14 +192,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             qtdDiscos, 
                             memoriaTotal,
                             processadorNome);
-           conLocal.update(inserirDadosHardware,
-                            nomeDisco,
-                            tamanhoDisco,
-                            modeloDisco,
-                            qtdDiscos, 
-                            memoriaTotal,
-                            processadorNome);
-           
              System.out.println("nome do disco: " + nomeDisco);
              System.out.println("tamanho do disco: " + tamanhoDisco);
              System.out.println("modelo do disco: " + modeloDisco);
@@ -216,6 +203,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 //-------------------------------INSERT HISTORICO------------------------------
         Date data = new Date();
+        
         
      
 
@@ -244,9 +232,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
            
            con.update(inserirHistorico,idDaMaquina,data,tempoInicializado,tempoDeAtividade,
                    temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);
-           conLocal.update(inserirHistorico,data,tempoInicializado,tempoDeAtividade,
-                   temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);
-           
            
            
            System.out.println("Data "  + data);
