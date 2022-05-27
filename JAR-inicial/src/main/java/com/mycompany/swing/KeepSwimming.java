@@ -21,7 +21,6 @@ public class KeepSwimming extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -156,20 +155,19 @@ public class KeepSwimming extends javax.swing.JFrame {
     private void btnNavegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavegarActionPerformed
         //////////////Conexão com o banco//////////////
 
-     
-        
-        
         //Instancia a classe Connection
         //Instancia um objeto Jdbc e pega o retorno getDataSource
+        
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
         List funcionario = new ArrayList();
         Funcionario usuario = new Funcionario();
         BeanPropertyRowMapper Bean = new BeanPropertyRowMapper();
+        
         ///////////////////////////////////////////////
+        
         EMAIL = (CampoEmail.getText());
         SENHA = (new String(CampoSenha.getPassword()));
-
 
         List<Funcionario> Select = con.query("SELECT"
                 + " idFuncionario,"
@@ -185,16 +183,13 @@ public class KeepSwimming extends javax.swing.JFrame {
             if(func.getEMAIL().equals(EMAIL) && func.getSENHA().equals(SENHA)) {
                 Resultado.setText("LOGADO COM SUCESSO!");
                 
-        
            //    new EnviaToken().setVisible(true);
                EnviaToken token = new EnviaToken();
                token.setVisible(true);
                token.setIdsFuncionario(func);
                this.dispose();
-                
-               
+                 
             } else {
-
                 Resultado.setText("Nome de usuário ou senha errados. Por favor tente outra vez. =( ");
             }
         }
@@ -208,10 +203,8 @@ public class KeepSwimming extends javax.swing.JFrame {
 
     }//GEN-LAST:event_CampoEmailActionPerformed
 
-   
     public static void main(String args[]) {
-               
-               
+                     
        /////////////////Padrão do SWING////////////////////////
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -235,6 +228,7 @@ public class KeepSwimming extends javax.swing.JFrame {
                 new KeepSwimming().setVisible(true);
             }
         });
+        
         /////////////////////////////////////////////////////////////////
     }
 
