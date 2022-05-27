@@ -17,6 +17,8 @@ public class KeepSwimming extends javax.swing.JFrame {
     String SENHA;
    
     public KeepSwimming() {
+        Log gravar = new Log();
+        gravar.criarLog("Iniciando tela swing email&senha");
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -161,7 +163,8 @@ public class KeepSwimming extends javax.swing.JFrame {
 
     private void btnNavegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavegarActionPerformed
         //////////////Conexão com o banco//////////////
-     
+     Log gravar = new Log();
+     gravar.criarLog("Fazendo conexão com o Banco...");
         
         
         //Instancia a classe Connection
@@ -188,7 +191,7 @@ public class KeepSwimming extends javax.swing.JFrame {
         {
             if(func.getEMAIL().equals(EMAIL) && func.getSENHA().equals(SENHA)) {
                 Resultado.setText("LOGADO COM SUCESSO!");
-                
+                gravar.criarLog("Usuario logado");
         
            //    new EnviaToken().setVisible(true);
                EnviaToken token = new EnviaToken();
@@ -200,6 +203,7 @@ public class KeepSwimming extends javax.swing.JFrame {
             } else {
 
                 Resultado.setText("=(");
+                gravar.criarLog("erro de autenticação");
             }
         }
     }//GEN-LAST:event_btnNavegarActionPerformed

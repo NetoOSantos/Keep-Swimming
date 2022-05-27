@@ -12,7 +12,6 @@ public class Connection {
     Log gravar = new Log();
     
         public Connection() {
-            gravar.criarLog("fazendo a conecão com o Azure");
         this.datasource = new BasicDataSource();
         
        // this.datasource.setDriverClassName("org.h2.Driver");

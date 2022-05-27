@@ -24,7 +24,7 @@ class Log {
             BufferedWriter buffer = new BufferedWriter(criarArquivo);
             PrintWriter gravarArq = new PrintWriter(buffer)
             ){
-            gravarArq.append(String.format("%s -- %s: %s\n", momentoLog, message));
+            gravarArq.append(String.format("%s --: %s\n", momentoLog, message));
         } catch (IOException e) {
             System.out.println(e);
         }

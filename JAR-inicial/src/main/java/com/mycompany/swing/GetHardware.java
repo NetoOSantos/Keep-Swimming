@@ -16,6 +16,9 @@ public class GetHardware {
 
     
     public static void main(String[] args) {
+        
+        
+        Log gravar = new Log();
 //        
 //    Timer timer = new Timer();
 //    Integer delay = 1000;
@@ -85,6 +88,7 @@ public class GetHardware {
                 System.out.println(Hardware);
                 System.out.println("-".repeat(50));
                 }
+            
             }
 //    }, delay, interval);
        
