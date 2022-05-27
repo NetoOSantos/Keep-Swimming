@@ -44,7 +44,7 @@ public class Looca {
         String permissao = looca.getSistema().getPermissao().toString();
 
         //con.execute("DROP TABLE IF EXISTS Sistema");
-
+        
         String criarTabelaSistema = "CREATE TABLE IF NOT EXISTS Sistema (\n"
                 + "ID INT PRIMARY KEY AUTO_INCREMENT,\n"
                 + "SistemaOperacional varchar(50),\n"

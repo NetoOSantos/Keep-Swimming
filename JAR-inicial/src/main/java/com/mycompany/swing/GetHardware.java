@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 
 public class GetHardware {
+
     
     public static void main(String[] args) {
 //        
@@ -41,6 +42,7 @@ public class GetHardware {
         
         Temperatura temperatura = new Temperatura();
         
+        
 //-----------------------------------------------------------------------------        
 
         String criarTabelaHardware = "CREATE TABLE IF NOT EXISTS Hardware (\n"
@@ -54,7 +56,6 @@ public class GetHardware {
                 + ");";
         
         //template.execute(criarTabelaHardware);
-
         for (int i = 0; i < listaDeDisco.size(); i++) {
             
             Integer qtdDiscos = disco.getQuantidadeDeDiscos();

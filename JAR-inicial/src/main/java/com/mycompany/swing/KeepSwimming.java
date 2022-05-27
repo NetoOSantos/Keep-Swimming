@@ -161,7 +161,6 @@ public class KeepSwimming extends javax.swing.JFrame {
 
     private void btnNavegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavegarActionPerformed
         //////////////Conexão com o banco//////////////
-
      
         
         
@@ -175,7 +174,6 @@ public class KeepSwimming extends javax.swing.JFrame {
         ///////////////////////////////////////////////
         EMAIL = (CampoEmail.getText());
         SENHA = (new String(CampoSenha.getPassword()));
-
 
         List<Funcionario> Select = con.query("SELECT"
                 + " idFuncionario,"
@@ -259,4 +257,5 @@ public class KeepSwimming extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
 }

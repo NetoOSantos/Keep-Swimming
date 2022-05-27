@@ -16,6 +16,8 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 public class EnviaToken extends javax.swing.JFrame {
     public Funcionario funcionario;
     private String guardaCodig ="";
+    
+    Log gravar = new Log();
 
     public void setIdsFuncionario(Funcionario idsFuncionario)
     {
@@ -24,6 +26,7 @@ public class EnviaToken extends javax.swing.JFrame {
     
     public Boolean getPassou() {
         return passou;
+        gravar.criarLog("aa");
     }
 
     public void setPassou(Boolean passou) {
@@ -149,13 +152,12 @@ public class EnviaToken extends javax.swing.JFrame {
         String codigoFormatado = enviaCodigo.toString();
         
         setGuardaCodig(codigoFormatado);
-        
     }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-      
         
         
         try {
