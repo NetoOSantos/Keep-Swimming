@@ -50,11 +50,11 @@ z<!DOCTYPE html>
 		<div id='center' class="main">
 			<div class="dash">
 				<div class="div_maquinas">
-					<div class="div_maquina1"><b>Bruno</b></div>
-					<div class="div_maquina2"><b>Lucas</b></div>
-					<div class="div_maquina3"><b>Raul</b></div>
-					<div class="div_maquina4"><b>Victor</b></div>
-					<div class="div_maquina5"><b>Neto</b></div>
+					<button class="div_maquina1" onclick="obterDadosGrafico(1)"><b>Bruno</b></button>
+					<button class="div_maquina2" onclick="obterDadosGrafico(2)"><b>Lucas</b></button>
+					<button class="div_maquina3" onclick="obterDadosGrafico(3)"><b>Raul</b></button>
+					<button class="div_maquina4" onclick="obterDadosGrafico(4)"><b>Victor</b></button>
+					<button class="div_maquina5" onclick="obterDadosGrafico(5)"><b>Neto</b></button>
 				</div>
 				<div class="regua">
 					<div class="item-regua perigo-frio">
@@ -82,7 +82,7 @@ z<!DOCTYPE html>
 				<div class="inf_dash">
 
 
-					<select name="" id="sel_comp" class="sel_componentescss" onclick="obterDadosGrafico(1)">
+					<select name="" id="sel_comp" class="sel_componentescss">
 						<option value="1">--Selecione--</option>
 						<option value="1">Memoria</option>
 						<option value="2">processador</option>
@@ -362,7 +362,7 @@ z<!DOCTYPE html>
 					{
 						dados.datasets[0].data.push((novoRegistro[0].usoCPU)/100)
 					}
-                   // dados.datasets[0].data.push(novoRegistro[0].dadosMemoria); // incluir uma nova medida de umidade
+            
 
                     // if(novoRegistro[0].logLuminosidade < 300) {
                     //     dados.datasets[0].borderColor = "#cd32328f";
