@@ -44,7 +44,8 @@ function buscarMedidasEmTempoReal(idMaquina,componenteSelecionado) {
         instrucaoSql = `select top 1
                             round(memoriaEmUso, 0) AS dadosMemoria,
                             round(processadorUso,2) AS dadosProcessador,
-                            convert(varchar,data,13) AS Hora
+                            convert(varchar,data,13) AS Hora,
+                            round(memoriaDisponivel,0) as memoriaDisponivel
                         from Maquina join [dbo].[Historico] on idMaquina = fkMaquina where idMaquina = ${idMaquina} order by Hora desc`;
   
 

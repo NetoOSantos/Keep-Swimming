@@ -101,7 +101,7 @@ z<!DOCTYPE html>
 						<br>
 					</div>
 
-					<div class="div_componente">
+					<div class="div_componente" id="div_alerta">
 
 					</div>
 
@@ -212,17 +212,7 @@ z<!DOCTYPE html>
 
 			
 			console.log(registroHora);
-			
-			// if(componenteSelecionado == 1)
-			// {
-			// 	dados.datasets[0].label = 'Memoria'
-			// 	var pushDado = dados.datasets[0].data.push(registro.dadosMemoria);
 
-			// } else if(componenteSelecionado == 2)
-			// {
-			// 	data.datasets[0].label = 'Processador';
-			// 	var pushDado = dados.datasets[0].data.push(registro.dadosProcessador);
-			// }
 
             dados.labels.push(registroHora);
 
@@ -241,44 +231,6 @@ z<!DOCTYPE html>
         }
 
 			console.log(JSON.stringify(dados));
-
-		// 	var ctx =chart.getContext('2d');
-		// 	window.grafico_linha = Chart.Line(ctx, {
-		// 		data: dados,
-		// 		//Configurações do gráfico
-		// 		options: {
-		// 			responsive: true,
-		// 			animation: { duration: 500 },
-		// 			hoverMode: 'index',
-		// 			stacked: false,
-		// 			title: {
-			// 				display: true,
-		// 				text: 'Histórico recente de Luminosidade'
-		// 			},
-		// 			scales: {
-		// 				yAxes: [ {
-		// 					type: 'linear',
-		// 					display: true,
-		// 					position: 'right',
-		// 					id: 'y-luminosidade',
-
-		// 					gridLines: {
-		// 						drawOnChartArea: false,
-		// 					},
-		// 				}],
-		// 			}
-		// 		}
-		// 	});
-
-		// 	for (i = 0; i < resposta.length; i++) {
-		// 		var registro = resposta[i];
-		// 		dados.labels.push(registro.momento_grafico);
-		// 		dados.datasets[0].data.push(registro.dadosMemoria);
-		// 	}
-		
-        
-        // //Atualiza os dados de 2 em 2 segundos
-        // setTimeout(() => atualizarGrafico(idMaquina, dados), 3000);
 
 		var context = document.getElementById("chart").getContext("2d");
 		context.canvas.width = 1000;
@@ -364,13 +316,19 @@ z<!DOCTYPE html>
 					}
             
 
-                    // if(novoRegistro[0].logLuminosidade < 300) {
-                    //     dados.datasets[0].borderColor = "#cd32328f";
-                    //     dados.datasets[0].backgroundColor = "#cd32328f";
-                    //     div_msg.innerHTML = `<h2 style="color: #cd32328f;">Luminosidade ${novoRegistro[0].logLuminosidade}, muito abaixo dos padrões ideais, estado crítico!!!</h2><br>
-                    //         <h4 style="color: #fff;">Resolva URGENTEMETE o controle de Luminosidade da sua Estufa!</h4>
-                    //         `
-                    // } else if (novoRegistro[0].logLuminosidade < 400) {
+                     if((novoRegistro[0].usoCPU)/100 > 5) {
+                         dados.datasets[0].borderColor = "#cd32328f";
+                         dados.datasets[0].backgroundColor = "#cd32328f";
+                             
+							div_alerta.innerHTML = "uso da cpu ALTA!\n recomendamos reiniciar o PC";
+                     } else if(novoRegistro[0].dadosProcessador < 20)
+					 {
+						dados.datasets[0].borderColor = "#cd32328f";
+                         dados.datasets[0].backgroundColor = "#cd32328f";
+						div_alerta.innerHTML = "Processador com baixo nível de processamento!\n"
+						+ "recomendamos: reiniciar o PC\n";
+					 }else if ((novoRegistro[0].memoriaDisponivel)/1048576 >)
+					 //else if (novoRegistro[0].logLuminosidade < 400) {
                     //     dados.datasets[0].borderColor = "#eb720f8f";
                     //     dados.datasets[0].backgroundColor = "#eb720f8f";
                     //     div_msg.innerHTML = `<h2 style="color: #eb720f8f;">Luminosidade ${novoRegistro[0].logLuminosidade}, abaixo dos padrões ideais, estado emergêncial</h2><br>
