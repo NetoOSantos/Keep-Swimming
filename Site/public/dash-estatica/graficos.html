@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+z<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -86,7 +86,7 @@
 						<option value="1">--Selecione--</option>
 						<option value="1">Memoria</option>
 						<option value="2">processador</option>
-						<option value="">ram</option>
+						<option value="3">CPU</option>
 						<option value="">Memoria virtual</option>
 					</select>
 
@@ -117,26 +117,49 @@
 
 
 		function obterDadosGrafico(idMaquina) {
+			var componenteSelecionado = sel_comp.value;
 
 				if (proximaAtualizacao != undefined) {
 					clearTimeout(proximaAtualizacao);
 				}
 
-				fetch(`/medidas/ultimas/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
-					if (response.ok) {
-						response.json().then(function (resposta) {
-							console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-							resposta.reverse();
+				if(componenteSelecionado == 1 || componenteSelecionado == 2)
+				{
 
-							plotarGrafico(resposta, idMaquina);
+					fetch(`/medidas/ultimas/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+						if (response.ok) {
+							response.json().then(function (resposta) {
+								console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+								resposta.reverse();
+	
+								plotarGrafico(resposta, idMaquina);
+							});
+						} else {
+							console.error('Nenhum dado encontrado ou erro na API');
+						}
+					})
+						.catch(function (error) {
+							console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
 						});
-					} else {
-						console.error('Nenhum dado encontrado ou erro na API');
-					}
-				})
-					.catch(function (error) {
-						console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-					});
+				} else if (componenteSelecionado == 3){
+
+					fetch(`/medidas/buscarConsumoCPU/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+						if (response.ok) {
+							response.json().then(function (resposta) {
+								console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+								resposta.reverse();
+	
+								plotarGrafico(resposta, idMaquina);
+							});
+						} else {
+							console.error('Nenhum dado encontrado ou erro na API');
+						}
+					})
+						.catch(function (error) {
+							console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+						});
+				}
+
 
 		}
 
@@ -145,14 +168,21 @@
 			console.log('iniciando plotagem do gráfico...');
 			var componenteSelecionado = sel_comp.value;
 			var nomeLabel;
+			var labelString;
 
 			          if(componenteSelecionado == 1)
 					{
 						nomeLabel = 'Memoria';		
+						labelString = 'Uso MB'
 					} else if (componenteSelecionado == 2)
+					{					
+						nomeLabel = 'Processador';		
+						labelString = 'MIPS'		
+					}
+					else if (componenteSelecionado == 3)
 					{
-						
-						nomeLabel = 'Processador';				
+						nomeLabel = 'CPU';
+						labelString = 'Uso %'
 					}
 
 			
@@ -198,11 +228,15 @@
 
 			if(componenteSelecionado == 1)
 			{
-				dados.datasets[0].data.push(registro.dadosMemoria);				
+				dados.datasets[0].data.push((registro.dadosMemoria)/1048576);				
 			} else if (componenteSelecionado == 2)
 			{
 				
 				dados.datasets[0].data.push(registro.dadosProcessador);				
+			}
+			else if (componenteSelecionado == 3)
+			{
+				dados.datasets[0].data.push((registro.usoCPU)/100);
 			}
         }
 
@@ -264,7 +298,7 @@
 					yAxes: [{
 						scaleLabel: {
 							display: true,
-							labelString: 'Uso'
+							labelString: labelString
 						},
 						ticks: {
 							beginAtZero: true
@@ -285,13 +319,23 @@
 		});
 	
 		//var chart = new Chart(context, window.);
-		setTimeout(() => atualizarGrafico(idMaquina, dados), 3000);
+		setTimeout(() => atualizarGrafico(idMaquina, dados,componenteSelecionado), 3000);
     }
 
-	function atualizarGrafico(idMaquina, dados) {
-		var componenteSelecionado = sel_comp.value;
+	function atualizarGrafico(idMaquina, dados, componenteSelecionado) {
+		
 
-        fetch(`/medidas/tempo-real/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+		var caminhoFetch = ``;
+
+		if(componenteSelecionado == 1 || componenteSelecionado == 2)
+		{
+			caminhoFetch = "/medidas/tempo-real/";
+		} else if (componenteSelecionado == 3)
+		{
+			caminhoFetch = "/medidas/tempo-real-cpu/";
+		}
+
+        fetch(`${caminhoFetch}${idMaquina}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
@@ -310,11 +354,13 @@
 
 					if(componenteSelecionado == 1)
 					{
-						dados.datasets[0].data.push(novoRegistro[0].dadosMemoria);			
+						dados.datasets[0].data.push((novoRegistro[0].dadosMemoria)/1048576);			
 					} else if (componenteSelecionado == 2)
-					{
-						
+					{						
 						dados.datasets[0].data.push(novoRegistro[0].dadosProcessador);				
+					}else if (componenteSelecionado == 3)
+					{
+						dados.datasets[0].data.push((novoRegistro[0].usoCPU)/100)
 					}
                    // dados.datasets[0].data.push(novoRegistro[0].dadosMemoria); // incluir uma nova medida de umidade
 
@@ -358,7 +404,7 @@
 
                     window.grafico_linha.update();
 
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idMaquina, dados), 5000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idMaquina, dados,componenteSelecionado), 5000);
 
                 });
 

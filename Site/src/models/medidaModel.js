@@ -28,7 +28,7 @@ return database.executar(instrucaoSql);
 }
 
 
-function buscarMedidasEmTempoReal(idMaquina,limite_linhas) {
+function buscarMedidasEmTempoReal(idMaquina,componenteSelecionado) {
 
     //local
     // instrucaoSql = `select temperatura_lm35, 
@@ -39,11 +39,40 @@ function buscarMedidasEmTempoReal(idMaquina,limite_linhas) {
     //                         order by idMedidas desc limit 1`;
 
 //nuvem
-    instrucaoSql = `select top 1
-                        round(memoriaEmUso, 0) AS dadosMemoria,
-                        round(processadorUso,2) AS dadosProcessador,
-                        convert(varchar,data,13) AS Hora
-                    from Maquina join [dbo].[Historico] on idMaquina = fkMaquina where idMaquina = ${idMaquina} order by Hora desc`;
+   
+
+        instrucaoSql = `select top 1
+                            round(memoriaEmUso, 0) AS dadosMemoria,
+                            round(processadorUso,2) AS dadosProcessador,
+                            convert(varchar,data,13) AS Hora
+                        from Maquina join [dbo].[Historico] on idMaquina = fkMaquina where idMaquina = ${idMaquina} order by Hora desc`;
+  
+
+
+console.log("Executando a instrução SQL: \n" + instrucaoSql );
+return database.executar(instrucaoSql);
+
+}
+
+function buscarMedidasEmTempoRealCPU(idMaquina) {
+
+    //local
+    // instrucaoSql = `select temperatura_lm35, 
+    //                         umidade, 
+    //                         DATE_FORMAT(hr_medida,'%H:%i:%s') as momento_grafico, 
+    //                         fkMaquina
+    //                         from medidas where fkMaquina = ${idMaquina} 
+    //                         order by idMedidas desc limit 1`;
+
+//nuvem
+  
+        instrucaoSql = `select top 1 
+        round(sum(usoCPU),0) AS usoCPU,
+         convert(varchar,dataHoraProcesso,13) AS Hora from [dbo].[Processos] 
+            where fkMaquina = ${idMaquina}
+            group by dataHoraProcesso 
+             order by dataHoraProcesso desc`;
+    
 
 
 console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -65,7 +94,12 @@ function buscarMediaConsumoPC(idMaquina) {
 
 
 function buscarConsumoCPU(idMaquina) {
-    instrucaoSql = `select usoCPU from [dbo].[Processos] where fkMaquina = 1;`
+    instrucaoSql = `select top 10 
+    round(sum(usoCPU),0) AS usoCPU,
+     convert(varchar,dataHoraProcesso,13) AS Hora from [dbo].[Processos] 
+        where fkMaquina = ${idMaquina}
+        group by dataHoraProcesso 
+         order by dataHoraProcesso desc  `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -78,4 +112,5 @@ module.exports = {
     buscarMedidasEmTempoReal,
     buscarMediaConsumoPC,
     buscarConsumoCPU,
+    buscarMedidasEmTempoRealCPU,
 }
