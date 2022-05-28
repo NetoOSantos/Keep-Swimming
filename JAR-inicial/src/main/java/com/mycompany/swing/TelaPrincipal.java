@@ -132,7 +132,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
            
                 //para MySQL local
             String inserirDadosProcessosLocal = "Insert into Processos VALUES "
-              + "(null,?,?,?,?,?,?,?,?,?);";
+              + "(null,?,?,?,?,?,?,?,?,?,?);";
             conLocal.update(inserirDadosProcessosLocal,idDaMaquina, PID,Nome,UsoCpu,usoMemoria,
                    bytesUtilizados,memVirtualUtilizada, totalProcessos, threads,dataHoraProcesso);
             
