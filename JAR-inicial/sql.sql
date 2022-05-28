@@ -51,6 +51,7 @@ CREATE TABLE [dbo].[Processos] (
                 memVirtualUtilizada FLOAT,
                 totalProcessos int,
                 threads int,
+                dataHoraProcesso datetime,
                 foreign key (fkMaquina) references Maquina(idMaquina)
                 on delete cascade
                 );
