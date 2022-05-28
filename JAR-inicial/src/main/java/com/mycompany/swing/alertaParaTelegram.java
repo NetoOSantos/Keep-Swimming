@@ -99,22 +99,9 @@ public class alertaParaTelegram {
                 new BeanPropertyRowMapper(ProcessosAlerta.class));
         
         
-        for(Integer i = 0; i < selectProcessos.size(); i++)
-        {
-            for(Integer j = 1; j < selectProcessos.size(); j++)
-            {
-                if(selectProcessos.get(i).getNome().equals(selectProcessos.get(j).getNome()))
-                {
-                  
-                }
-                else
-                {
-                    returnProcessos.add(selectProcessos.get(i));
-                }
-            }
-        }
+  
         
-        return  returnProcessos;
+        return  selectProcessos;
     }
    
 //select top 10 usoMemoria from [dbo].[Processos]
