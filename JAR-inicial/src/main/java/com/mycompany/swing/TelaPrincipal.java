@@ -132,7 +132,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
            
                 //para MySQL local
             String inserirDadosProcessosLocal = "Insert into Processos VALUES "
-              + "(null,1,?,?,?,?,?,?,?,?);";
+              + "(?,?,?,?,?,?,?,?,?);";
             conLocal.update(inserirDadosProcessosLocal,idDaMaquina, PID,Nome,UsoCpu,usoMemoria,
                    bytesUtilizados,memVirtualUtilizada, totalProcessos, threads,dataHoraProcesso);
             
@@ -171,7 +171,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
              
             //Para Mysql local
         String inserirDadosHardwareLocal = "Insert into ComponentesHardware VALUES" 
-                  + "(null,1,?,?,?,?,?,?);";
+                  + "(?,?,?,?,?,?,?);";
         conLocal.update(inserirDadosHardwareLocal,
                             idDaMaquina,
                             nomeDisco,
@@ -220,7 +220,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                  
            //MySQL local         
             String inserirHistoricoLocal = "Insert into Historico VALUES "
-                + "(null,1,?,?,?,?,?,?,?);";
+                + "(?,?,?,?,?,?,?,?);";
             conLocal.update(inserirHistoricoLocal,idDaMaquina,data,tempoInicializado,tempoDeAtividade,
                    temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);
            
