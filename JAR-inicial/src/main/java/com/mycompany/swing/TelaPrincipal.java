@@ -42,6 +42,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
     
     private void inicializacao(){
+        Log gravar = new Log();
+        gravar.criarLog("aa");
 
         // classe de de conexão com o banco
         Connection config = new Connection();

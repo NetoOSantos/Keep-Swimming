@@ -190,13 +190,14 @@ public class KeepSwimming extends javax.swing.JFrame {
                 gravar.criarLog("Usuario logado");
         
            //    new EnviaToken().setVisible(true);
+           gravar.criarLog("Iniciando tela token...");
                EnviaToken token = new EnviaToken();
                token.setVisible(true);
                token.setIdsFuncionario(func);
                this.dispose();
                  
             } else {
-
+                gravar.criarLog("Erro na autenticação do usuario");
                 Resultado.setText("=(");
                 gravar.criarLog("erro de autenticação");
             }
