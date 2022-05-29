@@ -88,13 +88,18 @@ public class alertaParaTelegram {
          //  return listFuncionarios;
     }
     
-    public List getTopDezProcessos(Integer idMaquina)
+    public List getTopDezProcessos(String hostname)
     {
+        List<ProcessosAlerta> returnProcessos = new ArrayList<>();
+        
         List<ProcessosAlerta> selectProcessos = con.query(
                  "select distinct top 10 Nome,usoMemoria,usoCPU from [dbo].[Processos]\n" +
-                  " join [dbo].[Maquina] on fkMaquina = idMaquina where idMaquina = "+
-                 idMaquina + " order by usoMemoria desc ",
+                  " join [dbo].[Maquina] on fkMaquina = idMaquina where hostName = '" + hostname +"'"
+                 + " order by usoMemoria desc ",
                 new BeanPropertyRowMapper(ProcessosAlerta.class));
+        
+        
+  
         
         return  selectProcessos;
     }
