@@ -1,10 +1,10 @@
 {
-    "name": "site",
+    "name": "Site",
     "version": "0.0.l",
     "private": true,
     "scripts": {
-        "start": "node ./site/app.js",
-        "postinstall": "cd site && npm install"
+        "start": "node ./Site/app.js",
+        "postinstall": "cd Site && npm install"
     }
 
 }
