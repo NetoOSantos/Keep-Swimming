@@ -403,9 +403,9 @@ main.cards1 section.card1.about {
     box-shadow: 20px 20px 50px -30px #FFC1D5;
 }
 
-.grafico3{
+.graficoMaior{
     background-color: #17203E ;
-    width: 100vw;
+    width: 100%;
     height: 50vh;
     display: flex;
 
@@ -415,7 +415,7 @@ main.cards1 section.card1.about {
 
 .retangulo2{
     background: #222D5A;
-    width: 70%;
+    width: 100%;
     height: 40vh;
     margin: 1rem;
     border-radius: 10px;

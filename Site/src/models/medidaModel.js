@@ -50,7 +50,7 @@ function buscarMedidasEmTempoReal() {
     dataHoraProcesso,
     FORMAT(dataHoraProcesso,'hh:mm:ss') as momento_grafico
     from [dbo].[Processos] 
-    where Nome in ('opera','AvastUI') 
+    where Nome in ('netbeans64','code') 
     order by momento_grafico desc `;
 
 

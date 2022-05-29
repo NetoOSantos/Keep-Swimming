@@ -86,6 +86,7 @@ pagina mural
 }
 
 .div-results .feed-container {
+    color: aliceblue;
     background: linear-gradient(#ffffff23, rgba(0, 0, 0, 0.933));
     border-radius: 5px;
     margin-bottom: 80px;
