@@ -258,7 +258,9 @@ function listarMaquina() {
         updateDelete.style.display = 'block';
         atualizar.style.display = 'block';
         respostaDeleteUpdate.innerHTML = "";
-      
+        ipt_update.innerHTML="";
+        updateDelete.innerHTML="";
+
         fetch("/usuarios/listarMaquina").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
