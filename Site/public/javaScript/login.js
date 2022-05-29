@@ -44,7 +44,7 @@ function logar() {
                 sessionStorage.ID_USUARIO = json.idEmpresa;
 
                 setTimeout(function () {
-                    window.location = "./dash-estatica/dashboard.html";
+                    window.location = "./dash-estatica/dashnova.html";
                 }, 1000); // apenas para exibir o loading
 
             });
