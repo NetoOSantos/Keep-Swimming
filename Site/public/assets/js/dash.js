@@ -20,7 +20,8 @@
         fetch(`/medidas/ultimas/`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log("Dados recebidos!");
+                    // console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
                     plotarGrafico(resposta);
@@ -37,99 +38,7 @@
 
     }
 
-    // function mediaMaquina(idMaquina) {
-
-    //     fetch(`/medidas/buscarMediaMaquina/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
-    //         if (response.ok) {
-    //             response.json().then(function (resposta) {
-    //                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-    //                 resposta.reverse();
-
-    // momento_grafico
-    //                 for (let i = 0; i < resposta.length; i++) {
-    //                     let publicacao = resposta[i];
-    //                     span_mediaUmi.innerHTML = `${publicacao.mediaUmi}%`
-    //                 }
-    //             });
-    //         } else {
-    //             console.error('Nenhum dado encontrado ou erro na API');
-    //         }
-    //     })
-    //         .catch(function (error) {
-    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    //         });
-
-    // }
-
-
-    // só altere aqui se souber o que está fazendo!
-    // function plotarGrafico(resposta, idMaquina) {
-    //     console.log('iniciando plotagem do gráfico...');
-
-
-        
-
-    //     var dados = {
-    //         labels: [],
-    //         datasets: [
-    //             {
-    //                 yAxisID: 'y-Maquina',
-    //                 label: 'Maquina',
-    //                 borderColor: '#32B9CD',
-    //                 backgroundColor: '#32b9cd8f',
-    //                 fill: true,
-    //                 data: []
-    //             }
-    //         ]
-    //     };
-
-    //     for (i = 0; i < resposta.length; i++) {
-    //         var registro = resposta[i];
-    //         dados.labels.push(registro.momento_grafico);
-    //         dados.datasets[0].data.push(registro.Maquina);
-    //     }
-
-    //     console.log(JSON.stringify(dados));
-
-    //     var ctx = chartLine1.getContext('2d');
-    //     window.grafico_linha = Chart.Line(ctx, {
-    //         data: dados,
-    //         //Configurações do gráfico
-    //         options: {
-    //             responsive: true,
-    //             animation: { duration: 500 },
-    //             hoverMode: 'index',
-    //             stacked: false,
-    //             title: {
-    //                 display: true,
-    //                 text: 'Histórico recente de Maquina'
-    //             },
-    //             scales: {
-    //                 yAxes: [{
-    //                     type: 'linear',
-    //                     display: true,
-    //                     position: 'left',
-    //                     id: 'y-temperatura',
-    //                 }, {
-    //                     type: 'linear',
-    //                     display: true,
-    //                     position: 'right',
-    //                     id: 'y-Maquina',
-
-    //                     gridLines: {
-    //                         drawOnChartArea: false,
-    //                     },
-    //                 }],
-    //             }
-    //         }
-    //     });
-
-    //     //Atualiza os dados de 2 em 2 segundos
-    //     setTimeout(() => atualizarGrafico(idMaquina, dados), 2000);
-    // }
-    // graidient.addColorStop(0, 'rgba(167, 121, 232, 1)');
-    // graidient.addColorStop(1, 'rgba(79, 92, 196, 1)'); 
-    // só altere aqui se souber o que está fazendo!
+   
     function plotarGrafico(resposta) {
         console.log('iniciando plotagem do gráfico...');
 
@@ -182,11 +91,11 @@
             
         }
 
-        console.log(JSON.stringify(dados));
+        // console.log(JSON.stringify(dados));
 
        
+        
         var ctx = chartBar.getContext('2d');
-       
         window.grafico_barra = new Chart(ctx, {
             type: 'bar',
             data: dados,
@@ -239,7 +148,8 @@
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
-                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log("Dados recebidos!");
+                    // console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
                     // console.log(`Dados atuais do gráfico: ${dados}`);
 
                     // tirando e colocando valores no gráfico

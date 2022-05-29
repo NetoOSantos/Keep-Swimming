@@ -10,7 +10,14 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
 	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
-	
+
+	<link rel="shortcut icon" href="./assets/icons/anchor_icon.ico" type="image/x-icon">
+
+
+	<script src="../javaScript/cadastroMaquina.js"></script>
+	<link rel="stylesheet" href="cad-maquina.css">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
 	<style>
 		.canvas {
 			-moz-user-select: none;
@@ -18,189 +25,288 @@
 			-ms-user-select: none;
 		}
 	</style>
-	
+
 </head>
 
 <body>
 
-	<div class="header">
-		<img src="./logo ppt2.png" alt="" height="60px">
-	</div>
-
-	<div class="corpoDecima">
-
-
-		<div id="sidebarMenu">
-			<ul class="sidebarMenuInner">
-				<li><a href="./dashboard.html"><img src="./dash.png" alt="" height="25px"> Dashboard</a> </li>
-				<li> <a href="graficos.html"><img src="./monitoramento.png" alt="" height="25px">Monitoramento</a></li>
-				<li> <a href="dash-cadastros.html"><img src="./perfil.png" alt="" height="25px">Cadastrar Desenvolvedor</a></li>
-				<li> <a href="cadastro-maquina.html"><img src="./perfil.png" alt="" height="25px">Cadastrar Máquina</a></li>
-				<li> <a href="https://app.pipefy.com/public/form/w7YSTr_A">
-					<img src="./suporte.png" alt="" height="25px"> Suporte</a></li>
-				<li><a href="../index.html">
-					<div class="sair">
-						<img src="./logout 1.png" alt=""  height="50px">
-					</div>
-				</a></li>
-			</ul>
+	<nav>
+		<div class="sidebar-top">
+		  <span class="shrink-btn">
+			<i class='bx bx-chevron-left'></i>
+		  </span>
+		  <img src="../assets/icons/logoSemTexto.png" class="logo" alt="">
+		  <h3 class="hide">KeepSwimming</h3>
 		</div>
-		
-	<div id='center' class="main">
-		<div class="dash">
-			<div class="regua">
-				<div class="item-regua perigo-frio">
-					<h4>Utilização baixa</h4>
-					<h2>0-10% Consumo</h2>
-				</div>
-				<div class="item-regua alerta-frio">
-					<h4>Alerta Critico Baixo</h4>
-					<h2>11-25% Consumo</h2>
-				</div>
-				<div class="item-regua ideal">
-					<h4>Ideal</h4>
-					<h2>26-75% Consumo</h2>
-				</div>
-				<div class="item-regua alerta-quente">
-					<h4>Alerta Critico Alto</h4>
-					<h2>76-90% Consumo</h2>
-				</div>
-				<div class="item-regua perigo-quente">
-					<h4>Alto nível de requisições</h4>
-					<h2> 90-100% </h2>
-				</div>
-			</div>
-
-			<div class="grafico">
-				<h1>
-					Monitoramento de Hardware
-				</h1>
-				<div id="divMostrar"></div>
 	
-				<canvas id="chart"></canvas>
-				<br>
-				<canvas id="chart_2"></canvas>
+		<div class="search">
+	
+		</div>
+	
+		<div class="sidebar-links">
+		  <ul>
+			<div class="active-tab"></div>
+			<li class="tooltip-element" data-tooltip="0">
+			  <a href="./dashboard.html" data-active="0">
+				<div class="icon">
+				  <i class='bx bx-notepad'></i>
+				  <i class='bx bxs-notepad'></i>
+				</div>
+				<span class="link hide">Dashboard</span>
+			  </a>
+			</li>
+	
+			<li class="tooltip-element" data-tooltip="1">
+			  <a href="#" class="active" data-active="1">
+				<div class="icon" href>
+				  <i class='bx bx-card'></i>
+				  <i class='bx bxs-card'></i>
+				</div>
+				<span class="link hide"> Máquina </span>
+			  </a>
+			</li>
+			<li class="tooltip-element" data-tooltip="2">
+			  <a href="#" data-active="2">
+				<div class="icon">
+				  <i class='bx bx-id-card'></i>
+				  <i class='bx bxs-id-card'></i>
+				</div>
+				<span class="link hide">Desenvolvedor</span>
+			  </a>
+			</li>
+			<li class="tooltip-element" data-tooltip="3">
+			  <a href="#" data-active="3">
+				<div class="icon">
+				  <i class='bx bx-bar-chart-square'></i>
+				  <i class='bx bxs-bar-chart-square'></i>
+				</div>
+				<span class="link hide">Monitoramento</span>
+			  </a>
+			</li>
+			<div class="tooltip">
+			  <span class="show">Dashboard</span>
+			  <span>Máquina</span>
+			  <span>Desenvolvedor</span>
+			  <span>Monitoramento</span>
+			</div>
+		  </ul>
+	
+		  <h4 class="hide">Atalhos</h4>
+	
+		  <ul>
+			<!-- <li class="tooltip-element" data-tooltip="0"> -->
+			<a href="#" data-active="4">
+			  <div class="icon">
+				<!-- <i class='bx bx-notepad'></i>
+					  <i class='bx bxs-notepad'></i> -->
+			  </div>
+			  <!-- <span class="link hide">Tasks</span> -->
+			</a>
+			</li>
+			<li class="tooltip-element" data-tooltip="1">
+			  <a href="https://app.pipefy.com/public/form/w7YSTr_A" data-active="5">
+				<div class="icon">
+				  <i class='bx bx-help-circle'></i>
+				  <i class='bx bxs-help-circle'></i>
+				</div>
+				<span class="link hide">Suporte</span>
+			  </a>
+			</li>
+			<div class="tooltip">
+			  <span class="show"></span>
+			  <span>Suporte</span>
+			</div>
+		  </ul>
+		</div>
+	
+		<div class="sidebar-footer">
+		  <a href="#" class="account tooltip-element" data-tooltip="0">
+			<i class='bx bx-user'></i>
+		  </a>
+		  <div class="admin-user tooltip-element" data-tooltip="1">
+			<div class="admin-profile hide">
+			  <img src="./img/face-1.png" alt="">
+			  <div class="admin-info">
+				<div class="hello">
+				  <h3>Olá, <span id="b_usuario"></span>!</h3>
+				</div>
+			  </div>
+			</div>
+			<a href="#" class="log-out">
+			  <i class='bx bx-log-out'></i>
+			</a>
+		  </div>
+		  <div class="tooltip">
+			<span class="show">Raul
+			  <div class="hello">
+				<h3>Olá, <span id="b_usuario"></span>!</h3>
+			  </div>
+			</span>
+			<span>Logout</span>
+		  </div>
+		</div>
+	  </nav>
+
+	<main>
+		<div id='center' class="main">
+			<div class="dash">
+				<div class="regua">
+					<div class="item-regua perigo-frio">
+						<h4>Utilização baixa</h4>
+						<h2>0-10% Consumo</h2>
+					</div>
+					<div class="item-regua alerta-frio">
+						<h4>Alerta Critico Baixo</h4>
+						<h2>11-25% Consumo</h2>
+					</div>
+					<div class="item-regua ideal">
+						<h4>Ideal</h4>
+						<h2>26-75% Consumo</h2>
+					</div>
+					<div class="item-regua alerta-quente">
+						<h4>Alerta Critico Alto</h4>
+						<h2>76-90% Consumo</h2>
+					</div>
+					<div class="item-regua perigo-quente">
+						<h4>Alto nível de requisições</h4>
+						<h2> 90-100% </h2>
+					</div>
+				</div>
+
+				<div class="grafico">
+					<h1>
+						Monitoramento de Hardware
+					</h1>
+					<div id="divMostrar"></div>
+
+					<canvas id="chart"></canvas>
+					<br>
+					<canvas id="chart_2"></canvas>
+				</div>
 			</div>
 		</div>
 
-	</div>
+	</main>
 
-		<script>
-
-			var context = document.getElementById("chart").getContext("2d");
-			context.canvas.width = 1000;
-			context.canvas.height = 300;
-
-			var configuration = {
-				type: 'line',
-				data: {
-					datasets: [{
-						label: "Uso",
-						type: 'line',
-						borderColor: ['rgb(0, 139, 212)'],
-						backgroundColor: ['rgb(26, 28, 92)']
-					}]
-				},
-				options: {
-					scales: {
-						xAxes: [{
-							distribution: 'series',
-							ticks: {
-								beginAtZero: true
-							}
-						}],
-						yAxes: [{
-							scaleLabel: {
-								display: true,
-								labelString: 'Uso'
-							},
-							ticks: {
-								beginAtZero: true
-							}
-						}]
-					},
-					animation: {
-						tension: {
-							duration: 1000,
-							easing: 'easeInOutBack',
-							from: 1,
-							to: 0,
-							loop: true
-						}
-
-					}
-				}
-			};
-
-			var chart = new Chart(context, configuration);
-
-
-			//Função para obter os dados de temperatura do server
-			//Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
-
-			//Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
-			//hora de montar/atualizar o gráfico
-			this.lastIndexTemp = 0;
-			this.time = 0;
-
-			function get_data() {
-
-				var http = new XMLHttpRequest();
-				http.open('GET', 'http://localhost:3000/medidas/atividadeSensor', false);//LOCAL DE ONDE VAI OS DADOS
-				http.send(null);
-
-				var obj = JSON.parse(http.responseText);
-				if (obj.data.length == 0) {
-					return;
-				}
-
-				var _lastIndexTemp = this.lastIndexTemp;
-				this.lastIndexTemp = obj.data.length;
-				listTemp = obj.data.slice(_lastIndexTemp);
-
-				listTemp.forEach(data => {
-					//Máximo de 60 itens exibidos no gráfico
-					if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10) {
-						chart.data.labels.shift();
-						chart.data.datasets[0].data.shift();
-					}
-
-					chart.data.labels.push(this.time++);
-					chart.data.datasets[0].data.push(parseFloat(data));
-					chart.update();
-					if (this.time <= 11) {
-						divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: red; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
-
-					}
-					else if (this.time >= 11 && this.time <= 25) {
-						divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: yellow; color: black; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
-
-					}
-					else if (this.time >= 26 && this.time <= 74) {
-						divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: purple; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
-
-					}
-					else if (this.time >= 75 && this.time <= 90) {
-						divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: #ff7b00; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
-
-					}
-					else {
-						divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color:green; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
-
-					}
-				});
-				//document.getElementById('average').textContent = obj.average;
-
-
-
-			}
-
-			setInterval(() => {
-				get_data();
-			}, 800);
-
-		</script>
 </body>
 
-
 </html>
+
+
+<script src="app.js"></script>
+<script src="../assets/js/funcoes.js"></script>
+
+<script>
+	var context = document.getElementById("chart").getContext("2d");
+	context.canvas.width = 1000;
+	context.canvas.height = 300;
+
+	var configuration = {
+		type: 'line',
+		data: {
+			datasets: [{
+				label: "Uso",
+				type: 'line',
+				borderColor: ['rgb(0, 139, 212)'],
+				backgroundColor: ['rgb(26, 28, 92)']
+			}]
+		},
+		options: {
+			scales: {
+				xAxes: [{
+					distribution: 'series',
+					ticks: {
+						beginAtZero: true
+					}
+				}],
+				yAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: 'Uso'
+					},
+					ticks: {
+						beginAtZero: true
+					}
+				}]
+			},
+			animation: {
+				tension: {
+					duration: 1000,
+					easing: 'easeInOutBack',
+					from: 1,
+					to: 0,
+					loop: true
+				}
+
+			}
+		}
+	};
+
+	var chart = new Chart(context, configuration);
+
+
+	//Função para obter os dados de temperatura do server
+	//Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
+
+	//Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
+	//hora de montar/atualizar o gráfico
+	this.lastIndexTemp = 0;
+	this.time = 0;
+
+	function get_data() {
+
+		var http = new XMLHttpRequest();
+		http.open('GET', 'http://localhost:3000/medidas/atividadeSensor', false);//LOCAL DE ONDE VAI OS DADOS
+		http.send(null);
+
+		var obj = JSON.parse(http.responseText);
+		if (obj.data.length == 0) {
+			return;
+		}
+
+		var _lastIndexTemp = this.lastIndexTemp;
+		this.lastIndexTemp = obj.data.length;
+		listTemp = obj.data.slice(_lastIndexTemp);
+
+		listTemp.forEach(data => {
+			//Máximo de 60 itens exibidos no gráfico
+			if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10) {
+				chart.data.labels.shift();
+				chart.data.datasets[0].data.shift();
+			}
+
+			chart.data.labels.push(this.time++);
+			chart.data.datasets[0].data.push(parseFloat(data));
+			chart.update();
+			if (this.time <= 11) {
+				divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: red; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
+
+			}
+			else if (this.time >= 11 && this.time <= 25) {
+				divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: yellow; color: black; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
+
+			}
+			else if (this.time >= 26 && this.time <= 74) {
+				divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: purple; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
+
+			}
+			else if (this.time >= 75 && this.time <= 90) {
+				divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: #ff7b00; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
+
+			}
+			else {
+				divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color:green; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
+
+			}
+		});
+		//document.getElementById('average').textContent = obj.average;
+
+
+
+	}
+
+	setInterval(() => {
+		get_data();
+	}, 800);
+
+</script>
