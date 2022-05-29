@@ -2,6 +2,7 @@
     "name": "Site",
     "version": "0.0.l",
     "private": true,
+    "main": "index.html",
     "scripts": {
         "start": "node ./Site/app.js",
         "postinstall": "cd Site && npm install"
