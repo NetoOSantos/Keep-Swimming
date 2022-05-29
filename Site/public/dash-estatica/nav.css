@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 html, body {
-    overflow-x: hidden;
+    
     height: 100%;
 }
 body {
@@ -16,9 +16,9 @@ body {
     max-width: 100%;
     box-shadow: none;
     background-color: #222D5A;
-    position: fixed;
+
     height: 8%!important;
-    overflow: hidden;
+  
     z-index: 10;
 }
 .header img{
@@ -28,7 +28,7 @@ body {
     display: flex;
     margin: 0 auto;
     display: block;
-    height: 93.1vh;
+    height: 150vh;
     margin-top: auto;
     background:#17203E ;
     width: 78%;
@@ -203,18 +203,18 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 }
 .regua {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    text-align: center;
+
     width: 100%;
-    margin-top: 30px;
+    height: 35%;
+    justify-content: space-around;
+    margin-bottom: 50px;
 }
 
-.perigo-frio {
-    background-color: rgb(16, 161, 16);
-}
+
 
 .perigo-quente {
-    background-color: rgb(255, 79, 79);
+    background-color: #fd993b;
 }
 
 .alerta-frio {
@@ -222,41 +222,43 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 }
 
 .alerta-quente {
-    background-color: #fd993b;
+    background-color: #E6005A;
 }
-
-.ideal {
-    background-color: rgb(192, 66, 192);
+.alerta-memoria
+{
+    background-color: #FFC1D5;
 }
 
 .item-regua {
     padding: 5px;
-    width: 15%;
+    width: 30%;
     margin: 5px;
     text-align: center;
     padding-top: 15px;
+    border-radius: 2%;
 }
 
-.grafico{
+.grafico {
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: white;
-    width: 80%;
-    height: 45%;
-    margin-top:20px;
-    margin-left: 40px;
-    margin-bottom: 150px;
+    background-color: #17203E;
+    
+    width: 50%;
+    height: 100%;
+    /* margin-top: 20px; */
+    /* margin-left: 40px; */
+    /* margin-bottom: 150px; */
     margin-right: 40px;
     border-radius: 10px;
     align-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
 }
 
 .grafico h1{
  font-family: 'Poppins', sans-serif;
+ color: whitesmoke;
 }
 
 
@@ -264,7 +266,6 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     font-family: 'Poppins', sans-serif;
     margin-top: 15px;
 }
-
 #divMostrar{
     position: absolute;
     padding-left: 550px;
@@ -463,4 +464,117 @@ li a {
 
 .hello h3 span {
     font-weight: 800;
+}
+
+.div_maquinas {
+    width: 100%;
+    height: 22vh;
+   
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.div_maquina1 {
+    width: 15%;
+    height: 6vh;
+    background-color: #17203E;
+    border-color: #DBC4FF;
+    color: whitesmoke;
+    border-radius: 5px 20px 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_maquina2 {
+    width: 15%;
+    height: 6vh;
+    background-color: #17203E;
+    border-color: #DBC4FF;
+    color: whitesmoke;
+    border-radius: 5px 20px 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_maquina3 {
+    width: 15%;
+    height: 6vh;
+    background-color: #17203E;
+    border-color: #DBC4FF;
+    color: whitesmoke;
+    border-radius: 5px 20px 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_maquina4 {
+    width: 15%;
+    height: 6vh;
+    background-color: #17203E;
+    border-radius: 5px 20px 5px 20px;
+    border-color: #DBC4FF;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_maquina5 {
+    width: 15%;
+    height: 6vh;
+    background-color: #17203E;
+    border-color: #DBC4FF;
+    color: whitesmoke;
+    border-radius: 5px 20px 5px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.inf_dash {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+
+
+.div_selectBox {
+    background-color: yellow;
+    width: 16%;
+    height: 6%;
+}
+
+.sel_componentescss {
+    margin-bottom: 22%;
+    padding: 5px;
+    background-color: #AFD6FF;
+    color: #17203E;
+    border-radius: 10px;
+    border-color: #DBC4FF;
+}
+
+.div_componente {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: #E6005A;
+    font-size: 1.5vw;
+    font-weight: bolder;
+
+    border: solid 3px whitesmoke;
+    background-color: #17203E;
+    border-radius: 10px;
+    width: 25%;
+    height: 80%;
+    margin-top: 15vh;
+    margin-bottom: 116px;
 }
