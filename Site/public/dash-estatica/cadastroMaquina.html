@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keep Swimming | Cadastro Máquina</title>
 
-    <script src="../assets/js/funcoes.js"></script>
+   
     <script src="../javaScript/cadastroMaquina.js"></script>
+    
     <!-- <link rel="stylesheet" href="nav.css"> -->
     <link rel="stylesheet" href="cad-maquina.css">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -117,8 +118,9 @@
             <div class="admin-profile hide">
               <img src="./img/face-1.png" alt="">
               <div class="admin-info">
-                <h3>Raul Peterson</h3>
-                <h5>Admin</h5>
+                <div class="hello">
+                  <h3>Olá, <span id="b_usuario"></span>!</h3>
+              </div>
               </div>
             </div>
             <a href="#" class="log-out">
@@ -126,7 +128,11 @@
             </a>
           </div>
           <div class="tooltip">
-            <span class="show">Raul</span>
+            <span class="show">Raul
+              <div class="hello">
+                <h3>Olá, <span id="b_usuario"></span>!</h3>
+            </div>
+            </span>
             <span>Logout</span>
           </div>
         </div>
@@ -223,80 +229,7 @@
 
       </main>
     
-
    
-                               <!-- <div class="mural-maquina">
-                    <div class="conteiner">
-                        <button href="#" class="list">Listar Máquinas</button>
-                        <div class="card">
-                            <div class="box">
-                                <div class="conteudo">
-                                    <h2>01</h2>
-                                    <h3>Máquina 01</h3>
-                                    <div class="alinhar">
-                                        <input type="text" name="email_funcionario" placeholder="Numero da máquina"
-                                            id="maquina">
-                                        <button href="#" class="att">Atualizar</button>
-                                        <button href="#" class="rmv">Remover</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="conteiner">
-                        <div class="card">
-                            <div class="box">
-                                <div class="conteudo">
-                                    <h2>02</h2>
-                                    <h3>Máquina 02</h3>
-                                    <div class="alinhar">
-                                        <input type="text" name="email_funcionario" placeholder="Numero da máquina"
-                                            id="maquina">
-                                        <button href="#" class="att">Atualizar</button>
-                                        <button href="#" class="rmv">Remover</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="conteiner">
-                        <div class="card">
-                            <div class="box">
-                                <div class="conteudo">
-                                    <h2>03</h2>
-                                    <h3>Máquina 03</h3>
-                                    <div class="alinhar">
-                                        <input type="text" name="email_funcionario" placeholder="Numero da máquina"
-                                            id="maquina">
-                                        <button href="#" class="att">Atualizar</button>
-                                        <button href="#" class="rmv">Remover</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="conteiner">
-                        <div class="card">
-                            <div class="box">
-                                <div class="conteudo">
-                                    <h2>04</h2>
-                                    <h3>Máquina 04</h3>
-                                    <div class="alinhar">
-                                        <input type="text" name="email_funcionario" placeholder="Numero da máquina"
-                                            id="maquina">
-                                        <button href="#" class="att">Atualizar</button>
-                                        <button href="#" class="rmv">Remover</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-                </div> -->
 
 
 
@@ -309,6 +242,8 @@
 
 </html>
 <script src="app.js"></script>
+<script src="../assets/js/funcoes.js"></script>
+
 <script>
 
 var ultimoIdFuncionario = 0;
