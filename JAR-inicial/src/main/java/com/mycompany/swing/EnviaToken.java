@@ -16,6 +16,8 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 public class EnviaToken extends javax.swing.JFrame {
     public Funcionario funcionario;
     private String guardaCodig ="";
+    
+    Log gravar = new Log();
 
     public void setIdsFuncionario(Funcionario idsFuncionario)
     {
@@ -42,6 +44,9 @@ public class EnviaToken extends javax.swing.JFrame {
      * Creates new form EnviaToken
      */
     public EnviaToken() {
+        Log log = new Log();
+        log.criarLog("=============Envia Token=============");
+        log.criarLog("Iniciando tela do tokem...");
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -117,22 +122,26 @@ public class EnviaToken extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReenviaCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReenviaCodigoActionPerformed
+        Log log = new Log();
+        log.criarLog("Emitindo token");
         emiteCodigo();
         System.out.println(getGuardaCodig());
-        
+    
         try {
             TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
             telegramBotsApi.registerBot(new KeepSwimming_TelegramBot(true));
             KeepSwimming_TelegramBot.sendToTelegramToken(guardaCodig);
-            
+            log.criarLog("Token enviado");
                     
         } catch (TelegramApiException e) {
             e.printStackTrace();
+            log.criarLog("Houve um erro ao enviar o tokem");
         }        
     }//GEN-LAST:event_btnReenviaCodigoActionPerformed
 
     private void btnConfereTokenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfereTokenActionPerformed
-             
+        Log log = new Log();
+        
         String usarioDigitou = formToken.getText();
         if ("".equals(usarioDigitou)) {
             lblRespostaToken.setText("Digite um token valido para continuar!!");
@@ -141,21 +150,26 @@ public class EnviaToken extends javax.swing.JFrame {
 //           new TelaUsuarioLogado().setVisible(true);
              new TelaPrincipal(funcionario).setVisible(true);
              this.dispose();
+             log.criarLog("Login realizado com sucesso");
         }
         
     }//GEN-LAST:event_btnConfereTokenActionPerformed
     public void emiteCodigo (){
+        Log log = new Log();
+        log.criarLog("Gerando código token");
+        
         Integer enviaCodigo = ThreadLocalRandom.current().nextInt(1000, 5000);
         String codigoFormatado = enviaCodigo.toString();
         
         setGuardaCodig(codigoFormatado);
-        
     }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-      
+        
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

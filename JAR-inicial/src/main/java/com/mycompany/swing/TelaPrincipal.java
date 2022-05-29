@@ -42,6 +42,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
     
     private void inicializacao(){
+        Log gravar = new Log();
+        gravar.criarLog("===============Tela Principal===============");
 
         // classe de de conexão com o banco
         Connection config = new Connection();
@@ -118,7 +120,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
              @Override
              public void run() {
                  
-             
+            gravar.criarLog("Inserindo dados no BD...");
         for(int i = 0; i < processos.size(); i++)
         {
            Integer PID = processos.get(i).getPid();
@@ -129,7 +131,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
            Long memVirtualUtilizada = processos.get(i).getMemoriaVirtualUtilizada();        
            Integer totalProcessos = looca.getGrupoDeProcessos().getTotalProcessos();
            Integer threads = looca.getGrupoDeProcessos().getTotalThreads();
-           
+            
                 //para MySQL local
             String inserirDadosProcessosLocal = "Insert into Processos VALUES "
               + "(null,1,?,?,?,?,?,?,?,?);";

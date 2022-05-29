@@ -8,7 +8,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class Looca {
 
     public static void main(String[] args) {
-
+        Log log = new Log();
+        
+        log.criarLog("==============Looca==============");
         // classe de de conexão com o banco
         Connection config = new Connection();
 
@@ -34,7 +36,7 @@ public class Looca {
         // -------------------------------------------------------------------------
         
         System.out.println("=".repeat(40));
-
+        
         // Listando e inserindo dados do Sistema no banco
         String sO = looca.getSistema().getSistemaOperacional();
         String fabricante = looca.getSistema().getFabricante();
@@ -44,7 +46,7 @@ public class Looca {
         String permissao = looca.getSistema().getPermissao().toString();
 
         //con.execute("DROP TABLE IF EXISTS Sistema");
-
+        
         String criarTabelaSistema = "CREATE TABLE IF NOT EXISTS Sistema (\n"
                 + "ID INT PRIMARY KEY AUTO_INCREMENT,\n"
                 + "SistemaOperacional varchar(50),\n"
@@ -54,12 +56,14 @@ public class Looca {
                 + "TempoDeAtividade varchar(50),\n"
                 + "Permissoes varchar(50)\n"
                 + ");";
-
+        
+        log.criarLog("Criando tabela no BD se jã não existir");
         con.execute(criarTabelaSistema);
 
         String inserirDadosSistema = "Insert into Sistema VALUES "
                 + "(null,?,?,?,?,?,?);";
 
+        log.criarLog("Inserindo dados no BD");
         con.update(inserirDadosSistema, sO, fabricante, arquitetura, inicializado, tempAtividade, permissao);
 
         List<LoocaSistema> LoocaSistema = con.query("select * from Sistema",

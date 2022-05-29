@@ -3,6 +3,7 @@ package com.mycompany.swing;
 
 public class LoocaHardware {
     
+    
     public Integer qtdDiscos;
     public String nomeDisco;
     public Long tamanhoDisco;
@@ -32,6 +33,7 @@ public class LoocaHardware {
 
     public String getNomeDisco() {
         return nomeDisco;
+        
     }
 
     public void setNomeDisco(String nomeDisco) {
@@ -85,6 +87,5 @@ public class LoocaHardware {
                              processadorNome,
                              temperaturaAtual
                              );
-                
     }
 }

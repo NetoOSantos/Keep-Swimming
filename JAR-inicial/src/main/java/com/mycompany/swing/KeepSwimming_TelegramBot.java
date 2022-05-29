@@ -15,6 +15,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 
 public class KeepSwimming_TelegramBot extends TelegramLongPollingBot  {
+    
 
     private String token = DadosBot.BOT_TOKEN;
     
@@ -36,18 +37,26 @@ public class KeepSwimming_TelegramBot extends TelegramLongPollingBot  {
 
     @Override
     public void onUpdateReceived(Update update) {
-
+        Log log = new Log();
+        log.criarLog("====================TelegramBot====================");
+        
         if (update.hasMessage() && update.getMessage().hasText()) {
             var mensagem = responder(update);
             try {
                 execute(mensagem);
+                log.criarLog("Mensagem recebida do telegram");
+                
             } catch (TelegramApiException e) {
                 e.printStackTrace();
+                log.criarLog("houve um erro ao receber a mensagem do telegram");
             }
         }
     }
 
     private SendMessage responder(Update update) {
+        Log log = new Log();
+        log.criarLog("Interagindo com usuario no Telegram");
+        
         var textoMensagem = update.getMessage().getText().toLowerCase();
         var chatId = update.getMessage().getChatId().toString();
 
