@@ -122,9 +122,136 @@ function cadastrar(req, res) {
     }
 }
 
+function cadastrarFuncionario(req, res) {
+    var nome = req.body.nomeServer;
+    var email = req.body.emailServer;
+    var gestor = req.body.gestorServer;
+    var cargo = req.body.cargoServer;
+    var senha = req.body.senhaServer;
+    var idEmpresa = req.body.idEmpresa;
+
+
+    console.log("req.body cadastro funcionário");
+    console.log(req.body);
+
+    if (nome == undefined) {
+        res.status(400).send("O nome do funcionário está undefined!");
+    } else if (email == undefined) {
+        res.status(400).send("O email do funcionário está undefined!");
+    } else if (senha == undefined) {
+        res.status(400).send("A senha do funcionário está undefined!");
+    } else if (gestor == undefined) {
+        res.status(400).send("Campo gestor está undefined!");
+    } else if (cargo == undefined) {
+        res.status(400).send("Campo cargo está undefined!");
+    } else {
+        usuarioModel.buscarIdGestor(gestor).then(
+            function (resultadoGestor) {
+                console.log(resultadoGestor);
+                    resultadoGestor.JSON;
+                    JSON.stringify(resultadoGestor);
+                    var gestor = resultadoGestor[0];
+                usuarioModel.cadastrarFuncionario(nome, email,senha,cargo,idEmpresa, gestor.idFuncionario)
+                .then(
+                    function (resultado) {
+                        res.json(resultado);
+                    }
+                ).catch(
+                    function (erro) {
+                        console.log(erro);
+                        console.log(
+                            "\nHouve um erro ao realizar o cadastro! Erro: ",
+                            erro.sqlMessage
+                        );
+                        res.status(500).json(erro.sqlMessage);
+                    }
+                );
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    }
+}
+
+function deletarFuncionario(req, res) {
+    var idFuncionario = req.body.idDelete;
+ 
+
+
+    console.log("req.body delete funcionário");
+    console.log(req.body);
+
+    if (idFuncionario == undefined) {
+        res.status(400).send("O id do funcionário está undefined!");
+    } else {
+        usuarioModel.deletarFuncionario(idFuncionario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o delete! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    }
+}
+
+
+function updateFuncionario(req, res) {
+    var idFuncionario = req.body.idUpdate;
+    var alteraçãoFuncionario = req.body.alteracao;
+    var  update = req.body.updateEscolhido;
+ 
+
+
+    console.log("req.body Update funcionário");
+    console.log(req.body);
+
+    if (idFuncionario == undefined) {
+        res.status(400).send("O id do funcionário está undefined!");
+    } else if(alteraçãoFuncionario == undefined){
+        res.status(400).send("A input para alteração do funcionário está undefined!");
+    } else if(update == undefined){
+        res.status(400).send("A select para alteração do funcionário está undefined!");
+   
+    }else {
+        usuarioModel.updateFuncionario(idFuncionario,alteraçãoFuncionario,update)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o update! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrar,
+    cadastrarFuncionario,
+    deletarFuncionario,
+    updateFuncionario,
     listar,   
     testar
 }
