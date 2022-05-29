@@ -27,8 +27,25 @@ router.post("/updateFuncionario", function(req, res){
     usuarioController.updateFuncionario(req,res);
 })
 
+router.get("/listarMaquina", function(req, res) {
+    usuarioController.listarMaquina(req, res);
+});
+
+router.post("/cadastrarMaquina", function(req, res){
+    usuarioController.cadastrarMaquina(req, res);
+})
+
+router.post("/deletarMaquina", function(req, res){
+    usuarioController.deletarMaquina(req, res);
+})
+
+router.post("/updateMaquina", function(req, res){
+    usuarioController.updateMaquina(req, res);
+})
+
 router.post("/autenticar", function(req, res) {
     usuarioController.entrar(req, res);
 });
+
   
 module.exports = router;
