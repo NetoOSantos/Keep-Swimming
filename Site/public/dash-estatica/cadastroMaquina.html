@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keep Swimming | dash-Cadastro</title>
+    <title>Keep Swimming | Cadastro Máquina</title>
 
     <script src="../assets/js/funcoes.js"></script>
     <script src="../javaScript/cadastroMaquina.js"></script>
@@ -36,31 +36,32 @@
         <div class="sidebar-links">
           <ul>
             <div class="active-tab"></div>
-            <li class="tooltip-element" data-tooltip="0">
-              <a href="#" class="active" data-active="0">
+       <li class="tooltip-element" data-tooltip="0">
+              <a href="#"  data-active="0">
                 <div class="icon">
-                  <i class='bx bx-comment'></i>
-                  <i class='bx bxs-comment'></i>
+                  <i class='bx bx-notepad'></i>
+                  <i class='bx bxs-notepad'></i>
                 </div>
                 <span class="link hide">Dashboard</span>
               </a>
-            </li>
+            </li> 
+            
             <li class="tooltip-element" data-tooltip="1">
-              <a href="dashboard.html" data-active="1">
+              <a href="#" class="active" data-active="1">
                 <div class="icon" href>
-                  <i class='bx bx-folder'></i>
-                  <i class='bx bxs-folder'></i>
+                  <i class='bx bx-card' ></i>
+                  <i class='bx bxs-card' ></i>
                 </div>
-                <span class="link hide"> Projects </span>
+                <span class="link hide"> Máquina </span>
               </a>
             </li>
             <li class="tooltip-element" data-tooltip="2">
               <a href="#" data-active="2">
                 <div class="icon">
-                  <i class='bx bx-message-square-detail'></i>
-                  <i class='bx bxs-message-square-detail'></i>
+                  <i class='bx bx-id-card'></i>
+                  <i class='bx bxs-id-card' ></i>
                 </div>
-                <span class="link hide">Messages</span>
+                <span class="link hide">Desenvolvedor</span>
               </a>
             </li>
             <li class="tooltip-element" data-tooltip="3">
@@ -69,27 +70,27 @@
                   <i class='bx bx-bar-chart-square'></i>
                   <i class='bx bxs-bar-chart-square'></i>
                 </div>
-                <span class="link hide">Analytics</span>
+                <span class="link hide">Monitoramento</span>
               </a>
             </li>
             <div class="tooltip">
               <span class="show">Dashboard</span>
-              <span>Projects</span>
-              <span>Messages</span>
-              <span>Analytics</span>
+              <span>Máquina</span>
+              <span>Desenvolvedor</span>
+              <span>Monitoramento</span>
             </div>
           </ul>
     
-          <h4 class="hide">Shortcuts</h4>
+          <h4 class="hide">Atalhos</h4>
     
           <ul>
-            <li class="tooltip-element" data-tooltip="0">
+            <!-- <li class="tooltip-element" data-tooltip="0"> -->
               <a href="#" data-active="4">
                 <div class="icon">
-                  <i class='bx bx-notepad'></i>
-                  <i class='bx bxs-notepad'></i>
+                  <!-- <i class='bx bx-notepad'></i>
+                  <i class='bx bxs-notepad'></i> -->
                 </div>
-                <span class="link hide">Tasks</span>
+                <!-- <span class="link hide">Tasks</span> -->
               </a>
             </li>
             <li class="tooltip-element" data-tooltip="1">
@@ -98,22 +99,12 @@
                   <i class='bx bx-help-circle'></i>
                   <i class='bx bxs-help-circle'></i>
                 </div>
-                <span class="link hide">Help</span>
-              </a>
-            </li>
-            <li class="tooltip-element" data-tooltip="2">
-              <a href="#" data-active="6">
-                <div class="icon">
-                  <i class='bx bx-cog'></i>
-                  <i class='bx bxs-cog'></i>
-                </div>
-                <span class="link hide">Settings</span>
+                <span class="link hide">Suporte</span>
               </a>
             </li>
             <div class="tooltip">
-              <span class="show">Tasks</span>
-              <span>Help</span>
-              <span>Settings</span>
+              <span class="show"></span>
+              <span>Suporte</span>
             </div>
           </ul>
         </div>
@@ -151,8 +142,7 @@
                     <div class="formulario">
                         <form id="form_cadastro_maquina" method="post" onsubmit="return bt_cadastro_maquina()">
                             <h3>Cadastre sua Máquina</h3>
-    
-    
+        
                             <div class="roles">
     
                                 <div class="ladoEsquerdo">
@@ -170,8 +160,7 @@
     
     
                                 </div>
-    
-    
+        
     
                                 <div class="ladodireito">
     
@@ -203,11 +192,12 @@
     
     
                     <div class="mural_funcionarios" id="mural">
+                    
                             
-                        <button onclick="atualizarFeed()" class="btn_mural_funcionarios" id="btn_funcionarios">Máquinas cadastradas</button>
+                        <button onclick="listarMaquina()" class="btn_mural_funcionarios" id="btn_funcionarios">Máquinas cadastradas</button>
                            <div id="feed_container" class="feed-container"></div>
-    
-                                        <button onclick="atualizarFeed()" style="display: none;" id="atualizar">Atualizar Feed</button>
+                    
+                                        <button onclick="listarMaquina()" style="display: none;" id="atualizar">Atualizar Feed</button>
     
                                 <div class="botoes_crud">
                                         <button style="display: none;" id="btn_deletar" onclick="deletarMaquina()">Deletar Maquina</button>   
@@ -230,7 +220,7 @@
                           </div>
 
         
-       
+
       </main>
     
 
@@ -321,9 +311,9 @@
 <script src="app.js"></script>
 <script>
 
+var ultimoIdFuncionario = 0;
 
-
-function atualizarFeed() {
+function listarMaquina() {
         //aguardar();
         btn_funcionarios.style.display = 'none';
         atualizarOpcoes.style.display = 'none';
@@ -334,7 +324,7 @@ function atualizarFeed() {
         atualizar.style.display = 'block';
         respostaDeleteUpdate.innerHTML = "";
       
-        fetch("/usuarios/listar").then(function (resposta) {
+        fetch("/usuarios/listarMaquina").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     var feed = document.getElementById("feed_container");
@@ -354,34 +344,37 @@ function atualizarFeed() {
 
                         // criando e manipulando elementos do HTML via JavaScript
                         var divPublicacao = document.createElement("div");
-                        var spanID = document.createElement("span");
+                        var spanHostName = document.createElement("span");
+                        var spanidMaquina = document.createElement("span")
+                        var permissoes = document.createElement("span")
                      //   var spanGestor = document.createElement("span");
                         var spanNome = document.createElement("span");
                         var spanEmail = document.createElement("span");
                         var spanCargo = document.createElement("span");
                        // var divDescricao = document.createElement("div");
                       //  var divButtons = document.createElement("div");
-
-                        spanID.innerHTML = "ID: <b>" + publicacao.idFuncionario + "</b>";
+                        spanHostName.innerHTML ="<p>hostName: <b>" + publicacao.hostName + "</b> </p>";
                        // spanGestor.innerHTML = "Gestor: <b>"+ publicacao.fkGestor + "</b>";
-                        spanNome.innerHTML = "Nome: <b>"+publicacao.Nome+"</b>";
-                        spanEmail.innerHTML = "Email: <b>" + publicacao.EMAIL + "</b>";
-                        spanCargo.innerHTML = "Cargo: <b>" + publicacao.Cargo + "</b>";
-                        //divDescricao.innerHTML = "Descrição: <b>"+publicacao.descricao+"</b>";
-
+                       spanidMaquina.innerHTML ="<p>idMaquina: <b>"+publicacao.idMaquina + "</b></p>";
+                       permissoes.innerHTML ="<p>Permissão: <b>"+publicacao.permissoes + "</b></p>";
+                   
                         divPublicacao.className = "publicacao";
                        // spanTitulo.id = "inputNumero"+publicacao.idAviso;
-                        spanID.className = "id-funcionario";
+                        // spanID.className = "id-funcionario";
                      //   spanGestor.className = "Gestor";
-                        spanNome.className = "nome";
-                        spanEmail.className = "Email";
+
+                        spanHostName.className = "hostName";
+                        spanidMaquina.className = "idMaquina";
+                        permissoes.className = "permissoes";
                         spanCargo.className = "cargo";
                        // spanTitulo.className = "publicacao-titulo";
                        // divDescricao.className = "publicacao-descricao";
 
                        // divButtons.className = "div-buttons"
 
-                        divPublicacao.appendChild(spanID);
+                        divPublicacao.appendChild(spanHostName);
+                        divPublicacao.appendChild(spanidMaquina);
+                        divPublicacao.appendChild(permissoes);
                        // divPublicacao.appendChild(spanGestor);
                         divPublicacao.appendChild(spanNome);
                         divPublicacao.appendChild(spanEmail);
@@ -483,7 +476,7 @@ function atualizarFeed() {
 
             if (resposta.ok) {
                 console.log('');
-                respostaDeleteUpdate.innerHTML = "Alteração" + ipt_update.value + "do funcionário"+ idMaquina + "realizado com sucesso";
+                respostaDeleteUpdate.innerHTML = "Alteração " + ipt_update.value + " da máquina "+ idMaquina + " foi realizado com sucesso";
                 limparFormulario();
                // finalizarAguardar();
             } else {

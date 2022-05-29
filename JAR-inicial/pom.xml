@@ -59,9 +59,14 @@
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
-            <version>7.2.2.jre8</version>
+                <version>7.2.2.jre8</version>
             <!-- ou versão 7.2.2.jre11, se sua JDK for a 11 -->
             <!-- ou versão que já existir na .m2 local -->
+        </dependency>
+        <dependency>
+            <groupId>com.google.http-client</groupId>
+            <artifactId>google-http-client</artifactId>
+                    <version>1.41.2</version>
         </dependency>
 
     </dependencies>

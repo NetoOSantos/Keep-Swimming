@@ -232,7 +232,7 @@ nav:hover .shrink-btn,
   background-color: var(--main-color-dark);
   border-radius: 10px;
   position: absolute;
-  top: 2.5px;
+  top: 60px;
   left: 0;
   transition: top 0.3s;
 }
@@ -817,13 +817,78 @@ form .div_botao{
   margin-left: 10%;
 
   width: 85%;
-  height: 100vh;
-  background-color: rgba(255,255,255,0.13);
+  background-color: #ebf5fc;
 
   border-radius: 10px;
-  backdrop-filter: blur(10px);
   border: 2px solid rgba(255,255,255,0.1);
 }
+.feed-container{
+  background-color: #253370;
+  border-radius: 1rem;
+}
+
+.publicacao{
+  height: 13vh;
+  width: 32vw;
+  display: grid;
+  justify-content: space-around;
+  align-items: center;
+  inset: 20px solid;
+  inset: 0px 0 0 45%;
+  background: #ebf5fc;
+  margin: 0.75rem;
+  padding: 1rem;
+
+}
+.publicacao p {
+  color: #000;
+}
+
+#atualizar{
+  display: block;
+width: 10vw;
+height: 30px;
+background: #3651d4;
+border: none;
+border-radius: 5px;
+margin: 0.75rem;
+color: #fff;
+}
+
+#btn_atualizar{
+  display: block;
+  width: 10vw;
+  height: 30px;
+  background: #019267;
+  border: none;
+  border-radius: 5px;
+  margin: 0.75rem;
+  color: #fff;
+}
+
+#btn_deletar{
+  display: block;
+  width: 10vw;
+  height: 30px;
+  background: #B20600;
+  border: none;
+  border-radius: 5px;
+  margin: 0.75rem;
+  color: #fff;
+}
+
+#updateDelete{
+  height: 50px;
+width: 25%;
+background-color: rgba(0,0,0,.25);
+border-radius: 3px;
+padding: 0 10px;
+margin-top: 8px;
+font-size: 14px;
+font-weight: 300;
+color: #000;
+}
+
 .btn_mural_funcionarios
 {
   border: none;
@@ -836,7 +901,7 @@ form .div_botao{
   box-sizing: border-box;
   cursor: pointer;
   transition: all 400ms ease;
-  background-color: #34aedf;
+  background-color: #3651d4;
   width: 30%;
 }
 .botoes_crud
@@ -846,6 +911,8 @@ form .div_botao{
   justify-content: space-around;
 
 }
+
+
 .publicacao span
 {
   display: flex;
@@ -870,65 +937,5 @@ form .div_botao{
     background-color: #34aedf;
     width: 20%;
 }
-.btnDeletar
-{
-    border: none;
-    color: #ffffff;
-    padding: 2px;
-    margin: 5px;
-    font-size: 15px;
-    line-height: 24px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    cursor: pointer;
-    background-color: #df343f;
-    width: 60%;
-}
-.btnUpdate
-{
-  border: none;
-  color: #ffffff;
-  padding: 2px;
-  margin: 5px;
-  font-size: 15px;
-  line-height: 24px;
-  border-radius: 10px;
-  box-sizing: border-box;
-  cursor: pointer;
-  background-color: #3ddf34;
-  width: 60%;
-}
-.selectUpdate
-{
-  border: none;
-  color: #ffffff;
-  padding: 2px;
-  margin: 5px;
-  font-size: 15px;
-  line-height: 24px;
-  border-radius: 10px;
-  box-sizing: border-box;
-  cursor: pointer;
-  background-color: #17203E;
-  width: 20%;
-}
-.inputDeleteUpdate
-{
-  text-align: center;
-  color: white;
-  
-  width: 20%;
-  height: 5%;
-  background-color: #17203E;
-}
-.ipt_update
-{
-  text-align: center;
-  color: white;
-  
-  width: 20%;
-  height: 5%;
-  background-color: #17203E;
 
-}
 

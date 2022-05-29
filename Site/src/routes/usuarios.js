@@ -27,6 +27,10 @@ router.post("/updateFuncionario", function(req, res){
     usuarioController.updateFuncionario(req,res);
 })
 
+router.get("/listarMaquina", function(req, res) {
+    usuarioController.listarMaquina(req, res);
+});
+
 router.post("/cadastrarMaquina", function(req, res){
     usuarioController.cadastrarMaquina(req, res);
 })

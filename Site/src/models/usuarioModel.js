@@ -141,6 +141,29 @@ function updateFuncionario(idFuncionario,alteracao,coluna) {
     return database.executar(instrucao);
 }
 
+
+function listarMaquina() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarMaquina()");
+    
+    // local
+
+    // var instrucao = `
+    //     SELECT * FROM empresa;
+    // `;
+
+
+    // azure
+    
+    var instrucao = `
+        SELECT * FROM [dbo].[MAQUINA];
+    `;
+
+    console.log("Executando a instrução SQL: \n"+instrucao);
+    return database.executar(instrucao);
+    
+}
+
+
 function cadastrarMaquina(sistemaoperacional, fabricante, arquitetura, permissao,hostname){
 
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarMaquina():", sistemaoperacional, fabricante, arquitetura,permissao,hostname);
@@ -223,5 +246,6 @@ module.exports = {
     buscarIdFuncionario,
     deletarMaquina,
     updateMaquina,
+    listarMaquina,
 
 };
