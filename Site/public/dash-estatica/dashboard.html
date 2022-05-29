@@ -146,12 +146,12 @@
 
                 <!-- Gráfico de Linhas -->
                 <div class="graph1">
-                  
+                    <canvas id="chartBar"></canvas>
                 </div>
 
                 <!-- Grafico Pizza/Torta -->
                 <div class="graph1">
-                    <canvas id="chartBar"></canvas>
+                    <!-- <canvas id="chartBar"></canvas> -->
                 </div>
             </div>
 
@@ -164,8 +164,8 @@
 </html>
 <script src="../assets/js/dash.js"></script>
 
-
-<!-- <script>
+<!-- 
+ <script>
     var ctxBar = document.getElementById("chartBar").getContext("2d");
   var rotulosBar = ["colisa", "tetra", "coridora", "molinésia", "arco-íris", "betta"];
   var dataBar = [10, 70, 50, 5, 30, 65];
@@ -215,93 +215,93 @@
 
 
 
-// const ctx = document.getElementById('chartLine').getContext('2d');
-//     const graidient = ctx.createLinearGradient(0, 0, 0, 250);
+const ctx = document.getElementById('chartLine').getContext('2d');
+    const graidient = ctx.createLinearGradient(0, 0, 0, 250);
 
-//     graidient.addColorStop(0, 'rgba(167, 121, 232, 1)');
-//     graidient.addColorStop(1, 'rgba(79, 92, 196, 1)');
+    graidient.addColorStop(0, 'rgba(167, 121, 232, 1)');
+    graidient.addColorStop(1, 'rgba(79, 92, 196, 1)');
 
-//     const myChart = new Chart(ctx, {
-//         type: 'bar',
-//         data: {
-//             color: 'black',
-//             labels: ['VsCode', 'NetBens'],
-//             datasets: 
-//             [{
-//                 label:'usoCpu',
-//                 data: [9, 13, 11, 12, 15, 17, 21, 19],
-//                 backgroundColor: [
-//                     graidient,
-//                     graidient,
-//                     graidient,
-//                     graidient,
-//                     graidient,
-//                     graidient
-//                 ],
-//                 borderColor: [
-//                     graidient,
-//                     graidient,
-//                     graidient,
-//                     graidient,
-//                     graidient,
-//                     graidient
-//                 ],
-//                 borderWidth: 1
-//             },
-//             {
-//                 label: 'usoRam',
-//                 data: [9, 13, 11, 12, 15, 17, 21, 19],
-//                 backgroundColor: [
-//                     graidient,
-//                     graidient,
-//                     graidient,
-//                     graidient,
-//                     graidient,
-//                     graidient
-//                 ],
-//                 borderColor: [
-//                     graidient,
-//                     graidient,
-//                     graidient,
-//                     graidient,
-//                     graidient,
-//                     graidient
-//                 ],
-//                 borderWidth: 1
-//             }]
-//         },
-//         options: {
-//             plugins: {  // 'legend' now within object 'plugins {}'
-//                 legend: {
-//                     labels: {
-//                         color: "white",  // not 'fontColor:' anymore
-//                         // fontSize: 18  // not 'fontSize:' anymore
-//                         font: {
-//                             size: 14 // 'size' now within object 'font {}'
-//                         }
-//                     }
-//                 }
-//             },
-//             scales: {
-//                 y: {
-//                     ticks: {
-//                         color: 'white'
-//                     },
-//                     beginAtZero: true
-//                 },
-//                 x: {
-//                     ticks: {
-//                         color: 'white'
-//                     }
-//                 },
-//             }
-//         }
-//     });
+    const myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            color: 'black',
+            labels: ['VsCode', 'NetBens'],
+            datasets: 
+            [{
+                label:'usoCpu',
+                data: [9, 13, 11, 12, 15, 17, 21, 19],
+                backgroundColor: [
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient
+                ],
+                borderColor: [
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient
+                ],
+                borderWidth: 1
+            },
+            {
+                label: 'usoRam',
+                data: [9, 13, 11, 12, 15, 17, 21, 19],
+                backgroundColor: [
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient
+                ],
+                borderColor: [
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient,
+                    graidient
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {  // 'legend' now within object 'plugins {}'
+                legend: {
+                    labels: {
+                        color: "white",  // not 'fontColor:' anymore
+                        // fontSize: 18  // not 'fontSize:' anymore
+                        font: {
+                            size: 14 // 'size' now within object 'font {}'
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        color: 'white'
+                    },
+                    beginAtZero: true
+                },
+                x: {
+                    ticks: {
+                        color: 'white'
+                    }
+                },
+            }
+        }
+    });
 
 
 
-</script>
- -->
+</script> -->
+
 
 <!-- Script antigo para pegar as cores -->
 

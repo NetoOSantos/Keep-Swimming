@@ -133,52 +133,66 @@
     function plotarGrafico(resposta) {
         console.log('iniciando plotagem do gráfico...');
 
-
-       
-
+        
         var dados = {
-            labels: [],
+            labels: ['VsCode', 'NetBens'],
             datasets: [
                 {
                     label:'usoCpu',
-                    data: [9, 13, 11, 12, 15, 17, 21, 19],
-                    backgroundColor: [
-                        
-                                                                                              ],
-                    borderColor: [
-                        
-                                                                                              ],
+                    data: [],
+                    backgroundColor: [],
+                    borderColor: [],
                     borderWidth: 1
                 },
                 {
                     label: 'usoRam',
-                    data: [9, 13, 11, 12, 15, 17, 21, 19],
-                    backgroundColor: [
-                        
-                                                                                              ],
-                    borderColor: [
-                        
-                                                                                              ],
+                    data: [],
+                    backgroundColor: [],
+                    borderColor: [],
                     borderWidth: 1
                 }
             ]
         };
-
+        
+        dados.datasets[0].borderColor = 'rgba(167, 121, 232, 1)';
+        dados.datasets[1].borderColor = 'rgba(167, 121, 232, 1)';
+        dados.datasets[1].backgroundColor = 'rgba(79, 92, 196, 1)';
+        dados.datasets[0].backgroundColor = 'rgba(79, 92, 196, 1)';
+       
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            dados.labels.push(registro.momento_grafico);
-            chartBar.datasets[1].data.push(registro.usoCPU);
+
+            // console.log("registro");
+            // console.log(registro);
+
+            
+            // var vsCode = registro.nome.opera;
+            // var netBens = registro.nome.AvastUI;
+
+            // console.log("registro labels");
+            // dados.labels.push(registro.vsCode);
+            // dados.labels.push(registro.netBens);
+            // console.log(registro.vsCode,registro.netBens);
+
+
+            // console.log("registro valores");
+            // console.log(registro.usoCPU);
+            dados.datasets[0].data.push(registro.UsoCPU);
+            dados.datasets[1].data.push(registro.UsoMemoria);
+            
         }
 
         console.log(JSON.stringify(dados));
 
        
         var ctx = chartBar.getContext('2d');
-        window.grafico_barra = Chart.Line(ctx, {
+       
+        window.grafico_barra = new Chart(ctx, {
             type: 'bar',
             data: dados,
                //Configurações do gráfico
             options: {
+                animation: false,
                 title: {
                     display: true,
                     text: 'Comparação de processamento por uso de Ides'},
@@ -203,7 +217,8 @@
                     x: {
                         ticks: {
                             color: 'white'
-                        }
+                        },
+                        beginAtZero: true
                     },
                 }
             }
@@ -214,7 +229,7 @@
 
 
         //Atualiza os dados de 2 em 2 segundos
-        setTimeout(() => atualizarGrafico2(dados), 2000);
+        setTimeout(() => atualizarGrafico(dados), 2000);
     }
 
     // só mexer se quiser alterar o tempo de atualização
@@ -225,38 +240,42 @@
                 response.json().then(function (novoRegistro) {
 
                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                    console.log(`Dados atuais do gráfico: ${dados}`);
+                    // console.log(`Dados atuais do gráfico: ${dados}`);
 
                     // tirando e colocando valores no gráfico
-                    dados.labels.shift(); // apagar o primeiro
-                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+                    // dados.labels.shift(); // apagar o primeiro
+                    // dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
                     dados.datasets[0].data.shift();  // apagar o primeiro de Maquina
-                    dados.datasets[0].data.push(novoRegistro[0].Maquina); // incluir uma nova medida de Maquina
+                    dados.datasets[1].data.shift();  // apagar o primeiro de Maquina
 
+
+                    // dados.datasets[0].data.push(novoRegistro[0].Maquina); // incluir uma nova medida de Maquina
+                    dados.datasets[0].data.push(novoRegistro[0].UsoCPU);
+                    dados.datasets[1].data.push(novoRegistro[1].UsoMemoria);
 
                     // Alertas por Cores de Maquina
 
-                    if (novoRegistro[0].Maquina >= 35) {
-                        img_alertas_umi.src = "../assets/errado_gif.gif"
-                        dados.datasets[0].borderColor = 'red';
-                        dados.datasets[0].backgroundColor = '#ff04008c';
-                    } else if (novoRegistro[0].Maquina <= 19) {
-                        img_alertas_umi.src = "../assets/errado_gif.gif"
-                        dados.datasets[0].borderColor = '#483D8B';
-                        dados.datasets[0].backgroundColor = '#826fff9c';
+                    // if (novoRegistro[0].Maquina >= 35) {
+                    //     img_alertas_umi.src = "../assets/errado_gif.gif"
+                    //     dados.datasets[0].borderColor = 'red';
+                    //     dados.datasets[0].backgroundColor = '#ff04008c';
+                    // } else if (novoRegistro[0].Maquina <= 19) {
+                    //     img_alertas_umi.src = "../assets/errado_gif.gif"
+                    //     dados.datasets[0].borderColor = '#483D8B';
+                    //     dados.datasets[0].backgroundColor = '#826fff9c';
 
-                    } else if ((novoRegistro[0].Maquina >= 20 && novoRegistro[0].Maquina <= 23) || novoRegistro[0].Maquina >= 28 && novoRegistro[0].Maquina <= 31) {
-                        img_alertas_umi.src = "../assets/atencao_gif.gif"
-                        dados.datasets[0].borderColor = '#FFFF00';
-                        dados.datasets[0].backgroundColor = '#ffe6006b';
-                    } else if (novoRegistro[0].Maquina > 23 && novoRegistro[0].Maquina < 28) {
-                        dados.datasets[0].borderColor = '#32B9CD';
-                        dados.datasets[0].backgroundColor = '#32b9cd8f';
-                        img_alertas_umi.src = "../assets/correto_gif.gif"
-                    }
+                    // } else if ((novoRegistro[0].Maquina >= 20 && novoRegistro[0].Maquina <= 23) || novoRegistro[0].Maquina >= 28 && novoRegistro[0].Maquina <= 31) {
+                    //     img_alertas_umi.src = "../assets/atencao_gif.gif"
+                    //     dados.datasets[0].borderColor = '#FFFF00';
+                    //     dados.datasets[0].backgroundColor = '#ffe6006b';
+                    // } else if (novoRegistro[0].Maquina > 23 && novoRegistro[0].Maquina < 28) {
+                    //     dados.datasets[0].borderColor = '#32B9CD';
+                    //     dados.datasets[0].backgroundColor = '#32b9cd8f';
+                    //     img_alertas_umi.src = "../assets/correto_gif.gif"
+                    // }
 
 
-                    window.grafico_linha.update();
+                    window.grafico_barra.update();
 
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(dados), 5000);
                 });
