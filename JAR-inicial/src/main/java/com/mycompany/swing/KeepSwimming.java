@@ -17,8 +17,9 @@ public class KeepSwimming extends javax.swing.JFrame {
     String SENHA;
    
     public KeepSwimming() {
-        Log gravar = new Log();
-        gravar.criarLog("Iniciando tela swing email&senha");
+        Log log = new Log();
+        log.criarLog("===============Tela de Login===============");
+        log.criarLog("Iniciando tela swing email&senha");
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -199,7 +200,6 @@ public class KeepSwimming extends javax.swing.JFrame {
             } else {
                 gravar.criarLog("Erro na autenticação do usuario");
                 Resultado.setText("=(");
-                gravar.criarLog("erro de autenticação");
             }
         }
     }//GEN-LAST:event_btnNavegarActionPerformed

@@ -74,7 +74,6 @@ public class LoocaHardware {
 
     @Override
     public String toString() {
-        Log gravar = new Log();
         return String.format("Quantidade de discos = %d"
                              + "\nNome do disco = %s"
                              + "\nTamanho do disco = %d"

@@ -13,6 +13,9 @@ public class Connection {
     private BasicDataSource datasource;
     
         public Connection() {
+            Log log = new Log();
+            
+            log.criarLog("=====Buscasndo conexão com BD=====");
         this.datasource = new BasicDataSource();
         
        // this.datasource.setDriverClassName("org.h2.Driver");
