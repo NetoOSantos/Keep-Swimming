@@ -56,7 +56,6 @@ public class KeepSwimming_TelegramBot extends TelegramLongPollingBot  {
         Integer enviaCodigo = ThreadLocalRandom.current().nextInt(1000, 5000);
         String codigoFormatado = enviaCodigo.toString();
              
-        
         if ("/data".equals(textoMensagem)) {
             resposta = getData();
         }else if (textoMensagem.startsWith("/token")) {
@@ -117,7 +116,7 @@ public class KeepSwimming_TelegramBot extends TelegramLongPollingBot  {
         String apiToken = "5226424793:AAEqECvlTAc_63u7hl702KBKS5HiF7PHrmE";
 
         //chatId 
-        String chatId = "-1687266578";
+        String chatId = "-667290625";
         //Message
         String text = String.format("Seu token é: %s .Se você nao solicitou entre em contanto imediantamente conosco!!", txt);
 

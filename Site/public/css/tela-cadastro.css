@@ -8,7 +8,7 @@
 
 body {
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
     background-image: linear-gradient(0deg, #041338, #041338);
     background-size: cover;
     width: 100%;
@@ -167,7 +167,7 @@ body {
 .div_botao {
     width: 90%;
     height: 25%;
-    margin-top: 16px;
+   
 }
 
 #form_cadastro{
@@ -176,13 +176,13 @@ body {
 
 
 .formulario {
-    height: 75%;
-    width: 80%;
+    height: 95%;
     background-color: rgba(255, 255, 255, 0.13);
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.1);
     padding: 50px 35px;
+  
 }
 
 .formulario * {
@@ -217,10 +217,9 @@ input {
 }
 
 .div_botao {
-    width: 64%;
+    width: 50%;
     height: 25%;
     margin-top: 16px;
-    margin-left: 3%;
 }
 
 .efeito {
@@ -281,4 +280,68 @@ input {
 .loading-div img {
     height: 50px;
     width: 50px;
+}
+
+.roles{
+    flex-wrap: wrap;
+    display: flex;
+    width: 100%;
+    height: 80%;
+    justify-content: center;
+}
+
+form .div_botao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+@media screen and (max-width: 900px) {
+
+     body{
+        overflow-x: hidden;
+        overflow-y: scroll;
+    } 
+
+    .roles{
+        flex-wrap: wrap; 
+        display: block;
+        width: 100%;
+        height: 80%;
+      }
+      
+      .ladoDireito{
+          width: 140%;
+      }
+      
+      .ladoEsquerdo{
+          width: 140%;
+      }
+
+      .ocean{
+        height: 158vh;
+      }
+
+      .div_botao{
+          width: 100%;
+      }
+
+     
+}
+
+@media screen and (max-width: 1300px){
+
+    .formulario{
+        height: 95%;
+        
+    }
+    
+}
+
+@media screen and (max-height: 700px){
+
+    .formulario{
+        height: 95%;
+    }
+    
 }
