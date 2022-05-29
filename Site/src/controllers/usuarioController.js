@@ -246,12 +246,154 @@ function updateFuncionario(req, res) {
     }
 }
 
+
+
+function listarMaquina(req, res) {
+    usuarioModel.listarMaquina()
+    .then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(
+        function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
+function cadastrarMaquina(req, res) {
+
+
+    var idfuncionario = req.body.funcionarioId;
+    var sistemaoperacional = req.body.sistemaOperacional;
+    var fabricante = req.body.fabricante;
+    var arquitetura = req.body.arquitetura;
+    var permissao = req.body.permissao;
+    var hostname = req.body.hostname;
+
+
+    console.log("req.body cadastro maquina");
+    console.log(req.body);
+
+     if (idfuncionario == undefined) {
+        res.status(400).send("A o id do funcionário está undefined!");
+    } else if (sistemaoperacional == undefined) {
+        res.status(400).send("Campo sistema operacional está undefined!");
+    } else if (arquitetura == undefined) {
+        res.status(400).send("Campo de arquitetura está undefined!");
+    }else if (permissao == undefined) {
+        res.status(400).send("Campo de permissão inválido")
+    }else if (fabricante == undefined) {
+        resres.status(400).send("Campo de fabricante inválido")
+    } else if (hostname == undefined) {
+        res.status(400).send("O hostName do funcionário está undefined!");
+   
+    }  else {
+       
+        // usuarioModel.buscarIdFuncionario(hostName).then(
+        //     function (resultadoFuncionario) {
+        //         console.log(resultadoFuncionario);
+        //             resultadoFuncionario.JSON;
+        //             JSON.stringify(resultadoFuncionario);
+        //             var idFuncionario = resultadoFuncionario[0];
+                usuarioModel.cadastrarMaquina(sistemaoperacional,fabricante, arquitetura, permissao,hostname)
+                .then(
+                    function (resultado) {
+                        res.json(resultado);
+                    }
+                ).catch(
+                    function (erro) {
+                        console.log(erro);
+                        console.log(
+                            "\nHouve um erro ao realizar o cadastro! Erro: ",
+                            erro.sqlMessage
+                        );
+                        res.status(500).json(erro.sqlMessage);
+                    }
+                );
+            }
+}
+
+function deletarMaquina(req, res) {
+    var idMaquina = req.body.idDelete;
+ 
+
+    console.log("req.body delete máquina");
+    console.log(req.body);
+
+    if (idMaquina == undefined) {
+        res.status(400).send("O id da maquina está undefined!");
+    } else {
+        usuarioModel.deletarMaquina(idMaquina)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o delete! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    }
+}
+
+function updateMaquina(req, res) {
+    var idMaquina = req.body.idUpdate;
+    var alteraçãoMaquina = req.body.alteracao;
+    var  update = req.body.updateEscolhido;
+ 
+
+
+    console.log("req.body Update maquina");
+    console.log(req.body);
+
+    if (idMaquina == undefined) {
+        res.status(400).send("O id do funcionário está undefined!");
+    } else if(alteraçãoMaquina == undefined){
+        res.status(400).send("A input para alteração do funcionário está undefined!");
+    } else if(update == undefined){
+        res.status(400).send("A select para alteração do funcionário está undefined!");
+   
+    }else {
+        usuarioModel.updateMaquina(idMaquina,alteraçãoMaquina,update)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o update! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    }
+}
+
+
+
 module.exports = {
     entrar,
     cadastrar,
     cadastrarFuncionario,
     deletarFuncionario,
     updateFuncionario,
+    cadastrarMaquina,
+    deletarMaquina,
+    updateMaquina,
+    listarMaquina,
     listar,   
     testar
 }
