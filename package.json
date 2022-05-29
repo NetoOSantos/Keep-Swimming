@@ -3,8 +3,8 @@
     "version": "0.0.l",
     "private": true,
     "scripts": {
-        "start": "node ./Site/app.js",
-        "postinstall": "cd Site && npm install"
+        "start": "node ./site/app.js",
+        "postinstall": "cd site && npm install"
     }
 
 }
