@@ -155,7 +155,7 @@
         };
         
         dados.datasets[0].borderColor = 'rgba(167, 121, 232, 1)';
-        dados.datasets[1].borderColor = 'rgba(167, 121, 232, 1)';
+        dados.datasets[1].borderColor = 'rgb(236, 65, 102,1)';
         dados.datasets[1].backgroundColor = 'rgba(79, 92, 196, 1)';
         dados.datasets[0].backgroundColor = 'rgba(79, 92, 196, 1)';
        

@@ -59,9 +59,7 @@ public class EnviaToken extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Esqueci minh senha");
         setBackground(new java.awt.Color(102, 0, 153));
-        setMaximumSize(new java.awt.Dimension(383, 450));
         setMinimumSize(new java.awt.Dimension(383, 450));
-        setPreferredSize(new java.awt.Dimension(385, 450));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -84,7 +82,7 @@ public class EnviaToken extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnConfereToken);
-        btnConfereToken.setBounds(140, 250, 83, 22);
+        btnConfereToken.setBounds(140, 250, 83, 24);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,7 +98,7 @@ public class EnviaToken extends javax.swing.JFrame {
         getContentPane().add(formToken);
         formToken.setBounds(30, 180, 320, 50);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/Token-Swingg.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/gui/img/TokenSwingg.png"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(390, 420));
         jLabel1.setMinimumSize(new java.awt.Dimension(390, 420));
         jLabel1.setPreferredSize(new java.awt.Dimension(390, 420));

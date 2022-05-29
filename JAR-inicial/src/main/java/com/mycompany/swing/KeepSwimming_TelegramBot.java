@@ -15,10 +15,16 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 
 public class KeepSwimming_TelegramBot extends TelegramLongPollingBot  {
+    public  KeepSwimming_TelegramBot(Boolean seila) {
+        this.seila = seila;
+    }
+    
 
     private String token = DadosBot.BOT_TOKEN;
     
+    private Boolean seila;
 
+    
     @Override
     public String getBotUsername() {
         return DadosBot.BOT_USER_NAME;
