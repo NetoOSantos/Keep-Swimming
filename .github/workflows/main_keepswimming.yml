@@ -1,12 +1,12 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - Keep-Swimming-Site
+name: Build and deploy Node.js app to Azure Web App - keepSwimming
 
 on:
   push:
     branches:
-      - ks-k8s-alpha
+      - main
   workflow_dispatch:
 
 jobs:
@@ -50,7 +50,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'Keep-Swimming-Site'
+          app-name: 'keepSwimming'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C0F1C7E863BD4098800E16332FFAB68D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FB31D8554A904C89936095AC6CE25CD0 }}
           package: .
