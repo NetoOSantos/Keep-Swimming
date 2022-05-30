@@ -37,18 +37,26 @@ public class KeepSwimming_TelegramBot extends TelegramLongPollingBot  {
 
     @Override
     public void onUpdateReceived(Update update) {
-
+        Log log = new Log();
+        log.criarLog("====================TelegramBot====================");
+        
         if (update.hasMessage() && update.getMessage().hasText()) {
             var mensagem = responder(update);
             try {
                 execute(mensagem);
+                log.criarLog("Mensagem recebida do telegram");
+                
             } catch (TelegramApiException e) {
                 e.printStackTrace();
+                log.criarLog("houve um erro ao receber a mensagem do telegram");
             }
         }
     }
 
     private SendMessage responder(Update update) {
+        Log log = new Log();
+        log.criarLog("Interagindo com usuario no Telegram");
+        
         var textoMensagem = update.getMessage().getText().toLowerCase();
         var chatId = update.getMessage().getChatId().toString();
 
@@ -104,27 +112,27 @@ public class KeepSwimming_TelegramBot extends TelegramLongPollingBot  {
         return "A hora atual é: " + formatter.format(new Date());
     }
         
-    public static void sendToTelegram() {
-        String urlString = "https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s";
-        //Telegram token 
-        String apiToken = "5226424793:AAEqECvlTAc_63u7hl702KBKS5HiF7PHrmE";
-
-        //chatId 
-        String chatId = "-667290625";
-        //Message
-        String text = "Olá, Bem vindo a Keep Swimming!.Logamos com sucesso na plataforma!😉";
-
-        urlString = String.format(urlString, apiToken, chatId, text);
-        System.out.println("\nEnviamos uma mensagem a essa url com sucesso = "+ urlString);
-
-        try {
-            URL url = new URL(urlString);
-            URLConnection conn = url.openConnection();
-            InputStream is = new BufferedInputStream(conn.getInputStream());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void sendToTelegram() {
+//        String urlString = "https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s";
+//        //Telegram token 
+//        String apiToken = "5226424793:AAEqECvlTAc_63u7hl702KBKS5HiF7PHrmE";
+//
+//        //chatId 
+//        String chatId = "-667290625";
+//        //Message
+//        String text = "Olá, Bem vindo a Keep Swimming!.Logamos com sucesso na plataforma!😉";
+//
+//        urlString = String.format(urlString, apiToken, chatId, text);
+//        System.out.println("\nEnviamos uma mensagem a essa url com sucesso = "+ urlString);
+//
+//        try {
+//            URL url = new URL(urlString);
+//            URLConnection conn = url.openConnection();
+//            InputStream is = new BufferedInputStream(conn.getInputStream());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
     
     public static void sendToTelegramToken(String txt) {
         String urlString = "https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s";

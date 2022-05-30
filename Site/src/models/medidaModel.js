@@ -2,36 +2,63 @@ var database = require("../database/config");
 
 function buscarUltimasMedidas(limite_linhas) {
     
-//local
-    // instrucaoSql = `select 
-    //                     temperatura_lm35, 
-    //                     umidade, 
-    //                     hr_medida,
-    //                     DATE_FORMAT(hr_medida,'%H:%i:%s') as momento_grafico
-    //                     from medidas
-    //                     where fkMaquina = ${idMaquina}
-    //                     order by idMedidas desc limit ${limite_linhas}`;
-
 
 //nuvem
-    instrucaoSql = `Select DISTINCT Nome ,
-                    usoCPU,
-                    round((usoCPU *100),0)as 'UsoCPU' ,
-                    usoMemoria,
-                    round((usoMemoria *1024),2) as 'UsoMemoria' ,
-                    dataHoraProcesso,
-                    FORMAT(dataHoraProcesso,'hh:mm:ss') as momento_grafico
-                    from [dbo].[Processos] 
-                    where Nome in ('netbeans64','code')`;
+  //  instrucaoSql = `select distinct top ${limite_linhas} 
+    //                    round(memoriaEmUso, 0) AS dadosMemoria,
+      //                  round(processadorUso,2) AS dadosProcessador,
+        //                convert(varchar,data,13) AS Hora
+          //        from Maquina join [dbo].[Historico] on idMaquina = fkMaquina where idMaquina = ${idMaquina} order by Hora desc`;
 
-
+          instrucaoSql = `select distinct top ${limite_linhas}
+		
+          round(memoriaEmUso, 0) AS dadosMemoria,
+          round(processadorUso,2) AS dadosProcessador,
+          convert(varchar,data,13) AS Hora,
+          round(memoriaDisponivel,0) as memoriaDisponivel
+     
+                  from Maquina join [dbo].[Historico] on idMaquina = Historico.fkMaquina 
+                  join [dbo].[ComponentesHardware] on idMaquina = ComponentesHardware.fkMaquina
+                  where idMaquina = ${idMaquina}
+                  order by Hora desc`;
 
 console.log("Executando a instrução SQL: \n" + instrucaoSql);
 return database.executar(instrucaoSql);
     
 }
 
-function buscarMedidasEmTempoReal() {
+
+function buscarMedidasEmTempoReal(idMaquina,componenteSelecionado) {
+
+
+//nuvem
+   
+
+     //   instrucaoSql = `select top 1
+       //                     round(memoriaEmUso, 0) AS dadosMemoria,
+         //                   round(processadorUso,2) AS dadosProcessador,
+           //                 convert(varchar,data,13) AS Hora,
+             //               round(memoriaDisponivel,0) as memoriaDisponivel
+               //         from Maquina join [dbo].[Historico] on idMaquina = fkMaquina where idMaquina = ${idMaquina} order by Hora desc`;
+  
+    instrucaoSql = `select distinct top 1
+		
+    round(memoriaEmUso, 0) AS dadosMemoria,
+    round(processadorUso,2) AS dadosProcessador,
+    convert(varchar,data,13) AS Hora,
+    round(memoriaDisponivel,0) as memoriaDisponivel
+
+            from Maquina join [dbo].[Historico] on idMaquina = Historico.fkMaquina 
+            join [dbo].[ComponentesHardware] on idMaquina = ComponentesHardware.fkMaquina
+            where idMaquina = ${idMaquina}
+            order by Hora desc`;
+
+console.log("Executando a instrução SQL: \n" + instrucaoSql );
+return database.executar(instrucaoSql);
+
+}
+
+function buscarMedidasEmTempoRealCPU(idMaquina) {
 
     //local
     // instrucaoSql = `select temperatura_lm35, 
@@ -42,16 +69,14 @@ function buscarMedidasEmTempoReal() {
     //                         order by idMedidas desc limit 1`;
 
 //nuvem
-    instrucaoSql = `Select DISTINCT Nome ,
-    usoCPU,
-    round((usoCPU *100),0)as 'UsoCPU' ,
-    usoMemoria,
-    round((usoMemoria *1024),2) as 'UsoMemoria' ,
-    dataHoraProcesso,
-    FORMAT(dataHoraProcesso,'hh:mm:ss') as momento_grafico
-    from [dbo].[Processos] 
-    where Nome in ('netbeans64','code') 
-    order by momento_grafico desc `;
+  
+        instrucaoSql = `select top 1 
+        round(sum(usoCPU),0) AS usoCPU,
+         convert(varchar,dataHoraProcesso,13) AS Hora from [dbo].[Processos] 
+            where fkMaquina = ${idMaquina}
+            group by dataHoraProcesso 
+             order by dataHoraProcesso desc`;
+    
 
 
 console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -96,10 +121,24 @@ function buscarQtdSistemas() {
 }
 
 
+function buscarConsumoCPU(idMaquina) {
+    instrucaoSql = `select top 10 
+    round(sum(usoCPU),0) AS usoCPU,
+     convert(varchar,dataHoraProcesso,13) AS Hora from [dbo].[Processos] 
+        where fkMaquina = ${idMaquina}
+        group by dataHoraProcesso 
+         order by dataHoraProcesso desc  `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
 
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarMediaConsumoPC,
-    buscarQtdSistemas
+    buscarConsumoCPU,
+    buscarMedidasEmTempoRealCPU,
 }
