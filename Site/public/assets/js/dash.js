@@ -41,7 +41,7 @@
    
     function plotarGrafico(resposta) {
         console.log('iniciando plotagem do gráfico...');
-        console.log('deucertpo');
+        // console.log('deucertpo');
 
 
         

@@ -46,23 +46,23 @@ function entrar() {
     return false;
 }
 
-function validarSessao() {
-    aguardar();
+// function validarSessao() {
+//     aguardar();
 
-    var login = sessionStorage.LOGIN_USUARIO;
-    var nome = sessionStorage.NOME_USUARIO;
+//     var login = sessionStorage.LOGIN_USUARIO;
+//     var nome = sessionStorage.NOME_USUARIO;
     
-    var h1Titulo = document.getElementById("h1_titulo");
+//     var h1Titulo = document.getElementById("h1_titulo");
 
-    if (login != null && nome != null) {
-        // window.alert(`Seja bem-vindo, ${nome}!`);
-        h1Titulo.innerHTML = `${login}`;
+//     if (login != null && nome != null) {
+//         // window.alert(`Seja bem-vindo, ${nome}!`);
+//         h1Titulo.innerHTML = `${login}`;
         
-        finalizarAguardar();
-    } else {
-        window.location = "../tela-login.html";
-    }
-}
+//         finalizarAguardar();
+//     } else {
+//         window.location = "../tela-login.html";
+//     }
+// }
 
 function sair() {
     aguardar();

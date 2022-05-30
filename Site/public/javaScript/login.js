@@ -41,6 +41,7 @@ function logar() {
 
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
+                console.log(json.nome);
                 sessionStorage.ID_USUARIO = json.idEmpresa;
 
                 setTimeout(function () {
