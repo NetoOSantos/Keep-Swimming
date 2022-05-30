@@ -17,7 +17,7 @@
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/medidas/ultimas/`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidasdash/ultimas/`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log("Dados recebidos!");
@@ -41,6 +41,8 @@
    
     function plotarGrafico(resposta) {
         console.log('iniciando plotagem do gráfico...');
+        console.log('deucertpo');
+
 
         
         var dados = {
@@ -144,7 +146,7 @@
     // só mexer se quiser alterar o tempo de atualização
     // ou se souber o que está fazendo!
     function atualizarGrafico(dados) {
-        fetch(`/medidas/tempo-real/`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidasdash/tempo-real/`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
