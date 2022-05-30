@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(limite_linhas) {
+function buscarUltimasMedidas(idMaquina, limite_linhas) {
     
 
 //nuvem
@@ -47,7 +47,6 @@ function buscarMedidasEmTempoReal(idMaquina,componenteSelecionado) {
     round(processadorUso,2) AS dadosProcessador,
     convert(varchar,data,13) AS Hora,
     round(memoriaDisponivel,0) as memoriaDisponivel
-
             from Maquina join [dbo].[Historico] on idMaquina = Historico.fkMaquina 
             join [dbo].[ComponentesHardware] on idMaquina = ComponentesHardware.fkMaquina
             where idMaquina = ${idMaquina}
@@ -90,31 +89,7 @@ function buscarMediaConsumoPC(idMaquina) {
     // instrucaoSql = ` select round( avg(umidade),2) as mediaUmi from medidas ;`;
 
     //nuvem
-    instrucaoSql = ` 
-    Select DISTINCT 
-        Nome ,
-        round(avg(usoCPU *100),2)as 'mediaUsoCPU',
-        round(avg(usoMemoria *100),2)as 'mediaUsoMemoria' 
-    from [dbo].[Processos] 
-    where 
-    Nome in ('opera','AvastUI')  GROUP BY Nome ;`;
-
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
-function buscarQtdSistemas() {
-// //local
-    // instrucaoSql = ` select round( avg(umidade),2) as mediaUmi from medidas ;`;
-
-    //nuvem
-    instrucaoSql = ` 
-    Select DISTINCT 
-        Nome ,
-        round(avg(usoCPU *100),2)as 'mediaUsoCPU',
-        round(avg(usoMemoria *100),2)as 'mediaUsoMemoria' 
-    from [dbo].[Processos] 
-    where 
-    Nome in ('opera','AvastUI')  GROUP BY Nome ;`;
+    instrucaoSql = ` select round( avg(umidade),2) as mediaUmi from [dbo].[medidas] ;`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

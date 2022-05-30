@@ -3,7 +3,7 @@ var router = express.Router();
 
 var medidaController = require("../controllers/medidaController");
 
-router.get("/ultimas/", function(req, res) {
+router.get("/ultimas/:idMaquina", function(req, res) {
     medidaController.buscarUltimasMedidas(req, res);
 });
 
@@ -17,7 +17,7 @@ router.get("/tempo-real-cpu/:idMaquina", function(req, res) {
 })
   
 
-router.get("/buscarMediaUmidade/", function(req, res) {
+router.get("/buscarMediaUmidade/:idMaquina", function(req, res) {
     medidaController.buscarMediaConsumoPC(req, res);
 })
 
