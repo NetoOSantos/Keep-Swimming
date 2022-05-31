@@ -85,13 +85,13 @@
       <h4 class="hide">Atalhos</h4>
 
       <ul>
-        <!-- <li class="tooltip-element" data-tooltip="0"> -->
+        <li class="tooltip-element" data-tooltip="0">
         <a href="#" data-active="4">
           <div class="icon">
-            <!-- <i class='bx bx-notepad'></i>
-                  <i class='bx bxs-notepad'></i> -->
+            <i class='bx bx-user'></i>
+            <i class='bx bxs-user'></i>
           </div>
-          <!-- <span class="link hide">Tasks</span> -->
+          <span class="link hide">Minhas informações</span>
         </a>
         </li>
         <li class="tooltip-element" data-tooltip="1">
@@ -116,7 +116,7 @@
       </a>
       <div class="admin-user tooltip-element" data-tooltip="1">
         <div class="admin-profile hide">
-          <img src="./img/face-1.png" alt="">
+          <img src="./imgs/foto-de-perfil.jpg" alt="">
           <div class="admin-info">
             <div class="hello">
               <h3>Olá, <span id="b_usuario"></span>!</h3>
@@ -217,7 +217,7 @@
           <option value="">Atualizar</option>
           <option value="hostname">HostName</option>
           <option value="permissao">Permissão</option>
-          <option value="sistema">Sistema Operacional</option>
+          <option value="sistemaOperacional">Sistema Operacional</option>
         </select>
 
         <input id="ipt_update" style="display: none;" class="ipt_update">
@@ -283,6 +283,7 @@
             var spanHostName = document.createElement("span");
             var spanidMaquina = document.createElement("span")
             var permissoes = document.createElement("span")
+            var spansistemaOperacional = document.createElement("span")
             //   var spanGestor = document.createElement("span");
             var spanNome = document.createElement("span");
             var spanEmail = document.createElement("span");
@@ -293,7 +294,7 @@
             // spanGestor.innerHTML = "Gestor: <b>"+ publicacao.fkGestor + "</b>";
             spanidMaquina.innerHTML = "<p>idMaquina: <b>" + publicacao.idMaquina + "</b></p>";
             permissoes.innerHTML = "<p>Permissão: <b>" + publicacao.permissoes + "</b></p>";
-
+            spansistemaOperacional.innerHTML = "<p>Sistema Operacional: <b>" + publicacao.sistemaOperacional + "</b></p>"
             divPublicacao.className = "publicacao";
             // spanTitulo.id = "inputNumero"+publicacao.idAviso;
             // spanID.className = "id-funcionario";
@@ -302,6 +303,8 @@
             spanHostName.className = "hostName";
             spanidMaquina.className = "idMaquina";
             permissoes.className = "permissoes";
+            spansistemaOperacional.className = "sistemaOperacional";
+
             spanCargo.className = "cargo";
             // spanTitulo.className = "publicacao-titulo";
             // divDescricao.className = "publicacao-descricao";
@@ -311,6 +314,7 @@
             divPublicacao.appendChild(spanHostName);
             divPublicacao.appendChild(spanidMaquina);
             divPublicacao.appendChild(permissoes);
+            divPublicacao.appendChild(spansistemaOperacional);
             // divPublicacao.appendChild(spanGestor);
             divPublicacao.appendChild(spanNome);
             divPublicacao.appendChild(spanEmail);
