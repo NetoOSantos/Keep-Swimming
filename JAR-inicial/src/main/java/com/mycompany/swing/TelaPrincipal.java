@@ -50,9 +50,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
         
         //conexão com o banco MySQL
-        Boolean mysql = true;
-        Connection configMysql = new Connection(mysql);
-        JdbcTemplate conLocal = new JdbcTemplate(configMysql.getDatasource());
+        //Boolean mysql = true;
+      //  Connection configMysql = new Connection(mysql);
+        //JdbcTemplate conLocal = new JdbcTemplate(configMysql.getDatasource());
         
         // looca
         com.github.britooo.looca.api.core.Looca looca = new com.github.britooo.looca.api.core.Looca();
@@ -114,7 +114,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
           Timer timer = new Timer();
          Integer delay = 1000;
-         Integer interval = 5000;
+         Integer interval = 2000;
               
         timer.scheduleAtFixedRate(new TimerTask() {
              @Override
@@ -133,10 +133,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
            Integer threads = looca.getGrupoDeProcessos().getTotalThreads();
             
                 //para MySQL local
-            String inserirDadosProcessosLocal = "Insert into Processos VALUES "
-              + "(null,1,?,?,?,?,?,?,?,?);";
-            conLocal.update(inserirDadosProcessosLocal,idDaMaquina, PID,Nome,UsoCpu,usoMemoria,
-                   bytesUtilizados,memVirtualUtilizada, totalProcessos, threads,dataHoraProcesso);
+         //   String inserirDadosProcessosLocal = "Insert into Processos VALUES "
+           //   + "(null,1,?,?,?,?,?,?,?,?);";
+       //     conLocal.update(inserirDadosProcessosLocal,idDaMaquina, PID,Nome,UsoCpu,usoMemoria,
+         //          bytesUtilizados,memVirtualUtilizada, totalProcessos, threads,dataHoraProcesso);
             
               //Para azure
             String inserirDadosProcessos = "Insert into Processos VALUES "
@@ -172,16 +172,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
              String processadorNome = processador.getNome();
              
             //Para Mysql local
-        String inserirDadosHardwareLocal = "Insert into ComponentesHardware VALUES" 
-                  + "(null,1,?,?,?,?,?,?);";
-        conLocal.update(inserirDadosHardwareLocal,
-                            idDaMaquina,
-                            nomeDisco,
-                            tamanhoDisco,
-                            modeloDisco,
-                            qtdDiscos, 
-                            memoriaTotal,
-                            processadorNome);
+     //   String inserirDadosHardwareLocal = "Insert into ComponentesHardware VALUES" 
+       //           + "(null,1,?,?,?,?,?,?);";
+        //conLocal.update(inserirDadosHardwareLocal,
+          //                  idDaMaquina,
+            //                nomeDisco,
+              //              tamanhoDisco,
+                //            modeloDisco,
+                  //          qtdDiscos, 
+                    //        memoriaTotal,
+                      //      processadorNome);
                          
             //Para AZURE
         String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
@@ -205,7 +205,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
 
 //-------------------------------INSERT HISTORICO------------------------------
-        Date data = new Date();
+        
         
        // LocalDateTime data = LocalDateTime.now();
         
@@ -219,12 +219,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
           timer.scheduleAtFixedRate(new TimerTask() {
              @Override
              public void run() {
+             
+              Date data = new Date();
+                 
                  
            //MySQL local         
-            String inserirHistoricoLocal = "Insert into Historico VALUES "
-                + "(null,1,?,?,?,?,?,?,?);";
-            conLocal.update(inserirHistoricoLocal,idDaMaquina,data,tempoInicializado,tempoDeAtividade,
-                   temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);
+        //    String inserirHistoricoLocal = "Insert into Historico VALUES "
+          //      + "(null,1,?,?,?,?,?,?,?);";
+            //conLocal.update(inserirHistoricoLocal,idDaMaquina,data,tempoInicializado,tempoDeAtividade,
+              //     temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);
            
            //AZURE
             String inserirHistorico = "Insert into Historico VALUES "

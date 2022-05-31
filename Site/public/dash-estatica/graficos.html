@@ -27,7 +27,7 @@
 </head>
 
 
-<body onload="validarSessao(),  obterDadosGrafico(1)">
+<body onload="validarSessao(),   obterFuncionarios()">
 
 	<nav>
 		<div class="sidebar-top">
@@ -152,12 +152,8 @@
 
 		<div id='center' class="main">
 			<div class="dash">
-				<div class="div_maquinas">
-					<button class="div_maquina1" onclick="obterDadosGrafico(1)"><b>Bruno</b></button>
-					<button class="div_maquina2" onclick="obterDadosGrafico(2)"><b>Lucas</b></button>
-					<button class="div_maquina3" onclick="obterDadosGrafico(3)"><b>Raul</b></button>
-					<button class="div_maquina4" onclick="obterDadosGrafico(4)"><b>Victor</b></button>
-					<button class="div_maquina5" onclick="obterDadosGrafico(5)"><b>Neto</b></button>
+				<div class="div_maquinas" id="maquinasFuncionario">
+				
 				</div>
 				<div class="regua">
 
@@ -222,6 +218,89 @@
 <script src="app.js"></script>
 <script>
 	let proximaAtualizacao;
+
+	function obterFuncionarios(){
+		fetch(`/usuarios/listarFuncionarios`, { cache: 'no-store' }).then(function (response) {
+				if (response.ok) {
+					response.json().then(function (resposta) {
+					console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+					
+						console.log("pegando elemento pelo id" + resposta[0]);
+						var feed = document.getElementById("maquinasFuncionario");
+
+						for(var i = 0; i < resposta.length; i++){
+
+							console.log("fazendo botões");
+
+					
+							var idMaquina = resposta[i].idMaquina;
+							var nomeFuncionario = resposta[i].Nome;
+
+							var divFuncionarios = document.createElement("button");
+							divFuncionarios.onclick = function obterDadosGrafico(idMaquina) {
+											var componenteSelecionado = sel_comp.value;
+
+											if (proximaAtualizacao != undefined) {
+												clearTimeout(proximaAtualizacao);
+											}
+
+											if (componenteSelecionado == 1 || componenteSelecionado == 2) {
+
+												fetch(`/medidas/ultimas/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+													if (response.ok) {
+														response.json().then(function (resposta) {
+															console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+															resposta.reverse();
+
+															plotarGrafico(resposta, idMaquina);
+														});
+													} else {
+														console.error('Nenhum dado encontrado ou erro na API');
+													}
+												})
+													.catch(function (error) {
+														console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+													});
+											} else if (componenteSelecionado == 3) {
+
+												fetch(`/medidas/buscarConsumoCPU/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+													if (response.ok) {
+														response.json().then(function (resposta) {
+															console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+															resposta.reverse();
+
+															plotarGrafico(resposta, idMaquina);
+														});
+													} else {
+														console.error('Nenhum dado encontrado ou erro na API');
+													}
+												})
+													.catch(function (error) {
+														console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+													});
+											}
+
+
+										};
+							divFuncionarios.className = "div_maquina1";
+							divFuncionarios.innerHTML = `${nomeFuncionario}`;
+							
+				
+							feed.appendChild(divFuncionarios);
+
+						}
+						
+					});
+				} else {
+					console.error('Nenhum dado encontrado na listaFuncionarios ou erro na API');
+				}
+			})
+				.catch(function (error) {
+					console.error(`Erro na obtenção dos dados p/ listaFuncionarios: ${error.message}`);
+				});
+
+
+	}
 
 
 	function obterDadosGrafico(idMaquina) {

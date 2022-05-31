@@ -11,6 +11,11 @@ router.get("/listar", function(req, res) {
     usuarioController.listar(req, res);
 });
 
+
+router.get("/listarFuncionarios", function(req, res) {
+    usuarioController.listarFuncionarios(req, res);
+});
+
 router.post("/cadastrar", function(req, res) {
     usuarioController.cadastrar(req, res);
 })

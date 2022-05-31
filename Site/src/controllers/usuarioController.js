@@ -26,6 +26,24 @@ function listar(req, res) {
     );
 }
 
+
+function listarFuncionarios(req, res) {
+    usuarioModel.listarFuncionarios()
+    .then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(
+        function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
 // Metodo entrar
 
 // Faz uma requisiço e retorna uma resposta
@@ -300,7 +318,7 @@ function cadastrarMaquina(req, res) {
         //             resultadoFuncionario.JSON;
         //             JSON.stringify(resultadoFuncionario);
         //             var idFuncionario = resultadoFuncionario[0];
-                usuarioModel.cadastrarMaquina(sistemaoperacional,fabricante, arquitetura, permissao,hostname)
+                usuarioModel.cadastrarMaquina(idfuncionario,sistemaoperacional,fabricante, arquitetura, permissao,hostname)
                 .then(
                     function (resultado) {
                         res.json(resultado);
@@ -394,6 +412,7 @@ module.exports = {
     deletarMaquina,
     updateMaquina,
     listarMaquina,
+    listarFuncionarios,
     listar,   
     testar
 }

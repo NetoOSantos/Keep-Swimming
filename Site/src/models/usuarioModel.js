@@ -29,6 +29,21 @@ function listar() {
     
 }
 
+function listarFuncionarios() {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarFuncionarios()");
+
+    // azure
+    
+    var instrucao = `
+    select Nome,idMaquina from [dbo].[FUNCIONARIO] 
+    join [dbo].[Maquina] on idFuncionario = fkUsuario;
+    `;
+
+    console.log("Executando a instrução SQL: \n"+instrucao);
+    return database.executar(instrucao);
+    
+}
+
 function entrar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     
@@ -120,11 +135,7 @@ function updateFuncionario(idFuncionario,alteracao,coluna) {
 
     var instrucao;
 
-    if(coluna == "id")
-    {
-        instrucao = `update fUNCIONARIO SET idFuncionario = ${alteracao} Where idFuncionario = ${idFuncionario};`;
-    } 
-    else if(coluna == "nome")
+    if(coluna == "nome")
     {
          instrucao = `update fUNCIONARIO SET Nome = '${alteracao}' Where idFuncionario = ${idFuncionario};`;
     }   
@@ -164,19 +175,21 @@ function listarMaquina() {
 }
 
 
-function cadastrarMaquina(sistemaoperacional, fabricante, arquitetura, permissao,hostname){
+function cadastrarMaquina(idFuncionario,sistemaoperacional, fabricante, arquitetura, permissao,hostname){
 
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarMaquina():", sistemaoperacional, fabricante, arquitetura,permissao,hostname);
 
     var instrucao = `       
         INSERT INTO [dbo].[Maquina] 
-        (
+        (   
+            fkUsuario,
             sistemaoperacional,
             fabricante,
             arquitetura,
             permissoes,
             hostName) VALUES   
             (
+            ${idFuncionario},
             '${sistemaoperacional}',  
             '${fabricante}', 
             '${arquitetura}',
@@ -247,5 +260,6 @@ module.exports = {
     deletarMaquina,
     updateMaquina,
     listarMaquina,
+    listarFuncionarios,
 
 };
