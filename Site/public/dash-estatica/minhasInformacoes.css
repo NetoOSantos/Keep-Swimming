@@ -148,7 +148,6 @@ nav:hover .shrink-btn,
 .search {
   min-height: 2.7rem;
   background-color: #253370;
-  margin: 2rem 0.5rem 1.7rem;
   display: grid;
   grid-template-columns: 2.7rem 1fr;
   align-items: center;
@@ -387,9 +386,9 @@ body.shrink .shrink-btn i {
   transform: rotate(-180deg);
 }
 
-body.shrink .sidebar-links h4 {
+/* body.shrink .sidebar-links h4 {
   height: 10px;
-}
+} */
 
 body.shrink .account {
   opacity: 1;
@@ -423,6 +422,7 @@ body.shrink .tooltip {
       align-items: center;
       background-image: url(./imgs/minhaInfo.png);
       background-size: cover;
+      width: 75%;
       
       
   }
@@ -464,7 +464,7 @@ body.shrink .tooltip {
       
   }
   input{
-      display: block;
+      /* display: block;
       height: 50px;
       width: 90%;
       background-color: rgba(0,0,0,.25);
@@ -472,7 +472,13 @@ body.shrink .tooltip {
       padding: 0 10px;
       margin-top: 8px;
       font-size: 14px;
-      font-weight: 300;
+      font-weight: 300; */
+      width: 300px;
+      background: 
+          linear-gradient(#000, #000) center bottom 5px /calc(100% - 10px) 2px no-repeat;
+      background-color: #fcfcfc;
+      border: 1px solid;
+      padding: 10px;
       
   }
   ::placeholder{
@@ -513,15 +519,16 @@ body.shrink .tooltip {
     color: #ffffff;
     padding: 10px;
     margin: 10px;
-    font-size: 24px;
-    line-height: 24px;
-    border-radius: 10px;
+    font-size: 19px;
+    line-height: 20px;
+    border-radius: 22px;
     position: relative;
     box-sizing: border-box;
     cursor: pointer;
     transition: all 400ms ease;
-    background-color: #3651d4;;
-    width: 50%;
+    background-color: #3651d4;
+    width: 20%;
+    left: 25%;
   }
   
   .efeito:before {
@@ -952,4 +959,19 @@ color: #000;
 }
 form h3{
     display: flex;
+}
+
+@media (max-width: 600px) {
+
+  .active-tab{
+    width: 100%;
+    height: 53px;
+    background-color: var(--main-color-dark);
+    border-radius: 10px;
+    position: absolute;
+    top: 245px;
+    left: 0;
+    transition: top 0.3s;
+  }
+
 }
