@@ -11,7 +11,7 @@
   <script src="../javaScript/cadastroMaquina.js"></script>
 
   <!-- <link rel="stylesheet" href="nav.css"> -->
-  <link rel="stylesheet" href="cad-maquina.css">
+  <link rel="stylesheet" href="minhasInformacoes.css">
   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
   <!-- <link rel="shortcut icon" href="./assets/icons/anchor_icon.ico" type="image/x-icon"> -->
   <!-- <link rel="stylesheet" href="./css/tela-cadastro.css"> -->
@@ -48,7 +48,7 @@
         </li>
 
         <li class="tooltip-element" data-tooltip="1">
-          <a href="#" class="active" data-active="1">
+          <a href="#"  data-active="1">
             <div class="icon" href>
               <i class='bx bx-card'></i>
               <i class='bx bxs-card'></i>
@@ -86,10 +86,10 @@
 
       <ul>
         <li class="tooltip-element" data-tooltip="0">
-        <a href="./minhasInformacoes.html" data-active="4">
-          <div class="icon">
-            <i class='bx bx-user'></i>
-            <i class='bx bxs-user'></i>
+        <a href="#" data-active="4" class="active">
+          <div class="icon" >
+            <i class='bx bx-user' ></i>
+            <i class='bx bxs-user' ></i>
           </div>
           <span class="link hide">Minhas informações</span>
         </a>
@@ -147,8 +147,8 @@
 
       <div class="formulario">
         <form id="form_cadastro_maquina" method="post" onsubmit="return bt_cadastro_maquina()">
-          <h3>Cadastre sua Máquina</h3>
-
+          <h3>Informações pessoais</h3>
+            <div class="border"></div>
           <div class="roles">
 
             <div class="ladoEsquerdo">
@@ -163,12 +163,7 @@
               <input name="sistemaOperacional" type="text" placeholder="Sistema Operacional"
                 id="sistemaoperacional_ipt">
 
-
-            </div>
-
-
-            <div class="ladodireito">
-
+                
               <label for="arquitetura">Arquitetura</label>
               <input name="arquitetura" type="text" placeholder="32bits/64 bits" id="arquitetura_ipt">
 
@@ -178,7 +173,13 @@
               <label for="fabricante">Fabricante</label>
               <input name="fabricante" type="text" placeholder="GNU" id="fabricante_ipt">
 
+
             </div>
+
+
+            <!-- <div class="ladodireito">
+
+            </div> -->
 
             <div class="div_botao">
               <button class="btn efeito">Cadastrar</button>
