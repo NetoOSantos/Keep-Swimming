@@ -228,6 +228,13 @@
 						console.log("pegando elemento pelo id" + resposta[0]);
 						var feed = document.getElementById("maquinasFuncionario");
 
+						var divFuncionarios = document.createElement("select");
+						divFuncionarios.className = "div_maquina1";
+						divFuncionarios.id = "select_funcionarios";
+						divFuncionarios.onclick = function chamarObterDadosGrafico()
+						{obterDadosGrafico();};
+
+
 						for(var i = 0; i < resposta.length; i++){
 
 							console.log("fazendo botões");
@@ -236,18 +243,18 @@
 							var idMaquinaFunc = resposta[i].idMaquina;
 							var nomeFuncionario = resposta[i].Nome;
 
-							var divFuncionarios = document.createElement("button");
 							
-							divFuncionarios.id = `idMaquina${idMaquinaFunc}`;
+							var options = document.createElement("option");
+							
+							options.value = idMaquinaFunc;
+							options.innerHTML = nomeFuncionario;
 
-							divFuncionarios.onclick = function colocarIdsMaquina()
-							{	
-								alert(`criando onclick idMaquina ${idMaquinaFunc}`);};
 
-							divFuncionarios.className = "div_maquina1";
-							divFuncionarios.innerHTML = `${idMaquinaFunc}`;
 							
+
+				
 							
+							divFuncionarios.appendChild(options);
 							feed.appendChild(divFuncionarios);
 
 						}
@@ -265,9 +272,11 @@
 	}
 
 
-	function obterDadosGrafico(idMaquina) {
+	function obterDadosGrafico() {
+		var idMaquina = select_funcionarios.value;
 		var componenteSelecionado = sel_comp.value;
 		
+		console.log("id passado é esse : " + idMaquina)
 
 		console.log("passando id maquina " + idMaquina);
 
