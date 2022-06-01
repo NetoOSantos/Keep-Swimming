@@ -233,59 +233,21 @@
 							console.log("fazendo botões");
 
 					
-							var idMaquina = resposta[i].idMaquina;
+							var idMaquinaFunc = resposta[i].idMaquina;
 							var nomeFuncionario = resposta[i].Nome;
 
 							var divFuncionarios = document.createElement("button");
-							divFuncionarios.onclick = function obterDadosGrafico(idMaquina) {
-											var componenteSelecionado = sel_comp.value;
-
-											if (proximaAtualizacao != undefined) {
-												clearTimeout(proximaAtualizacao);
-											}
-
-											if (componenteSelecionado == 1 || componenteSelecionado == 2) {
-
-												fetch(`/medidas/ultimas/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
-													if (response.ok) {
-														response.json().then(function (resposta) {
-															console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-															resposta.reverse();
-
-															plotarGrafico(resposta, idMaquina);
-														});
-													} else {
-														console.error('Nenhum dado encontrado ou erro na API');
-													}
-												})
-													.catch(function (error) {
-														console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-													});
-											} else if (componenteSelecionado == 3) {
-
-												fetch(`/medidas/buscarConsumoCPU/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
-													if (response.ok) {
-														response.json().then(function (resposta) {
-															console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-															resposta.reverse();
-
-															plotarGrafico(resposta, idMaquina);
-														});
-													} else {
-														console.error('Nenhum dado encontrado ou erro na API');
-													}
-												})
-													.catch(function (error) {
-														console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-													});
-											}
-
-
-										};
-							divFuncionarios.className = "div_maquina1";
-							divFuncionarios.innerHTML = `${nomeFuncionario}`;
 							
-				
+							divFuncionarios.id = `idMaquina${idMaquinaFunc}`;
+
+							divFuncionarios.onclick = function colocarIdsMaquina()
+							{	
+								alert(`criando onclick idMaquina ${idMaquinaFunc}`);};
+
+							divFuncionarios.className = "div_maquina1";
+							divFuncionarios.innerHTML = `${idMaquinaFunc}`;
+							
+							
 							feed.appendChild(divFuncionarios);
 
 						}
@@ -305,6 +267,9 @@
 
 	function obterDadosGrafico(idMaquina) {
 		var componenteSelecionado = sel_comp.value;
+		
+
+		console.log("passando id maquina " + idMaquina);
 
 		if (proximaAtualizacao != undefined) {
 			clearTimeout(proximaAtualizacao);
