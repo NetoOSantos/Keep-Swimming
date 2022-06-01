@@ -143,9 +143,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             
               //Para azure
             String inserirDadosProcessos = "Insert into Processos VALUES "
-              + "(?,?,?,?,?,?,?,?,?,?);";
+              + "(?,?,?,?,?,?,?,?,?,getdate());";
             con.update(inserirDadosProcessos,idDaMaquina, PID,Nome,UsoCpu,usoMemoria,
-                   bytesUtilizados,memVirtualUtilizada, totalProcessos, threads,dataHoraProcesso);
+                   bytesUtilizados,memVirtualUtilizada, totalProcessos, threads);
             }
            
         }
@@ -234,8 +234,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
            
            //AZURE
             String inserirHistorico = "Insert into Historico VALUES "
-                + "(?,?,?,?,?,?,?,?);"; 
-            con.update(inserirHistorico,idDaMaquina,data,tempoInicializado,tempoDeAtividade,
+                + "(?,gatdate(),?,?,?,?,?,?);"; 
+            con.update(inserirHistorico,idDaMaquina,tempoInicializado,tempoDeAtividade,
                    temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);
            
 
