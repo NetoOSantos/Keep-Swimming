@@ -408,20 +408,21 @@ body.shrink .tooltip {
 
   
   form{
-      height: 55%;
-      width: 60%; 
+ 
       background-color: #ebf5fc;
       position: relative;
       transform: translate(-50%,-0%);
       /* top: 54%; */
       left: 50%;
-      border-radius: 10px;
+      border-radius: 10px 60px 10px 60px;
       backdrop-filter: blur(10px);
       border: 2px solid rgba(255,255,255,0.1);
       /* box-shadow: 0 0 40px rgba(8,7,16,0.6); */
       padding: 50px 35px;
       justify-content: center;
       align-items: center;
+      background-image: url(./imgs/minhaInfo.png);
+      background-size: cover;
       
       
   }
