@@ -107,7 +107,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 //------------------------------ INSERT DE PROCESSOS ---------------------------
    
         System.out.println("=".repeat(40));
-        Date dataHoraProcesso = new Date();
+        
         
         List<Processo> processos = looca.getGrupoDeProcessos().getProcessos();
        
@@ -123,6 +123,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
             gravar.criarLog("Inserindo dados no BD...");
         for(int i = 0; i < processos.size(); i++)
         {
+            
+            Date dataHoraProcesso = new Date();
+            
            Integer PID = processos.get(i).getPid();
            String Nome = processos.get(i).getNome();
            Double UsoCpu = processos.get(i).getUsoCpu();
