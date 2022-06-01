@@ -17,13 +17,11 @@ public class KeepSwimming extends javax.swing.JFrame {
     String SENHA;
    
     public KeepSwimming() {
-        Log log = new Log();
-        log.criarLog("===============Tela de Login===============");
-        log.criarLog("Iniciando tela swing email&senha");
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -157,23 +155,21 @@ public class KeepSwimming extends javax.swing.JFrame {
 
     private void btnNavegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNavegarActionPerformed
         //////////////Conexão com o banco//////////////
-     Log gravar = new Log();
-     gravar.criarLog("Fazendo conexão com o Banco...");
+
+     
         
         
         //Instancia a classe Connection
         //Instancia um objeto Jdbc e pega o retorno getDataSource
-        
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
         List funcionario = new ArrayList();
         Funcionario usuario = new Funcionario();
         BeanPropertyRowMapper Bean = new BeanPropertyRowMapper();
-        
         ///////////////////////////////////////////////
-        
         EMAIL = (CampoEmail.getText());
         SENHA = (new String(CampoSenha.getPassword()));
+
 
         List<Funcionario> Select = con.query("SELECT"
                 + " idFuncionario,"
@@ -188,18 +184,18 @@ public class KeepSwimming extends javax.swing.JFrame {
         {
             if(func.getEMAIL().equals(EMAIL) && func.getSENHA().equals(SENHA)) {
                 Resultado.setText("LOGADO COM SUCESSO!");
-                gravar.criarLog("Usuario logado");
+                
         
            //    new EnviaToken().setVisible(true);
-           gravar.criarLog("Iniciando tela token...");
                EnviaToken token = new EnviaToken();
                token.setVisible(true);
                token.setIdsFuncionario(func);
                this.dispose();
-                 
+                
+               
             } else {
-                gravar.criarLog("Erro na autenticação do usuario");
-                Resultado.setText("=(");
+
+                Resultado.setText("Nome de usuário ou senha errados. Por favor tente outra vez. =( ");
             }
         }
     }//GEN-LAST:event_btnNavegarActionPerformed
@@ -212,8 +208,10 @@ public class KeepSwimming extends javax.swing.JFrame {
 
     }//GEN-LAST:event_CampoEmailActionPerformed
 
+   
     public static void main(String args[]) {
-                     
+               
+               
        /////////////////Padrão do SWING////////////////////////
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -237,7 +235,6 @@ public class KeepSwimming extends javax.swing.JFrame {
                 new KeepSwimming().setVisible(true);
             }
         });
-        
         /////////////////////////////////////////////////////////////////
     }
 
@@ -256,5 +253,4 @@ public class KeepSwimming extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
-
 }
