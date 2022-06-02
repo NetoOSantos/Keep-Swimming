@@ -10,7 +10,7 @@ create table [dbo].[Empresa](
 			);
 
 INSERT INTO empresa VALUES 
-(null,"03.778.130/0001-48", "Keep Swimming", 'Keep@hotmail.com', 06126020,'123');
+("03.778.130/0001-48", "Keep Swimming", 'Keep@hotmail.com', 06126020,'123');
 
 CREATE TABLE [dbo].[FUNCIONARIO] (
          idFuncionario INT PRIMARY KEY IDENTITY,
@@ -51,6 +51,7 @@ CREATE TABLE [dbo].[Processos] (
                 memVirtualUtilizada FLOAT,
                 totalProcessos int,
                 threads int,
+                dataHoraProcesso datetime
                 foreign key (fkMaquina) references Maquina(idMaquina)
                 on delete cascade
                 );

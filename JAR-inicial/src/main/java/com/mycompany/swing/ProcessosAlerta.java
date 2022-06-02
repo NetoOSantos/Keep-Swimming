@@ -36,8 +36,8 @@ public class ProcessosAlerta {
     @Override
     public String toString() {
         
-        return "Nome= " + Nome + "\nusoMemoria=" + usoMemoria + "\nuso CPU = " 
-                + usoCPU + "\n\n";
+        return "Nome= " + Nome + "\nusoMemoria=" + usoMemoria + " MG" + "\nuso CPU = " 
+                + usoCPU + "%"+"\n\n";
     }
     
     

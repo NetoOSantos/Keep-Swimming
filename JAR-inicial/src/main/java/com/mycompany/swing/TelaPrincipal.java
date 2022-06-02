@@ -179,6 +179,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         System.out.println("Buscando histórico...");
 
         Date data = new Date();
+         DiscosGroup disco = looca.getGrupoDeDiscos();
+        List<Disco> listaDeDisco = disco.getDiscos();
+        
+        for(Integer i = 0; i < listaDeDisco.size(); i++)
+        {
+            System.out.println("BYTES DE LEITURA: " +  listaDeDisco.get(i).getBytesDeLeitura());
+        }
+        
         //MySQL local         
         //String inserirHistorico = "Insert into Historico VALUES "
         //   + "(null,1,?,?,?,?,?,?,?);";
@@ -207,6 +215,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         System.out.println("Memoria em uso " + memoriaEmUso);
         System.out.println("Memoria disponível " + memoriaDisponível);
         System.out.println("Uso do processador " + processadorUso);
+        
+       
+        
     }
 
     @SuppressWarnings("unchecked")
