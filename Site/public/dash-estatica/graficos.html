@@ -11,7 +11,7 @@
 	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
 	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
 	<script src="../../src/controllers/medidaController.js"></script>
-
+	<script src="../assets/js/funcoes.js"></script>
 	<style>
 		.canvas {
 			-moz-user-select: none;
@@ -19,7 +19,7 @@
 			-ms-user-select: none;
 		}
 	</style>
-
+  <link rel="shortcut icon" href="../assets/icons/leme.png" type="image/x-icon">
 <link rel="stylesheet" href="dash-cadastro.css">
 <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
@@ -118,36 +118,35 @@
 			</ul>
 		</div>
 
+		
 		<div class="sidebar-footer">
 			<a href="#" class="account tooltip-element" data-tooltip="0">
-				<i class='bx bx-user'></i>
+			  <i class='bx bx-user'></i>
 			</a>
 			<div class="admin-user tooltip-element" data-tooltip="1">
-				<div class="admin-profile hide">
-					<img src="./img/face-1.png" alt="">
-					<div class="admin-info">
-						<div class="hello">
-							<h3>Olá, <span id="b_usuario"></span>!</h3>
-						</div>
-					</div>
+			  <div class="admin-profile hide">
+				<img src="./img/face-1.png" alt="">
+				<div class="admin-info">
+	  
+				  <div class="hello">
+					<h3>Olá, <span id="b_usuario"></span>!</h3>
+	  
+				  </div>
 				</div>
-				<a href="#" class="btn-logout" onclick="limparSessao()">
-					<i class='bx bx-log-out'></i>
-				</a>
+			  </div>
+			  <a href="#" class="log-out">
+				<i class='bx bx-log-out'></i>
+			  </a>
 			</div>
 			<div class="tooltip">
-				<span class="show">Raul
-					<div class="hello">
-						<h3>Olá, <span id="b_usuario"></span>!</h3>
-					</div>
-				</span>
-				<span>Logout</span>
+			  <!-- <span class="show">Raul</span> -->
+			  <!-- <div class="hello">
+				<h3>Olá, <span id="b_usuario"></span>!</h3>
+			  </div> -->
+			  <span onclick="limparSessao()">Logout</span>
 			</div>
-		</div>
-	</nav>
-
-
-
+		  </div>
+		</nav>
 
 	<main>
 

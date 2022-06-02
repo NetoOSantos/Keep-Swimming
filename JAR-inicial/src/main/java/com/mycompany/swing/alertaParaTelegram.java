@@ -103,6 +103,25 @@ public class alertaParaTelegram {
         
         return  selectProcessos;
     }
+    public Boolean isEcxistsFunc(String hostname)
+    {
+        List<ProcessosAlerta> returnProcessos = new ArrayList<>();
+        
+        List<ProcessosAlerta> selectProcessos = con.query(
+                 "select distinct top 10 Nome,usoMemoria,usoCPU from [dbo].[Processos]\n" +
+                  " join [dbo].[Maquina] on fkMaquina = idMaquina where hostName = '" + hostname +"'"
+                 + " order by usoMemoria desc ",
+                new BeanPropertyRowMapper(ProcessosAlerta.class));
+        
+        if(!selectProcessos.isEmpty()){
+            return true;
+        }else{
+            return  false;
+        }
+  
+        
+        
+    }
    
 //select top 10 usoMemoria from [dbo].[Processos]
 //join [dbo].[Maquina] on fkMaquina = idMaquina where idMaquina = 1  

@@ -9,10 +9,10 @@
 
 
   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="shortcut icon" href="./assets/icons/anchor_icon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="../assets/icons/leme.png" type="image/x-icon">
 
-
-  <link rel="stylesheet" href="../css/style.css">
+  <script src="../assets/js/funcoes.js"></script>
+  <!-- <link rel="stylesheet" href="../css/style.css"> -->
   <link rel="stylesheet" href="./dashboards.css">
 
   <!-- <link rel="stylesheet" href="./cad-maquina.css"> -->
@@ -129,8 +129,10 @@
         <div class="admin-profile hide">
           <img src="./img/face-1.png" alt="">
           <div class="admin-info">
+
             <div class="hello">
               <h3>Olá, <span id="b_usuario"></span>!</h3>
+
             </div>
           </div>
         </div>
@@ -139,15 +141,21 @@
         </a>
       </div>
       <div class="tooltip">
-        <span class="show">Raul</span>
-        <h3>Olá, <span id="b_usuario"></span>!</h3>
-        <span>Logout</span>
+        <!-- <span class="show">Raul</span> -->
+        <!-- <div class="hello">
+          <h3>Olá, <span id="b_usuario"></span>!</h3>
+        </div> -->
+        <span onclick="limparSessao()">Logout</span>
       </div>
     </div>
   </nav>
 
 
   <main>
+    <!-- <div class="hello">
+      <h3>Olá, <span id="b_usuario"></span>!</h3>
+
+    </div> -->
     <div id='center' class="main center">
 
       <div class="graficoMaior">
@@ -164,9 +172,9 @@
               <div class="posisionamentoMiniInfo">
 
                 <h4>Quantidade Sistemas linux:</h4>
-                <span id="valorLinux" class="vlrMinInf">00</span>
+                <span id="valorLinux" class="vlrMinInf">03</span>
                 <h4>Desempenho em Sistemas linux :</h4>
-                <span id="valorLinux" class="vlrMinInf">00</span>
+                <span id="valorLinux" class="vlrMinInf">01</span>
               </div>
 
               <div class="imgInfos">
@@ -180,9 +188,9 @@
               <div class="posisionamentoMiniInfo">
 
                 <h4>Quantidade Sistema windons:</h4>
-                <span id="valorWind" class="vlrMinInf">00</span>
+                <span id="valorWind" class="vlrMinInf">02</span>
                 <h4>Desempenho em Sistema windons:</h4>
-                <span id="valorWind" class="vlrMinInf">00</span>
+                <span id="valorWind" class="vlrMinInf">02</span>
               </div>
 
               <div class="imgInfos">
@@ -217,7 +225,7 @@
         <!-- Grafico Pizza/Torta -->
         <div class="graph1">
 
-          
+
           <div class="top10">
             <button onclick=" atualizarFeed()">Atualizar processos</button>
 
@@ -226,7 +234,7 @@
 
             <div id="div_aguardar" class="div-aguardar">
               <img src="../assets/circle-loading.gif" id="img_aguarde">
-          </div> 
+            </div>
           </div>
 
         </div>
@@ -243,5 +251,6 @@
 </html>
 <!-- <script src="./app.js"></script> -->
 <!-- <script src="app.js"></script> -->
-<script src="../assets/js/funcoes.js"></script>
+
+<!-- <script src="../assets/js/login.js"></script> -->
 <script src="../assets/js/dash.js"></script>

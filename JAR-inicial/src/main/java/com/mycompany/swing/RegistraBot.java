@@ -11,6 +11,8 @@ public class RegistraBot {
             TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);  
             telegramBotsApi.registerBot(new KeepSwimming_TelegramBot(true));
             //KeepSwimming_TelegramBot.sendToTelegram();
+            
+          
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
