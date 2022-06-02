@@ -4,19 +4,17 @@ package com.mycompany.swing;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 
-/**
- *
- * @author  WalderleyNeto e Bruno Henrrigue
- */
+
 public class Connection {
-    
     private BasicDataSource datasource;
+    private BasicDataSource dataSourceLocal;
     
         public Connection() {
             Log log = new Log();
             
             log.criarLog("=====Buscasndo conexão com BD=====");
-     //   this.datasource = new BasicDataSource();
+
+        this.datasource = new BasicDataSource();
         
        // this.datasource.setDriverClassName("org.h2.Driver");
     // this.datasource.setDriverClassName("com.mysql.cj.jdbc.Driver");
@@ -29,23 +27,8 @@ public class Connection {
          // usuário padrao H2
       //  this.datasource.setUsername("sa");
         
-        // Conexão com banco AZURE
-        datasource = new BasicDataSource();
-        datasource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        datasource.setUrl("jdbc:sqlserver://keepswimming.database.windows.net:1433;"
-                + "database=KeepSwimming;user=KeepSwimmin@keepswimming;password=2ads@grupo8;"
-                + "encrypt=true;trustServerCertificate=false;"
-                + "hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
-                datasource.setUsername("KeepSwimmin@keepswimming");
-                datasource.setPassword("2ads@grupo8");
-                
-//         Conexão com banco H2
-//        this.datasource.setUrl("jdbc:h2:file:/home/aluno/.m2/repository"
-//                + "/com/h2database/h2/1.4.199/meu_banco");
-//       this.datasource.setDriverClassName("org.h2.Driver");
-//              this.datasource.setUsername("sa");
-//              this.datasource.setPassword("");
-    }
+         // usuário utilizado em um container MySQL
+    //    this.datasource.setUsername("root");
         
    // public Connection(Boolean mysql){
 
@@ -57,10 +40,22 @@ public class Connection {
             //  datasource.setPassword("root");
 
     //}
+        //usuário AZURE
+        this.datasource.setUsername("KeepSwimmin@keepswimming");
+
+        // senha padrao H2
+      //  this.datasource.setPassword("");
+        
+         // senha padrao utilizada no container MySQL
+      //  this.datasource.setPassword("YES");
+       
+       //senha padrao AZURE
+      this.datasource.setPassword("2ads@grupo8");
+    }
     
      public BasicDataSource getDatasource() {
         return datasource;
-                
     }
 
+   
 }

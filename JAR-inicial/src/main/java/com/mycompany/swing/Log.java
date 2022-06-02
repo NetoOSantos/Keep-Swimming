@@ -15,7 +15,7 @@ class Log {
     private DateTimeFormatter dateTimeName = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private String momentoLog = dateTimeLog.format(LocalDateTime.now());
     private String momentoNomeLog = dateTimeName.format(LocalDateTime.now());
-    private String nomeLog = String.format("src/main/resources/%s_Log_TechFood.txt", momentoNomeLog);
+    private String nomeLog = String.format("src/main/resources/%s_KS.txt", momentoNomeLog);
     
 
     public void criarLog(String message){

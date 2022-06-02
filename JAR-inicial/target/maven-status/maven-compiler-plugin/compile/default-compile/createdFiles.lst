@@ -1,4 +1,3 @@
-com/mycompany/swing/KeepSwimming_TelegramBot$1.class
 com/mycompany/swing/DadosBot.class
 com/mycompany/swing/maquina.class
 com/mycompany/swing/TelaPrincipal.class
@@ -10,6 +9,7 @@ com/mycompany/swing/RegistraBot.class
 com/mycompany/swing/TelaUsuarioLogado.class
 com/mycompany/swing/alertaParaTelegram.class
 com/mycompany/swing/KeepSwimming.class
+com/mycompany/swing/Teste.class
 com/mycompany/swing/KeepSwimming$2.class
 com/mycompany/swing/LoocaSistema.class
 com/mycompany/swing/EnviaToken$3.class
@@ -18,7 +18,6 @@ com/mycompany/swing/MainTeste.class
 com/mycompany/swing/EnviaToken$2.class
 com/mycompany/swing/dadosFuncionarioOcioso.class
 com/mycompany/swing/TelaPrincipal$1.class
-com/mycompany/swing/Looca.class
 com/mycompany/swing/Connection.class
 com/mycompany/swing/ProcessosAlerta.class
 com/mycompany/swing/KeepSwimming_TelegramBot.class

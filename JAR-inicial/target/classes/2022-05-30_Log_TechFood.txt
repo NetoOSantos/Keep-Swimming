@@ -562,3 +562,12 @@
 2022/05/30 13:59:16 --: Interagindo com usuario no Telegram
 2022/05/30 13:59:16 --: =====Buscasndo conexão com BD=====
 2022/05/30 13:59:16 --: Mensagem recebida do telegram
+2022/05/30 16:12:39 --: =============Envia Token=============
+2022/05/30 16:12:39 --: Iniciando tela do tokem...
+2022/05/30 16:12:41 --: Emitindo token
+2022/05/30 16:12:41 --: Gerando código token
+2022/05/30 16:12:41 --: Token enviado
+2022/05/30 16:12:57 --: ====================TelegramBot====================
+2022/05/30 16:12:57 --: Interagindo com usuario no Telegram
+2022/05/30 16:12:57 --: =====Buscasndo conexão com BD=====
+2022/05/30 16:12:57 --: Mensagem recebida do telegram
