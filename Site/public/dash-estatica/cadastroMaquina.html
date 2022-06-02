@@ -201,8 +201,10 @@
 
         <button onclick="listarMaquina()" class="btn_mural_funcionarios" id="btn_funcionarios">Máquinas
           cadastradas</button>
-        <div id="feed_container" class="feed-container"></div>
 
+        <div class="top10">
+        <div id="feed_container" class="feed-container"></div>
+      </div>
         <button onclick="listarMaquina()" style="display: none;" id="atualizar">Atualizar Feed</button>
 
         <div class="botoes_crud">
@@ -414,7 +416,7 @@
 
         if (resposta.ok) {
           console.log('');
-          respostaDeleteUpdate.innerHTML = "Alteração " + ipt_update.value + " da máquina " + idMaquina + " foi realizado com sucesso";
+          alert("Alteração " + ipt_update.value + " da máquina " + idMaquina + " foi realizado com sucesso")
           limparFormulario();
           // finalizarAguardar();
         } else {

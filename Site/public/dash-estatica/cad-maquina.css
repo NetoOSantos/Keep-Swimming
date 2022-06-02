@@ -593,6 +593,7 @@ body.shrink .tooltip {
     width: 85%;
     height: 100vh;
     background-color: #ffffff;
+    overflow: scroll;
   }
   .botoes_crud
   {
@@ -827,7 +828,7 @@ form .div_botao{
 }
 .feed-container{
   background-color: #253370;
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
 }
 
 .publicacao{
@@ -939,6 +940,14 @@ color: #000;
     cursor: pointer;
     background-color: #34aedf;
     width: 20%;
+}
+
+.top10{
+  width: 35vw;
+  height: 45vh;
+  overflow-y: scroll;
+  background-color: #253370;
+  border-radius: 10px;
 }
 
 
