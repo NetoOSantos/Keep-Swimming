@@ -7,3 +7,4 @@ site/package-lock.json
 
 .github
 /nbproject/private/
+/JAR-inicial/target/

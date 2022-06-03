@@ -186,8 +186,8 @@
 					<select name="" id="sel_comp" class="sel_componentescss">
 						<option value="1">Selecione</option>
 						<option value="1">Memoria</option>
-						<option value="2">processador</option>
-						<option value="3">CPU</option>
+						<option value="2">CPU</option>
+						
 					</select>
 
 
@@ -217,6 +217,8 @@
 </html>
 <script src="app.js"></script>
 <script>
+
+	
 	let proximaAtualizacao;
 
 	function obterFuncionarios(){
@@ -284,7 +286,7 @@
 			clearTimeout(proximaAtualizacao);
 		}
 
-		if (componenteSelecionado == 1 || componenteSelecionado == 2) {
+		
 
 			fetch(`/medidas/ultimas/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
 				if (response.ok) {
@@ -301,24 +303,7 @@
 				.catch(function (error) {
 					console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
 				});
-		} else if (componenteSelecionado == 3) {
-
-			fetch(`/medidas/buscarConsumoCPU/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
-				if (response.ok) {
-					response.json().then(function (resposta) {
-						console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-						resposta.reverse();
-
-						plotarGrafico(resposta, idMaquina);
-					});
-				} else {
-					console.error('Nenhum dado encontrado ou erro na API');
-				}
-			})
-				.catch(function (error) {
-					console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-				});
-		}
+		
 
 
 	}
@@ -332,15 +317,12 @@
 
 		if (componenteSelecionado == 1) {
 			nomeLabel = 'Memoria';
-			labelString = 'Uso MB'
+			labelString = 'Uso GB'
 		} else if (componenteSelecionado == 2) {
-			nomeLabel = 'Processador';
-			labelString = 'MIPS'
-		}
-		else if (componenteSelecionado == 3) {
 			nomeLabel = 'CPU';
-			labelString = 'Uso %'
+			labelString = 'Uso CPU %'
 		}
+
 
 
 
@@ -374,14 +356,12 @@
 			dados.labels.push(registroHora);
 
 			if (componenteSelecionado == 1) {
-				dados.datasets[0].data.push((registro.dadosMemoria) / 1048576);
+				dados.datasets[0].data.push((registro.dadosMemoria) / 1073741824);
 			} else if (componenteSelecionado == 2) {
 
 				dados.datasets[0].data.push(registro.dadosProcessador);
 			}
-			else if (componenteSelecionado == 3) {
-				dados.datasets[0].data.push((registro.usoCPU) / 100);
-			}
+		
 		}
 
 		console.log(JSON.stringify(dados));
@@ -409,6 +389,7 @@
 						ticks: {
 							beginAtZero: true
 						}
+						
 					}]
 				},
 				animation: {
@@ -431,15 +412,8 @@
 	function atualizarGrafico(idMaquina, dados, componenteSelecionado) {
 
 
-		var caminhoFetch = ``;
 
-		if (componenteSelecionado == 1 || componenteSelecionado == 2) {
-			caminhoFetch = "/medidas/tempo-real/";
-		} else if (componenteSelecionado == 3) {
-			caminhoFetch = "/medidas/tempo-real-cpu/";
-		}
-
-		fetch(`${caminhoFetch}${idMaquina}`, { cache: 'no-store' }).then(function (response) {
+		fetch(`/medidas/tempo-real/${idMaquina}`, { cache: 'no-store' }).then(function (response) {
 			if (response.ok) {
 				response.json().then(function (novoRegistro) {
 
@@ -457,41 +431,32 @@
 					dados.datasets[0].data.shift();  // apagar o primeiro de umidade
 
 					if (componenteSelecionado == 1) {
-						dados.datasets[0].data.push((novoRegistro[0].dadosMemoria) / 1048576);
+						dados.datasets[0].data.push((novoRegistro[0].dadosMemoria) / 1073741824);
 					} else if (componenteSelecionado == 2) {
 						dados.datasets[0].data.push(novoRegistro[0].dadosProcessador);
-					} else if (componenteSelecionado == 3) {
-						dados.datasets[0].data.push((novoRegistro[0].usoCPU) / 100)
-					}
+					} 
 					///////////////// ALERTAS ///////////////////
-					var memoriaDisponivel = (novoRegistro[0].memoriaDisponivel) / 1048576;
-					var memoriaEmUso = (novoRegistro[0].dadosMemoria) / 1048576;
-					var memoriaTotal = memoriaEmUso + memoriaDisponivel;
+					var memoriaEmUso = Math.round((novoRegistro[0].dadosMemoria) / 1073741824);
+					var memoriaTotal = Math.round((novoRegistro[0].memoriaTotal) / 1073741824);
 
-
-
-					if ((novoRegistro[0].usoCPU) / 100 > 85) {
+					 if ((novoRegistro[0].dadosProcessador) > 85 && componenteSelecionado == 2) {
 						dados.datasets[0].borderColor = "#cd32328f";
 						dados.datasets[0].backgroundColor = "#cd32328f";
 
 						div_alerta.innerHTML = "Uso da cpu ALTA! <br> Recomendamos reiniciar o PC";
-					} else if ((novoRegistro[0].usoCPU) / 100 < 25) {
+					}
+					else if((novoRegistro[0].dadosProcessador ) < 25 && componenteSelecionado == 2 )
+					{
 						dados.datasets[0].borderColor = "#cd32328f";
 						dados.datasets[0].backgroundColor = "#cd32328f";
 
 						div_alerta.innerHTML = "Uso da cpu baixa! <br> Indicativo de funcionário ocioso";
 					}
-					else if (novoRegistro[0].dadosProcessador < 20) {
+					else if (memoriaEmUso > memoriaTotal * 0.75 && componenteSelecionado == 1) {
 						dados.datasets[0].borderColor = "#cd32328f";
 						dados.datasets[0].backgroundColor = "#cd32328f";
-						div_alerta.innerHTML = "Processador com baixo nível de processamento!<br>"
-							+ "recomendamos: reiniciar o PC";
-					}
-					else if (memoriaEmUso > memoriaTotal * 0.75) {
-						dados.datasets[0].borderColor = "#cd32328f";
-						dados.datasets[0].backgroundColor = "#cd32328f";
-						div_alerta.innerHTML = "Memoria acima de 75%! <br>"
-							+ "Reinicie o pc<br> Exclua arquivos temporários <br> Aproveite para deletar os programas que não usa";
+						div_alerta.innerHTML = `Uso da memória acima de 75% <br>
+						Recomendamos fechar aplicações que não estão sendo utilizadas`;
 					}
 
 
@@ -517,75 +482,8 @@
 	}
 
 
-			// setInterval(() => {
-			// 	get_data();
-			// }, 800);
 
 </script>
 
 
 
-
-
-
-<script>
-				//Função para obter os dados de temperatura do server
-			//Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
-
-			//Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
-			//hora de montar/atualizar o gráfico
-			// this.lastIndexTemp = 0;
-			// this.time = 0;
-
-			// function get_data() {
-
-			// 	var http = new XMLHttpRequest();
-			// 	http.open('GET', 'http://localhost:3000/medidas/atividadeSensor', false);//LOCAL DE ONDE VAI OS DADOS
-			// 	http.send(null);
-
-			// 	var obj = JSON.parse(http.responseText);
-			// 	if (obj.data.length == 0) {
-			// 		return;
-			// 	}
-
-			// 	var _lastIndexTemp = this.lastIndexTemp;
-			// 	this.lastIndexTemp = obj.data.length;
-			// 	listTemp = obj.data.slice(_lastIndexTemp);
-
-			// 	listTemp.forEach(data => {
-			// 		Máximo de 60 itens exibidos no gráfico
-			// 		if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10) {
-			// 			chart.data.labels.shift();
-			// 			chart.data.datasets[0].data.shift();
-			// 		}
-
-			// 		chart.data.labels.push(this.time++);
-			// 		chart.data.datasets[0].data.push(parseFloat(data));
-			// 		chart.update();
-			// 		if (this.time <= 11) {
-			// 			divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: red; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
-
-			// 		}
-			// 		else if (this.time >= 11 && this.time <= 25) {
-			// 			divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: yellow; color: black; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
-
-			// 		}
-			// 		else if (this.time >= 26 && this.time <= 74) {
-			// 			divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: purple; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
-
-			// 		}
-			// 		else if (this.time >= 75 && this.time <= 90) {
-			// 			divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color: #ff7b00; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
-
-			// 		}
-			// 		else {
-			// 			divMostrar.innerHTML = '<div style="border-radius: 50%; display: flex; justify-content: center; font-weight: bolder; align-items: center; background-color:green; color: white; width: 30px; heigth: 50px;padding:5px;">' + this.time + '</div>';
-
-			// 		}
-			// 	});
-			// 	document.getElementById('average').textContent = obj.average;
-
-
-
-			// }
-</script>
