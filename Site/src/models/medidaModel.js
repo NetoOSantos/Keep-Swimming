@@ -51,7 +51,7 @@ function buscarMedidasEmTempoReal(idMaquina,componenteSelecionado) {
     round(memoriaTotal,0) as memoriaTotal
             from Maquina join [dbo].[Historico] on idMaquina = Historico.fkMaquina 
             join [dbo].[ComponentesHardware] on idMaquina = ComponentesHardware.fkMaquina
-            where idMaquina = 1
+            where idMaquina = ${idMaquina}
             order by Hora desc`;
 
 console.log("Executando a instrução SQL: \n" + instrucaoSql );

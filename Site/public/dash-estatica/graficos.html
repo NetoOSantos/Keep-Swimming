@@ -192,6 +192,8 @@
 				
 					</div>
 
+					<button class="btn_atualizar_grafico" onclick="atualizar()">Atualizar gráfico</button>
+
 					<div class="grafico">
 						<h1>
 							Monitoramento de Hardware
@@ -221,6 +223,11 @@
 
 	
 	let proximaAtualizacao;
+	
+	function atualizar()
+	{
+		obterDadosGrafico();
+	}
 
 	function obterFuncionarios(){
 		fetch(`/usuarios/listarFuncionarios`, { cache: 'no-store' }).then(function (response) {
@@ -234,8 +241,7 @@
 						var divFuncionarios = document.createElement("select");
 						divFuncionarios.className = "div_maquina1";
 						divFuncionarios.id = "select_funcionarios";
-						divFuncionarios.onclick = function chamarObterDadosGrafico()
-						{obterDadosGrafico();};
+					
 
 
 						for(var i = 0; i < resposta.length; i++){
