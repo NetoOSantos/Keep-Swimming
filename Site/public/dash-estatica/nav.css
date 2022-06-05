@@ -193,25 +193,36 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
 .dash {
     top: 0;
-    left: 25%;
+    left: 10%;
     background-color: #17203E;
-    height: 90vh; 
+    height: 80vh; 
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 
 }
 .regua {
+    position: relative;
+    bottom: 10vh;
+    right: 15vw;
+
     display: flex;
     text-align: center;
 
     width: 100%;
-    height: 35%;
+    height: 30%;
     justify-content: space-around;
-    margin-bottom: 50px;
+   
 }
 
-
+.item-regua {
+    
+    width: 30%;
+    margin: 5px;
+    text-align: center;
+    padding-top: 15px;
+    border-radius: 2%;
+}
 
 .perigo-quente {
     background-color: #fd993b;
@@ -229,14 +240,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     background-color: #FFC1D5;
 }
 
-.item-regua {
-    padding: 5px;
-    width: 30%;
-    margin: 5px;
-    text-align: center;
-    padding-top: 15px;
-    border-radius: 2%;
-}
+
 
 .grafico {
     display: flex;
@@ -244,7 +248,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     flex-direction: column;
     background-color: #17203E;
     
-    width: 50%;
+    width: 40%;
     height: 100%;
     /* margin-top: 20px; */
     /* margin-left: 40px; */
@@ -509,16 +513,23 @@ li a {
 }
 
 .div_maquinas {
-    width: 100%;
+    position: relative;
+    bottom: 5vh;
+    right: 9vw;
+
+    width: 9vw;
     height: 22vh;
+
    
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+
+   
 }
 
 .div_maquina1 {
-    width: 15%;
+    width: 15vw;
     height: 6vh;
     background-color: #17203E;
     border-color: #DBC4FF;
@@ -579,10 +590,14 @@ li a {
 
 
 .inf_dash {
+    position: relative;
+    right: 15vw;
+    
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 100%;
+    width: 100vw;
+    
 }
 
 
@@ -594,12 +609,15 @@ li a {
 }
 
 .sel_componentescss {
-    margin-bottom: 22%;
-    padding: 5px;
-    background-color: #AFD6FF;
-    color: #17203E;
-    border-radius: 10px;
+    width: 10vw;
+    height: 6vh;
+    background-color: #17203E;
     border-color: #DBC4FF;
+    color: whitesmoke;
+    border-radius: 5px 20px 5px 20px;
+
+    margin-bottom: 22%;
+    
 }
 
 .div_componente {
@@ -615,8 +633,21 @@ li a {
     border: solid 3px whitesmoke;
     background-color: #17203E;
     border-radius: 10px;
-    width: 25%;
+    width: 30%;
     height: 80%;
     margin-top: 15vh;
     margin-bottom: 116px;
+}
+.btn_atualizar_grafico
+{
+    position: relative;
+    right: 18vw;
+    top: 6vh;
+
+    width: 10vw;
+    height: 6vh;
+    background-color: #17203E;
+    border-color: #DBC4FF;
+    color: whitesmoke;
+    border-radius: 5px 20px 5px 20px;
 }
