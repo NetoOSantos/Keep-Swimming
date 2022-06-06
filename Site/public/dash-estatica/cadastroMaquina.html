@@ -223,7 +223,7 @@
           <option value="">Atualizar</option>
           <option value="hostname">HostName</option>
           <option value="permissao">Permissão</option>
-          <option value="sistemaOperacional">Sistema Operacional</option>
+          <option value="sistema">Sistema Operacional</option>
         </select>
 
         <input id="ipt_update" style="display: none;" class="ipt_update">
@@ -420,7 +420,7 @@
 
         if (resposta.ok) {
           console.log('');
-          alert("Alteração " + ipt_update.value + " da máquina " + idMaquina + " foi realizado com sucesso")
+          respostaDeleteUpdate.innerHTML = "Alteração " + ipt_update.value + " da máquina " + idMaquina + " foi realizado com sucesso";
           limparFormulario();
           // finalizarAguardar();
         } else {

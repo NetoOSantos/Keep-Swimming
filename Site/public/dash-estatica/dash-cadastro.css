@@ -944,3 +944,10 @@ color: #ffffff;
 }
 
 
+.top10{
+  width: 35vw;
+  height: 45vh;
+  overflow-y: scroll;
+  background-color: #253370;
+  border-radius: 10px;
+}
