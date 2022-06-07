@@ -193,6 +193,7 @@ nav:hover .shrink-btn,
   grid-template-rows: 1fr;
 }
 
+
 .icon i {
   grid-column: 1 / 2;
   grid-row: 1 / 2;

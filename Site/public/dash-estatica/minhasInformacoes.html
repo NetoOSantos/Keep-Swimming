@@ -9,11 +9,11 @@
 
 
   <script src="../javaScript/cadastroMaquina.js"></script>
-  <script src="../assets/js/funcoes.js"></script>
+
   <!-- <link rel="stylesheet" href="nav.css"> -->
-  <link rel="stylesheet" href="cad-maquina.css">
+  <link rel="stylesheet" href="minhasInformacoes.css">
   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="shortcut icon" href="../assets/icons/leme.png" type="image/x-icon">
+  <!-- <link rel="shortcut icon" href="./assets/icons/anchor_icon.ico" type="image/x-icon"> -->
   <!-- <link rel="stylesheet" href="./css/tela-cadastro.css"> -->
   <!-- <link rel="stylesheet" href="../public/css/tela-cadastro.css"> -->
 
@@ -48,7 +48,7 @@
         </li>
 
         <li class="tooltip-element" data-tooltip="1">
-          <a href="#" class="active" data-active="1">
+          <a href="#"  data-active="1">
             <div class="icon" href>
               <i class='bx bx-card'></i>
               <i class='bx bxs-card'></i>
@@ -86,10 +86,10 @@
 
       <ul>
         <li class="tooltip-element" data-tooltip="0">
-        <a href="./minhasInformacoes.html" data-active="4">
-          <div class="icon">
-            <i class='bx bx-user'></i>
-            <i class='bx bxs-user'></i>
+        <a href="#" data-active="4" class="active">
+          <div class="icon" >
+            <i class='bx bx-user' ></i>
+            <i class='bx bxs-user' ></i>
           </div>
           <span class="link hide">Minhas informações</span>
         </a>
@@ -105,9 +105,7 @@
         </li>
         <div class="tooltip">
           <span class="show"></span>
-          <span>Suporte</span> <div class="hello">
-            <!-- <h3>Olá, <span id="b_usuario"></span>!</h3> -->
-          </div>
+          <span>Suporte</span>
         </div>
       </ul>
     </div>
@@ -120,11 +118,9 @@
         <div class="admin-profile hide">
           <img src="./imgs/foto-de-perfil.jpg" alt="">
           <div class="admin-info">
-           
-            <!-- <div class="hello">
+            <div class="hello">
               <h3>Olá, <span id="b_usuario"></span>!</h3>
-
-            </div> -->
+            </div>
           </div>
         </div>
         <a href="#" class="log-out">
@@ -132,10 +128,10 @@
         </a>
       </div>
       <div class="tooltip">
-        <span class="show">
-          <!-- <div class="hello">
+        <span class="show">Raul
+          <div class="hello">
             <h3>Olá, <span id="b_usuario"></span>!</h3>
-          </div> -->
+          </div>
         </span>
         <span>Logout</span>
       </div>
@@ -151,42 +147,45 @@
 
       <div class="formulario">
         <form id="form_cadastro_maquina" method="post" onsubmit="return bt_cadastro_maquina()">
-          <h3>Cadastre sua Máquina</h3>
-
+          <h3>Informações pessoais</h3>
+            <div class="border"></div>
           <div class="roles">
 
             <div class="ladoEsquerdo">
 
-              <label for="hostName">HostName</label>
+              <label for="hostName">Nome</label>
               <input name="hostname" type="text" placeholder="Host name" id="hostname_ipt">
+              
 
-              <label for="idFuncionario">ID Funcionário</label>
+              <label for="idFuncionario">CNPJ</label>
               <input name="funcionarioId" type="text" placeholder="ID Funcionário" id="idfuncionario_ipt">
 
-              <label for="sistemaOperacional">Sistema Operacional</label>
+              <label for="sistemaOperacional">E-mail</label>
               <input name="sistemaOperacional" type="text" placeholder="Sistema Operacional"
                 id="sistemaoperacional_ipt">
 
-
-            </div>
-
-
-            <div class="ladodireito">
-
-              <label for="arquitetura">Arquitetura</label>
+                
+              <label for="arquitetura">Celular</label>
               <input name="arquitetura" type="text" placeholder="32bits/64 bits" id="arquitetura_ipt">
 
-              <label for="permissao">Permissão</label>
+              <!-- <label for="permissao">Permissão</label>
               <input name="permissao" type="text" placeholder="true / false" id="permissao_ipt">
 
               <label for="fabricante">Fabricante</label>
-              <input name="fabricante" type="text" placeholder="GNU" id="fabricante_ipt">
+              <input name="fabricante" type="text" placeholder="GNU" id="fabricante_ipt"> -->
+
 
             </div>
+
+
+            <!-- <div class="ladodireito">
+
+            </div> -->
 
             <div class="div_botao">
-              <button class="btn efeito">Cadastrar</button>
+              <button class="btn efeito">Atualizar</button>
             </div>
+
 
 
           </div>
@@ -205,10 +204,8 @@
 
         <button onclick="listarMaquina()" class="btn_mural_funcionarios" id="btn_funcionarios">Máquinas
           cadastradas</button>
-
-        <div class="top10">
         <div id="feed_container" class="feed-container"></div>
-      </div>
+
         <button onclick="listarMaquina()" style="display: none;" id="atualizar">Atualizar Feed</button>
 
         <div class="botoes_crud">
@@ -223,7 +220,7 @@
           <option value="">Atualizar</option>
           <option value="hostname">HostName</option>
           <option value="permissao">Permissão</option>
-          <option value="sistema">Sistema Operacional</option>
+          <option value="sistemaOperacional">Sistema Operacional</option>
         </select>
 
         <input id="ipt_update" style="display: none;" class="ipt_update">

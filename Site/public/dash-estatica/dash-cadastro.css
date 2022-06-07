@@ -1,13 +1,4 @@
-.main {
-  display: flex;
-  margin: 0 auto;
-  display: block;
-  height: 275vh;
-  margin-top: 60px;
-  background:#17203E ;
-  width: 78%;
-  padding: 2rem
-}
+
 
 
 .baixo{
@@ -232,7 +223,7 @@ height: 53px;
 background-color: var(--main-color-dark);
 border-radius: 10px;
 position: absolute;
-top: 118px;
+top: 11rem;
 left: 0;
 transition: top 0.3s;
 }
@@ -591,7 +582,7 @@ input{
   margin-left: 10%;
 
   width: 85%;
-  height: 70vh;
+  height: 100vh;
   background-color: #ffffff;
 }
 .botoes_crud
@@ -612,12 +603,15 @@ input{
 }
 .ipt_update
 {
-  text-align: center;
-  color: white;
-  
-  width: 30%;
-  height: 10%;
-  background-color: #17203E;
+  height: 50px;
+  width: 25%;
+  background-color: rgba(0,0,0,.25);
+  border-radius: 3px;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #000;
 
 }
 
@@ -941,3 +935,10 @@ color: #ffffff;
 }
 
 
+.top10{
+  width: 35vw;
+  height: 45vh;
+  overflow-y: scroll;
+  background-color: #253370;
+  border-radius: 10px;
+}

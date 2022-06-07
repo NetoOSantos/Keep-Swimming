@@ -1,30 +1,30 @@
 2022/06/06 17:51:48 --: ===============Tela de Login===============
 2022/06/06 17:51:48 --: Iniciando tela swing email&senha
-2022/06/06 17:52:02 --: Fazendo conexão com o Banco...
-2022/06/06 17:52:02 --: =====Buscasndo conexão com BD=====
-2022/06/06 17:52:02 --: Erro na autenticação do usuario
-2022/06/06 17:52:02 --: Erro na autenticação do usuario
-2022/06/06 17:52:02 --: Erro na autenticação do usuario
+2022/06/06 17:52:02 --: Fazendo conexï¿½o com o Banco...
+2022/06/06 17:52:02 --: =====Buscasndo conexï¿½o com BD=====
+2022/06/06 17:52:02 --: Erro na autenticaï¿½ï¿½o do usuario
+2022/06/06 17:52:02 --: Erro na autenticaï¿½ï¿½o do usuario
+2022/06/06 17:52:02 --: Erro na autenticaï¿½ï¿½o do usuario
 2022/06/06 17:52:02 --: Usuario logado
 2022/06/06 17:52:02 --: Iniciando tela token...
 2022/06/06 17:52:06 --: =============Envia Token=============
 2022/06/06 17:52:06 --: Iniciando tela do tokem...
 2022/06/06 17:52:07 --: Emitindo token
-2022/06/06 17:52:07 --: Gerando código token
+2022/06/06 17:52:07 --: Gerando cï¿½digo token
 2022/06/06 17:52:07 --: Token enviado
-2022/06/06 17:52:10 --: =====Buscasndo conexão com BD=====
+2022/06/06 17:52:10 --: =====Buscasndo conexï¿½o com BD=====
 2022/06/06 17:52:10 --: Login realizado com sucesso
 2022/06/06 23:10:49 --: ===============Tela de Login===============
 2022/06/06 23:10:49 --: Iniciando tela swing email&senha
-2022/06/06 23:11:45 --: Fazendo conexão com o Banco...
-2022/06/06 23:11:45 --: =====Buscasndo conexão com BD=====
+2022/06/06 23:11:45 --: Fazendo conexï¿½o com o Banco...
+2022/06/06 23:11:45 --: =====Buscasndo conexï¿½o com BD=====
 2022/06/06 23:11:45 --: Usuario logado
 2022/06/06 23:11:45 --: Iniciando tela token...
 2022/06/06 23:11:49 --: =============Envia Token=============
 2022/06/06 23:11:49 --: Iniciando tela do tokem...
-2022/06/06 23:11:45 --: Erro na autenticação do usuario
+2022/06/06 23:11:45 --: Erro na autenticaï¿½ï¿½o do usuario
 2022/06/06 23:11:53 --: Emitindo token
-2022/06/06 23:11:53 --: Gerando código token
+2022/06/06 23:11:53 --: Gerando cï¿½digo token
 2022/06/06 23:11:53 --: Token enviado
-2022/06/06 23:11:59 --: =====Buscasndo conexão com BD=====
+2022/06/06 23:11:59 --: =====Buscasndo conexï¿½o com BD=====
 2022/06/06 23:11:59 --: Login realizado com sucesso
