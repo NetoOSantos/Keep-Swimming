@@ -31,6 +31,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     //conexão com o banco
     private JdbcTemplate template;
+    
+    //conexão local
+    private JdbcTemplate templateLocal;
 
     // looca
     private Looca looca;
@@ -40,6 +43,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.funcionario = idsFuncionario;
         this.connection = new Connection();
         this.template = new JdbcTemplate(connection.getDatasource());
+        
+        // conexão local
+        templateLocal = new JdbcTemplate(connection.getDataSourcelocal());
         this.looca = new Looca();
 
         initComponents();
@@ -103,9 +109,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Integer totalProcessos = looca.getGrupoDeProcessos().getTotalProcessos();
         Integer threads = looca.getGrupoDeProcessos().getTotalThreads();
 
-        String inserirDadosProcessos = "Insert into Processos VALUES "
-                + "(?,?,?,?,?,?,?,?,?,?)";
-
+                //para AZURE
+            String inserirDadosProcessos = "Insert into Processos VALUES "
+                    + "(?,?,?,?,?,?,?,?,?,?)";
         template.batchUpdate(inserirDadosProcessos, new BatchPreparedStatementSetter() {
 
             @Override
@@ -117,7 +123,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 Long bytesUtilizados = processosFiltrados.get(i).getBytesUtilizados();
                 Long memVirtualUtilizada = processosFiltrados.get(i).getMemoriaVirtualUtilizada();
                 
-                System.out.println("Inserindo processo: " + pid + " " + nome + " CPU: " + usoCpu + " Memória: " + usoMemoria + " Datahora: " + dataHoraProcesso);
+                System.out.println("Inserindo processo: " + pid + " " + nome + "\nCPU: " + usoCpu + "\nMemória: " + usoMemoria + "\nDatahora: " + dataHoraProcesso);
                 
                 ps.setInt(1, idDaMaquina);
                 ps.setInt(2, pid);
@@ -135,7 +141,40 @@ public class TelaPrincipal extends javax.swing.JFrame {
             public int getBatchSize() {
                 return processosFiltrados.size();
             }
+        });
+          
+                //para MySQL local
+             String inserirDadosProcessosLocal = "Insert into Processos VALUES "
+              + "(null,1,?,?,?,?,?,?,?,?);";
+        templateLocal.batchUpdate(inserirDadosProcessosLocal, new BatchPreparedStatementSetter() {
 
+            @Override
+            public void setValues(PreparedStatement ps, int i) throws SQLException {
+                Integer pid = processosFiltrados.get(i).getPid();
+                String nome = processosFiltrados.get(i).getNome();
+                Double usoCpu = processosFiltrados.get(i).getUsoCpu();
+                Double usoMemoria = processosFiltrados.get(i).getUsoMemoria();
+                Long bytesUtilizados = processosFiltrados.get(i).getBytesUtilizados();
+                Long memVirtualUtilizada = processosFiltrados.get(i).getMemoriaVirtualUtilizada();
+                
+                System.out.println("Inserindo processo: " + pid + " " + nome + "\nCPU: " + usoCpu + "\nMemória: " + usoMemoria + "\nDatahora: " + dataHoraProcesso);
+                
+                ps.setInt(1, idDaMaquina);
+                ps.setInt(2, pid);
+                ps.setString(3, nome);
+                ps.setDouble(4, usoCpu);
+                ps.setDouble(5, usoMemoria);
+                ps.setLong(6, bytesUtilizados);
+                ps.setLong(7, memVirtualUtilizada);
+                ps.setInt(8, totalProcessos);
+                ps.setInt(9, threads);
+                ps.setTimestamp(10, new Timestamp(dataHoraProcesso.getTime()));
+            }
+
+            @Override
+            public int getBatchSize() {
+                return processosFiltrados.size();
+            }
         });
     }
 
@@ -157,14 +196,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Long memoriaTotal = memoria.getTotal();
             String processadorNome = processador.getNome();
 
-            //Para Mysql local
-            //  String inserirDadosHardware = "Insert into ComponentesHardware VALUES" 
-            //          + "(null,1,?,?,?,?,?,?);";
-            //Para AZURE
-            String inserirDadosHardware = "Insert into ComponentesHardware VALUES"
+                 //Para Mysql local
+        String inserirDadosHardwareLocal = "Insert into ComponentesHardware VALUES" 
+                  + "(null,1,?,?,?,?,?,?);";
+        templateLocal.update(inserirDadosHardwareLocal,
+                            idDaMaquina,
+                            nomeDisco,
+                            tamanhoDisco,
+                            modeloDisco,
+                            qtdDiscos, 
+                            memoriaTotal,
+                            processadorNome);
+        
+               //Para AZURE
+        String inserirDadosHardware = "Insert into ComponentesHardware VALUES"
                     + "(?,?,?,?,?,?,?);";
-
-            template.update(inserirDadosHardware,
+        template.update(inserirDadosHardware,
                     idDaMaquina,
                     nomeDisco,
                     tamanhoDisco,
@@ -187,10 +234,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             System.out.println("BYTES DE LEITURA: " +  listaDeDisco.get(i).getBytesDeLeitura());
         }
         
-        //MySQL local         
-        //String inserirHistorico = "Insert into Historico VALUES "
-        //   + "(null,1,?,?,?,?,?,?,?);";
-
         Memoria memoria = looca.getMemoria();
         Processador processador = looca.getProcessador();
 
@@ -200,11 +243,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Long memoriaEmUso = memoria.getEmUso();
         Long memoriaDisponível = memoria.getDisponivel();
         Double processadorUso = processador.getUso();
+        
+               
+          //MySQL local         
+        String inserirHistoricoLocal = "Insert into Historico VALUES "
+                + "(null,1,?,?,?,?,?,?,?);";
+        templateLocal.update(inserirHistoricoLocal,idDaMaquina,data,tempoInicializado,tempoDeAtividade,
+                   temperaturaAtual,memoriaEmUso,memoriaDisponível,processadorUso);
 
-        //AZURE
+          //AZURE
         String inserirHistorico = "Insert into Historico VALUES "
                 + "(?,?,?,?,?,?,?,?);";
-
         template.update(inserirHistorico, idDaMaquina, data, tempoInicializado, tempoDeAtividade,
                 temperaturaAtual, memoriaEmUso, memoriaDisponível, processadorUso);
 
@@ -215,8 +264,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         System.out.println("Memoria em uso " + memoriaEmUso);
         System.out.println("Memoria disponível " + memoriaDisponível);
         System.out.println("Uso do processador " + processadorUso);
-        
-       
         
     }
 
