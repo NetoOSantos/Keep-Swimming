@@ -20,13 +20,15 @@
 		}
 	</style>
   <link rel="shortcut icon" href="../assets/icons/leme.png" type="image/x-icon">
-<link rel="stylesheet" href="dash-cadastro.css">
+<!-- <link rel="stylesheet" href="dash-cadastro.css"> -->
 <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
 
 </head>
 
 
+<!-- <body> -->
+	
 <body onload="validarSessao(),   obterFuncionarios()">
 
 	<nav>
@@ -56,7 +58,7 @@
 				</li>
 
 				<li class="tooltip-element" data-tooltip="1">
-					<a href="./cadastroMaquina.html" class="active" data-active="1">
+					<a href="./cadastroMaquina.html"  data-active="1">
 						<div class="icon" href>
 							<i class='bx bx-card'></i>
 							<i class='bx bxs-card'></i>
@@ -74,7 +76,7 @@
 					</a>
 				</li>
 				<li class="tooltip-element" data-tooltip="3">
-					<a href="./graficos.html" data-active="3">
+					<a href="./graficos.html" data-active="3" class="active">
 						<div class="icon">
 							<i class='bx bx-bar-chart-square'></i>
 							<i class='bx bxs-bar-chart-square'></i>
@@ -180,24 +182,23 @@
 
 				<div class="inf_dash">
 
+					<div class="componentes">
+						<select name="" id="sel_comp" class="sel_componentescss">
+							<option value="1">Selecione</option>
+							<option value="1">Memoria</option>
+							<option value="2">CPU</option>
+							
+						</select>
+				
 
-					<select name="" id="sel_comp" class="sel_componentescss">
-						<option value="1">Selecione</option>
-						<option value="1">Memoria</option>
-						<option value="2">CPU</option>
-						
-					</select>
-					
-					<div class="div_maquinas" id="maquinasFuncionario">
+						<button class="btn_atualizar_grafico" onclick="atualizar()">Atualizar gráfico</button>
+						<div class="div_maquinas" id="maquinasFuncionario">
+						</div>	
 				
 					</div>
 
-					<button class="btn_atualizar_grafico" onclick="atualizar()">Atualizar gráfico</button>
 
 					<div class="grafico">
-						<h1>
-							Monitoramento de Hardware
-						</h1>
 						<div id="divMostrar"></div>
 
 						<canvas id="chart" class="canvas"></canvas>
@@ -213,7 +214,6 @@
 			</div>
 
 		</div>
-
 	</main>
 </body>
 
@@ -243,26 +243,19 @@
 						divFuncionarios.id = "select_funcionarios";
 					
 
-
 						for(var i = 0; i < resposta.length; i++){
 
 							console.log("fazendo botões");
-
 					
 							var idMaquinaFunc = resposta[i].idMaquina;
 							var nomeFuncionario = resposta[i].Nome;
-
 							
 							var options = document.createElement("option");
 							
 							options.value = idMaquinaFunc;
 							options.innerHTML = nomeFuncionario;
-
-
-							
-
 				
-							
+											
 							divFuncionarios.appendChild(options);
 							feed.appendChild(divFuncionarios);
 
@@ -409,6 +402,8 @@
 					}
 
 				}
+				
+				
 			}
 		});
 

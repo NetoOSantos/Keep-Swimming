@@ -1,13 +1,4 @@
-.main {
-  display: flex;
-  margin: 0 auto;
-  display: block;
-  height: 275vh;
-  margin-top: 60px;
-  background:#17203E ;
-  width: 78%;
-  padding: 2rem
-}
+
 
 
 .baixo{
@@ -232,7 +223,7 @@ height: 53px;
 background-color: var(--main-color-dark);
 border-radius: 10px;
 position: absolute;
-top: 118px;
+top: 11rem;
 left: 0;
 transition: top 0.3s;
 }
