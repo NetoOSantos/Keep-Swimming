@@ -15,10 +15,8 @@ function buscarUltimasMedidas(limite_linhas) {
 
 //nuvem
     instrucaoSql = `Select DISTINCT Nome ,
-                    usoCPU,
-                    round((usoCPU *100),0)as 'UsoCPU' ,
-                    usoMemoria,
-                    round((usoMemoria *1024),2) as 'UsoMemoria' ,
+                    round((usoCPU ),1)as 'UsoCPU' ,
+                    round((usoMemoria / 1073741824 ),1) as 'UsoMemoria' ,
                     dataHoraProcesso,
                     FORMAT(dataHoraProcesso,'hh:mm:ss') as momento_grafico
                     from [dbo].[Processos] 
@@ -43,10 +41,8 @@ function buscarMedidasEmTempoReal() {
 
 //nuvem
     instrucaoSql = `Select DISTINCT Nome ,
-    usoCPU,
-    round((usoCPU *100),0)as 'UsoCPU' ,
-    usoMemoria,
-    round((usoMemoria *1024),2) as 'UsoMemoria' ,
+    round((usoCPU ),1)as 'UsoCPU' ,
+    round((usoMemoria),1) as 'UsoMemoria' ,
     dataHoraProcesso,
     FORMAT(dataHoraProcesso,'hh:mm:ss') as momento_grafico
     from [dbo].[Processos] 
@@ -77,19 +73,31 @@ function buscarMediaConsumoPC(idMaquina) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
-function buscarQtdSistemas() {
+function buscarQtdSistemasWind() {
 // //local
     // instrucaoSql = ` select round( avg(umidade),2) as mediaUmi from medidas ;`;
 
     //nuvem
-    instrucaoSql = ` 
-    Select DISTINCT 
-        Nome ,
-        round(avg(usoCPU *100),2)as 'mediaUsoCPU',
-        round(avg(usoMemoria *100),2)as 'mediaUsoMemoria' 
-    from [dbo].[Processos] 
-    where 
-    Nome in ('opera','AvastUI')  GROUP BY Nome ;`;
+    instrucaoSql = ` select 
+        count (sistemaOperacional) as 'wind'
+        from [dbo].[Maquina] 
+        where sistemaOperacional 
+        like 'Windows';`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarQtdSistemasLinux() {
+// //local
+    // instrucaoSql = ` select round( avg(umidade),2) as mediaUmi from medidas ;`;
+
+    //nuvem
+    instrucaoSql = ` select 
+        count (sistemaOperacional) as 'linux'
+        from [dbo].[Maquina] 
+        where sistemaOperacional 
+        like 'linux';`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -101,5 +109,6 @@ module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarMediaConsumoPC,
-    buscarQtdSistemas
+    buscarQtdSistemasWind,
+    buscarQtdSistemasLinux
 }
