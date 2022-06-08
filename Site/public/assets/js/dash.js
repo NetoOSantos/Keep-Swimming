@@ -163,29 +163,9 @@
 
                     // dados.datasets[0].data.push(novoRegistro[0].Maquina); // incluir uma nova medida de Maquina
                     dados.datasets[0].data.push(novoRegistro[0].UsoCPU* 0.1 *100);
-                    dados.datasets[1].data.push(novoRegistro[1].UsoMemoria);
+                    dados.datasets[1].data.push(novoRegistro[1].UsoMemoria );
 
-                    // Alertas por Cores de Maquina
-
-                    // if (novoRegistro[0].Maquina >= 35) {
-                    //     img_alertas_umi.src = "../assets/errado_gif.gif"
-                    //     dados.datasets[0].borderColor = 'red';
-                    //     dados.datasets[0].backgroundColor = '#ff04008c';
-                    // } else if (novoRegistro[0].Maquina <= 19) {
-                    //     img_alertas_umi.src = "../assets/errado_gif.gif"
-                    //     dados.datasets[0].borderColor = '#483D8B';
-                    //     dados.datasets[0].backgroundColor = '#826fff9c';
-
-                    // } else if ((novoRegistro[0].Maquina >= 20 && novoRegistro[0].Maquina <= 23) || novoRegistro[0].Maquina >= 28 && novoRegistro[0].Maquina <= 31) {
-                    //     img_alertas_umi.src = "../assets/atencao_gif.gif"
-                    //     dados.datasets[0].borderColor = '#FFFF00';
-                    //     dados.datasets[0].backgroundColor = '#ffe6006b';
-                    // } else if (novoRegistro[0].Maquina > 23 && novoRegistro[0].Maquina < 28) {
-                    //     dados.datasets[0].borderColor = '#32B9CD';
-                    //     dados.datasets[0].backgroundColor = '#32b9cd8f';
-                    //     img_alertas_umi.src = "../assets/correto_gif.gif"
-                    // }
-
+             
 
                     window.grafico_barra.update();
 
@@ -229,7 +209,8 @@
                         var spanNome = document.createElement("span");
                         var usodacpu = document.createElement("div");
                         var usodaMemoria = document.createElement("div");
-                        var calcUsoMemoria = Math.round(publicacao.usoMemoria);
+                        var calcUsoMemoria = ((publicacao.usoMemoria *100)/ 1073741824 ).toFixed(0);
+                        console.log("Esse aqui: " ,calcUsoMemoria)
                         var calcUsocpu = Math.round(publicacao.usoCPU);
 
                         spanID.innerHTML = "IDMaquina: <b>" + publicacao.idMaquina + "</b>";

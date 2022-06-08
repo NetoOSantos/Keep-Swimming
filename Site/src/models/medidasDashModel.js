@@ -16,7 +16,7 @@ function buscarUltimasMedidas(limite_linhas) {
 //nuvem
     instrucaoSql = `Select DISTINCT Nome ,
                     round((usoCPU ),1)as 'UsoCPU' ,
-                    round((usoMemoria / 1073741824 ),1) as 'UsoMemoria' ,
+                    usoMemoria as 'UsoMemoria' ,
                     dataHoraProcesso,
                     FORMAT(dataHoraProcesso,'hh:mm:ss') as momento_grafico
                     from [dbo].[Processos] 
@@ -42,7 +42,7 @@ function buscarMedidasEmTempoReal() {
 //nuvem
     instrucaoSql = `Select DISTINCT Nome ,
     round((usoCPU ),1)as 'UsoCPU' ,
-    round((usoMemoria),1) as 'UsoMemoria' ,
+    usoMemoria as 'UsoMemoria' ,
     dataHoraProcesso,
     FORMAT(dataHoraProcesso,'hh:mm:ss') as momento_grafico
     from [dbo].[Processos] 
