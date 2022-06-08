@@ -12,10 +12,13 @@ import java.time.format.DateTimeFormatter;
 class Log {
     private DateTimeFormatter dateTimeLog = DateTimeFormatter.ofPattern("[yyyy/MM/dd HH:mm:ss]");
     // Momento para por no nome do arquivo
+    
     private DateTimeFormatter dateTimeName = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private String momentoLog = dateTimeLog.format(LocalDateTime.now());
+    //formatando a hora para registrar no log
+    
     private String momentoNomeLog = dateTimeName.format(LocalDateTime.now());
-    private String nomeLog = String.format("src/main/resources/%s_Log_TechFood.txt", momentoNomeLog);
+    private String nomeLog = String.format("src/main/resources/log/%s_Keep_Swimming.txt", momentoNomeLog);
     
 
     public void criarLog(String message){

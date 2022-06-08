@@ -52,9 +52,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void inicializacao() {
+        Log log = new Log();
         Timer timer = new Timer();
         Integer delay = 1000;
         Integer interval = 5000;
+        
+        log.criarLog("==========tela principal==========");
 
         Integer idDaMaquina = buscarIdDaMaquina();
 
@@ -86,6 +89,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void buscarProcessos(Integer idDaMaquina) {
+        Log log = new Log();
+        log.criarLog("Buscando processos...");
         System.out.println("Buscando processos...");
 
         List<Processo> processos = looca.getGrupoDeProcessos().getProcessos();
@@ -140,6 +145,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void buscarDadosHardware(Integer idDaMaquina) {
+        Log log = new Log();
+        log.criarLog("buscando componentes harware da maquina");
         System.out.println("Buscando dados de hardware...");
 
         DiscosGroup disco = looca.getGrupoDeDiscos();
@@ -176,6 +183,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void buscarHistorico(Integer idDaMaquina) {
+        Log log = new Log();
+        log.criarLog("Buscando historico...");
         System.out.println("Buscando histórico...");
 
         Date data = new Date();
