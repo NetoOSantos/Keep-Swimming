@@ -56,7 +56,7 @@
                     borderWidth: 1
                 },
                 {
-                    label: 'usoRam MB',
+                    label: 'usoRam GB',
                     data: [],
                     backgroundColor: [],
                     borderColor: [],
@@ -88,14 +88,16 @@
 
             // console.log("registro valores");
             // console.log(registro.usoCPU);
-            dados.datasets[0].data.push(registro.UsoCPU * 0.1 *100);
-            dados.datasets[1].data.push(registro.UsoMemoria);
+        
+            
+               
+                    dados.datasets[0].data.push(registro.UsoCPU );
+                    dados.datasets[1].data.push(registro.UsoMemoria);
+                    
             
         }
 
         // console.log(JSON.stringify(dados));
-
-       
         
         var ctx = chartBar.getContext('2d');
         window.grafico_barra = new Chart(ctx, {
@@ -162,8 +164,12 @@
 
 
                     // dados.datasets[0].data.push(novoRegistro[0].Maquina); // incluir uma nova medida de Maquina
-                    dados.datasets[0].data.push(novoRegistro[0].UsoCPU* 0.1 *100);
-                    dados.datasets[1].data.push(novoRegistro[1].UsoMemoria );
+                    
+           
+                        
+                        dados.datasets[0].data.push(novoRegistro[0].UsoCPU);
+                        dados.datasets[1].data.push(novoRegistro[1].UsoMemoria );
+                   
 
              
 
