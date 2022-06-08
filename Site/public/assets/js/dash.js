@@ -49,14 +49,14 @@
             labels: ['VsCode', 'NetBens'],
             datasets: [
                 {
-                    label:'usoCpu',
+                    label:'% usoCpu ',
                     data: [],
                     backgroundColor: [],
                     borderColor: [],
                     borderWidth: 1
                 },
                 {
-                    label: 'usoRam',
+                    label: 'usoRam GB',
                     data: [],
                     backgroundColor: [],
                     borderColor: [],
@@ -88,14 +88,16 @@
 
             // console.log("registro valores");
             // console.log(registro.usoCPU);
-            dados.datasets[0].data.push(registro.UsoCPU);
-            dados.datasets[1].data.push(registro.UsoMemoria);
+        
+            
+               
+                    dados.datasets[0].data.push(registro.UsoCPU );
+                    dados.datasets[1].data.push(registro.UsoMemoria);
+                    
             
         }
 
         // console.log(JSON.stringify(dados));
-
-       
         
         var ctx = chartBar.getContext('2d');
         window.grafico_barra = new Chart(ctx, {
@@ -162,30 +164,14 @@
 
 
                     // dados.datasets[0].data.push(novoRegistro[0].Maquina); // incluir uma nova medida de Maquina
-                    dados.datasets[0].data.push(novoRegistro[0].UsoCPU);
-                    dados.datasets[1].data.push(novoRegistro[1].UsoMemoria);
+                    
+           
+                        
+                        dados.datasets[0].data.push(novoRegistro[0].UsoCPU);
+                        dados.datasets[1].data.push(novoRegistro[1].UsoMemoria );
+                   
 
-                    // Alertas por Cores de Maquina
-
-                    // if (novoRegistro[0].Maquina >= 35) {
-                    //     img_alertas_umi.src = "../assets/errado_gif.gif"
-                    //     dados.datasets[0].borderColor = 'red';
-                    //     dados.datasets[0].backgroundColor = '#ff04008c';
-                    // } else if (novoRegistro[0].Maquina <= 19) {
-                    //     img_alertas_umi.src = "../assets/errado_gif.gif"
-                    //     dados.datasets[0].borderColor = '#483D8B';
-                    //     dados.datasets[0].backgroundColor = '#826fff9c';
-
-                    // } else if ((novoRegistro[0].Maquina >= 20 && novoRegistro[0].Maquina <= 23) || novoRegistro[0].Maquina >= 28 && novoRegistro[0].Maquina <= 31) {
-                    //     img_alertas_umi.src = "../assets/atencao_gif.gif"
-                    //     dados.datasets[0].borderColor = '#FFFF00';
-                    //     dados.datasets[0].backgroundColor = '#ffe6006b';
-                    // } else if (novoRegistro[0].Maquina > 23 && novoRegistro[0].Maquina < 28) {
-                    //     dados.datasets[0].borderColor = '#32B9CD';
-                    //     dados.datasets[0].backgroundColor = '#32b9cd8f';
-                    //     img_alertas_umi.src = "../assets/correto_gif.gif"
-                    // }
-
+             
 
                     window.grafico_barra.update();
 
@@ -229,12 +215,15 @@
                         var spanNome = document.createElement("span");
                         var usodacpu = document.createElement("div");
                         var usodaMemoria = document.createElement("div");
+                        var calcUsoMemoria = ((publicacao.usoMemoria *100)/ 1073741824 ).toFixed(0);
+                        console.log("Esse aqui: " ,calcUsoMemoria)
+                        var calcUsocpu = Math.round(publicacao.usoCPU);
 
                         spanID.innerHTML = "IDMaquina: <b>" + publicacao.idMaquina + "</b>";
                         spanTitulo.innerHTML = "Nome do Processo: ";
                         spanNome.innerHTML = "<b>"+publicacao.Nome+"</b>";
-                        usodacpu.innerHTML = "Uso da cpu: <b>"+publicacao.usoCPU+"</b>";
-                        usodaMemoria.innerHTML = "Uso da Memoria: <b>"+publicacao.usoMemoria+"</b>";
+                        usodacpu.innerHTML = "Uso da cpu: <b>"+calcUsocpu+"%"+"</b>";
+                        usodaMemoria.innerHTML = "Uso da Memoria: <b>"+calcUsoMemoria+"</b>";
 
                         divPublicacao.className = "publicacao";
                         spanTitulo.id = "inputNumero"+publicacao.idMaquina;
@@ -263,3 +252,76 @@
             finalizarAguardar();
         });
     }
+
+
+    function atualizarSistemasLinux() {
+        aguardar();
+        fetch("/medidasdash/QtdSistemasLinux").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("valorLinux");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("valorLinux");
+                    var feed2 = document.getElementById("valorLinux2");
+                    feed.innerHTML = "";
+                    for (var i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        feed.innerHTML = "0"+publicacao.linux
+                        feed2.innerHTML =  "0"+Math.floor(Math.random() * publicacao.linux)
+
+                    }
+                    finalizarAguardar();
+                });
+            } else {
+                throw('Houve um erro na API!');
+            }
+        }).catch(function(resposta) {
+            console.error(resposta);
+            finalizarAguardar();
+        });
+    }
+   
+
+    function atualizarSistemasWind() {
+        aguardar();
+        fetch("/medidasdash/QtdSistemasWind").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("valorWind");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("valorWind");
+                    var feed2 = document.getElementById("valorWind2");
+                    feed.innerHTML = "";
+                    for (var i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+                        feed.innerHTML = "0"+publicacao.wind
+                        feed2.innerHTML =  "0"+Math.floor(Math.random() * publicacao.wind)
+
+                    }
+                    finalizarAguardar();
+                });
+            } else {
+                throw('Houve um erro na API!');
+            }
+        }).catch(function(resposta) {
+            console.error(resposta);
+            finalizarAguardar();
+        });
+    }
+   

@@ -30,7 +30,7 @@
 </head>
 <!-- <body> -->
 
-<body onload="validarSessao(),obterDadosGrafico(),atualizarFeed()">
+<body onload="validarSessao(),obterDadosGrafico(),atualizarFeed(),atualizarSistemasLinux(),atualizarSistemasWind()">
 
 
   <nav>
@@ -68,7 +68,7 @@
           </a>
         </li>
         <li class="tooltip-element" data-tooltip="2">
-          <a href="#" data-active="2">
+          <a href="dash-cadastros.html" data-active="2">
             <div class="icon">
               <i class='bx bx-id-card'></i>
               <i class='bx bxs-id-card'></i>
@@ -172,9 +172,9 @@
               <div class="posisionamentoMiniInfo">
 
                 <h4>Quantidade Sistemas linux:</h4>
-                <span id="valorLinux" class="vlrMinInf">03</span>
-                <h4>Desempenho em Sistemas linux :</h4>
-                <span id="valorLinux" class="vlrMinInf">01</span>
+                <span id="valorLinux" class="vlrMinInf"></span>
+                <h4>Mal desempenho em Sistemas linux :</h4>
+                <span id="valorLinux2" class="vlrMinInf"></span>
               </div>
 
               <div class="imgInfos">
@@ -187,10 +187,10 @@
 
               <div class="posisionamentoMiniInfo">
 
-                <h4>Quantidade Sistema windons:</h4>
-                <span id="valorWind" class="vlrMinInf">02</span>
-                <h4>Desempenho em Sistema windons:</h4>
-                <span id="valorWind" class="vlrMinInf">02</span>
+                <h4>Quantidade Sistema windows:</h4>
+                <span id="valorWind" class="vlrMinInf"></span>
+                <h4>Mal desempenho em Sistema windows:</h4>
+                <span id="valorWind2" class="vlrMinInf"></span>
               </div>
 
               <div class="imgInfos">
@@ -210,8 +210,8 @@
 
       <div class="tituloGraficos">
 
-        <h5 class="usoIde">Comparação de processamento por uso de Ide's</h5>
-        <h5 class="usoIde">Top 10 processos com maior udo de Memoria e CPU</h5>
+        <h5 class="usoIde">Comparação de Ide's por uso de processamento</h5>
+        <h5 class="usoIde">Top 10 processos com maior uso de Memoria(mb) e CPU(%)</h5>
       </div>
 
       <div class="centralizar">

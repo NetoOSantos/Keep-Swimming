@@ -177,7 +177,7 @@ function listarMaquina() {
 
 function cadastrarMaquina(idFuncionario,sistemaoperacional, fabricante, arquitetura, permissao,hostname){
 
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarMaquina():", sistemaoperacional, fabricante, arquitetura,permissao,hostname);
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarMaquina():",idFuncionario , sistemaoperacional, fabricante, arquitetura,permissao,hostname);
 
     var instrucao = `       
         INSERT INTO [dbo].[Maquina] 
@@ -189,7 +189,7 @@ function cadastrarMaquina(idFuncionario,sistemaoperacional, fabricante, arquitet
             permissoes,
             hostName) VALUES   
             (
-            ${idFuncionario},
+            '${idFuncionario}',
             '${sistemaoperacional}',  
             '${fabricante}', 
             '${arquitetura}',
@@ -212,7 +212,7 @@ function deletarMaquina(idMaquina) {
 
 
 function updateMaquina(idMaquina,alteracao,coluna) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function updateFuncionario():");
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function updateMaquina():");
 
     var instrucao;
 

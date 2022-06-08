@@ -85,15 +85,15 @@
       <h4 class="hide">Atalhos</h4>
 
       <ul>
-        <!-- <li class="tooltip-element" data-tooltip="0"> -->
-        <a href="#" data-active="4">
+        <!-- <li class="tooltip-element" data-tooltip="0">
+        <a href="./minhasInformacoes.html" data-active="4">
           <div class="icon">
-            <!-- <i class='bx bx-notepad'></i>
-                  <i class='bx bxs-notepad'></i> -->
+            <i class='bx bx-user'></i>
+            <i class='bx bxs-user'></i>
           </div>
-          <!-- <span class="link hide">Tasks</span> -->
+          <span class="link hide">Minhas informações</span>
         </a>
-        </li>
+        </li> -->
         <li class="tooltip-element" data-tooltip="1">
           <a href="https://app.pipefy.com/public/form/w7YSTr_A" data-active="5">
             <div class="icon">
@@ -118,7 +118,7 @@
       </a>
       <div class="admin-user tooltip-element" data-tooltip="1">
         <div class="admin-profile hide">
-          <img src="./img/face-1.png" alt="">
+          <!-- <img src="./imgs/foto-de-perfil.jpg" alt=""> -->
           <div class="admin-info">
            
             <!-- <div class="hello">
@@ -205,8 +205,10 @@
 
         <button onclick="listarMaquina()" class="btn_mural_funcionarios" id="btn_funcionarios">Máquinas
           cadastradas</button>
-        <div id="feed_container" class="feed-container"></div>
 
+        <div class="top10">
+        <div id="feed_container" class="feed-container"></div>
+      </div>
         <button onclick="listarMaquina()" style="display: none;" id="atualizar">Atualizar Feed</button>
 
         <div class="botoes_crud">
@@ -287,6 +289,7 @@
             var spanHostName = document.createElement("span");
             var spanidMaquina = document.createElement("span")
             var permissoes = document.createElement("span")
+            var spansistemaOperacional = document.createElement("span")
             //   var spanGestor = document.createElement("span");
             var spanNome = document.createElement("span");
             var spanEmail = document.createElement("span");
@@ -297,7 +300,7 @@
             // spanGestor.innerHTML = "Gestor: <b>"+ publicacao.fkGestor + "</b>";
             spanidMaquina.innerHTML = "<p>idMaquina: <b>" + publicacao.idMaquina + "</b></p>";
             permissoes.innerHTML = "<p>Permissão: <b>" + publicacao.permissoes + "</b></p>";
-
+            spansistemaOperacional.innerHTML = "<p>Sistema Operacional: <b>" + publicacao.sistemaOperacional + "</b></p>"
             divPublicacao.className = "publicacao";
             // spanTitulo.id = "inputNumero"+publicacao.idAviso;
             // spanID.className = "id-funcionario";
@@ -306,6 +309,8 @@
             spanHostName.className = "hostName";
             spanidMaquina.className = "idMaquina";
             permissoes.className = "permissoes";
+            spansistemaOperacional.className = "sistemaOperacional";
+
             spanCargo.className = "cargo";
             // spanTitulo.className = "publicacao-titulo";
             // divDescricao.className = "publicacao-descricao";
@@ -315,6 +320,7 @@
             divPublicacao.appendChild(spanHostName);
             divPublicacao.appendChild(spanidMaquina);
             divPublicacao.appendChild(permissoes);
+            divPublicacao.appendChild(spansistemaOperacional);
             // divPublicacao.appendChild(spanGestor);
             divPublicacao.appendChild(spanNome);
             divPublicacao.appendChild(spanEmail);
