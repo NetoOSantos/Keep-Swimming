@@ -16,8 +16,11 @@ router.get("/buscarMediaUmidade/", function(req, res) {
     medidaController.buscarMediaConsumoPC(req, res);
 })
 
-router.get("/QtdSistemas/", function(req, res) {
-    medidaController.buscarQtdSistemas(req, res);
+router.get("/QtdSistemasWind/", function(req, res) {
+    medidaController.buscarQtdSistemasWind(req, res);
+})
+router.get("/QtdSistemasLinux/", function(req, res) {
+    medidaController.buscarQtdSistemasLinux(req, res);
 })
 
 module.exports = router;

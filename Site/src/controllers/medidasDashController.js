@@ -56,11 +56,11 @@ function buscarMediaConsumoPC(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
-function buscarQtdSistemas(req, res) {
+function buscarQtdSistemasWind(req, res) {
 
-	console.log(`Recuperando medidas em tempo real`);
+	console.log(`Recuperando quantidade de sistemas`);
 
-    medidaModel.buscarQtdSistemas().then(function (resultado) {
+    medidaModel.buscarQtdSistemasWind().then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -68,7 +68,23 @@ function buscarQtdSistemas(req, res) {
         }
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        console.log("Houve um erro ao buscar os sistemas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+function buscarQtdSistemasLinux(req, res) {
+
+	console.log(`Recuperando quantidade de sistemas`);
+
+    medidaModel.buscarQtdSistemasLinux().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os sistemas.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
@@ -78,6 +94,7 @@ module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarMediaConsumoPC,
-    buscarQtdSistemas,
+    buscarQtdSistemasWind,
+    buscarQtdSistemasLinux
        
 }
