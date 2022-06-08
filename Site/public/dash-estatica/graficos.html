@@ -132,8 +132,7 @@
 	  
 				  <div class="hello">
 					<h3>Olá, <span id="b_usuario"></span>!</h3>
-	  
-				  </div>
+	  			 </div>
 				</div>
 			  </div>
 			  <a href="#" class="log-out">
@@ -313,11 +312,12 @@
 		console.log('iniciando plotagem do gráfico...');
 		var componenteSelecionado = sel_comp.value;
 		var nomeLabel;
-		var labelString;
+		var labelString ;
 
 		if (componenteSelecionado == 1) {
 			nomeLabel = 'Memoria';
 			labelString = 'Uso GB'
+			
 		} else if (componenteSelecionado == 2) {
 			nomeLabel = 'CPU';
 			labelString = 'Uso CPU %'
@@ -375,6 +375,18 @@
 			data: dados,
 			options: {
 				scales: {
+					y: {
+                        ticks: {
+                            color: 'white'
+                        },
+                        beginAtZero: true
+                    },
+                    x: {
+                        ticks: {
+                            color: 'white'
+                        },
+                        beginAtZero: true
+                    },
 					xAxes: [{
 						distribution: 'series',
 						ticks: {
@@ -405,6 +417,7 @@
 				
 				
 			}
+			
 		});
 
 		//var chart = new Chart(context, window.);

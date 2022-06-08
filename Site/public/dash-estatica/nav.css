@@ -233,6 +233,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 
 
 .grafico {
+    display: flex;
     align-items: center;
     background-color: #222D5A;
     
@@ -323,7 +324,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   position: sticky;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 115vh;
   background-color:#253370;
   width: 16rem;
   padding: 1.8rem 0.85rem;
@@ -564,7 +565,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   }
   
   .admin-info {
-  padding-left: 0.3rem;
+    padding-right: 0.6rem;
   }
   
   .admin-info h3 {
@@ -785,7 +786,6 @@ li a {
 .div_maquinas {
     bottom: 5vh;
     right: 9vw;
-    background-color: white;
     width: 7vw;
 
    
@@ -808,6 +808,9 @@ li a {
     justify-content: center;
     margin-top: 4.5rem;
 margin-left: 8px;
+position: relative;
+bottom: 11rem;
+
 }
 
 .div_maquina2 {
@@ -872,7 +875,7 @@ margin-left: 8px;
     width: 10vw;
     height: 195px;
     border-radius: 5px 25px 5px 25px ;
-    background-color: red;
+    background-color: #222D5A;
     padding: 0.75rem;
 }
 
